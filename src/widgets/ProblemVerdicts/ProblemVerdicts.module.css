@@ -1,5 +1,7 @@
-.problemSolutionVerdicts {
+.ProblemVerdicts {
   margin-top: 24px;
+  position: relative;
+
 }
 .detailsArrow {
   cursor: pointer;
@@ -12,7 +14,7 @@
 }
 
 .verdictStatusOk {
-  color: var(--color-green-light);
+  color: var(--color-green-light)
 }
 
 .row {

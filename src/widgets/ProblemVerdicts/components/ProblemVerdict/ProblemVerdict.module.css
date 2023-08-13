@@ -1,18 +1,59 @@
+.verdictStatus {
+  color: var(--color-red-light);
+}
+
+.verdictStatusOk {
+  color: var(--color-green-light);
+}
+
+.row {
+  font-size: 14px;
+}
+
 .problemSolutionDetails {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 24px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  height: 100%;
+}
 
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+.problemSolutionDetails.isOpen {
+  transform: translateX(0);
 }
 
 .detailsHeader {
   display: flex;
   align-items: center;
-
+  gap: 4px;
+}
+.title {
   font-size: 20px;
+  font-weight: 500;
 }
 
 .arrowBack {
   transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  cursor: pointer;
+}
+
+.detailsContent,
+.detailsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.codeBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: var(--color-white-grey);
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 18px;
 }

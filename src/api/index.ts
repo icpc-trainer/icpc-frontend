@@ -14,6 +14,7 @@ import {
   GetSubmissionsByAliasResponse,
   GetYandexUsersOnlineResponse,
 } from './responses'
+import { Submission } from '../types/types'
 
 class Api {
   private readonly client: AxiosInstance
@@ -89,6 +90,10 @@ class Api {
     return this.get<GetSubmissionsByAliasResponse>(
       `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
     )
+  }
+
+  getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
+    return this.get<{ count: number, submissions: Submission[]}>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
   }
 }
 

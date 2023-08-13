@@ -1,0 +1,27 @@
+.accordionWrapper {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-black-typo-primary);
+}
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.accordionArrow {
+  transition: transform 0.3s ease;
+}
+
+.accordionArrow.rotate {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  margin-top: 8px;
+  display: flex;
+  overflow: hidden;
+}
+
