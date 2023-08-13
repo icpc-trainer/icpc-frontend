@@ -5,15 +5,15 @@ import { Transition } from "react-transition-group"
 import { Verdict } from "../../types/types"
 import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
-import { ProblemSolutionVerdict } from "./components/ProblemSolutionVerdict/ProblemSolutionVerdict"
+import { ProblemVerdict } from "./components/ProblemVerdict/ProblemVerdict"
 
-import styles from "./ProblemSolutionsVerdicts.module.css"
+import styles from "./ProblemVerdicts.module.css"
 
-export interface ProblemSolutionsVerdictsProps {
+export interface ProblemVerdictsProps {
   verdicts: Verdict[]
 }
 
-export const ProblemSolutionsVerdicts: FC<ProblemSolutionsVerdictsProps> = ({ verdicts }) => {
+export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
   const [isDetailsOpen, setDetailsOpen] = useState(false)
 
   const [solutionId, setSolutionId] = useState(0)
@@ -71,10 +71,10 @@ export const ProblemSolutionsVerdicts: FC<ProblemSolutionsVerdictsProps> = ({ ve
   ]
 
   return (
-    <div className={styles.problemSolutionVerdicts}>
+    <div className={styles.ProblemVerdicts}>
       <Table<Verdict> data={verdicts} columns={columns} />
       <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={500}>
-        {(state) => <ProblemSolutionVerdict state={state} solutionId={solutionId} goBack={(flag) => setDetailsOpen(flag)} />}
+        {(state) => <ProblemVerdict state={state} solutionId={solutionId} goBack={(flag) => setDetailsOpen(flag)} />}
       </Transition>
     </div>
   )

@@ -7,7 +7,7 @@ import { Accordion } from "../../../../ui/Accordion/Accordion"
 import { IColumnType, Table } from "../../../../ui/Table/Table"
 import { Arrow } from "../../../../ui/icons/Arrow"
 
-import styles from "./ProblemSolutionVerdict.module.css"
+import styles from "./ProblemVerdict.module.css"
 
 const verdicts: Verdict[] = [
   {
@@ -53,7 +53,7 @@ const columns: IColumnType<Verdict>[] = [
     render: (_, { verdict }) => <span className={styles.row}>{verdict === "OK" ? "1" : "0"}</span>,
   },
 ]
-export const ProblemSolutionVerdict = ({
+export const ProblemVerdict = ({
   solutionId,
   goBack,
   state,
@@ -111,7 +111,6 @@ export const ProblemSolutionVerdict = ({
       </div>
       <div className={styles.detailsContent}>
         <div className={styles.detailsTable}>
-          <div>{solutionId}</div>
           <Table<Verdict> data={verdicts} columns={columns} />
         </div>
         <div className={styles.detailsInfo}>

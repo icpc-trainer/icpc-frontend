@@ -2,12 +2,12 @@ import React, { FC, useEffect, useState } from "react"
 
 import { VerdictRetrievedHandler, socket } from "../../sockets"
 import { Verdict } from "../../types/types"
-import { ProblemSolutionsVerdicts } from "./ProblemSolutionsVerdicts"
+import { ProblemVerdicts } from "./ProblemVerdicts"
 import { trainingSessionId } from "../../constants/training-session-id"
 import { useParams } from "react-router"
 import { api } from "../../api"
 
-export const ProblemSolutionsVerdictsContainer: FC = () => {
+export const ProblemVerdictsContainer: FC = () => {
   const { alias } = useParams()
 
   const [verdicts, setVerdicts] = useState<Verdict[]>([])
@@ -24,5 +24,5 @@ export const ProblemSolutionsVerdictsContainer: FC = () => {
     return socket.subscribeVerdictRetrieved(verdictRetrievedEventHandler)
   }, [alias])
 
-  return <ProblemSolutionsVerdicts verdicts={verdicts} />
+  return <ProblemVerdicts verdicts={verdicts} />
 }
