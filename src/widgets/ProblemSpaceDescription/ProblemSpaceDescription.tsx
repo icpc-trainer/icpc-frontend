@@ -114,9 +114,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {/* {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />} */}
-      <ProblemSolutionVerdict />
-
+      {activeTab === "solutions" && <ProblemSolutionsVerdictsContainer />}
     </BlockWrapper>
   )
 }
