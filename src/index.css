@@ -25,6 +25,36 @@
   --scrollbar-background: var(--color-white-grey);
 }
 
+.light-theme {
+  --color-white: #fff;
+  --color-white-grey: #f4f5f6;
+
+  /* Black palette */
+  --color-black: #000;
+  --color-black-typo-primary: #363645;
+
+  /* Grey palette */
+  --color-grey-secondary: #7f8488;
+
+  --scrollbar-foreground: rgba(83, 83, 83, 0.5);
+  --scrollbar-background: var(--color-white-grey);
+}
+
+.dark-theme {
+  --color-white: #404244;
+  --color-white-grey: #2A2A2D;
+
+  /* Black palette */
+  --color-black: #ffffff;
+  --color-black-typo-primary: #fff;
+
+  /* Grey palette */
+  --color-grey-secondary: #94999d;
+
+  --scrollbar-foreground: rgba(255, 255, 255, 0.5);
+  --scrollbar-background: var(--color-white-grey);
+}
+
 * {
   margin: 0;
   padding: 0;
