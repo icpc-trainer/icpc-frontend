@@ -1,14 +1,17 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useContext, useEffect } from 'react'
 
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-javascript'
+import 'ace-builds/src-noconflict/theme-solarized_light'
+import 'ace-builds/src-noconflict/theme-solarized_dark'
 
 import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
 import { Button } from '../../ui/Button/Button'
 import { ProblemSpaceEditorSelect } from './components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect'
 
 import styles from './ProblemSpaceEditor.module.css'
+import { ThemeContext } from '../../contexts/themeContext'
 
 interface Props {
   onCodeChange: (code: string) => void
@@ -20,12 +23,14 @@ interface Props {
 export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCode, isEditorDisabled }) => {
   const isSendCodeButtonDisabled = isEditorDisabled
 
+  const { theme, toggleTheme } = useContext(ThemeContext)
+
   useEffect(() => {
     const editor = document.querySelector<HTMLDivElement>('.ace_editor')
     const gutter = document.querySelector<HTMLDivElement>('.ace_gutter')
 
-    editor.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : '#fff'
-    gutter.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : '#fff'
+    editor.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : 'var(--color-white)'
+    gutter.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : 'var(--color-white)'
   }, [isEditorDisabled])
 
   return (
@@ -34,6 +39,7 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
         <ProblemSpaceEditorSelect />
       </div>
       <AceEditor
+        theme={theme === 'light-theme' ? 'solarized_light': 'solarized_dark'}
         readOnly={isEditorDisabled}
         mode="javascript"
         value={codeState}
