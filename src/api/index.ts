@@ -38,8 +38,8 @@ class Api {
     return this.get(`contests/${contestId}`)
   }
 
-  async getProblems(contestId: string) {
-    return (await this.get<GetProblemsResponse>(`contests/${contestId}/problems`)).problems
+  async getProblems(trainingSessionId: string) {
+    return (await this.get<GetProblemsResponse>(`contests/${trainingSessionId}/problems`)).problems
   }
 
   getProblemStatement(contestId: string, alias: string) {

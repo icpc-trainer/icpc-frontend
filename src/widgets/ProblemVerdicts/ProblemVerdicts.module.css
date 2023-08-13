@@ -15,6 +15,23 @@
   color: var(--color-green-light);
 }
 
+.verdictStatusPending {
+  color: black;
+}
+
 .row {
   font-size: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.loadingContainer {
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+
+.loading {
+  height: 10px;
+  width: 10px;
 }

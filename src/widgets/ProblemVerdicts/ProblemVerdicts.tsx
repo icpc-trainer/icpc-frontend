@@ -6,6 +6,7 @@ import { IColumnType, Table } from '../../ui/Table/Table'
 import { Arrow } from '../../ui/icons/Arrow'
 
 import styles from './ProblemVerdicts.module.css'
+import { Loading } from "../../ui/Loading/Loading"
 
 export interface ProblemVerdictsProps {
   verdicts: Submission[]
@@ -25,13 +26,22 @@ const columns: IColumnType<Submission>[] = [
     title: 'Статус',
     width: 400,
     render: (_, { verdict }) => {
+      const isPending = verdict === 'No report' || verdict === ''
+      const isOk = verdict === 'OK'
+
       const className = classnames({
         [styles.row]: true,
         [styles.verdictStatus]: true,
-        [styles.verdictStatusOk]: verdict === 'OK',
+        [styles.verdictStatusOk]: isOk,
+        [styles.verdictStatusPending]: isPending
       })
 
-      return <span className={className}>{verdict}</span>
+      const content = isPending ? 'Тестируется' : verdict
+
+      return <span className={className}>
+        {content}
+        {isPending ? <Loading containerClassName={styles.loadingContainer} loaderClassName={styles.loading} /> : null}
+      </span>
     },
   },
   {

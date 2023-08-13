@@ -12,8 +12,16 @@ export const ProblemVerdictsContainer: FC = () => {
 
   const [verdicts, setVerdicts] = useState<Submission[]>([])
 
-  const verdictRetrievedEventHandler: VerdictRetrievedHandler = (verdict) => {
-    setVerdicts((prev) => [verdict, ...prev])
+  const verdictRetrievedEventHandler: VerdictRetrievedHandler = (newVerdict) => {
+    setVerdicts(prev => {
+      const currVerdict = prev.find(({ id }) => id === newVerdict.id)
+
+      if (!currVerdict) {
+        return [newVerdict, ...prev]
+      } else {
+        return prev.map(verdict => verdict.id === newVerdict.id ? newVerdict : verdict)
+      }
+    })
   }
 
   useEffect(() => {
