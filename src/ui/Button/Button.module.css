@@ -17,13 +17,6 @@
 
   transition: opacity linear 0.2s;
 }
-.light-theme .button {
-  color: var(--color-black-typo-primary);
-}
-
-.dark-theme .button {
-  color: var(--color-white-grey);
-}
 
 button:disabled:hover {
   cursor: default;
