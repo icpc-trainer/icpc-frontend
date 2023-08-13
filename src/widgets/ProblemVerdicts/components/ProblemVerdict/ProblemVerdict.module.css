@@ -34,9 +34,9 @@
   align-items: center;
 }
 .title {
+  color: var(--color-black-typo-primary);
   font-weight: 500;
   font-size: 20px;
-  color: var(--color-black-typo-primary);
 }
 
 .arrowBack {

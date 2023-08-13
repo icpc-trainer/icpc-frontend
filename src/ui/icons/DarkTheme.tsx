@@ -11,4 +11,3 @@ export const DarkTheme: FC<IconBaseProps> = ({ color, width, height, disabled, .
     />
   </svg>
 )
-

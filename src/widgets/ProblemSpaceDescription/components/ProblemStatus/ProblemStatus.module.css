@@ -15,8 +15,9 @@
 }
 
 .problemStatusFailed {
-  background-color: #e9cecf;
   color: var(--color-red-light);
+
+  background-color: #e9cecf;
 }
 
 .problemStatusPassed {

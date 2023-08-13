@@ -1,35 +1,35 @@
-import React, { useEffect, createContext, useState, ReactNode } from "react";
+import React, { useEffect, createContext, useState, ReactNode } from 'react'
 
-const ThemeContext = createContext(null);
+const ThemeContext = createContext(null)
 
 const getTheme = () => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem('theme')
   if (!theme) {
-    localStorage.setItem("theme", "light-theme");
-    return "light-theme";
+    localStorage.setItem('theme', 'light-theme')
+    return 'light-theme'
   } else {
-    return theme;
+    return theme
   }
-};
+}
 
-const ThemeProvider = ({ children }: { children: ReactNode}) => {
-  const [theme, setTheme] = useState(getTheme);
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [theme, setTheme] = useState(getTheme)
 
   function toggleTheme() {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
+    if (theme === 'dark-theme') {
+      setTheme('light-theme')
     } else {
-      setTheme("dark-theme");
+      setTheme('dark-theme')
     }
-  };
+  }
 
   useEffect(() => {
     const refreshTheme = () => {
-      localStorage.setItem("theme", theme);
-    };
+      localStorage.setItem('theme', theme)
+    }
 
-    refreshTheme();
-  }, [theme]);
+    refreshTheme()
+  }, [theme])
 
   return (
     <ThemeContext.Provider
@@ -41,7 +41,7 @@ const ThemeProvider = ({ children }: { children: ReactNode}) => {
     >
       {children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
 
-export { ThemeContext, ThemeProvider };
+export { ThemeContext, ThemeProvider }

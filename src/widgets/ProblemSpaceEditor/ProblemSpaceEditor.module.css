@@ -37,5 +37,6 @@
 
 .sendCodeButton:disabled {
   color: var(--color-black-typo-primary);
+
   background-color: var(--color-white-grey);
 }

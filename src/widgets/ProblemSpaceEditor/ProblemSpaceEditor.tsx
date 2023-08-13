@@ -1,17 +1,17 @@
+import 'ace-builds/src-noconflict/theme-solarized_dark'
+import 'ace-builds/src-noconflict/theme-solarized_light'
 import React, { FC, useContext, useEffect } from 'react'
 
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-javascript'
-import 'ace-builds/src-noconflict/theme-solarized_light'
-import 'ace-builds/src-noconflict/theme-solarized_dark'
 
+import { ThemeContext } from '../../contexts/themeContext'
 import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
 import { Button } from '../../ui/Button/Button'
 import { ProblemSpaceEditorSelect } from './components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect'
 
 import styles from './ProblemSpaceEditor.module.css'
-import { ThemeContext } from '../../contexts/themeContext'
 
 interface Props {
   onCodeChange: (code: string) => void
@@ -39,7 +39,7 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
         <ProblemSpaceEditorSelect />
       </div>
       <AceEditor
-        theme={theme === 'light-theme' ? 'solarized_light': 'solarized_dark'}
+        theme={theme === 'light-theme' ? 'solarized_light' : 'solarized_dark'}
         readOnly={isEditorDisabled}
         mode="javascript"
         value={codeState}

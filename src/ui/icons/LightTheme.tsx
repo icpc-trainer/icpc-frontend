@@ -11,4 +11,3 @@ export const LightTheme: FC<IconBaseProps> = ({ color, width, height, disabled, 
     />
   </svg>
 )
-
