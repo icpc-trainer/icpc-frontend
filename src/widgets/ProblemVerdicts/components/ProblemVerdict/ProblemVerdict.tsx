@@ -1,14 +1,14 @@
 import classNames from "classnames"
 import React from "react"
 
-import { Verdict } from "../../../../types/types"
+import { Submission } from "../../../../types/types"
 import { Accordion } from "../../../../ui/Accordion/Accordion"
 import { IColumnType, Table } from "../../../../ui/Table/Table"
 import { Arrow } from "../../../../ui/icons/Arrow"
 
 import styles from "./ProblemVerdict.module.css"
 
-const verdicts: Verdict[] = [
+const verdicts: Submission[] = [
   {
     timeFromStart: 10000000,
     verdict: "OK",
@@ -24,7 +24,7 @@ const verdicts: Verdict[] = [
   },
 ]
 
-const columns: IColumnType<Verdict>[] = [
+const columns: IColumnType<Submission>[] = [
   {
     key: "time",
     title: "Время",
@@ -61,7 +61,7 @@ export const ProblemVerdict = ({
   solutionId: number
   goBack: (flag: boolean) => void
 }) => {
-  const verdicts: Verdict[] = [
+  const verdicts: Submission[] = [
     {
       timeFromStart: 10000000,
       verdict: "OK",
@@ -110,7 +110,7 @@ export const ProblemVerdict = ({
       </div>
       <div className={styles.detailsContent}>
         <div className={styles.detailsTable}>
-          <Table<Verdict> data={verdicts} columns={columns} />
+          <Table<Submission> data={verdicts} columns={columns} />
         </div>
         <div className={styles.detailsInfo}>
           <Accordion title={"Тесты: 2/3"}>

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react"
 
 import { VerdictRetrievedHandler, socket } from "../../sockets"
-import { Verdict } from "../../types/types"
+import { Submission } from "../../types/types"
 import { ProblemVerdicts } from "./ProblemVerdicts"
 import { trainingSessionId } from "../../constants/training-session-id"
 import { useParams } from "react-router"
@@ -10,7 +10,7 @@ import { api } from "../../api"
 export const ProblemVerdictsContainer: FC = () => {
   const { alias } = useParams()
 
-  const [verdicts, setVerdicts] = useState<Verdict[]>([])
+  const [verdicts, setVerdicts] = useState<Submission[]>([])
 
   const verdictRetrievedEventHandler: VerdictRetrievedHandler = (verdict) => {
     setVerdicts((prev) => [verdict, ...prev])

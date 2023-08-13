@@ -14,7 +14,7 @@ import {
   GetSubmissionsByAliasResponse,
   GetYandexUsersOnlineResponse,
 } from './responses'
-import { Verdict } from '../types/types'
+import { Submission } from '../types/types'
 
 class Api {
   private readonly client: AxiosInstance
@@ -93,7 +93,7 @@ class Api {
   }
 
   getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<{ count: number, submissions: Verdict[]}>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
+    return this.get<{ count: number, submissions: Submission[]}>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
   }
 }
 

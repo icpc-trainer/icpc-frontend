@@ -1,4 +1,4 @@
-import { Message, Verdict, YandexUser } from '../types/types'
+import { Message, Submission, YandexUser } from '../types/types'
 
 export enum Types {
   Message = 'PROBLEM_COMMENT_RECEIVED',
@@ -26,7 +26,7 @@ export interface ControlTakenPayload extends Payload {
   userId: string
 }
 
-export type VerdictRetrievedPayload = Verdict
+export type VerdictRetrievedPayload = Submission
 
 export interface UserPayload extends Payload {
   user: YandexUser

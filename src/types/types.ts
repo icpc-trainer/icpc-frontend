@@ -50,7 +50,7 @@ export interface Message {
   dtCreated: string
 }
 
-export interface Verdict {
+export interface Submission {
   compileLog: string
   compiler: string
   diff: string

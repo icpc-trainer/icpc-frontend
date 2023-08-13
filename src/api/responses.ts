@@ -1,6 +1,6 @@
 import { stringify } from 'querystring'
 
-import { Message, Problem, Verdict, YandexUser } from '../types/types'
+import { Message, Problem, Submission, YandexUser } from '../types/types'
 
 export interface GetProblemsResponse {
   problems: Problem[]
@@ -20,5 +20,5 @@ export interface GetYandexUsersOnlineResponse {
 
 export interface GetSubmissionsByAliasResponse {
   count: number
-  submissions: Verdict[]
+  submissions: Submission[]
 }

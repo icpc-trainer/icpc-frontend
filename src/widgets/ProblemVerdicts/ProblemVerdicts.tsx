@@ -2,7 +2,7 @@ import classnames from "classnames"
 import React, { FC, useRef, useState } from "react"
 import { Transition } from "react-transition-group"
 
-import { Verdict } from "../../types/types"
+import { Submission } from "../../types/types"
 import { IColumnType, Table } from "../../ui/Table/Table"
 import { Arrow } from "../../ui/icons/Arrow"
 import { ProblemVerdict } from "./components/ProblemVerdict/ProblemVerdict"
@@ -10,7 +10,7 @@ import { ProblemVerdict } from "./components/ProblemVerdict/ProblemVerdict"
 import styles from "./ProblemVerdicts.module.css"
 
 export interface ProblemVerdictsProps {
-  verdicts: Verdict[]
+  verdicts: Submission[]
 }
 
 export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
@@ -25,7 +25,7 @@ export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
 
   const nodeRef = useRef(null)
 
-  const columns: IColumnType<Verdict>[] = [
+  const columns: IColumnType<Submission>[] = [
     {
       key: "time",
       title: "Время",
@@ -72,7 +72,7 @@ export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
 
   return (
     <div className={styles.ProblemVerdicts}>
-      <Table<Verdict> data={verdicts} columns={columns} />
+      <Table<Submission> data={verdicts} columns={columns} />
       <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={500}>
         {(state) => <ProblemVerdict state={state} solutionId={solutionId} goBack={(flag) => setDetailsOpen(flag)} />}
       </Transition>
