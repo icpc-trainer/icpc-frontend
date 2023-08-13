@@ -5,7 +5,6 @@ deploy:
   stage: deploy
   only:
     - master
-    - ci/cd
   script:
     - echo "Deploying to production..."
     - npm i
