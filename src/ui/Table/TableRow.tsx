@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
-import { IColumnType } from "./Table"
-import { TableRowCell } from "./TableRowCell"
+import { IColumnType } from './Table'
+import { TableRowCell } from './TableRowCell'
 
-import styles from "./Table.module.css"
+import styles from './Table.module.css'
 
 export const TableRow = <T,>({ data, columns }: { data: T[]; columns: IColumnType<T>[] }) => {
   return (

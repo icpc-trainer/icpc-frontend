@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import { useQuery } from "react-query"
-import { useParams } from "react-router-dom"
+import React, { useState } from 'react'
+import { useQuery } from 'react-query'
+import { useParams } from 'react-router-dom'
 
-import { api } from "../../api"
-import { ProblemSpaceDescription } from "./ProblemSpaceDescription"
+import { api } from '../../api'
+import { ProblemSpaceDescription } from './ProblemSpaceDescription'
 
 export const ProblemSpaceDescriptionContainer = () => {
   const { id: contestId, alias: currentAlias } = useParams()
@@ -13,7 +13,7 @@ export const ProblemSpaceDescriptionContainer = () => {
     isLoading,
     isError,
     refetch,
-  } = useQuery(["currentProblemAlias", currentAlias], () => api.getProblemStatement(contestId, currentAlias))
+  } = useQuery(['currentProblemAlias', currentAlias], () => api.getProblemStatement(contestId, currentAlias))
 
   return (
     <ProblemSpaceDescription

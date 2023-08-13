@@ -1,11 +1,11 @@
-import classnames from "classnames"
-import React, { FC } from "react"
+import classnames from 'classnames'
+import React, { FC } from 'react'
 
-import styles from "./Button.module.css"
+import styles from './Button.module.css'
 
 interface Props {
   title: string
-  type: "button" | "submit"
+  type: 'button' | 'submit'
   onClick: () => void
   disabled: boolean
   className?: string

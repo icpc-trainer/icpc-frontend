@@ -1,4 +1,3 @@
-import classnames from "classnames"
 import classNames from "classnames"
 import React from "react"
 
@@ -37,7 +36,7 @@ const columns: IColumnType<Verdict>[] = [
     title: "Статус",
     width: 400,
     render: (_, { verdict }) => {
-      const className = classnames({
+      const className = classNames({
         [styles.row]: true,
         [styles.verdictStatus]: true,
         [styles.verdictStatusOk]: verdict === "OK",

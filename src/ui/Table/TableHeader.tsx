@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import { IColumnType } from "./Table"
+import { IColumnType } from './Table'
 
-import styles from "./Table.module.css"
+import styles from './Table.module.css'
 
 export const TableHeader = <T,>({ columns }: { columns: IColumnType<T>[] }) => {
   return (

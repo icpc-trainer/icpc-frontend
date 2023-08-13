@@ -1,12 +1,12 @@
-import * as React from "react"
-import { FC, useEffect, useState } from "react"
-import { useParams } from "react-router"
+import * as React from 'react'
+import { FC, useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
-import { api } from "../../api"
-import { trainingSessionId } from "../../constants/training-session-id"
-import { MessageHandler, socket } from "../../sockets"
-import { Message } from "../../types/types"
-import { ProblemSpaceChat } from "./ProblemSpaceChat"
+import { api } from '../../api'
+import { trainingSessionId } from '../../constants/training-session-id'
+import { MessageHandler, socket } from '../../sockets'
+import { Message } from '../../types/types'
+import { ProblemSpaceChat } from './ProblemSpaceChat'
 
 export const ProblemSpaceChatContainer: FC = () => {
   const { alias } = useParams()

@@ -1,45 +1,51 @@
 @font-face {
   font-weight: 100;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-UltraLight.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-UltraLight.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-UltraLight.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-UltraLight.woff') format('woff');
 }
 
 @font-face {
   font-weight: 200;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Thin.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Thin.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-Thin.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Thin.woff') format('woff');
 }
 
 @font-face {
   font-weight: 300;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Light.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Light.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-Light.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Light.woff') format('woff');
 }
 
 @font-face {
   font-weight: normal;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Roman.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff');
 }
 
 @font-face {
   font-weight: 500;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff');
 }
 
 @font-face {
   font-weight: 900;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-style: normal;
-  src: url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
+  src: url('../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff');
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }

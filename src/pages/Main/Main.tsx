@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import { createPortal } from "react-dom"
+import React, { useState } from 'react'
+import { createPortal } from 'react-dom'
 
-import { MainPageModal } from "../../widgets/MainPageModal/MainPageModal"
+import { MainPageModal } from '../../widgets/MainPageModal/MainPageModal'
 
-import styles from "./Main.module.css"
+import styles from './Main.module.css'
 
 function Main() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -24,7 +24,10 @@ function Main() {
             {`Командная тренировка (ICPC)`}
           </button>
           {isModalOpen &&
-            createPortal(<MainPageModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.getElementById("modal")!)}
+            createPortal(
+              <MainPageModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />,
+              document.getElementById('modal')!,
+            )}
         </div>
       </div>
       <div className={styles.content}>

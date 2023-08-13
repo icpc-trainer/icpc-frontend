@@ -1,12 +1,12 @@
-import { YandexUser } from "../types/types"
+import { Message, Verdict, YandexUser } from '../types/types'
 
 export enum Types {
-  Message = "PROBLEM_COMMENT_RECEIVED",
-  Code = "CODE_EDITOR_UPDATE",
-  User = "USER",
-  ControlTaken = "CONTROL_TAKEN",
-  VerdictRetrieved = "SUBMISSION_VERDICT_RETRIEVED",
-  UserLeave = "USER_LEAVE",
+  Message = 'PROBLEM_COMMENT_RECEIVED',
+  Code = 'CODE_EDITOR_UPDATE',
+  User = 'USER',
+  ControlTaken = 'CONTROL_TAKEN',
+  VerdictRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
+  UserLeave = 'USER_LEAVE',
 }
 
 export type Type = `${Types}`
@@ -15,16 +15,7 @@ export interface Payload {
   problemAlias?: string
 }
 
-export interface MessagePayload extends Payload {
-  id: string
-  userId: number
-  userFirstName: string
-  userLastName: string
-  userLogin: string
-  problemAlias: string
-  content: string
-  dtCreated: string
-}
+export type MessagePayload = Message
 
 export interface CodePayload extends Payload {
   code: string
@@ -35,19 +26,7 @@ export interface ControlTakenPayload extends Payload {
   userId: string
 }
 
-export interface VerdictRetrievedPayload extends Payload {
-  compileLog: string
-  compiler: string
-  diff: string
-  problemAlias: string
-  problemId: string
-  score: number
-  source: string
-  submissionTime: string
-  timeFromStart: number
-  verdict: string
-  id: number
-}
+export type VerdictRetrievedPayload = Verdict
 
 export interface UserPayload extends Payload {
   user: YandexUser

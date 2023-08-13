@@ -20,14 +20,17 @@
         "name": "typescript-plugin-css-modules"
       }
     ]
+    // "baseUrl": "./",
     // "paths": {
-    //   "@icons/*": ["./src/components/icons/*"],
-    //   "@components/*": ["./src/components/*"],
-    //   "@componentsUsingStore/*": ["./src/componentsUsingStore/*"],
+    //   "@icons/*": ["./src/ui/icons/*"],
+    //   "@api/*": ["./src/api/*"],
+    //   "@constants/*": ["./src/constants/*"],
+    //   "@helpers/*": ["./src/helpers/*"],
+    //   "@pages/*": ["./src/pages/*"],
+    //   "@widgets/*": ["./src/widgets/*"],
+    //   "@sockets/*": ["./src/sockets/*"],
     //   "@store/*": ["./src/store/*"],
-    //   "@common/*": ["./src/common/*"],
-    //   "@contexts/*": ["./src/contexts/*"],
-    //   "@hooks/*": ["./src/hooks/*"],
+    //   "@ui/*": ["./src/ui/*"],
     //   "@utils/*": ["./src/utils/*"]
     // }
   },

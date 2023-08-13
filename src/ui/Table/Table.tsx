@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 
-import { TableHeader } from "./TableHeader"
-import { TableRow } from "./TableRow"
+import { TableHeader } from './TableHeader'
+import { TableRow } from './TableRow'
 
-import styles from "./Table.module.css"
+import styles from './Table.module.css'
 
 export interface IColumnType<T> {
   key: string

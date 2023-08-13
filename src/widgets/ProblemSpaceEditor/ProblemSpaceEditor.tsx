@@ -1,14 +1,14 @@
-import React, { FC, useEffect } from "react"
+import React, { FC, useEffect } from 'react'
 
-import AceEditor from "react-ace"
+import AceEditor from 'react-ace'
 
-import "ace-builds/src-noconflict/mode-javascript"
+import 'ace-builds/src-noconflict/mode-javascript'
 
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Button } from "../../ui/Button/Button"
-import { ProblemSpaceEditorSelect } from "./components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect"
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { Button } from '../../ui/Button/Button'
+import { ProblemSpaceEditorSelect } from './components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect'
 
-import styles from "./ProblemSpaceEditor.module.css"
+import styles from './ProblemSpaceEditor.module.css'
 
 interface Props {
   onCodeChange: (code: string) => void
@@ -21,11 +21,11 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
   const isSendCodeButtonDisabled = isEditorDisabled
 
   useEffect(() => {
-    const editor = document.querySelector<HTMLDivElement>(".ace_editor")
-    const gutter = document.querySelector<HTMLDivElement>(".ace_gutter")
+    const editor = document.querySelector<HTMLDivElement>('.ace_editor')
+    const gutter = document.querySelector<HTMLDivElement>('.ace_gutter')
 
-    editor.style.backgroundColor = isEditorDisabled ? "var(--color-white-grey)" : "#fff"
-    gutter.style.backgroundColor = isEditorDisabled ? "var(--color-white-grey)" : "#fff"
+    editor.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : '#fff'
+    gutter.style.backgroundColor = isEditorDisabled ? 'var(--color-white-grey)' : '#fff'
   }, [isEditorDisabled])
 
   return (

@@ -1,6 +1,6 @@
-import { trainingSessionId } from "../constants/training-session-id"
-import { urls } from "../constants/urls"
-import { YandexUser } from "../types/types"
+import { trainingSessionId } from '../constants/training-session-id'
+import { urls } from '../constants/urls'
+import { YandexUser } from '../types/types'
 import {
   CodeHandler,
   CodePayload,
@@ -16,7 +16,7 @@ import {
   UserHandler,
   UserLeaveHandler,
   VerdictRetrievedHandler,
-} from "./types"
+} from './types'
 
 class Socket {
   private client: WebSocket

@@ -1,4 +1,4 @@
-@import "./assets/design/fonts.css";
+@import './assets/design/fonts.css';
 
 :root {
   /* White palette */
@@ -76,11 +76,14 @@ html {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-background);
   margin-block: 2px;
+
+  background: var(--scrollbar-background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-foreground);
   border-radius: 10px;
-  transition: background .3s;
+
+  background: var(--scrollbar-foreground);
+
+  transition: background 0.3s;
 }

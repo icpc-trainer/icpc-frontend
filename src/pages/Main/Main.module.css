@@ -15,7 +15,7 @@
   height: 38px;
   margin: 5px 0 7px 35px;
 
-  background-image: url("../../assets/images/logo.svg");
+  background-image: url('../../assets/images/logo.svg');
   background-repeat: no-repeat;
   background-size: 150px 38px;
 }
@@ -65,7 +65,7 @@
   left: 0;
   bottom: -11px;
   right: 0;
-  content: "";
+  content: '';
 
   height: 3px;
 

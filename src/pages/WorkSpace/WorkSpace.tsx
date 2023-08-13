@@ -1,12 +1,12 @@
-import React from "react"
+import React from 'react'
 
-import { socket } from "../../sockets"
-import { useGetControlUserQuery, useGetYandexUserQuery } from "../../store/api/api"
-import { HeaderContainer } from "../../widgets/Header/HeaderContainer"
-import { ProblemSpace } from "../../widgets/ProblemSpace/ProblemSpace"
+import { trainingSessionId } from '../../constants/training-session-id'
+import { socket } from '../../sockets'
+import { useGetControlUserQuery, useGetYandexUserQuery } from '../../store/api/api'
+import { HeaderContainer } from '../../widgets/Header/HeaderContainer'
+import { ProblemSpace } from '../../widgets/ProblemSpace/ProblemSpace'
 
-import styles from "./WorkSpace.module.css"
-import { trainingSessionId } from "../../constants/training-session-id"
+import styles from './WorkSpace.module.css'
 
 export const WorkSpace = () => {
   const { data: user } = useGetYandexUserQuery()

@@ -1,8 +1,9 @@
 .problem-statement {
-  color: var(--color-black-typo-primary);
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  color: var(--color-black-typo-primary);
 }
 
 .header {
@@ -12,70 +13,85 @@
 }
 
 .title {
-  font-size: 20px;
   font-weight: 500;
+  font-size: 20px;
   line-height: 24px;
 }
 
-.problem-statement h2, .problem-statement h3 {
-  font-size: 18px;
+.problem-statement h2,
+.problem-statement h3 {
   font-weight: 500;
+  font-size: 18px;
   line-height: 24px;
 }
 
 .property-title {
-  font-size: 14px;
   color: var(--color-grey-secondary);
+  font-size: 14px;
 }
 
 .problem-statement td {
-  font-size: 14px;
-  color: var(--color-grey-secondary);
   padding: 2px 0px;
+
+  color: var(--color-grey-secondary);
+  font-size: 14px;
 }
 
-.legend, .input-specification, .output-specification, .notes {
+.legend,
+.input-specification,
+.output-specification,
+.notes {
   font-size: 14px;
   line-height: 20px;
 }
-.legend p, .input-specification p, .output-specification p, .notes p {
+.legend p,
+.input-specification p,
+.output-specification p,
+.notes p {
   padding: 4px 0px;
 }
 
 .sample-tests {
-  border-spacing: 8px 0px;
-  margin: 0px -8px;
   width: 100%;
+  margin: 0px -8px;
+
+  border-spacing: 8px 0px;
 }
-.sample-tests thead{
+.sample-tests thead {
   text-align: left;
 }
 
 .sample-tests th {
   padding-bottom: 8px;
+
   font-weight: 500;
 }
 .sample-tests td {
-  background-color: var(--color-white-grey);
-  border-radius: 4px;
-  font-weight: 500;
-  padding: 8px;
   width: 50%;
+  padding: 8px;
+
+  font-weight: 500;
+
+  border-radius: 4px;
+
+  background-color: var(--color-white-grey);
 }
 
 .problem-statement ul {
-  padding-top: 4px;
   display: flex;
   flex-direction: column;
+
+  padding-top: 4px;
 }
 
 .problem-statement ul li {
-  list-style: inside;
   padding: 2px 0px;
+
+  list-style: inside;
 }
 
 .problemDescriptionImg {
-  margin-top: 8px;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  margin-top: 8px;
 }

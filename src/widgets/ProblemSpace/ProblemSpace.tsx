@@ -1,11 +1,11 @@
-import React, { useMemo, useState } from "react"
+import React, { useMemo, useState } from 'react'
 
-import { ProblemSpaceChatContainer } from "../ProblemSpaceChat/ProblemSpaceChatContainer"
-import { ProblemSpaceDescriptionContainer } from "../ProblemSpaceDescription/ProblemSpaceDescriptionContainer"
-import { ProblemSpaceEditorContainer } from "../ProblemSpaceEditor/ProblemSpaceEditorContainer"
-import { ProblemSpaceListContainer } from "../ProblemSpaceList/ProblemSpaceListContainer"
+import { ProblemSpaceChatContainer } from '../ProblemSpaceChat/ProblemSpaceChatContainer'
+import { ProblemSpaceDescriptionContainer } from '../ProblemSpaceDescription/ProblemSpaceDescriptionContainer'
+import { ProblemSpaceEditorContainer } from '../ProblemSpaceEditor/ProblemSpaceEditorContainer'
+import { ProblemSpaceListContainer } from '../ProblemSpaceList/ProblemSpaceListContainer'
 
-import styles from "./ProblemSpace.module.css"
+import styles from './ProblemSpace.module.css'
 
 export const ProblemSpace = () => {
   return (

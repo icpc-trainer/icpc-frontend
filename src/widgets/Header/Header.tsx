@@ -1,12 +1,12 @@
-import classnames from "classnames"
-import React, { FC } from "react"
+import classnames from 'classnames'
+import React, { FC } from 'react'
 
-import { YandexUser } from "../../types/types"
-import { Button } from "../../ui/Button/Button"
+import { YandexUser } from '../../types/types'
+import { Button } from '../../ui/Button/Button'
+import { ControlButtonContainer } from './components/ControlButton/ControlButtonContainer'
+import { HeaderUser } from './components/HeaderUser/HeaderUser'
 
-import styles from "./Header.module.css"
-import { HeaderUser } from "./components/HeaderUser/HeaderUser"
-import { ControlButtonContainer } from "./components/ControlButton/ControlButtonContainer"
+import styles from './Header.module.css'
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -50,7 +50,13 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
         </div>
 
         <div>
-          <Button className={styles.finishButton} title="Завершить тренировку" type="button" onClick={() => { }} disabled={false} />
+          <Button
+            className={styles.finishButton}
+            title="Завершить тренировку"
+            type="button"
+            onClick={() => {}}
+            disabled={false}
+          />
         </div>
       </div>
     </header>

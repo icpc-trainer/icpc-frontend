@@ -1,7 +1,7 @@
-import * as React from "react"
-import { FC, useCallback, useEffect, useState } from "react"
-import { useQuery } from "react-query"
-import { useNavigate, useParams } from "react-router-dom"
+import * as React from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
+import { useQuery } from 'react-query'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { api } from "../../api"
 import { Problem, Problems } from "../../types/types"
@@ -13,7 +13,7 @@ import { trainingSessionId } from "../../constants/training-session-id"
 export const ProblemSpaceListContainer = () => {
   const { alias: currentAlias } = useParams()
   const navigate = useNavigate()
-  const contestId = "50596" // мокаем contestId
+  const contestId = '51004' // мокаем contestId
 
   const {
     data: problems,

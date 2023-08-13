@@ -1,7 +1,7 @@
-import classNames from "classnames"
-import React, { FC, PropsWithChildren } from "react"
+import classNames from 'classnames'
+import React, { FC, PropsWithChildren } from 'react'
 
-import styles from "./BlockWrapper.module.css"
+import styles from './BlockWrapper.module.css'
 
 interface BlockWrapperProps {
   className?: string
