@@ -21,7 +21,7 @@
 }
 
 .verdictStatusPending {
-  color: black;
+  color: var(--color-black-typo-primary);
 }
 
 .row {
