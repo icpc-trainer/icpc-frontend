@@ -1,11 +1,11 @@
 import classnames from "classnames"
+import classNames from "classnames"
 import React from "react"
 
 import { Verdict } from "../../../../types/types"
 import { Accordion } from "../../../../ui/Accordion/Accordion"
 import { IColumnType, Table } from "../../../../ui/Table/Table"
 import { Arrow } from "../../../../ui/icons/Arrow"
-import { ProblemSolutionsVerdicts } from "../../ProblemSolutionsVerdicts"
 
 import styles from "./ProblemSolutionVerdict.module.css"
 
@@ -53,7 +53,15 @@ const columns: IColumnType<Verdict>[] = [
     render: (_, { verdict }) => <span className={styles.row}>{verdict === "OK" ? "1" : "0"}</span>,
   },
 ]
-export const ProblemSolutionVerdict = () => {
+export const ProblemSolutionVerdict = ({
+  solutionId,
+  goBack,
+  state,
+}: {
+  state: "entering" | "entered" | "exiting" | "exited" | "unmounted"
+  solutionId: number
+  goBack: (flag: boolean) => void
+}) => {
   const verdicts: Verdict[] = [
     {
       timeFromStart: 10000000,
@@ -69,14 +77,41 @@ export const ProblemSolutionVerdict = () => {
       submissionTime: "2021-05-05T12:00:00.000Z",
     },
   ]
+  const defaultStyle = {
+    transition: `transform 500ms ease-in-out`,
+    transform: `translateX(150%)`,
+  }
+
+  const transitionStyles = {
+    entering: { transform: `translateX(0)` },
+    entered: { transform: `translateX(0)` },
+    exiting: { transform: `translateX(100%)` },
+    exited: { transform: `translateX(150%)` },
+    unmounted: { display: "none" },
+  }
   return (
-    <div className={styles.problemSolutionDetails}>
+    <div
+      style={{
+        ...defaultStyle,
+        ...transitionStyles[state],
+      }}
+      className={classNames(styles.problemSolutionDetails)}
+    >
       <div className={styles.detailsHeader}>
-        <Arrow className={styles.arrowBack} width={24} height={24} color={"var(--color-black-typo-primary)"} />
+        <Arrow
+          className={styles.arrowBack}
+          width={24}
+          height={24}
+          color={"var(--color-black-typo-primary)"}
+          onClick={() => {
+            goBack(false)
+          }}
+        />
         <h3 className={styles.title}>Детализация</h3>
       </div>
       <div className={styles.detailsContent}>
         <div className={styles.detailsTable}>
+          <div>{solutionId}</div>
           <Table<Verdict> data={verdicts} columns={columns} />
         </div>
         <div className={styles.detailsInfo}>
