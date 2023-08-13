@@ -25,12 +25,17 @@
 }
 
 .alarm {
-  color: #f15959;
+  color: var(--color-red-light);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.4;
 }
 
+.sendCodeButton {
+  color: var(--color-white-gray);
+}
+
 .sendCodeButton:disabled {
+  color: var(--color-black-typo-primary);
   background-color: var(--color-white-grey);
 }

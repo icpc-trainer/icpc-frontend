@@ -6,5 +6,5 @@
   height: 100vh;
   padding: 24px;
 
-  background-color: #f5f5f5;
+  background-color: var(--color-white-grey);
 }

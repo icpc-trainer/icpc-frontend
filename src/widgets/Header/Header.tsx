@@ -7,6 +7,7 @@ import { ControlButtonContainer } from './components/ControlButton/ControlButton
 import { HeaderUser } from './components/HeaderUser/HeaderUser'
 
 import styles from './Header.module.css'
+import { ThemeToggle } from '../../ui/ThemeToggle/ThemeToggle'
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -42,6 +43,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
             disabled={isTakeControlButtonContainerDisabled}
           />
         </div> */}
+        <ThemeToggle />
       </div>
 
       <div className={styles.headerSection}>
