@@ -1,7 +1,9 @@
 import classNames from 'classnames'
 import React from 'react'
 
-import { Submission } from '../../../../types/types'
+import { trainingSessionId } from '../../../../constants/training-session-id'
+import { useGetSubmissionFullQuery } from '../../../../store/api/api'
+import { Submission, SubmissionChecker } from '../../../../types/types'
 import { Accordion } from '../../../../ui/Accordion/Accordion'
 import { IColumnType, Table } from '../../../../ui/Table/Table'
 import { Arrow } from '../../../../ui/icons/Arrow'
@@ -54,6 +56,44 @@ const columns: IColumnType<Submission>[] = [
     render: (_, { verdict }) => <span className={styles.row}>{verdict === 'OK' ? '1' : '0'}</span>,
   },
 ]
+
+const testColumns: IColumnType<SubmissionChecker>[] = [
+  {
+    key: 'sequenceNumber',
+    title: '№',
+    width: 30,
+  },
+  {
+    key: 'verdict',
+    title: 'Вердикт',
+    width: 400,
+    render: (_, { verdict }) => {
+      const className = classNames({
+        [styles.row]: true,
+        [styles.verdictStatus]: true,
+        [styles.verdictStatusOk]: verdict === 'OK',
+      })
+
+      return <span className={className}>{verdict}</span>
+    },
+  },
+  {
+    key: 'runningTime',
+    title: 'Время',
+    width: 40,
+    render: (_, { runningTime }) => <span className={styles.row}>{runningTime + 'ms'}</span>,
+  },
+  {
+    key: 'memoryUsed',
+    title: 'Память',
+    width: 40,
+    render: (_, { memoryUsed }) => {
+      const memoryInMB = (memoryUsed / 1024 / 1024).toFixed(2)
+      return <span className={styles.row}>{memoryInMB + ' MB'}</span>
+    },
+  },
+]
+
 export const ProblemVerdict = ({
   solutionId,
   goBack,
@@ -63,10 +103,15 @@ export const ProblemVerdict = ({
   solutionId: number
   goBack: (flag: boolean) => void
 }) => {
+  const { data, isLoading, isError } = useGetSubmissionFullQuery({ trainingSessionId, submissionId: solutionId })
+
+  if (!data) return null
+  console.log(data)
+
   const verdicts: Submission[] = [
     {
       timeFromStart: 10000000,
-      verdict: 'OK',
+      verdict: data.verdict,
       score: 100,
       id: 1,
       compileLog: 'Compile log',
@@ -115,14 +160,18 @@ export const ProblemVerdict = ({
           <Table<Submission> data={verdicts} columns={columns} />
         </div>
         <div className={styles.detailsInfo}>
-          <Accordion title={'Тесты: 2/3'}>
-            <div className={styles.detailsTestsTable}>Test</div>
+          <Accordion title={'Тесты'}>
+            <Table<SubmissionChecker> data={data.checkerLog} columns={testColumns} />
           </Accordion>
           <Accordion title={'Исходный код'}>
-            <div className={styles.codeBlock}>Исходный код</div>
+            <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
+              {data.source}
+            </div>
           </Accordion>
           <Accordion title={'Лог компиляции'}>
-            <div className={styles.codeBlock}>Лог компиляции</div>
+            <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
+              {data.compileLog}
+            </div>
           </Accordion>
         </div>
       </div>
