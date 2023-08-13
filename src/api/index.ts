@@ -4,15 +4,16 @@ import { urls } from "../constants/urls"
 import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
 import { configInterceptor } from "../helpers/configInterceptor"
 import { errorInterceptor } from "../helpers/errorInterceptor"
-import { Message, Submission, YandexUser } from "../types/types"
 import { createFile } from "../utils/createFile"
+import { PostMessageRequest, PostSubmissionsRequest } from "./requests"
 import {
   GetCodeByAliasResponse,
   GetMessagesByAliasResponse,
+  GetProblemStatementResponse,
   GetProblemsResponse,
-  GetProblemStatementResponse, GetSubmissionsByAliasResponse, GetYandexUsersOnlineResponse,
+  GetSubmissionsByAliasResponse,
+  GetYandexUsersOnlineResponse,
 } from "./responses"
-import { PostMessageRequest, PostSubmissionsRequest } from "./requests"
 
 class Api {
   private readonly client: AxiosInstance

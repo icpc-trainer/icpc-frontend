@@ -1,11 +1,12 @@
+import { api } from "@api/index"
+import { trainingSessionId } from "@constants/training-session-id"
+import { socket } from "@sockets/socket"
+import { VerdictRetrievedHandler } from "@sockets/types"
 import React, { FC, useEffect, useState } from "react"
-
-import { VerdictRetrievedHandler, socket } from "../../sockets"
-import { Submission } from "../../types/types"
-import { ProblemVerdicts } from "./ProblemVerdicts"
-import { trainingSessionId } from "../../constants/training-session-id"
 import { useParams } from "react-router"
-import { api } from "../../api"
+import { Submission } from "src/types/types"
+
+import { ProblemVerdicts } from "./ProblemVerdicts"
 
 export const ProblemVerdictsContainer: FC = () => {
   const { alias } = useParams()
@@ -17,7 +18,8 @@ export const ProblemVerdictsContainer: FC = () => {
   }
 
   useEffect(() => {
-    api.getSubmissionsByAlias(trainingSessionId, alias)
+    api
+      .getSubmissionsByAlias(trainingSessionId, alias)
       .then(({ submissions }) => setVerdicts(submissions.sort((a, b) => b.timeFromStart - a.timeFromStart)))
       .catch(console.log)
 
@@ -26,3 +28,4 @@ export const ProblemVerdictsContainer: FC = () => {
 
   return <ProblemVerdicts verdicts={verdicts} />
 }
+
