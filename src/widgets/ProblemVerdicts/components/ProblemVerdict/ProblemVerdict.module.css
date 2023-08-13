@@ -33,6 +33,7 @@
 .title {
   font-size: 20px;
   font-weight: 500;
+  color: var(--color-black-typo-primary);
 }
 
 .arrowBack {
