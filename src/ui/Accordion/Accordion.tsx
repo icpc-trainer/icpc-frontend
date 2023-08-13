@@ -1,15 +1,15 @@
-import classNames from "classnames"
-import React, { ReactNode, useRef, useState } from "react"
+import classNames from 'classnames'
+import React, { ReactNode, useRef, useState } from 'react'
 
-import { Arrow } from "../icons/Arrow"
+import { Arrow } from '../icons/Arrow'
 
-import styles from "./Accordion.module.css"
+import styles from './Accordion.module.css'
 
 export const Accordion = ({ title, children }: { title: string; children?: ReactNode }) => {
-  const [isActive, setActiveState] = useState("")
+  const [isActive, setActiveState] = useState('')
 
   function toggleAccordion() {
-    setActiveState(isActive === "" ? "active" : "")
+    setActiveState(isActive === '' ? 'active' : '')
   }
   return (
     <div className={styles.accordionWrapper}>
@@ -18,7 +18,7 @@ export const Accordion = ({ title, children }: { title: string; children?: React
           className={classNames(styles.accordionArrow, { [styles.rotate]: isActive })}
           width={20}
           height={20}
-          color={"var(--color-black-typo-primary)"}
+          color={'var(--color-black-typo-primary)'}
         />
         <div className={styles.accordionTitle}>{title}</div>
       </div>
@@ -26,4 +26,3 @@ export const Accordion = ({ title, children }: { title: string; children?: React
     </div>
   )
 }
-

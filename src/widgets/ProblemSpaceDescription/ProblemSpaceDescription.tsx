@@ -2,9 +2,9 @@ import './ProblemDescription.css'
 import * as React from 'react'
 import { FC, useState } from 'react'
 
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Loading } from "../../ui/Loading/Loading"
-import { ProblemVerdictsContainer } from "../ProblemVerdicts/ProblemVerdictsContainer"
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { Loading } from '../../ui/Loading/Loading'
+import { ProblemVerdictsContainer } from '../ProblemVerdicts/ProblemVerdictsContainer'
 
 import styles from './ProblemSpaceDescription.module.css'
 
@@ -113,7 +113,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemVerdictsContainer />}
+      {activeTab === 'solutions' && <ProblemVerdictsContainer />}
     </BlockWrapper>
   )
 }

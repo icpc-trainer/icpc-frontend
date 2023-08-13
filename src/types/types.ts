@@ -63,3 +63,54 @@ export interface Submission {
   verdict: string
   id: number
 }
+
+export interface SubmissionFull {
+  checkerLog: SubmissionChecker[]
+  compileLog: string
+  compiler: string
+  contestId: number
+  contestName: string
+  diff: string
+  finalScore: string
+  ip: string
+  maxMemoryUsage: number
+  maxTimeUsage: number
+  participantInfo: SubmissionParticipantInfo
+  postprocessorMessage: string
+  precompileChecks: any
+  preliminaryScore: string
+  problemAlias: string
+  problemId: string
+  problemName: string
+  runId: number
+  source: string
+  status: string
+  submissionTime: string
+  testFileType: string
+  timeFromStart: number
+  verdict: string
+}
+
+export interface SubmissionChecker {
+  answer: string
+  checkerError: string
+  error: string
+  input: string
+  isSample: boolean
+  memoryUsed: number
+  message: number
+  output: string
+  runningTime: number
+  sequenceNumber: number
+  testName: string
+  testsetIdx: number
+  verdict: string
+}
+
+export interface SubmissionParticipantInfo {
+  id: number
+  login: string
+  name: string
+  startTime: string
+  uid: string
+}
