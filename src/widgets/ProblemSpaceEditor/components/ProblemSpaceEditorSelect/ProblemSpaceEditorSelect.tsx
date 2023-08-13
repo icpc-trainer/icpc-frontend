@@ -1,10 +1,10 @@
-import classnames from "classnames"
-import React, { useState } from "react"
+import classnames from 'classnames'
+import React, { useState } from 'react'
 
-import { Arrow } from "../../../../ui/icons/Arrow"
-import { Check } from "../../../../ui/icons/Check"
+import { Arrow } from '../../../../ui/icons/Arrow'
+import { Check } from '../../../../ui/icons/Check'
 
-import styles from "./ProblemSpaceEditorSelect.module.css"
+import styles from './ProblemSpaceEditorSelect.module.css'
 
 export const ProblemSpaceEditorSelect = () => {
   const [isSelectOpen, setSelectOpen] = useState<boolean>(false)

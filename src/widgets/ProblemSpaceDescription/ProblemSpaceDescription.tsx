@@ -1,12 +1,12 @@
-import "./ProblemDescription.css"
-import * as React from "react"
-import { FC, useState } from "react"
+import './ProblemDescription.css'
+import * as React from 'react'
+import { FC, useState } from 'react'
 
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Loading } from "../../ui/Loading/Loading"
-import { ProblemVerdictsContainer } from "../ProblemVerdicts/ProblemVerdictsContainer"
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { Loading } from '../../ui/Loading/Loading'
+import { ProblemVerdictsContainer } from '../ProblemVerdicts/ProblemVerdictsContainer'
 
-import styles from "./ProblemSpaceDescription.module.css"
+import styles from './ProblemSpaceDescription.module.css'
 
 interface Props {
   currentProblemDescription: string
@@ -31,7 +31,7 @@ interface Props {
 // ]
 
 export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, isLoading, isError, refetch }) => {
-  let [activeTab, setActiveTab] = useState("description")
+  let [activeTab, setActiveTab] = useState('description')
 
   if (isLoading) {
     return (
@@ -49,29 +49,29 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
     )
   }
   const parser = new DOMParser()
-  const descHtml = parser.parseFromString(currentProblemDescription, "text/html")
+  const descHtml = parser.parseFromString(currentProblemDescription, 'text/html')
 
-  const imgs = descHtml.querySelectorAll("img")
+  const imgs = descHtml.querySelectorAll('img')
   imgs.forEach((img) => {
-    const src = img.getAttribute("src")
-    img.setAttribute("src", `https://contest.yandex.ru${src}`)
-    img.classList.add("problemDescriptionImg")
+    const src = img.getAttribute('src')
+    img.setAttribute('src', `https://contest.yandex.ru${src}`)
+    img.classList.add('problemDescriptionImg')
   })
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.problemDescriptionHeader}>
         <div className={styles.tabulation}>
-          {" "}
+          {' '}
           {/* В будущем можно вынести в отдельный компонент */}
           <span
-            className={`${styles.tab} ${styles.description} ${activeTab === "description" ? styles.activeTab : ""}`}
-            onClick={() => setActiveTab("description")}
+            className={`${styles.tab} ${styles.description} ${activeTab === 'description' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('description')}
           >
             Описание
           </span>
           <span
-            className={`${styles.tab} ${styles.solutions} ${activeTab === "solutions" ? styles.activeTab : ""}`}
-            onClick={() => setActiveTab("solutions")}
+            className={`${styles.tab} ${styles.solutions} ${activeTab === 'solutions' ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab('solutions')}
           >
             Отправленные решения
           </span>
@@ -79,7 +79,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
         {/*<span className={styles.problemStatus}>Не решена</span> /!* В будущем можно вынести в отдельный компонент *!/*/}
       </div>
 
-      {activeTab === "description" && (
+      {activeTab === 'description' && (
         <div className={styles.problemDescriptionContent}>
           <div dangerouslySetInnerHTML={{ __html: descHtml.body.innerHTML }} />
           {/*  <div className={styles.problemTitleBlock}>*/}
@@ -113,7 +113,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemVerdictsContainer />}
+      {activeTab === 'solutions' && <ProblemVerdictsContainer />}
     </BlockWrapper>
   )
 }

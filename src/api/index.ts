@@ -1,11 +1,11 @@
-import axios, { AxiosInstance } from "axios"
+import axios, { AxiosInstance } from 'axios'
 
-import { urls } from "../constants/urls"
-import { checkAuthorizationToken } from "../helpers/checkAuthorizationToken"
-import { configInterceptor } from "../helpers/configInterceptor"
-import { errorInterceptor } from "../helpers/errorInterceptor"
-import { createFile } from "../utils/createFile"
-import { PostMessageRequest, PostSubmissionsRequest } from "./requests"
+import { urls } from '../constants/urls'
+import { checkAuthorizationToken } from '../helpers/checkAuthorizationToken'
+import { configInterceptor } from '../helpers/configInterceptor'
+import { errorInterceptor } from '../helpers/errorInterceptor'
+import { createFile } from '../utils/createFile'
+import { PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetMessagesByAliasResponse,
@@ -13,7 +13,7 @@ import {
   GetProblemsResponse,
   GetSubmissionsByAliasResponse,
   GetYandexUsersOnlineResponse,
-} from "./responses"
+} from './responses'
 
 class Api {
   private readonly client: AxiosInstance
@@ -48,8 +48,8 @@ class Api {
 
   postSubmissions(trainingSessionId: string, code: string, compiler: string, problem: string) {
     const formData = createFile(code)
-    formData.append("compiler", compiler)
-    formData.append("problem", problem)
+    formData.append('compiler', compiler)
+    formData.append('problem', problem)
 
     return this.post<PostSubmissionsRequest>(`/training-sessions/${trainingSessionId}/submissions`, formData)
   }
@@ -69,11 +69,16 @@ class Api {
   }
 
   postMessage(trainingSessionId: string, problemAlias: string, content: string) {
-    return this.post<PostMessageRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/send`, { content })
+    return this.post<PostMessageRequest>(
+      `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/send`,
+      { content },
+    )
   }
 
   getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<GetMessagesByAliasResponse>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`)
+    return this.get<GetMessagesByAliasResponse>(
+      `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`,
+    )
   }
 
   async getYandexUsersOnline(trainingSessionId: string) {
@@ -81,7 +86,9 @@ class Api {
   }
 
   getSubmissionsByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<GetSubmissionsByAliasResponse>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
+    return this.get<GetSubmissionsByAliasResponse>(
+      `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
+    )
   }
 }
 

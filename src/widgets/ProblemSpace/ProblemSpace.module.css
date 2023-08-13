@@ -1,6 +1,6 @@
 .problemSpace {
   display: grid;
-  grid-template-areas: "problems problemsDescription editor" "comments problemsDescription editor";
+  grid-template-areas: 'problems problemsDescription editor' 'comments problemsDescription editor';
   grid-template-rows: 490fr 400fr;
   grid-template-columns: 333fr 451fr 568fr;
   gap: 20px;

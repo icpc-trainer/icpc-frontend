@@ -1,11 +1,11 @@
-import * as React from "react"
-import { FC } from "react"
+import * as React from 'react'
+import { FC } from 'react'
 
-import { Message } from "../../types/types"
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { ProblemSpaceChatMessage } from "./components/ProblemSpaceChatMessage/ProblemSpaceChatMessage"
+import { Message } from '../../types/types'
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { ProblemSpaceChatMessage } from './components/ProblemSpaceChatMessage/ProblemSpaceChatMessage'
 
-import styles from "./ProblemSpaceChat.module.css"
+import styles from './ProblemSpaceChat.module.css'
 
 interface ProblemSpaceChatProps {
   messages: Message[]
@@ -14,7 +14,7 @@ interface ProblemSpaceChatProps {
 
 export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMessage }) => {
   const [state, setState] = React.useState({
-    message: "",
+    message: '',
     rows: 1,
     minRows: 1,
     maxRows: 10,
@@ -47,12 +47,12 @@ export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMe
   }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       event.preventDefault()
       onSendMessage(state.message)
       setState({
         ...state,
-        message: "",
+        message: '',
       })
     }
   }

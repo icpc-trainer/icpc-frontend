@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from "react"
-import { Button } from "../../../../ui/Button/Button"
-import styles from "./ControlButtonContainer.module.css"
-import { useGetControlUserQuery, useGetYandexUserQuery } from "../../../../store/api/api"
-import { ControlTakenHandler, socket } from "../../../../sockets"
-import { trainingSessionId } from "../../../../constants/training-session-id"
-import { ControlButton } from "./ControlButton"
+import React, { useEffect, useState } from 'react'
+
+import { trainingSessionId } from '../../../../constants/training-session-id'
+import { ControlTakenHandler, socket } from '../../../../sockets'
+import { useGetControlUserQuery, useGetYandexUserQuery } from '../../../../store/api/api'
+import { Button } from '../../../../ui/Button/Button'
+import { ControlButton } from './ControlButton'
+
+import styles from './ControlButtonContainer.module.css'
 
 export const ControlButtonContainer = () => {
-    const { data: currentUser } = useGetYandexUserQuery()
-    const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
+  const { data: currentUser } = useGetYandexUserQuery()
+  const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 
-    const [isActive, setIsActive] = useState(controlUser.userId === currentUser.id)
+  const [isActive, setIsActive] = useState(controlUser.userId === currentUser.id)
 
-    const controlTakenEventHandler: ControlTakenHandler = ({ userId }) => {
-        setIsActive(userId === currentUser.id)
-    }
+  const controlTakenEventHandler: ControlTakenHandler = ({ userId }) => {
+    setIsActive(userId === currentUser.id)
+  }
 
-    const onTakeControl = () => {
-        console.log(currentUser.id)
-        socket.sendControlTaken({ userId: currentUser.id })
-    }
+  const onTakeControl = () => {
+    console.log(currentUser.id)
+    socket.sendControlTaken({ userId: currentUser.id })
+  }
 
-    useEffect(() => {
-        return socket.subscribeControlTaken(controlTakenEventHandler)
-    }, [])
+  useEffect(() => {
+    return socket.subscribeControlTaken(controlTakenEventHandler)
+  }, [])
 
-    return <ControlButton isActive={isActive} onTakeControl={onTakeControl} />
+  return <ControlButton isActive={isActive} onTakeControl={onTakeControl} />
 }
-
-
-
-
-
-
-

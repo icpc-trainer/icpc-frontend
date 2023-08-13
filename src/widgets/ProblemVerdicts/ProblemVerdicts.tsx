@@ -1,11 +1,11 @@
-import React, { FC } from "react"
+import classnames from 'classnames'
+import React, { FC } from 'react'
 
-import { Submission } from "../../types/types"
-import { IColumnType, Table } from "../../ui/Table/Table"
-import { Arrow } from "../../ui/icons/Arrow"
+import { Submission } from '../../types/types'
+import { IColumnType, Table } from '../../ui/Table/Table'
+import { Arrow } from '../../ui/icons/Arrow'
 
-import styles from "./ProblemVerdicts.module.css"
-import classnames from "classnames"
+import styles from './ProblemVerdicts.module.css'
 
 export interface ProblemVerdictsProps {
   verdicts: Submission[]
@@ -13,46 +13,40 @@ export interface ProblemVerdictsProps {
 
 const columns: IColumnType<Submission>[] = [
   {
-    key: "time",
-    title: "Время",
+    key: 'time',
+    title: 'Время',
     width: 50,
     render: (_, { timeFromStart }) => (
-      <span className={styles.row}>
-        {
-          new Date(timeFromStart).toISOString().slice(11, 19)
-        }
-      </span>
+      <span className={styles.row}>{new Date(timeFromStart).toISOString().slice(11, 19)}</span>
     ),
   },
   {
-    key: "status",
-    title: "Статус",
+    key: 'status',
+    title: 'Статус',
     width: 400,
     render: (_, { verdict }) => {
       const className = classnames({
         [styles.row]: true,
         [styles.verdictStatus]: true,
-        [styles.verdictStatusOk]: verdict === 'OK'
+        [styles.verdictStatusOk]: verdict === 'OK',
       })
 
       return <span className={className}>{verdict}</span>
     },
   },
   {
-    key: "points",
-    title: "Баллы",
+    key: 'points',
+    title: 'Баллы',
     width: 40,
-    render: (_, { verdict }) => <span className={styles.row}>
-      {verdict === 'OK' ? '1' : '0'}
-    </span>,
+    render: (_, { verdict }) => <span className={styles.row}>{verdict === 'OK' ? '1' : '0'}</span>,
   },
   {
-    key: "details",
-    title: "",
+    key: 'details',
+    title: '',
     width: 32,
     render: (_, { id }) => (
       <>
-        <Arrow className={styles.detailsArrow} width={20} height={20} color={"var(--color-grey-secondary)"} />
+        <Arrow className={styles.detailsArrow} width={20} height={20} color={'var(--color-grey-secondary)'} />
       </>
     ),
   },

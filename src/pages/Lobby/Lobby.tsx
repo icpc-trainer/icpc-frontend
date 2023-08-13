@@ -1,12 +1,12 @@
-import classNames from "classnames"
-import React from "react"
+import classNames from 'classnames'
+import React from 'react'
 
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Arrow } from "../../ui/icons/Arrow"
-import { Check } from "../../ui/icons/Check"
-import { User } from "../../ui/icons/User"
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { Arrow } from '../../ui/icons/Arrow'
+import { Check } from '../../ui/icons/Check'
+import { User } from '../../ui/icons/User'
 
-import styles from "./Lobby.module.css"
+import styles from './Lobby.module.css'
 
 const Lobby = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -34,7 +34,7 @@ const Lobby = () => {
                 className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
                 width={24}
                 height={24}
-                color={"var(--color-black-typo-primary)"}
+                color={'var(--color-black-typo-primary)'}
               />
             </div>
             {isOpen && (
@@ -44,7 +44,7 @@ const Lobby = () => {
                     className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
                     width={20}
                     height={20}
-                    color={"var(--color-black-typo-primary)"}
+                    color={'var(--color-black-typo-primary)'}
                   />
                   <a className={styles.selectItemText} href="/workspace">
                     Тест_ШМЯ_2023
@@ -59,9 +59,9 @@ const Lobby = () => {
             )}
           </div>
           <div className={styles.users}>
-            <User width={24} height={24} color={"var(--color-black-typo-primary)"} />
-            <User width={24} height={24} color={"var(--color-black-typo-primary)"} />
-            <User width={24} height={24} color={"var(--color-black-typo-primary)"} />
+            <User width={24} height={24} color={'var(--color-black-typo-primary)'} />
+            <User width={24} height={24} color={'var(--color-black-typo-primary)'} />
+            <User width={24} height={24} color={'var(--color-black-typo-primary)'} />
           </div>
         </div>
       </div>

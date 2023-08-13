@@ -12,7 +12,7 @@
 }
 
 .verdictStatusOk {
-  color: var(--color-green-light)
+  color: var(--color-green-light);
 }
 
 .row {

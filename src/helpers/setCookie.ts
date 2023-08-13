@@ -1,9 +1,9 @@
 export const setCookie = (name: string, value: string, expiresIn?: string) => {
-  let expires = ""
+  let expires = ''
   if (expiresIn) {
     const date = new Date()
     date.setTime(date.getTime() + Number(expiresIn))
-    expires = "; expires=" + date.toUTCString()
+    expires = '; expires=' + date.toUTCString()
   }
-  document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/"
+  document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/'
 }

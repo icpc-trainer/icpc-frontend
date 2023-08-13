@@ -1,12 +1,12 @@
-import { Message, Submission, YandexUser } from "../types/types"
+import { Message, Submission, YandexUser } from '../types/types'
 
 export enum Types {
-  Message = "PROBLEM_COMMENT_RECEIVED",
-  Code = "CODE_EDITOR_UPDATE",
-  User = "USER",
-  ControlTaken = "CONTROL_TAKEN",
-  VerdictRetrieved = "SUBMISSION_VERDICT_RETRIEVED",
-  UserLeave = "USER_LEAVE",
+  Message = 'PROBLEM_COMMENT_RECEIVED',
+  Code = 'CODE_EDITOR_UPDATE',
+  User = 'USER',
+  ControlTaken = 'CONTROL_TAKEN',
+  VerdictRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
+  UserLeave = 'USER_LEAVE',
 }
 
 export type Type = `${Types}`

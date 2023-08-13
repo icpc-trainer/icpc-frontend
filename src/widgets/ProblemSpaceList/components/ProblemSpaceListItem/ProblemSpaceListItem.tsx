@@ -1,13 +1,13 @@
-import classNames from "classnames"
-import React, { useState } from "react"
-import { FC } from "react"
+import classNames from 'classnames'
+import React, { useState } from 'react'
+import { FC } from 'react'
+import { useParams } from 'react-router'
 
-import { Problem } from "../../../../types/types"
-import { Arrow } from "../../../../ui/icons/Arrow"
-import { User } from "../../../../ui/icons/User"
+import { Problem } from '../../../../types/types'
+import { Arrow } from '../../../../ui/icons/Arrow'
+import { User } from '../../../../ui/icons/User'
 
-import styles from "./ProblemSpaceListItem.module.css"
-import { useParams } from "react-router"
+import styles from './ProblemSpaceListItem.module.css'
 
 interface ProblemSpaceListProps {
   className?: string
@@ -20,9 +20,14 @@ interface ProblemSpaceListProps {
   // onSelect: (id: string, alias: string) => void
   // currentProblemId: string
 }
-export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick, status }) => {
+export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({
+  className,
+  problem,
+  handleProblemSpaceClick,
+  status,
+}) => {
   const title = `${problem.alias}. ${problem.name}`
-  const { alias } = useParams();
+  const { alias } = useParams()
 
   const isSelected = alias === problem.alias
 
@@ -36,10 +41,10 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
       <div className={styles.lineTitleBlock}>
         <div
           className={classNames({
-            [styles.lineDone]: status === "done",
-            [styles.linePending]: status === "pending",
-            [styles.lineWrong]: status === "wrong",
-            [styles.lineDefault]: status === "default",
+            [styles.lineDone]: status === 'done',
+            [styles.linePending]: status === 'pending',
+            [styles.lineWrong]: status === 'wrong',
+            [styles.lineDefault]: status === 'default',
             // [styles.linePrimary]: isSelected && status === "default",
           })}
         />

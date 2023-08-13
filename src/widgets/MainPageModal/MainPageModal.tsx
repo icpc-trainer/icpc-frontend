@@ -1,7 +1,7 @@
-import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
-import styles from "./MainPageModal.module.css"
+import styles from './MainPageModal.module.css'
 
 interface MainPageModalProps {
   isModalOpen: boolean
@@ -18,26 +18,26 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
   }, [])
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [handleClickOutside])
 
   useEffect(() => {
     if (isModalOpen) {
-      document.querySelector("#modal")?.classList.add("modalOpen")
-      document.body.style.overflow = "hidden"
+      document.querySelector('#modal')?.classList.add('modalOpen')
+      document.body.style.overflow = 'hidden'
     } else {
-      document.querySelector("#modal")?.classList.remove("modalOpen")
+      document.querySelector('#modal')?.classList.remove('modalOpen')
     }
     return () => {
-      document.querySelector("#modal")?.classList.remove("modalOpen")
-      document.body.style.overflow = "auto"
+      document.querySelector('#modal')?.classList.remove('modalOpen')
+      document.body.style.overflow = 'auto'
     }
   }, [isModalOpen])
 
-  const teams = [{ name: "Команда_ЛШЯ_2023", id: 1 }]
+  const teams = [{ name: 'Команда_ЛШЯ_2023', id: 1 }]
 
   return (
     <div className={styles.modal} ref={ref} onClick={(e) => e.preventDefault()}>

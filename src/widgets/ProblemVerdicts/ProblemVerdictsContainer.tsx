@@ -1,12 +1,11 @@
-import { api } from "@api/index"
-import { trainingSessionId } from "@constants/training-session-id"
-import { socket } from "@sockets/socket"
-import { VerdictRetrievedHandler } from "@sockets/types"
-import React, { FC, useEffect, useState } from "react"
-import { useParams } from "react-router"
-import { Submission } from "src/types/types"
+import React, { FC, useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
-import { ProblemVerdicts } from "./ProblemVerdicts"
+import { api } from '../../api'
+import { trainingSessionId } from '../../constants/training-session-id'
+import { VerdictRetrievedHandler, socket } from '../../sockets'
+import { Submission } from '../../types/types'
+import { ProblemVerdicts } from './ProblemVerdicts'
 
 export const ProblemVerdictsContainer: FC = () => {
   const { alias } = useParams()
@@ -28,4 +27,3 @@ export const ProblemVerdictsContainer: FC = () => {
 
   return <ProblemVerdicts verdicts={verdicts} />
 }
-

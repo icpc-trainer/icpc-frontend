@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent } from 'react'
 
-import { Message } from "../../../../types/types"
+import { Message } from '../../../../types/types'
 
-import styles from "./ProblemSpaceChatMessage.module.css"
+import styles from './ProblemSpaceChatMessage.module.css'
 
 interface ProblemSpaceChatMessageProps {
   message: Message
