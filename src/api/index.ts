@@ -60,6 +60,14 @@ class Api {
     return this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}`)
   }
 
+  getContestStatusAndDate(trainingSessionId: string) {
+    return this.get(`/training-sessions/${trainingSessionId}`)
+  }
+
+  getContestInfo(contestId: string) {
+    return this.get(`/contests/${contestId}`)
+  }
+
   // TODO: типизировать после реализации
   getSubmissionsFull(trainingSessionId: string, submissionId: number) {
     return this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`)

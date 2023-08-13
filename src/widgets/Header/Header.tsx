@@ -7,6 +7,7 @@ import { ControlButtonContainer } from './components/ControlButton/ControlButton
 import { HeaderUser } from './components/HeaderUser/HeaderUser'
 
 import styles from './Header.module.css'
+import { TimerContainer } from './components/Timer/TimerContainer'
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -45,10 +46,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
       </div>
 
       <div className={styles.headerSection}>
-        <div className={styles.timer}>
-          {/* До завершения осталось: <span className={styles.time}>01:56:02</span> */}
-        </div>
-
+        <TimerContainer />
         <div>
           <Button
             className={styles.finishButton}
