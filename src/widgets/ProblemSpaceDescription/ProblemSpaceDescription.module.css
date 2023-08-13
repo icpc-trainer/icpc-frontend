@@ -55,21 +55,7 @@
 
   background-color: var(--color-black-typo-primary);
 }
-.problemStatus {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  height: fit-content;
-  padding: 12px 26px 10px 26px;
-
-  font-size: 12px;
-
-  border-radius: 10px;
-
-  background-color: var(--color-white-grey);
-}
 .problemTitleBlock {
   display: flex;
   flex-direction: column;

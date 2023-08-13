@@ -97,6 +97,12 @@ class Api {
       `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
     )
   }
+
+  getProblemByAlias(trainingSessionId: string, problemAlias: string) {
+    return this.get<{ problemAlias: string; status: string; attempts: number }>(
+      `contests/${trainingSessionId}/problems/${problemAlias}`,
+    )
+  }
 }
 
 export const api = new Api(urls.openApiUrl)

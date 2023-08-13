@@ -11,6 +11,7 @@ import {
   Handlers,
   initialHandlers,
   MessageHandler,
+  ProblemStatusUpdatedHandler,
   Type,
   Types,
   UserHandler,
@@ -83,6 +84,11 @@ class Socket {
   public subscribeUserLeave(handler: UserLeaveHandler) {
     // @ts-ignore
     return this.subscribe(Types.UserLeave, handler)
+  }
+
+  public subscribeProblemStatusUpdated(handler: ProblemStatusUpdatedHandler) {
+    // @ts-ignore
+    return this.subscribe(Types.ProblemStatusUpdated, handler)
   }
 
   private send(data: Data) {

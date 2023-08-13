@@ -20,6 +20,7 @@ export interface Problem {
   problemType: string
   statements: Statement[]
   testCount: number | null
+  status: string
 }
 export type Problems = Problem[]
 

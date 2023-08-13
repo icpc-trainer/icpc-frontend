@@ -7,6 +7,7 @@ export enum Types {
   ControlTaken = 'CONTROL_TAKEN',
   VerdictRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
   UserLeave = 'USER_LEAVE',
+  ProblemStatusUpdated = 'PROBLEM_STATUS_UPDATED',
 }
 
 export type Type = `${Types}`
@@ -31,8 +32,13 @@ export type VerdictRetrievedPayload = Submission
 export interface UserPayload extends Payload {
   user: YandexUser
 }
+
 export interface UserLeavePayload extends Payload {
   userId: string
+}
+
+export interface ProblemStatusUpdatedPayload extends Payload {
+  status: string
 }
 
 export interface Data {
@@ -46,9 +52,9 @@ export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void
 export type ControlTakenHandler = (payload: ControlTakenPayload) => void
 export type VerdictRetrievedHandler = (payload: VerdictRetrievedPayload) => void
-
 export type UserHandler = (payload: UserPayload) => void
 export type UserLeaveHandler = (payload: UserLeavePayload) => void
+export type ProblemStatusUpdatedHandler = (payload: ProblemStatusUpdatedPayload) => void
 
 export type Handlers = {
   [key in Type]?: Set<Handler>
