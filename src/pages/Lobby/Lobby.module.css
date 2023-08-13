@@ -31,7 +31,7 @@
   border: none;
   border-radius: 10px;
 
-  background-color: white;
+  background-color: var(--color-white);
 }
 .contestItem {
   padding: 16px 16px 14px;
@@ -46,7 +46,7 @@
 }
 .selectItemText,
 .contestItemText {
-  color: black;
+  color: var(--color-black-typo-primary);
   text-decoration: none;
 }
 .startButton {
@@ -69,7 +69,7 @@
   color: red;
 }
 .startButton a {
-  color: black;
+  color: var(--color-black-typo-primary);
 }
 .startTraining {
   display: flex;

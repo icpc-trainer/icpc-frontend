@@ -1,7 +1,7 @@
 .button {
   padding: 6px 28px;
 
-  color: #363645;
+  color: var(--color-black-typo-primary);
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
@@ -9,13 +9,20 @@
   border: none;
   border-radius: 10px;
 
-  background-color: #ffe147;
+  background-color: var(--color-yellow-primary);
 
   cursor: pointer;
 
   opacity: 1;
 
   transition: opacity linear 0.2s;
+}
+.light-theme .button {
+  color: var(--color-black-typo-primary);
+}
+
+.dark-theme .button {
+  color: var(--color-white-grey);
 }
 
 button:disabled:hover {
