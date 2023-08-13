@@ -8,6 +8,7 @@ import { Problem, Problems } from "../../types/types"
 import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
 import { Loading } from "../../ui/Loading/Loading"
 import { ProblemSpaceList } from "./ProblemSpaceList"
+import { trainingSessionId } from "../../constants/training-session-id"
 
 export const ProblemSpaceListContainer = () => {
   const { alias: currentAlias } = useParams()
@@ -18,7 +19,7 @@ export const ProblemSpaceListContainer = () => {
     data: problems,
     isLoading,
     isError,
-  } = useQuery("problems", () => api.getProblems(contestId), {
+  } = useQuery("problems", () => api.getProblems(trainingSessionId), {
     onSuccess: (problems: Problems) => {
       problems.sort((a, b) => a.alias.localeCompare(b.alias))
       navigate(`/workspace/${contestId}/${problems[0].alias}`)
