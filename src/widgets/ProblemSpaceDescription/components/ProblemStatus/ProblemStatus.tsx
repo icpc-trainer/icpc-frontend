@@ -4,9 +4,9 @@ import React, { FC } from 'react'
 import styles from './ProblemStatus.module.css'
 
 const statusMap: Record<string, string> = {
-  NOT_SUBMITTED: 'Нет отправок',
-  FAILED: 'Не решена',
-  PASSED: 'Решена',
+  NOT_SUBMITTED: 'Не решена',
+  FAILED: 'Решена неверно',
+  PASSED: 'Полное решение',
 }
 
 interface ProblemStatusProps {
