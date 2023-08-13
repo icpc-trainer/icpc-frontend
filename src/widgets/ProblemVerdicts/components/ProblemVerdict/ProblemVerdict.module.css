@@ -16,8 +16,9 @@
   gap: 24px;
   position: absolute;
   top: 0;
-  background-color: var(--color-white);
   width: 100%;
+  background-color: var(--color-white);
+  height: 100%;
 }
 
 .problemSolutionDetails.isOpen {
