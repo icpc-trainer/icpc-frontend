@@ -4,6 +4,7 @@ import { urls } from '../constants/urls'
 import { checkAuthorizationToken } from '../helpers/checkAuthorizationToken'
 import { configInterceptor } from '../helpers/configInterceptor'
 import { errorInterceptor } from '../helpers/errorInterceptor'
+import { Submission } from '../types/types'
 import { createFile } from '../utils/createFile'
 import { PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
@@ -14,7 +15,6 @@ import {
   GetSubmissionsByAliasResponse,
   GetYandexUsersOnlineResponse,
 } from './responses'
-import { Submission } from '../types/types'
 
 class Api {
   private readonly client: AxiosInstance
@@ -39,8 +39,8 @@ class Api {
     return this.get(`contests/${contestId}`)
   }
 
-  async getProblems(contestId: string) {
-    return (await this.get<GetProblemsResponse>(`contests/${contestId}/problems`)).problems
+  async getProblems(trainingSessionId: string) {
+    return (await this.get<GetProblemsResponse>(`contests/${trainingSessionId}/problems`)).problems
   }
 
   getProblemStatement(contestId: string, alias: string) {
@@ -93,7 +93,9 @@ class Api {
   }
 
   getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<{ count: number, submissions: Submission[]}>(`training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`)
+    return this.get<{ count: number; submissions: Submission[] }>(
+      `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
+    )
   }
 }
 
