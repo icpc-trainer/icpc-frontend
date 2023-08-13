@@ -1,10 +1,12 @@
-import 'ace-builds/src-noconflict/theme-solarized_dark'
-import 'ace-builds/src-noconflict/theme-solarized_light'
 import React, { FC, useContext, useEffect } from 'react'
 
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-javascript'
+
+import 'ace-builds/src-noconflict/theme-solarized_dark'
+
+import 'ace-builds/src-noconflict/theme-solarized_light'
 
 import { ThemeContext } from '../../contexts/themeContext'
 import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
