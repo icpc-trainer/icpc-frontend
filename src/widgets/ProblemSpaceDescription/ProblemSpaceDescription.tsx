@@ -2,9 +2,10 @@ import './ProblemDescription.css'
 import * as React from 'react'
 import { FC, useState } from 'react'
 
-import { BlockWrapper } from "../../ui/BlockWrapper/BlockWrapper"
-import { Loading } from "../../ui/Loading/Loading"
-import { ProblemVerdictsContainer } from "../ProblemVerdicts/ProblemVerdictsContainer"
+import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { Loading } from '../../ui/Loading/Loading'
+import { ProblemVerdictsContainer } from '../ProblemVerdicts/ProblemVerdictsContainer'
+import { ProblemStatusContainer } from './components/ProblemStatus/ProblemStatusContainer'
 
 import styles from './ProblemSpaceDescription.module.css'
 
@@ -52,11 +53,13 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
   const descHtml = parser.parseFromString(currentProblemDescription, 'text/html')
 
   const imgs = descHtml.querySelectorAll('img')
+
   imgs.forEach((img) => {
     const src = img.getAttribute('src')
     img.setAttribute('src', `https://contest.yandex.ru${src}`)
     img.classList.add('problemDescriptionImg')
   })
+
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.problemDescriptionHeader}>
@@ -76,7 +79,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
             Отправленные решения
           </span>
         </div>
-        {/*<span className={styles.problemStatus}>Не решена</span> /!* В будущем можно вынести в отдельный компонент *!/*/}
+        <ProblemStatusContainer />
       </div>
 
       {activeTab === 'description' && (
@@ -113,7 +116,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
           {/*  </div>*/}
         </div>
       )}
-      {activeTab === "solutions" && <ProblemVerdictsContainer />}
+      {activeTab === 'solutions' && <ProblemVerdictsContainer />}
     </BlockWrapper>
   )
 }

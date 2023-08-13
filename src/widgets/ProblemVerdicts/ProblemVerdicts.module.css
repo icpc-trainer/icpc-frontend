@@ -1,6 +1,8 @@
 .ProblemVerdicts {
-  margin-top: 24px;
   position: relative;
+
+  margin-top: 24px;
+
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -15,9 +17,27 @@
 }
 
 .verdictStatusOk {
-  color: var(--color-green-light)
+  color: var(--color-green-light);
+}
+
+.verdictStatusPending {
+  color: var(--color-black-typo-primary);
 }
 
 .row {
+  display: flex;
+  gap: 10px;
+
   font-size: 14px;
+}
+
+.loadingContainer {
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+
+.loading {
+  width: 10px;
+  height: 10px;
 }

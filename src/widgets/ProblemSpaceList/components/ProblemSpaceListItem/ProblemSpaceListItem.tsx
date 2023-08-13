@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FC } from 'react'
 import { useParams } from 'react-router'
 
+import { ProblemStatusUpdatedHandler } from '../../../../sockets'
 import { Problem } from '../../../../types/types'
 import { Arrow } from '../../../../ui/icons/Arrow'
 import { User } from '../../../../ui/icons/User'
@@ -13,39 +14,26 @@ interface ProblemSpaceListProps {
   className?: string
   problem: Problem
   handleProblemSpaceClick: (problem: Problem) => void
-  // name: string
-  // alias: string
-  // id: string
-  status: string
-  // onSelect: (id: string, alias: string) => void
-  // currentProblemId: string
 }
-export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({
-  className,
-  problem,
-  handleProblemSpaceClick,
-  status,
-}) => {
-  const title = `${problem.alias}. ${problem.name}`
+export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick }) => {
   const { alias } = useParams()
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const isSelected = alias === problem.alias
 
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleDropdown = () => setIsOpen(!isOpen)
+  const title = `${problem.alias}. ${problem.name}`
 
-  // const handleSelect = () => onSelect(id, alias)
+  // const toggleDropdown = () => setIsOpen(!isOpen)
 
   return (
     <div className={classNames(styles.container, className, { [styles.open]: isOpen })}>
       <div className={styles.lineTitleBlock}>
         <div
           className={classNames({
-            [styles.lineDone]: status === 'done',
-            [styles.linePending]: status === 'pending',
-            [styles.lineWrong]: status === 'wrong',
-            [styles.lineDefault]: status === 'default',
-            // [styles.linePrimary]: isSelected && status === "default",
+            [styles.lineDone]: problem.status === 'PASSED',
+            [styles.lineWrong]: problem.status === 'FAILED',
+            [styles.lineDefault]: problem.status === 'NOT_SUBMITTED',
           })}
         />
         <div

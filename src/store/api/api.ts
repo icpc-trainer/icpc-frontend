@@ -3,8 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 import { urls } from '../../constants/urls'
 import { getCookie } from '../../helpers/getCookie'
 import { setCookie } from '../../helpers/setCookie'
-import { YandexUser } from '../../types/types'
-import { trainingSessionId } from './../../constants/training-session-id'
+import { SubmissionFull, YandexUser } from '../../types/types'
 
 export const api = createApi({
   reducerPath: 'api',
@@ -43,7 +42,12 @@ export const api = createApi({
         url: `/training-sessions/${trainingSessionId}/control/current`,
       }),
     }),
+    getSubmissionFull: build.query<SubmissionFull, { trainingSessionId: string; submissionId: number }>({
+      query: ({ trainingSessionId, submissionId }) => ({
+        url: `/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`,
+      }),
+    }),
   }),
 })
 
-export const { useGetYandexUserQuery, useGetControlUserQuery } = api
+export const { useGetYandexUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api

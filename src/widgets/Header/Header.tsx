@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 import { YandexUser } from '../../types/types'
 import { Button } from '../../ui/Button/Button'
+import { ThemeToggle } from '../../ui/ThemeToggle/ThemeToggle'
 import { ControlButtonContainer } from './components/ControlButton/ControlButtonContainer'
 import { HeaderUser } from './components/HeaderUser/HeaderUser'
 
@@ -43,6 +44,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
             disabled={isTakeControlButtonContainerDisabled}
           />
         </div> */}
+        <ThemeToggle />
       </div>
 
       <div className={styles.headerSection}>

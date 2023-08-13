@@ -8,6 +8,8 @@
   "importOrder": [
     "^react-ace",
     "^ace-builds/src-noconflict/mode-javascript",
+    "^ace-builds/src-noconflict/theme-solarized_dark",
+    "^ace-builds/src-noconflict/theme-solarized_light",
     "^(@clients).*",
     "^(@components).*",
     "^(@componentsUsingStore).*",

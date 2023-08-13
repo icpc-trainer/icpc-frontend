@@ -1,7 +1,7 @@
 .button {
   padding: 6px 28px;
 
-  color: #363645;
+  color: var(--color-black-typo-primary);
   font-weight: 500;
   font-size: 14px;
   line-height: 2;
@@ -9,7 +9,7 @@
   border: none;
   border-radius: 10px;
 
-  background-color: #ffe147;
+  background-color: var(--color-yellow-primary);
 
   cursor: pointer;
 
