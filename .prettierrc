@@ -4,20 +4,22 @@
   "singleQuote": true,
   "printWidth": 120,
   "tabWidth": 2,
+  "arrowParens": "avoid",
   "endOfLine": "crlf",
   "importOrder": [
+    "react",
     "^react-ace",
-    "^ace-builds/src-noconflict/mode-javascript",
-    "^ace-builds/src-noconflict/theme-solarized_dark",
-    "^ace-builds/src-noconflict/theme-solarized_light",
-    "^(@clients).*",
-    "^(@components).*",
-    "^(@componentsUsingStore).*",
+    "^ace-builds/src-noconflict/",
+    "^(@sockets).*",
+    "^(@api).*",
     "^(@store).*",
-    "^(@common|@contexts|@hooks|@utils|@icons).*",
-    "^.*/services/(.*)$",
+    "^(@helpers|@contexts|@constants|@utils|@hooks).*",
+    "^@",
+    "^src",
+    "^.*/components/(.*)$",
     "^(..\\/|.\\/)[^@].*(?<!css)$",
-    "^.*.(module).css$"
+    "^.*.(module).css$",
+    "^.*.css$"
   ],
   "importOrderSeparation": true
 }

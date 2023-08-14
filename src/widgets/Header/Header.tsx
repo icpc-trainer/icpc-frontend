@@ -1,14 +1,17 @@
 import classnames from 'classnames'
+
 import React, { FC } from 'react'
 
-import { YandexUser } from '../../types/types'
-import { Button } from '../../ui/Button/Button'
-import { ThemeToggle } from '../../ui/ThemeToggle/ThemeToggle'
+import { Button } from '@ui/Button/Button'
+import { ThemeToggle } from '@ui/ThemeToggle/ThemeToggle'
+
+import { YandexUser } from 'src/types/types'
+
 import { ControlButtonContainer } from './components/ControlButton/ControlButtonContainer'
 import { HeaderUser } from './components/HeaderUser/HeaderUser'
+import { TimerContainer } from './components/Timer/TimerContainer'
 
 import styles from './Header.module.css'
-import { TimerContainer } from './components/Timer/TimerContainer'
 
 interface HeaderProps {
   onTakeControl: () => void
@@ -30,7 +33,7 @@ export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) =>
 
       <div className={styles.headerSection}>
         <div className={styles.users}>
-          {yandexUsersOnline.map((user) => (
+          {yandexUsersOnline.map(user => (
             <HeaderUser yandexUser={user} key={user.id} />
           ))}
         </div>

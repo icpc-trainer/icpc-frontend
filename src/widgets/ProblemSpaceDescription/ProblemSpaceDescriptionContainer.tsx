@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 
-import { api } from '../../api'
+import { api } from '@api/index'
+
 import { ProblemSpaceDescription } from './ProblemSpaceDescription'
 
 export const ProblemSpaceDescriptionContainer = () => {

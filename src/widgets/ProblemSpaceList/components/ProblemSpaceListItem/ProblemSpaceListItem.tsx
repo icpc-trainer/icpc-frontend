@@ -1,12 +1,9 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
-import { FC } from 'react'
+
+import React, { FC, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { ProblemStatusUpdatedHandler } from '../../../../sockets'
-import { Problem } from '../../../../types/types'
-import { Arrow } from '../../../../ui/icons/Arrow'
-import { User } from '../../../../ui/icons/User'
+import { Problem } from 'src/types/types'
 
 import styles from './ProblemSpaceListItem.module.css'
 

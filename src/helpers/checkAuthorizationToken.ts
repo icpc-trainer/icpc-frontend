@@ -1,4 +1,5 @@
-import { urls } from '../constants/urls'
+import { urls } from '@constants/urls'
+
 import { setCookie } from './setCookie'
 
 export const checkAuthorizationToken = () => {

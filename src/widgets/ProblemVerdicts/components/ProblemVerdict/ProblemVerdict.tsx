@@ -1,12 +1,16 @@
 import classNames from 'classnames'
+
 import React from 'react'
 
-import { trainingSessionId } from '../../../../constants/training-session-id'
-import { useGetSubmissionFullQuery } from '../../../../store/api/api'
-import { Submission, SubmissionChecker } from '../../../../types/types'
-import { Accordion } from '../../../../ui/Accordion/Accordion'
-import { IColumnType, Table } from '../../../../ui/Table/Table'
-import { Arrow } from '../../../../ui/icons/Arrow'
+import { useGetSubmissionFullQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { Arrow } from '@icons/Arrow'
+import { Accordion } from '@ui/Accordion/Accordion'
+import { IColumnType, Table } from '@ui/Table/Table'
+
+import { Submission, SubmissionChecker } from 'src/types/types'
 
 import styles from './ProblemVerdict.module.css'
 

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-import { api } from '../../../../api'
-import { trainingSessionId } from '../../../../constants/training-session-id'
-import { getAvatarUrl } from '../../../../helpers/getAvatarUrl'
-import { ControlTakenHandler, socket } from '../../../../sockets'
-import { useGetControlUserQuery } from '../../../../store/api/api'
-import { YandexUser } from '../../../../types/types'
-import { KeyboardOff } from '../../../../ui/icons/KeyboardOff'
-import { KeyboardOn } from '../../../../ui/icons/KeyboardOn'
+import { socket } from '@sockets/socket'
+import { ControlTakenHandler } from '@sockets/types'
+
+import { useGetControlUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { KeyboardOff } from '@icons/KeyboardOff'
+import { KeyboardOn } from '@icons/KeyboardOn'
 
 interface ControlStatusProps {
   id: string

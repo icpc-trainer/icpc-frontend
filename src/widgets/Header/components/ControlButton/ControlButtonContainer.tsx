@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-import { trainingSessionId } from '../../../../constants/training-session-id'
-import { ControlTakenHandler, socket } from '../../../../sockets'
-import { useGetControlUserQuery, useGetYandexUserQuery } from '../../../../store/api/api'
-import { Button } from '../../../../ui/Button/Button'
-import { ControlButton } from './ControlButton'
+import { socket } from '@sockets/socket'
+import { ControlTakenHandler } from '@sockets/types'
 
-import styles from './ControlButtonContainer.module.css'
+import { useGetControlUserQuery, useGetYandexUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { ControlButton } from './ControlButton'
 
 export const ControlButtonContainer = () => {
   const { data: currentUser } = useGetYandexUserQuery()

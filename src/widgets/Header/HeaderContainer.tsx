@@ -1,11 +1,16 @@
-import * as React from 'react'
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-import { api } from '../../api'
-import { trainingSessionId } from '../../constants/training-session-id'
-import { ControlTakenHandler, UserHandler, UserLeaveHandler, socket } from '../../sockets'
-import { useGetYandexUserQuery } from '../../store/api/api'
-import { YandexUser } from '../../types/types'
+import { socket } from '@sockets/socket'
+import { ControlTakenHandler, UserHandler, UserLeaveHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { useGetYandexUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { YandexUser } from 'src/types/types'
+
 import { Header } from './Header'
 
 export const HeaderContainer: FC = () => {
@@ -23,11 +28,11 @@ export const HeaderContainer: FC = () => {
   }
 
   const userEventHandler: UserHandler = ({ user }) => {
-    setYandexUsersOnline((prev) => [...prev, user])
+    setYandexUsersOnline(prev => [...prev, user])
   }
 
   const userLeaveEventHandler: UserLeaveHandler = ({ userId }) => {
-    setYandexUsersOnline((prev) => prev.filter((user) => user.id !== userId))
+    setYandexUsersOnline(prev => prev.filter(user => user.id !== userId))
   }
 
   useEffect(() => {

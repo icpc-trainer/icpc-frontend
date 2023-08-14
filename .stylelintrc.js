@@ -1,10 +1,10 @@
-const { propertyOrdering, selectorOrdering } = require("stylelint-semantic-groups")
+const { propertyOrdering, selectorOrdering } = require('stylelint-semantic-groups')
 
 module.exports = {
-  plugins: ["stylelint-order"],
+  plugins: ['stylelint-order'],
   rules: {
-    "order/order": selectorOrdering,
-    "order/properties-order": propertyOrdering,
+    'order/order': selectorOrdering,
+    'order/properties-order': propertyOrdering,
   },
 }
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 
-import { Message } from '../../../../types/types'
+import { Message } from 'src/types/types'
 
 import styles from './ProblemSpaceChatMessage.module.css'
 

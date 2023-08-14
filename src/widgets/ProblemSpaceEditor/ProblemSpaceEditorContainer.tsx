@@ -1,11 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 
-import { api } from '../../api'
-import { trainingSessionId } from '../../constants/training-session-id'
-import { getRunId } from '../../helpers/getRunId'
-import { CodeHandler, ControlTakenHandler, socket } from '../../sockets'
-import { useGetControlUserQuery, useGetYandexUserQuery } from '../../store/api/api'
+import { socket } from '@sockets/socket'
+import { CodeHandler, ControlTakenHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { useGetControlUserQuery, useGetYandexUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
 import { ProblemSpaceEditor } from './ProblemSpaceEditor'
 
 export const ProblemSpaceEditorContainer: FC = () => {

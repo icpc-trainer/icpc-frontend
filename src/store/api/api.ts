@@ -1,15 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
-import { urls } from '../../constants/urls'
-import { getCookie } from '../../helpers/getCookie'
-import { setCookie } from '../../helpers/setCookie'
-import { SubmissionFull, YandexUser } from '../../types/types'
+import { urls } from '@constants/urls'
+import { getCookie } from '@helpers/getCookie'
+import { setCookie } from '@helpers/setCookie'
+
+import { SubmissionFull, YandexUser } from 'src/types/types'
 
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: urls.openApiUrl,
-    prepareHeaders: (headers) => {
+    prepareHeaders: headers => {
       const urlParams = new URLSearchParams(window.location.hash)
       const accessToken = urlParams.get('#access_token')
 
@@ -31,14 +32,14 @@ export const api = createApi({
       return headers
     },
   }),
-  endpoints: (build) => ({
+  endpoints: build => ({
     getYandexUser: build.query<YandexUser, void>({
       query: () => ({
         url: 'user/me',
       }),
     }),
     getControlUser: build.query<{ userId: string }, string>({
-      query: (trainingSessionId) => ({
+      query: trainingSessionId => ({
         url: `/training-sessions/${trainingSessionId}/control/current`,
       }),
     }),

@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+
 import React, { useState } from 'react'
 
 import { Arrow } from '../../../../ui/icons/Arrow'
@@ -8,7 +9,7 @@ import styles from './ProblemSpaceEditorSelect.module.css'
 
 export const ProblemSpaceEditorSelect = () => {
   const [isSelectOpen, setSelectOpen] = useState<boolean>(false)
-  const onToggleSelect = () => setSelectOpen((prevState) => !prevState)
+  const onToggleSelect = () => setSelectOpen(prevState => !prevState)
 
   const selectOptionsClassName = classnames({
     [styles.selectOptions]: true,

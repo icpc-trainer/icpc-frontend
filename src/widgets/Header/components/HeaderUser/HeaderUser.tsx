@@ -1,10 +1,9 @@
-import * as React from 'react'
-import { FC } from 'react'
+import React, { FC } from 'react'
 
-import { getAvatarUrl } from '../../../../helpers/getAvatarUrl'
-import { YandexUser } from '../../../../types/types'
-import { KeyboardOff } from '../../../../ui/icons/KeyboardOff'
-import { KeyboardOn } from '../../../../ui/icons/KeyboardOn'
+import { getAvatarUrl } from '@helpers/getAvatarUrl'
+
+import { YandexUser } from 'src/types/types'
+
 import { ControlStatus } from '../ControlStatus/ControlStatus'
 
 import styles from './HeaderUser.module.css'

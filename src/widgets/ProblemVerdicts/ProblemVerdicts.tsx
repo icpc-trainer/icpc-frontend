@@ -1,11 +1,14 @@
 import classnames from 'classnames'
+
 import React, { FC, useRef, useState } from 'react'
 import { Transition } from 'react-transition-group'
 
-import { Submission } from '../../types/types'
-import { Loading } from '../../ui/Loading/Loading'
-import { IColumnType, Table } from '../../ui/Table/Table'
-import { Arrow } from '../../ui/icons/Arrow'
+import { Arrow } from '@icons/Arrow'
+import { Loading } from '@ui/Loading/Loading'
+import { IColumnType, Table } from '@ui/Table/Table'
+
+import { Submission } from 'src/types/types'
+
 import { ProblemVerdict } from './components/ProblemVerdict/ProblemVerdict'
 
 import styles from './ProblemVerdicts.module.css'
@@ -90,7 +93,7 @@ export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
     <div className={styles.ProblemVerdicts}>
       <Table<Submission> data={verdicts} columns={columns} />
       <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={500}>
-        {(state) => <ProblemVerdict state={state} solutionId={solutionId} goBack={(flag) => setDetailsOpen(flag)} />}
+        {state => <ProblemVerdict state={state} solutionId={solutionId} goBack={flag => setDetailsOpen(flag)} />}
       </Transition>
     </div>
   )

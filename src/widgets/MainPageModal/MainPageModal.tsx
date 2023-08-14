@@ -40,7 +40,7 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
   const teams = [{ name: 'Команда_ЛШЯ_2023', id: 1 }]
 
   return (
-    <div className={styles.modal} ref={ref} onClick={(e) => e.preventDefault()}>
+    <div className={styles.modal} ref={ref} onClick={e => e.preventDefault()}>
       <div className={styles.modalHeader}>
         <p className={styles.modalTitle}>Выберите команду</p>
         <p className={styles.exit} onClick={() => setIsModalOpen(false)}>
@@ -48,7 +48,7 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
         </p>
       </div>
       <div className={styles.teams}>
-        {teams.map((team) => {
+        {teams.map(team => {
           return (
             <div className={styles.team} key={team.id}>
               <span>{team.name}</span>

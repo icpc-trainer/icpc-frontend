@@ -1,13 +1,14 @@
-import './ProblemDescription.css'
-import * as React from 'react'
-import { FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 
-import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
-import { Loading } from '../../ui/Loading/Loading'
-import { ProblemVerdictsContainer } from '../ProblemVerdicts/ProblemVerdictsContainer'
+import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
+import { Loading } from '@ui/Loading/Loading'
+import { ProblemVerdictsContainer } from '@widgets/ProblemVerdicts/ProblemVerdictsContainer'
+
 import { ProblemStatusContainer } from './components/ProblemStatus/ProblemStatusContainer'
 
 import styles from './ProblemSpaceDescription.module.css'
+
+import './ProblemDescription.css'
 
 interface Props {
   currentProblemDescription: string
@@ -54,7 +55,7 @@ export const ProblemSpaceDescription: FC<Props> = ({ currentProblemDescription, 
 
   const imgs = descHtml.querySelectorAll('img')
 
-  imgs.forEach((img) => {
+  imgs.forEach(img => {
     const src = img.getAttribute('src')
     img.setAttribute('src', `https://contest.yandex.ru${src}`)
     img.classList.add('problemDescriptionImg')

@@ -1,4 +1,4 @@
-import { Message, Submission, YandexUser } from '../types/types'
+import { Message, Submission, YandexUser } from 'src/types/types'
 
 export enum Types {
   Message = 'PROBLEM_COMMENT_RECEIVED',

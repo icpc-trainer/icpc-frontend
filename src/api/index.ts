@@ -1,11 +1,13 @@
 import axios, { AxiosInstance } from 'axios'
 
-import { urls } from '../constants/urls'
-import { checkAuthorizationToken } from '../helpers/checkAuthorizationToken'
-import { configInterceptor } from '../helpers/configInterceptor'
-import { errorInterceptor } from '../helpers/errorInterceptor'
-import { Submission } from '../types/types'
-import { createFile } from '../utils/createFile'
+import { urls } from '@constants/urls'
+import { checkAuthorizationToken } from '@helpers/checkAuthorizationToken'
+import { configInterceptor } from '@helpers/configInterceptor'
+import { errorInterceptor } from '@helpers/errorInterceptor'
+import { createFile } from '@utils/createFile'
+
+import { Submission } from 'src/types/types'
+
 import { PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,

@@ -1,15 +1,16 @@
 import classNames from 'classnames'
-import React from 'react'
 
-import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
-import { Arrow } from '../../ui/icons/Arrow'
-import { Check } from '../../ui/icons/Check'
-import { User } from '../../ui/icons/User'
+import React, { useState } from 'react'
+
+import { Arrow } from '@icons/Arrow'
+import { Check } from '@icons/Check'
+import { User } from '@icons/User'
+import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 
 import styles from './Lobby.module.css'
 
 const Lobby = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const toggleDropdown = () => setIsOpen(!isOpen)
 
   return (

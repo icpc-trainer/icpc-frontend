@@ -1,10 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { api } from '../../api'
-import { trainingSessionId } from '../../constants/training-session-id'
-import { VerdictRetrievedHandler, socket } from '../../sockets'
-import { Submission } from '../../types/types'
+import { socket } from '@sockets/socket'
+import { VerdictRetrievedHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { Submission } from 'src/types/types'
+
 import { ProblemVerdicts } from './ProblemVerdicts'
 
 export const ProblemVerdictsContainer: FC = () => {
@@ -12,14 +17,14 @@ export const ProblemVerdictsContainer: FC = () => {
 
   const [verdicts, setVerdicts] = useState<Submission[]>([])
 
-  const verdictRetrievedEventHandler: VerdictRetrievedHandler = (newVerdict) => {
-    setVerdicts((prev) => {
+  const verdictRetrievedEventHandler: VerdictRetrievedHandler = newVerdict => {
+    setVerdicts(prev => {
       const currVerdict = prev.find(({ id }) => id === newVerdict.id)
 
       if (!currVerdict) {
         return [newVerdict, ...prev]
       } else {
-        return prev.map((verdict) => (verdict.id === newVerdict.id ? newVerdict : verdict))
+        return prev.map(verdict => (verdict.id === newVerdict.id ? newVerdict : verdict))
       }
     })
   }

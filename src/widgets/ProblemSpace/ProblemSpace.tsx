@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from 'react'
+import React from 'react'
 
-import { ProblemSpaceChatContainer } from '../ProblemSpaceChat/ProblemSpaceChatContainer'
-import { ProblemSpaceDescriptionContainer } from '../ProblemSpaceDescription/ProblemSpaceDescriptionContainer'
-import { ProblemSpaceEditorContainer } from '../ProblemSpaceEditor/ProblemSpaceEditorContainer'
-import { ProblemSpaceListContainer } from '../ProblemSpaceList/ProblemSpaceListContainer'
+import { ProblemSpaceChatContainer } from '@widgets/ProblemSpaceChat/ProblemSpaceChatContainer'
+import { ProblemSpaceDescriptionContainer } from '@widgets/ProblemSpaceDescription/ProblemSpaceDescriptionContainer'
+import { ProblemSpaceEditorContainer } from '@widgets/ProblemSpaceEditor/ProblemSpaceEditorContainer'
+import { ProblemSpaceListContainer } from '@widgets/ProblemSpaceList/ProblemSpaceListContainer'
 
 import styles from './ProblemSpace.module.css'
 

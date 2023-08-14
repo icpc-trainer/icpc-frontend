@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { api } from '../../../../api'
-import { trainingSessionId } from '../../../../constants/training-session-id'
-import { ProblemStatusUpdatedHandler, socket } from '../../../../sockets'
+import { socket } from '@sockets/socket'
+import { ProblemStatusUpdatedHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
 import { ProblemStatus } from './ProblemStatus'
 
 export const ProblemStatusContainer = () => {

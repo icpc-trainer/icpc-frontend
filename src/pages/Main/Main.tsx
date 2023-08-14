@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 
-import { MainPageModal } from '../../widgets/MainPageModal/MainPageModal'
+import { MainPageModal } from '@widgets/MainPageModal/MainPageModal'
 
 import styles from './Main.module.css'
 

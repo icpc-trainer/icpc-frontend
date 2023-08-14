@@ -1,4 +1,3 @@
-import classnames from 'classnames'
 import React, { FC } from 'react'
 
 import { Button } from '../../../../ui/Button/Button'

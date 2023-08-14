@@ -19,20 +19,23 @@
       {
         "name": "typescript-plugin-css-modules"
       }
-    ]
-    // "baseUrl": "./",
-    // "paths": {
-    //   "@icons/*": ["./src/ui/icons/*"],
-    //   "@api/*": ["./src/api/*"],
-    //   "@constants/*": ["./src/constants/*"],
-    //   "@helpers/*": ["./src/helpers/*"],
-    //   "@pages/*": ["./src/pages/*"],
-    //   "@widgets/*": ["./src/widgets/*"],
-    //   "@sockets/*": ["./src/sockets/*"],
-    //   "@store/*": ["./src/store/*"],
-    //   "@ui/*": ["./src/ui/*"],
-    //   "@utils/*": ["./src/utils/*"]
-    // }
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@icons/*": ["./src/ui/icons/*"],
+      "@api/*": ["./src/api/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@widgets/*": ["./src/widgets/*"],
+      "@sockets/*": ["./src/sockets/*"],
+      "@store/*": ["./src/store/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@ui/*": ["./src/ui/*"],
+      "@utils/*": ["./src/utils/*"]
+      // "@types/*": ["./src/types/*"] здесь ошибка в алиасе
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]

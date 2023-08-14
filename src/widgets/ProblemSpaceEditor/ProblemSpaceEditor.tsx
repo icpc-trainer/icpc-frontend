@@ -1,16 +1,15 @@
 import React, { FC, useContext, useEffect } from 'react'
-
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-javascript'
-
 import 'ace-builds/src-noconflict/theme-solarized_dark'
-
 import 'ace-builds/src-noconflict/theme-solarized_light'
 
-import { ThemeContext } from '../../contexts/themeContext'
-import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
-import { Button } from '../../ui/Button/Button'
+import { ThemeContext } from '@contexts/themeContext'
+
+import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
+import { Button } from '@ui/Button/Button'
+
 import { ProblemSpaceEditorSelect } from './components/ProblemSpaceEditorSelect/ProblemSpaceEditorSelect'
 
 import styles from './ProblemSpaceEditor.module.css'
@@ -48,7 +47,7 @@ export const ProblemSpaceEditor: FC<Props> = ({ onCodeChange, codeState, sendCod
         width="100%"
         height="100%"
         showGutter={true}
-        onChange={(code) => onCodeChange(code)}
+        onChange={code => onCodeChange(code)}
         setOptions={{
           useWorker: false,
           fontSize: 14,

@@ -1,40 +1,41 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { api } from '@api/index'
+
+import { trainingSessionId } from '@constants/training-session-id'
+import { useCountdown } from '@hooks/useCountdown'
+import { convertMsToTime } from '@utils/converMsToTime'
+
 import { Timer } from './Timer'
-import { trainingSessionId } from '../../../../constants/training-session-id'
-import { api } from '../../../../api';
-import { contestTimeLeft } from '../../../../utils/contestTimeLeft';
-import { useCountdown } from '../../../../hooks/useCountdown';
-import { convertMsToTime } from '../../../../utils/converMsToTime';
 
 export const TimerContainer = () => {
-    const [contestStatus, setContestStatus] = useState('');
-    const [contestDateCreated, setContestDateCreated] = useState('');
-    const [contestDurationInSec, setContestDurationInSec] = useState<number>(null);
+  const [contestStatus, setContestStatus] = useState('')
+  const [contestDateCreated, setContestDateCreated] = useState('')
+  const [contestDurationInSec, setContestDurationInSec] = useState<number>(null)
 
-    const { secondsLeft, setSecondsLeft } = useCountdown(contestDurationInSec);
+  const { secondsLeft, setSecondsLeft } = useCountdown(contestDurationInSec)
 
-    const contestid = '51004';
+  const contestid = '51004'
 
-    useEffect((()=>{
-        api.getContestStatusAndDate(trainingSessionId)
-            .then(({dt_created, status})=>{
-                setContestStatus(status)
-                setContestDateCreated(dt_created)
-            })
-            .catch(console.log)
-        api.getContestInfo(contestid)
-            .then(({duration})=>{
-                setSecondsLeft(duration)
-            })
-            .catch(console.log)
-    }), [contestDurationInSec])
+  useEffect(() => {
+    api
+      .getContestStatusAndDate(trainingSessionId)
+      .then(({ dt_created, status }) => {
+        setContestStatus(status)
+        setContestDateCreated(dt_created)
+      })
+      .catch(console.log)
+    api
+      .getContestInfo(contestid)
+      .then(({ duration }) => {
+        setSecondsLeft(duration)
+      })
+      .catch(console.log)
+  }, [contestDurationInSec])
 
-    // start()
-    // contestTimeLeft(contestStatus, contestDateCreated, contestDurationInMs)
-    //   return <Timer/>
-    const secondsLeftString = convertMsToTime(secondsLeft)
-    return <Timer secondsLeftString={secondsLeftString}/>
-    
+  // start()
+  // contestTimeLeft(contestStatus, contestDateCreated, contestDurationInMs)
+  //   return <Timer/>
+  const secondsLeftString = convertMsToTime(secondsLeft)
+  return <Timer secondsLeftString={secondsLeftString} />
 }
-
-

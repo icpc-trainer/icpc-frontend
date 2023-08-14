@@ -1,10 +1,13 @@
 import React from 'react'
 
-import { trainingSessionId } from '../../constants/training-session-id'
-import { socket } from '../../sockets'
-import { useGetControlUserQuery, useGetYandexUserQuery } from '../../store/api/api'
-import { HeaderContainer } from '../../widgets/Header/HeaderContainer'
-import { ProblemSpace } from '../../widgets/ProblemSpace/ProblemSpace'
+import { socket } from '@sockets/socket'
+
+import { useGetControlUserQuery, useGetYandexUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+
+import { HeaderContainer } from '@widgets/Header/HeaderContainer'
+import { ProblemSpace } from '@widgets/ProblemSpace/ProblemSpace'
 
 import styles from './WorkSpace.module.css'
 

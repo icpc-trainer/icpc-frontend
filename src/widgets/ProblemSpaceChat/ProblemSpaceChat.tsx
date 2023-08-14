@@ -1,8 +1,9 @@
-import * as React from 'react'
-import { FC } from 'react'
+import React, { useRef, useState } from 'react'
 
-import { Message } from '../../types/types'
-import { BlockWrapper } from '../../ui/BlockWrapper/BlockWrapper'
+import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
+
+import { Message } from 'src/types/types'
+
 import { ProblemSpaceChatMessage } from './components/ProblemSpaceChatMessage/ProblemSpaceChatMessage'
 
 import styles from './ProblemSpaceChat.module.css'
@@ -12,15 +13,15 @@ interface ProblemSpaceChatProps {
   onSendMessage: (message: string) => void
 }
 
-export const ProblemSpaceChat: FC<ProblemSpaceChatProps> = ({ messages, onSendMessage }) => {
-  const [state, setState] = React.useState({
+export const ProblemSpaceChat: React.FC<ProblemSpaceChatProps> = ({ messages, onSendMessage }) => {
+  const [state, setState] = useState({
     message: '',
     rows: 1,
     minRows: 1,
     maxRows: 10,
   })
 
-  const textLog = React.useRef(null)
+  const textLog = useRef(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textareaLineHeight = 24
