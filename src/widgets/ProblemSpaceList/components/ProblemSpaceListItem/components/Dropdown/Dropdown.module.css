@@ -1,0 +1,23 @@
+.arrow {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.open {
+    background: var(--color-white-grey);
+}
+
+.dropdown {
+    display: flex;
+    width: 100%;
+    padding-top: 12px;
+}
+
+.dropdownContainer {
+    position: relative;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}

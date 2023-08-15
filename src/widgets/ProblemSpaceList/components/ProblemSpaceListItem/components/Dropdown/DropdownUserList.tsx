@@ -1,0 +1,28 @@
+import React, { FC } from 'react'
+
+import { GetItemKeyFunction, List, RenderItemFunction } from '@ui/List/List'
+import { OnlineUser } from '@widgets/Header/components/OnlineUser/OnlineUser'
+
+
+import styles from './DropdownUserList.module.css'
+import { IYandexUser } from 'src/types/types'
+import { User } from '@icons/User'
+import { UserDropdown } from '@icons/UserDropdown'
+
+interface DropdownUserListProps {
+    onlineUsers: IYandexUser[]
+}
+
+export const DropdownUserList: FC<DropdownUserListProps> = ({ onlineUsers }) => {
+    const getOnlineUserKey: GetItemKeyFunction<IYandexUser> = user => user.id
+    const renderOnlineUser: RenderItemFunction<IYandexUser> = user => <UserDropdown width={24} height={24} yandexUser={user} />
+
+    return (
+        <List<IYandexUser>
+            data={onlineUsers}
+            getItemKey={getOnlineUserKey}
+            renderItem={renderOnlineUser}
+            listClassName={styles.dropdownUserList}
+        />
+    )
+}
