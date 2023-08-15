@@ -10,5 +10,6 @@
 
   background-color: var(--color-white);
 
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
