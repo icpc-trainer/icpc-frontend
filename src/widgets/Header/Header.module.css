@@ -6,12 +6,6 @@
   column-gap: 20px;
 }
 
-.headerSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .tabs {
   justify-content: start;
 }
@@ -36,20 +30,6 @@
 
 .badgeDisconnected {
   background-color: var(--color-red-light);
-}
-
-.users {
-  display: flex;
-
-  column-gap: 14px;
-}
-
-.takeControlButtonContainer {
-  margin: 0 0 0 22px;
-}
-
-.takeControlButtonContainer:disabled {
-  background-color: var(--color-green-light);
 }
 
 .timer {

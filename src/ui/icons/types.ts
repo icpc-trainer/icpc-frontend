@@ -1,5 +1,3 @@
-import React from 'react'
-
 export interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
   /**
    * Цвет иконки

@@ -1,15 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
-import { urls } from '../../constants/urls'
-import { getCookie } from '../../helpers/getCookie'
-import { setCookie } from '../../helpers/setCookie'
-import { SubmissionFull, YandexUser } from '../../types/types'
+import { urls } from '@constants/urls'
+import { getCookie } from '@helpers/getCookie'
+import { setCookie } from '@helpers/setCookie'
+
+import { ISubmissionFull, IYandexUser } from 'src/types/types'
 
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: urls.openApiUrl,
-    prepareHeaders: (headers) => {
+    prepareHeaders: headers => {
       const urlParams = new URLSearchParams(window.location.hash)
       const accessToken = urlParams.get('#access_token')
 
@@ -31,18 +32,18 @@ export const api = createApi({
       return headers
     },
   }),
-  endpoints: (build) => ({
-    getYandexUser: build.query<YandexUser, void>({
+  endpoints: build => ({
+    getCurrentUser: build.query<IYandexUser, void>({
       query: () => ({
         url: 'user/me',
       }),
     }),
     getControlUser: build.query<{ userId: string }, string>({
-      query: (trainingSessionId) => ({
+      query: trainingSessionId => ({
         url: `/training-sessions/${trainingSessionId}/control/current`,
       }),
     }),
-    getSubmissionFull: build.query<SubmissionFull, { trainingSessionId: string; submissionId: number }>({
+    getSubmissionFull: build.query<ISubmissionFull, { trainingSessionId: string; submissionId: number }>({
       query: ({ trainingSessionId, submissionId }) => ({
         url: `/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`,
       }),
@@ -50,4 +51,4 @@ export const api = createApi({
   }),
 })
 
-export const { useGetYandexUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api
+export const { useGetCurrentUserQuery: useGetCurrentUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api

@@ -1,17 +1,20 @@
 import classnames from 'classnames'
+
 import React, { FC, useRef, useState } from 'react'
 import { Transition } from 'react-transition-group'
 
-import { Submission } from '../../types/types'
-import { Loading } from '../../ui/Loading/Loading'
-import { IColumnType, Table } from '../../ui/Table/Table'
-import { Arrow } from '../../ui/icons/Arrow'
+import { Arrow } from '@icons/Arrow'
+import { Loading } from '@ui/Loading/Loading'
+import { IColumnType, Table } from '@ui/Table/Table'
+
+import { ISubmission } from 'src/types/types'
+
 import { ProblemVerdict } from './components/ProblemVerdict/ProblemVerdict'
 
 import styles from './ProblemVerdicts.module.css'
 
 export interface ProblemVerdictsProps {
-  verdicts: Submission[]
+  verdicts: ISubmission[]
 }
 
 export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
@@ -26,7 +29,7 @@ export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
 
   const nodeRef = useRef(null)
 
-  const columns: IColumnType<Submission>[] = [
+  const columns: IColumnType<ISubmission>[] = [
     {
       key: 'time',
       title: 'Время',
@@ -88,9 +91,9 @@ export const ProblemVerdicts: FC<ProblemVerdictsProps> = ({ verdicts }) => {
 
   return (
     <div className={styles.ProblemVerdicts}>
-      <Table<Submission> data={verdicts} columns={columns} />
+      <Table<ISubmission> data={verdicts} columns={columns} />
       <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={500}>
-        {(state) => <ProblemVerdict state={state} solutionId={solutionId} goBack={(flag) => setDetailsOpen(flag)} />}
+        {state => <ProblemVerdict state={state} solutionId={solutionId} goBack={flag => setDetailsOpen(flag)} />}
       </Transition>
     </div>
   )

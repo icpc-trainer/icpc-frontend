@@ -1,6 +1,7 @@
 import { InternalAxiosRequestConfig } from 'axios'
 
-import { urls } from '../constants/urls'
+import { urls } from '@constants/urls'
+
 import { getCookie } from './getCookie'
 import { setCookie } from './setCookie'
 

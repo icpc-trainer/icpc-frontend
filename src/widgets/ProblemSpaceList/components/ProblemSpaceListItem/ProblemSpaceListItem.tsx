@@ -1,19 +1,16 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
-import { FC } from 'react'
+
+import React, { FC, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { ProblemStatusUpdatedHandler } from '../../../../sockets'
-import { Problem } from '../../../../types/types'
-import { Arrow } from '../../../../ui/icons/Arrow'
-import { User } from '../../../../ui/icons/User'
+import { IProblem } from 'src/types/types'
 
 import styles from './ProblemSpaceListItem.module.css'
 
 interface ProblemSpaceListProps {
   className?: string
-  problem: Problem
-  handleProblemSpaceClick: (problem: Problem) => void
+  problem: IProblem
+  handleProblemSpaceClick: (problem: IProblem) => void
 }
 export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick }) => {
   const { alias } = useParams()

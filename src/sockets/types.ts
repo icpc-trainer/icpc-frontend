@@ -1,4 +1,4 @@
-import { Message, Submission, YandexUser } from '../types/types'
+import { IMessage, ISubmission, IYandexUser } from 'src/types/types'
 
 export enum Types {
   Message = 'PROBLEM_COMMENT_RECEIVED',
@@ -16,7 +16,7 @@ export interface Payload {
   problemAlias?: string
 }
 
-export type MessagePayload = Message
+export type MessagePayload = IMessage
 
 export interface CodePayload extends Payload {
   code: string
@@ -27,10 +27,10 @@ export interface ControlTakenPayload extends Payload {
   userId: string
 }
 
-export type VerdictRetrievedPayload = Submission
+export type VerdictRetrievedPayload = ISubmission
 
 export interface UserPayload extends Payload {
-  user: YandexUser
+  user: IYandexUser
 }
 
 export interface UserLeavePayload extends Payload {

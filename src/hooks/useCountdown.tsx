@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
-import { convertMsToTime } from "../utils/converMsToTime";
+import { useEffect, useState } from 'react'
 
-export const useCountdown = (seconds:number) => {
-    const [secondsLeft, setSecondsLeft] = useState(seconds)
+export const useCountdown = (seconds: number) => {
+  const [secondsLeft, setSecondsLeft] = useState(seconds)
 
-    useEffect(() => {
-        if (secondsLeft <= 0) return
+  useEffect(() => {
+    if (secondsLeft <= 0) return
 
-        const timeout = setTimeout(() => {
-            setSecondsLeft(secondsLeft - 1)
-        }, 1000)
+    const timeout = setTimeout(() => {
+      setSecondsLeft(secondsLeft - 1)
+    }, 1000)
 
-        return () => clearTimeout(timeout)
-    }, [secondsLeft])
+    return () => clearTimeout(timeout)
+  }, [secondsLeft])
 
-    return { secondsLeft, setSecondsLeft }
+  return { secondsLeft, setSecondsLeft }
 }

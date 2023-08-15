@@ -1,6 +1,8 @@
-import { trainingSessionId } from '../constants/training-session-id'
-import { urls } from '../constants/urls'
-import { YandexUser } from '../types/types'
+import { trainingSessionId } from '@constants/training-session-id'
+import { urls } from '@constants/urls'
+
+import { IYandexUser } from 'src/types/types'
+
 import {
   CodeHandler,
   CodePayload,
@@ -9,7 +11,6 @@ import {
   Data,
   Handler,
   Handlers,
-  initialHandlers,
   MessageHandler,
   ProblemStatusUpdatedHandler,
   Type,
@@ -17,6 +18,7 @@ import {
   UserHandler,
   UserLeaveHandler,
   VerdictRetrievedHandler,
+  initialHandlers,
 } from './types'
 
 class Socket {
@@ -27,7 +29,7 @@ class Socket {
 
   constructor() {}
 
-  public init(user: YandexUser) {
+  public init(user: IYandexUser) {
     if (!this.initialized) {
       this.client = new WebSocket(`${urls.websocket}?training_session_id=${trainingSessionId}&user_id=${user.id}`)
 
@@ -40,7 +42,7 @@ class Socket {
         console.log(JSON.parse(evt.data))
 
         if (this.handlers[type]) {
-          this.handlers[type].forEach((handler) => handler(payload))
+          this.handlers[type].forEach(handler => handler(payload))
         }
       }
 

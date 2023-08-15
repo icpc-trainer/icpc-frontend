@@ -1,0 +1,15 @@
+.message {
+  width: 100%;
+  padding: 8px;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  border-radius: 8px;
+
+  background-color: var(--color-white-grey);
+}
+
+.message::first-letter {
+  color: red;
+}

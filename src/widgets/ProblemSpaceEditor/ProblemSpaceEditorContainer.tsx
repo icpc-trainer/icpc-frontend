@@ -1,74 +1,53 @@
 import React, { FC, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 
-import { api } from '../../api'
-import { trainingSessionId } from '../../constants/training-session-id'
-import { getRunId } from '../../helpers/getRunId'
-import { CodeHandler, ControlTakenHandler, socket } from '../../sockets'
-import { useGetControlUserQuery, useGetYandexUserQuery } from '../../store/api/api'
+import { socket } from '@sockets/socket'
+import { CodeHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { useGetCurrentUserQuery } from '@store/api/api'
+
+import { trainingSessionId } from '@constants/training-session-id'
+import { CodeContext } from '@contexts/codeContext'
+
 import { ProblemSpaceEditor } from './ProblemSpaceEditor'
 
 export const ProblemSpaceEditorContainer: FC = () => {
-  const { data: currentUser } = useGetYandexUserQuery()
-  const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
-
-  const [codeState, setCodeState] = useState<string>('')
-  const [isEditorDisabled, setIsEditorDisabled] = useState<boolean>(controlUser.userId !== currentUser.id)
+  const [code, setCode] = useState<string>('')
 
   const { alias } = useParams()
 
-  const { data: user } = useGetYandexUserQuery()
+  const { data: currentUser } = useGetCurrentUserQuery()
 
-  const fetchSubmissionDetails = async (runId: number) => {
-    try {
-      const res = await api.getSubmissionsFull(trainingSessionId, runId)
-      console.log(res)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const sendCode = async (code: string) => {
+  const onSendCode = () => {
     api.postSubmissions(trainingSessionId, code, 'nodejs_18', alias).then(console.log).catch(console.log)
   }
 
   const onCodeChange = (code: string) => {
-    setCodeState(code)
+    setCode(code)
 
-    socket.sendCode({ code, problemAlias: alias, userId: user.id })
+    socket.sendCode({ code, problemAlias: alias, userId: currentUser.id })
   }
 
   const codeEventHandler: CodeHandler = ({ code, userId, problemAlias }) => {
-    if (userId !== user.id && problemAlias === alias) {
-      setCodeState(code)
+    if (userId !== currentUser.id && problemAlias === alias) {
+      setCode(code)
     }
-  }
-
-  const controlTakenHandler: ControlTakenHandler = ({ userId }) => {
-    setIsEditorDisabled(userId !== user.id)
   }
 
   useEffect(() => {
     api
       .getCodeByAlias(trainingSessionId, alias)
-      .then(({ code }) => setCodeState(code))
+      .then(({ code }) => setCode(code))
       .catch(console.log)
 
-    const editorUnsubscribe = socket.subscribeEditor(codeEventHandler)
-    const controlTakenUnsubscribe = socket.subscribeControlTaken(controlTakenHandler)
-
-    return () => {
-      editorUnsubscribe()
-      controlTakenUnsubscribe()
-    }
+    return socket.subscribeEditor(codeEventHandler)
   }, [alias])
 
   return (
-    <ProblemSpaceEditor
-      onCodeChange={onCodeChange}
-      codeState={codeState}
-      sendCode={sendCode}
-      isEditorDisabled={isEditorDisabled}
-    />
+    <CodeContext.Provider value={{ code, onSendCode, onCodeChange }}>
+      <ProblemSpaceEditor />
+    </CodeContext.Provider>
   )
 }

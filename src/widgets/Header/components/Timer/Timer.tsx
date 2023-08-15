@@ -14,3 +14,4 @@ export const Timer:FC<TimerProps> = ({secondsLeftString}) => {
     </div>
   )
 }
+
