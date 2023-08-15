@@ -31,13 +31,21 @@ export const ProblemSpaceListContainer: FC = () => {
         if (problem.alias === problemAlias) {
           return { ...problem, status }
         }
-
         return problem
       }),
     )
   }
 
-  const problemAssignedEventHandler: ProblemAssignedHandler = ({ user, problemAlias }) => {}
+  const problemAssignedEventHandler: ProblemAssignedHandler = ({ user, problemAlias }) => {
+    setProblems(prev =>
+      prev.map(problem => {
+        if (problem.alias === problemAlias) {
+          return { ...problem, assignedUser:user }
+        }
+        return problem
+      }),
+    )
+  }
 
   useEffect(() => {
     api
@@ -55,9 +63,7 @@ export const ProblemSpaceListContainer: FC = () => {
       socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
       socket.subscribeProblemAssigned(problemAssignedEventHandler)
     }
-  }, [])
-
-  console.log(problems)
+  }, [problems])
 
   return (
     <ProblemSpaceList

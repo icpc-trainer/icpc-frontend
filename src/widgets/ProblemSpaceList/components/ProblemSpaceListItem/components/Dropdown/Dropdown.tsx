@@ -29,9 +29,6 @@ export const Dropdown: FC<ProblemSpaceListProps> = ({ isOpen, toggleDropdown }) 
 
       {isOpen && (
         <div className={styles.dropdown}>
-          <div className={styles.user}>
-            <User width={24} height={24} color={'var(--color-black-typo-primary)'} />
-          </div>
           <DropdownUserListContainer />
         </div>
       )}
