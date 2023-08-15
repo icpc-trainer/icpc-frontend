@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 
-import { useGetYandexUserQuery } from '@store/api/api'
+import { useGetCurrentUserQuery } from '@store/api/api'
 
 import { ThemeContext } from '@contexts/themeContext'
 
@@ -14,7 +14,7 @@ import { WorkSpace } from '@pages/WorkSpace/WorkSpace'
 const queryClient = new QueryClient()
 
 const App = () => {
-  const { data } = useGetYandexUserQuery()
+  const { data } = useGetCurrentUserQuery()
   const { theme } = useContext(ThemeContext)
 
   const root = document.getElementById('root') as HTMLElement

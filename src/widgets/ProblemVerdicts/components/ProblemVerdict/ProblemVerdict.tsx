@@ -10,11 +10,11 @@ import { Arrow } from '@icons/Arrow'
 import { Accordion } from '@ui/Accordion/Accordion'
 import { IColumnType, Table } from '@ui/Table/Table'
 
-import { Submission, SubmissionChecker } from 'src/types/types'
+import { ISubmission, ISubmissionChecker } from 'src/types/types'
 
 import styles from './ProblemVerdict.module.css'
 
-const verdicts: Submission[] = [
+const verdicts: ISubmission[] = [
   {
     timeFromStart: 10000000,
     verdict: 'OK',
@@ -30,7 +30,7 @@ const verdicts: Submission[] = [
   },
 ]
 
-const columns: IColumnType<Submission>[] = [
+const columns: IColumnType<ISubmission>[] = [
   {
     key: 'time',
     title: 'Время',
@@ -61,7 +61,7 @@ const columns: IColumnType<Submission>[] = [
   },
 ]
 
-const testColumns: IColumnType<SubmissionChecker>[] = [
+const testColumns: IColumnType<ISubmissionChecker>[] = [
   {
     key: 'sequenceNumber',
     title: '№',
@@ -112,7 +112,7 @@ export const ProblemVerdict = ({
   if (!data) return null
   console.log(data)
 
-  const verdicts: Submission[] = [
+  const verdicts: ISubmission[] = [
     {
       timeFromStart: 10000000,
       verdict: data.verdict,
@@ -161,11 +161,11 @@ export const ProblemVerdict = ({
       </div>
       <div className={styles.detailsContent}>
         <div className={styles.detailsTable}>
-          <Table<Submission> data={verdicts} columns={columns} />
+          <Table<ISubmission> data={verdicts} columns={columns} />
         </div>
         <div className={styles.detailsInfo}>
           <Accordion title={'Тесты'}>
-            <Table<SubmissionChecker> data={data.checkerLog} columns={testColumns} />
+            <Table<ISubmissionChecker> data={data.checkerLog} columns={testColumns} />
           </Accordion>
           <Accordion title={'Исходный код'}>
             <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>

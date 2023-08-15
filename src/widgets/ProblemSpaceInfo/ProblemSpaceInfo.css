@@ -1,0 +1,97 @@
+.problem-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  color: var(--color-black-typo-primary);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.problem-statement h2,
+.problem-statement h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.property-title {
+  color: var(--color-grey-secondary);
+  font-size: 14px;
+}
+
+.problem-statement td {
+  padding: 2px 0px;
+
+  color: var(--color-grey-secondary);
+  font-size: 14px;
+}
+
+.legend,
+.input-specification,
+.output-specification,
+.notes {
+  font-size: 14px;
+  line-height: 20px;
+}
+.legend p,
+.input-specification p,
+.output-specification p,
+.notes p {
+  padding: 4px 0px;
+}
+
+.sample-tests {
+  width: 100%;
+  margin: 0px -8px;
+
+  border-spacing: 8px 0px;
+}
+.sample-tests thead {
+  text-align: left;
+}
+
+.sample-tests th {
+  padding-bottom: 8px;
+
+  font-weight: 500;
+}
+.sample-tests td {
+  width: 50%;
+  padding: 8px;
+
+  font-weight: 500;
+
+  border-radius: 4px;
+
+  background-color: var(--color-white-grey);
+}
+
+.problem-statement ul {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 4px;
+}
+
+.problem-statement ul li {
+  padding: 2px 0px;
+
+  list-style: inside;
+}
+
+.problemDescriptionImg {
+  height: auto;
+  max-width: 100%;
+  margin-top: 8px;
+}

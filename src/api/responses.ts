@@ -1,7 +1,7 @@
-import { Message, Problem, Submission, YandexUser } from 'src/types/types'
+import { IMessage, IProblem, ISubmission, IYandexUser } from 'src/types/types'
 
 export interface GetProblemsResponse {
-  problems: Problem[]
+  problems: IProblem[]
 }
 
 export type GetProblemStatementResponse = string
@@ -10,13 +10,13 @@ export interface GetCodeByAliasResponse {
   code: string
 }
 
-export type GetMessagesByAliasResponse = Message[]
+export type GetMessagesByAliasResponse = IMessage[]
 
 export interface GetYandexUsersOnlineResponse {
-  users: YandexUser[]
+  users: IYandexUser[]
 }
 
-export interface GetSubmissionsByAliasResponse {
+export interface GetVerdictsByAliasResponse {
   count: number
-  submissions: Submission[]
+  submissions: ISubmission[]
 }

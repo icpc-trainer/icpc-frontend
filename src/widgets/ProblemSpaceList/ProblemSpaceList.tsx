@@ -2,15 +2,15 @@ import React, { FC } from 'react'
 
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 
-import { Problem, Problems } from 'src/types/types'
+import { IProblem } from 'src/types/types'
 
 import { ProblemSpaceListItem } from './components/ProblemSpaceListItem/ProblemSpaceListItem'
 
 import styles from './ProblemSpaceList.module.css'
 
 interface Props {
-  problems: Problems
-  handleProblemSpaceClick: (problem: Problem) => void
+  problems: IProblem[]
+  handleProblemSpaceClick: (problem: IProblem) => void
   contestId: string
   currentAlias: string
 }

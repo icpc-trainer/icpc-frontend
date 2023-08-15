@@ -1,7 +1,7 @@
 import { trainingSessionId } from '@constants/training-session-id'
 import { urls } from '@constants/urls'
 
-import { YandexUser } from 'src/types/types'
+import { IYandexUser } from 'src/types/types'
 
 import {
   CodeHandler,
@@ -29,7 +29,7 @@ class Socket {
 
   constructor() {}
 
-  public init(user: YandexUser) {
+  public init(user: IYandexUser) {
     if (!this.initialized) {
       this.client = new WebSocket(`${urls.websocket}?training_session_id=${trainingSessionId}&user_id=${user.id}`)
 
