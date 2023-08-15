@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
 
-import { Button } from '../../../../ui/Button/Button'
+import { Button } from '@ui/Button/Button'
 
 import styles from './ControlButton.module.css'
 
 interface Props {
-  isActive: boolean
+  isDisabled: boolean
   onTakeControl: () => void
 }
 
-export const ControlButton: FC<Props> = ({ isActive, onTakeControl }) => {
-  const controlButtonTitle = isActive ? 'Вы управляющий' : 'Взять управление'
+export const ControlButton: FC<Props> = ({ isDisabled, onTakeControl }) => {
+  const controlButtonTitle = isDisabled ? 'Вы управляющий' : 'Взять управление'
 
   return (
     <div>
@@ -19,7 +19,7 @@ export const ControlButton: FC<Props> = ({ isActive, onTakeControl }) => {
         title={controlButtonTitle}
         type="button"
         onClick={onTakeControl}
-        disabled={isActive}
+        disabled={isDisabled}
       />
     </div>
   )

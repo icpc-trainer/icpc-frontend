@@ -8,14 +8,14 @@ import { api } from '@api/index'
 
 import { trainingSessionId } from '@constants/training-session-id'
 
-import { Submission } from 'src/types/types'
+import { ISubmission } from 'src/types/types'
 
 import { ProblemVerdicts } from './ProblemVerdicts'
 
 export const ProblemVerdictsContainer: FC = () => {
   const { alias } = useParams()
 
-  const [verdicts, setVerdicts] = useState<Submission[]>([])
+  const [verdicts, setVerdicts] = useState<ISubmission[]>([])
 
   const verdictRetrievedEventHandler: VerdictRetrievedHandler = newVerdict => {
     setVerdicts(prev => {

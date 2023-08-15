@@ -6,15 +6,13 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { Submission } from 'src/types/types'
-
 import { PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetMessagesByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
-  GetSubmissionsByAliasResponse,
+  GetVerdictsByAliasResponse,
   GetYandexUsersOnlineResponse,
 } from './responses'
 
@@ -35,7 +33,6 @@ class Api {
     return this.client.post(url, body, { params })
   }
 
-  // TODO: типизировать после реализации
   getSaveContests(contestId: string) {
     // каждый раз дергать для нового контеста (он сохраняется в бд)
     return this.get(`contests/${contestId}`)
@@ -57,7 +54,6 @@ class Api {
     return this.post<PostSubmissionsRequest>(`/training-sessions/${trainingSessionId}/submissions`, formData)
   }
 
-  // TODO: типизировать после реализации
   getSubmissions(trainingSessionId: string, submissionId: number) {
     return this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}`)
   }
@@ -68,11 +64,6 @@ class Api {
 
   getContestInfo(contestId: string) {
     return this.get(`/contests/${contestId}`)
-  }
-
-  // TODO: типизировать после реализации
-  getSubmissionsFull(trainingSessionId: string, submissionId: number) {
-    return this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`)
   }
 
   getCodeByAlias(trainingSessionId: string, problemAlias: string) {
@@ -92,18 +83,12 @@ class Api {
     )
   }
 
-  async getYandexUsersOnline(trainingSessionId: string) {
+  async getOnlineUsers(trainingSessionId: string) {
     return (await this.get<GetYandexUsersOnlineResponse>(`training-sessions/${trainingSessionId}/online`)).users
   }
 
-  getSubmissionsByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<GetSubmissionsByAliasResponse>(
-      `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
-    )
-  }
-
   getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<{ count: number; submissions: Submission[] }>(
+    return this.get<GetVerdictsByAliasResponse>(
       `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
     )
   }

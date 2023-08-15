@@ -8,12 +8,12 @@ import { api } from '@api/index'
 
 import { trainingSessionId } from '@constants/training-session-id'
 
-import { Problem } from 'src/types/types'
+import { IProblem } from 'src/types/types'
 
 import { ProblemSpaceList } from './ProblemSpaceList'
 
 export const ProblemSpaceListContainer: FC = () => {
-  const [problems, setProblems] = useState<Problem[]>([])
+  const [problems, setProblems] = useState<IProblem[]>([])
 
   const { alias } = useParams()
 
@@ -21,7 +21,7 @@ export const ProblemSpaceListContainer: FC = () => {
 
   const contestId = '51004' // мокаем contestId
 
-  const handleProblemSpaceClick = useCallback((problem: Problem) => {
+  const handleProblemSpaceClick = useCallback((problem: IProblem) => {
     navigate(`/workspace/${contestId}/${problem.alias}`)
   }, [])
 

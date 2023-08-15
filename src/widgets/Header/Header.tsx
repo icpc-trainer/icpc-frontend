@@ -2,66 +2,34 @@ import classnames from 'classnames'
 
 import React, { FC } from 'react'
 
-import { Button } from '@ui/Button/Button'
 import { ThemeToggle } from '@ui/ThemeToggle/ThemeToggle'
-
-import { YandexUser } from 'src/types/types'
+import { FinishButtonContainer } from '@widgets/Header/components/FinishButton/FinishButtonContainer'
+import { OnlineUserListContainer } from '@widgets/Header/components/OnlineUserList/OnlineUserListContainer'
+import { Section } from '@widgets/Header/components/Section/Section'
 
 import { ControlButtonContainer } from './components/ControlButton/ControlButtonContainer'
-import { HeaderUser } from './components/HeaderUser/HeaderUser'
 import { TimerContainer } from './components/Timer/TimerContainer'
 
 import styles from './Header.module.css'
 
-interface HeaderProps {
-  onTakeControl: () => void
-  yandexUsersOnline: YandexUser[]
-}
-
-export const Header: FC<HeaderProps> = ({ onTakeControl, yandexUsersOnline }) => {
-  // const isTakeControlButtonContainerDisabled = isControlTaken
-  // const controlButtonTitle = isTakeControlButtonContainerDisabled ? "Вы управляющий" : "Взять управление"
-
-  console.log(yandexUsersOnline)
-
+export const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={classnames(styles.headerSection, styles.tabs)}>
+      <Section className={styles.tabs}>
         <span className={classnames(styles.tabItem, styles.tabItemSelected)}>Решение</span>
         <span className={styles.tabItem}>Положение участников</span>
-      </div>
+      </Section>
 
-      <div className={styles.headerSection}>
-        <div className={styles.users}>
-          {yandexUsersOnline.map(user => (
-            <HeaderUser yandexUser={user} key={user.id} />
-          ))}
-        </div>
+      <Section>
+        <OnlineUserListContainer />
         <ControlButtonContainer />
-        {/* <div>
-          <Button
-            className={styles.takeControlButtonContainer}
-            title={controlButtonTitle}
-            type="button"
-            onClick={onTakeControl}
-            disabled={isTakeControlButtonContainerDisabled}
-          />
-        </div> */}
         <ThemeToggle />
-      </div>
+      </Section>
 
-      <div className={styles.headerSection}>
+      <Section>
         <TimerContainer />
-        <div>
-          <Button
-            className={styles.finishButton}
-            title="Завершить тренировку"
-            type="button"
-            onClick={() => {}}
-            disabled={false}
-          />
-        </div>
-      </div>
+        <FinishButtonContainer />
+      </Section>
     </header>
   )
 }

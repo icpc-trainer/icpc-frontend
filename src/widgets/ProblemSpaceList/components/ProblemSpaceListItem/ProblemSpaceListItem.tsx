@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import React, { FC, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { Problem } from 'src/types/types'
+import { IProblem } from 'src/types/types'
 
 import styles from './ProblemSpaceListItem.module.css'
 
 interface ProblemSpaceListProps {
   className?: string
-  problem: Problem
-  handleProblemSpaceClick: (problem: Problem) => void
+  problem: IProblem
+  handleProblemSpaceClick: (problem: IProblem) => void
 }
 export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick }) => {
   const { alias } = useParams()

@@ -2,28 +2,28 @@ import React from 'react'
 
 import { socket } from '@sockets/socket'
 
-import { useGetControlUserQuery, useGetYandexUserQuery } from '@store/api/api'
+import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
 
 import { trainingSessionId } from '@constants/training-session-id'
 
-import { HeaderContainer } from '@widgets/Header/HeaderContainer'
+import { Header } from '@widgets/Header/Header'
 import { ProblemSpace } from '@widgets/ProblemSpace/ProblemSpace'
 
 import styles from './WorkSpace.module.css'
 
 export const WorkSpace = () => {
-  const { data: user } = useGetYandexUserQuery()
+  const { data: currentUser } = useGetCurrentUserQuery()
   const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 
-  socket.init(user)
+  socket.init(currentUser)
 
-  if (!controlUser) {
+  if (!currentUser || !controlUser) {
     return null
   }
 
   return (
     <main className={styles.workspace}>
-      <HeaderContainer />
+      <Header />
 
       <ProblemSpace />
     </main>

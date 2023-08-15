@@ -4,7 +4,7 @@ import { urls } from '@constants/urls'
 import { getCookie } from '@helpers/getCookie'
 import { setCookie } from '@helpers/setCookie'
 
-import { SubmissionFull, YandexUser } from 'src/types/types'
+import { ISubmissionFull, IYandexUser } from 'src/types/types'
 
 export const api = createApi({
   reducerPath: 'api',
@@ -33,7 +33,7 @@ export const api = createApi({
     },
   }),
   endpoints: build => ({
-    getYandexUser: build.query<YandexUser, void>({
+    getCurrentUser: build.query<IYandexUser, void>({
       query: () => ({
         url: 'user/me',
       }),
@@ -43,7 +43,7 @@ export const api = createApi({
         url: `/training-sessions/${trainingSessionId}/control/current`,
       }),
     }),
-    getSubmissionFull: build.query<SubmissionFull, { trainingSessionId: string; submissionId: number }>({
+    getSubmissionFull: build.query<ISubmissionFull, { trainingSessionId: string; submissionId: number }>({
       query: ({ trainingSessionId, submissionId }) => ({
         url: `/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`,
       }),
@@ -51,4 +51,4 @@ export const api = createApi({
   }),
 })
 
-export const { useGetYandexUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api
+export const { useGetCurrentUserQuery: useGetCurrentUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api

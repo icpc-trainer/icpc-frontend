@@ -25,6 +25,7 @@ export const TimerContainer = () => {
         setContestDateCreated(dt_created)
       })
       .catch(console.log)
+
     api
       .getContestInfo(contestid)
       .then(({ duration }) => {

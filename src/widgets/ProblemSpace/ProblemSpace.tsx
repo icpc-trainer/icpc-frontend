@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ProblemSpaceChatContainer } from '@widgets/ProblemSpaceChat/ProblemSpaceChatContainer'
-import { ProblemSpaceDescriptionContainer } from '@widgets/ProblemSpaceDescription/ProblemSpaceDescriptionContainer'
+import { ProblemSpaceChat } from '@widgets/ProblemSpaceChat/ProblemSpaceChat'
 import { ProblemSpaceEditorContainer } from '@widgets/ProblemSpaceEditor/ProblemSpaceEditorContainer'
+import { ProblemSpaceInfo } from '@widgets/ProblemSpaceInfo/ProblemSpaceInfo'
 import { ProblemSpaceListContainer } from '@widgets/ProblemSpaceList/ProblemSpaceListContainer'
 
 import styles from './ProblemSpace.module.css'
@@ -11,8 +11,8 @@ export const ProblemSpace = () => {
   return (
     <div className={styles.problemSpace}>
       <ProblemSpaceListContainer />
-      <ProblemSpaceDescriptionContainer />
-      <ProblemSpaceChatContainer />
+      <ProblemSpaceInfo />
+      <ProblemSpaceChat />
       <ProblemSpaceEditorContainer />
     </div>
   )

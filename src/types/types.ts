@@ -1,30 +1,29 @@
-interface Statement {
+interface IStatement {
   type: string
   locale: string
   path: string
 }
-export interface Limit {
+export interface ILimit {
   compilerName: string
   idlenessLimit: number
   memoryLimit: number
   outputLimit: number
   timeLimit: number
 }
-export interface Problem {
+export interface IProblem {
   alias: string
   compiler: string[]
   description: string
   id: string
-  limits: Limit[]
+  limits: ILimit[]
   name: string
   problemType: string
-  statements: Statement[]
+  statements: IStatement[]
   testCount: number | null
   status: string
 }
-export type Problems = Problem[]
 
-export interface YandexUser {
+export interface IYandexUser {
   client_id: string
   default_avatar_id: string
   default_email: string
@@ -40,7 +39,7 @@ export interface YandexUser {
   sex: string
 }
 
-export interface Message {
+export interface IMessage {
   id: string
   userId: number
   userFirstName: string
@@ -51,7 +50,7 @@ export interface Message {
   dtCreated: string
 }
 
-export interface Submission {
+export interface ISubmission {
   compileLog: string
   compiler: string
   diff: string
@@ -65,8 +64,8 @@ export interface Submission {
   id: number
 }
 
-export interface SubmissionFull {
-  checkerLog: SubmissionChecker[]
+export interface ISubmissionFull {
+  checkerLog: ISubmissionChecker[]
   compileLog: string
   compiler: string
   contestId: number
@@ -76,7 +75,7 @@ export interface SubmissionFull {
   ip: string
   maxMemoryUsage: number
   maxTimeUsage: number
-  participantInfo: SubmissionParticipantInfo
+  participantInfo: ISubmissionParticipantInfo
   postprocessorMessage: string
   precompileChecks: any
   preliminaryScore: string
@@ -92,7 +91,7 @@ export interface SubmissionFull {
   verdict: string
 }
 
-export interface SubmissionChecker {
+export interface ISubmissionChecker {
   answer: string
   checkerError: string
   error: string
@@ -108,10 +107,16 @@ export interface SubmissionChecker {
   verdict: string
 }
 
-export interface SubmissionParticipantInfo {
+export interface ISubmissionParticipantInfo {
   id: number
   login: string
   name: string
   startTime: string
   uid: string
+}
+
+export enum ProblemStatuses {
+  NotSubmitted = 'NOT_SUBMITTED',
+  Failed = 'FAILED',
+  Passed = 'PASSED',
 }
