@@ -12,12 +12,18 @@ import { OnlineUserList } from '@widgets/Header/components/OnlineUserList/Online
 import { IYandexUser } from 'src/types/types'
 
 import { DropdownUserList } from './DropdownUserList'
+import { useParams } from 'react-router'
 
 export const DropdownUserListContainer = () => {
   const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
+const {alias} = useParams();
   useEffect(() => {
     api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
   }, [])
 
-  return <DropdownUserList onlineUsers={onlineUsers} />
+  const onSendProblemAssign = (user:IYandexUser, problemAlias:string) => {
+    socket.sendProblemAssigned({ user, problemAlias })
+  }
+
+  return <DropdownUserList problemAlias={alias} onlineUsers={onlineUsers} onSendProblemAssign={onSendProblemAssign}/>
 }
