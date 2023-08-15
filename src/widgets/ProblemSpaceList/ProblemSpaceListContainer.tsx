@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { socket } from '@sockets/socket'
-import { ProblemStatusUpdatedHandler } from '@sockets/types'
+import { ProblemAssignedHandler, ProblemStatusUpdatedHandler } from '@sockets/types'
 
 import { api } from '@api/index'
 
@@ -37,6 +37,8 @@ export const ProblemSpaceListContainer: FC = () => {
     )
   }
 
+  const problemAssignedEventHandler: ProblemAssignedHandler = ({ user, problemAlias }) => {}
+
   useEffect(() => {
     api
       .getProblems(trainingSessionId)
@@ -47,8 +49,15 @@ export const ProblemSpaceListContainer: FC = () => {
       })
       .catch(console.log)
 
-    return socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+    api.getOnlineUsers(trainingSessionId).then(console.log).catch(console.log)
+
+    return () => {
+      socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+      socket.subscribeProblemAssigned(problemAssignedEventHandler)
+    }
   }, [])
+
+  console.log(problems)
 
   return (
     <ProblemSpaceList

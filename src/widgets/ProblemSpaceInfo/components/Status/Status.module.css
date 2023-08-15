@@ -21,6 +21,7 @@
 }
 
 .problemStatusPassed {
-  background-color: var(--color-green-light);
   text-align: center;
+
+  background-color: var(--color-green-light);
 }

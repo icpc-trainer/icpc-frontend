@@ -9,17 +9,15 @@ import { trainingSessionId } from '@constants/training-session-id'
 
 import { OnlineUserList } from '@widgets/Header/components/OnlineUserList/OnlineUserList'
 
-import { DropdownUserList } from './DropdownUserList'
 import { IYandexUser } from 'src/types/types'
 
-export const DropdownUserListContainer = () => {
-    const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
-    useEffect(() => {
-        api.getOnlineUsers(trainingSessionId)
-            .then(setOnlineUsers)
-            .catch(console.log)
-    }, [onlineUsers])
-    console.log(onlineUsers)
+import { DropdownUserList } from './DropdownUserList'
 
-    return <DropdownUserList onlineUsers={onlineUsers} />
+export const DropdownUserListContainer = () => {
+  const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
+  useEffect(() => {
+    api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
+  }, [])
+
+  return <DropdownUserList onlineUsers={onlineUsers} />
 }

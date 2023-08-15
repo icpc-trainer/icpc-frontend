@@ -8,10 +8,12 @@ import {
   CodePayload,
   ControlTakenHandler,
   ControlTakenPayload,
+  ProblemAssignedPayload,
   Data,
   Handler,
   Handlers,
   MessageHandler,
+  ProblemAssignedHandler,
   ProblemStatusUpdatedHandler,
   Type,
   Types,
@@ -58,6 +60,10 @@ class Socket {
     this.send({ type: Types.ControlTaken, payload })
   }
 
+  public sendProblemAssigned(payload: ProblemAssignedPayload) {
+    this.send({ type: Types.ProblemAssigned, payload })
+  }
+
   public subscribeMessage(handler: MessageHandler) {
     // @ts-ignore
     return this.subscribe(Types.Message, handler)
@@ -91,6 +97,10 @@ class Socket {
   public subscribeProblemStatusUpdated(handler: ProblemStatusUpdatedHandler) {
     // @ts-ignore
     return this.subscribe(Types.ProblemStatusUpdated, handler)
+  }
+  public subscribeProblemAssigned(handler: ProblemAssignedHandler) {
+    // @ts-ignore
+    return this.subscribe(Types.ProblemAssigned, handler)
   }
 
   private send(data: Data) {

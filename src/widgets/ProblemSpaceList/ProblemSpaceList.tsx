@@ -24,7 +24,6 @@ export const ProblemSpaceList: FC<Props> = ({ problems, handleProblemSpaceClick,
           <ProblemSpaceListItem key={problem.id} problem={problem} handleProblemSpaceClick={handleProblemSpaceClick} />
         ))}
       </div>
-
     </BlockWrapper>
   )
 }
