@@ -29,9 +29,6 @@ export const TimerContainer = () => {
             .catch(console.log)
     }), [contestDurationInSec])
 
-    // start()
-    // contestTimeLeft(contestStatus, contestDateCreated, contestDurationInMs)
-    //   return <Timer/>
     const secondsLeftString = convertMsToTime(secondsLeft)
     return <Timer secondsLeftString={secondsLeftString}/>
     

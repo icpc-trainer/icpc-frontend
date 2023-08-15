@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 
 import styles from './Timer.module.css'
-import { convertMsToTime } from '../../../../utils/converMsToTime'
 
 interface TimerProps {
     secondsLeftString:string
