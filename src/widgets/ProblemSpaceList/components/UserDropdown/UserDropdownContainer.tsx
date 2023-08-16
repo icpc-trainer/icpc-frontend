@@ -17,9 +17,9 @@ interface UserDropdownProps {
 export const UserDropdownContainer: FC<UserDropdownProps> = ({ user }) => {
   const { problem } = useContext(ProblemItemContext)
 
-  const onSendProblemAssign = () => {
+  const onSendProblemAssigned = () => {
     socket.sendProblemAssigned({ user, problemAlias: problem.alias })
   }
 
-  return <UserDropdown user={user} onSendProblemAssign={onSendProblemAssign} />
+  return <UserDropdown user={user} onSendProblemAssign={onSendProblemAssigned} />
 }

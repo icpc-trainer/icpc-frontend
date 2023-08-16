@@ -11,11 +11,9 @@ import styles from './ProblemSpaceList.module.css'
 interface Props {
   problems: IProblem[]
   handleProblemSpaceClick: (problem: IProblem) => void
-  contestId: string
-  currentAlias: string
 }
 
-export const ProblemSpaceList: FC<Props> = ({ problems, handleProblemSpaceClick, contestId, currentAlias }) => {
+export const ProblemSpaceList: FC<Props> = ({ problems, handleProblemSpaceClick }) => {
   return (
     <BlockWrapper className={styles.container}>
       <h3 className={styles.title}>{'Задачи'}</h3>
