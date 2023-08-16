@@ -40,7 +40,7 @@ export const ProblemSpaceListContainer: FC = () => {
     setProblems(prev =>
       prev.map(problem => {
         if (problem.alias === problemAlias) {
-          return { ...problem, assignedUser:user }
+          return { ...problem, assignedUser: user }
         }
         return problem
       }),
@@ -56,14 +56,9 @@ export const ProblemSpaceListContainer: FC = () => {
         navigate(`/workspace/${contestId}/${problems[0].alias}`)
       })
       .catch(console.log)
-
-    api.getOnlineUsers(trainingSessionId).then(console.log).catch(console.log)
-
-    return () => {
-      socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
-      socket.subscribeProblemAssigned(problemAssignedEventHandler)
-    }
-  }, [problems])
+    socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+    socket.subscribeProblemAssigned(problemAssignedEventHandler)
+  }, [])
 
   return (
     <ProblemSpaceList

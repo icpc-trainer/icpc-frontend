@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { IconBaseProps } from './types'
 
 export const User: FC<IconBaseProps> = ({ color, width, height, disabled, ...rest }) => (
-  <svg width={width} height={height} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}>
+  <svg width={width} height={height} style={{margin:'4px 5px'}} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" {...rest}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

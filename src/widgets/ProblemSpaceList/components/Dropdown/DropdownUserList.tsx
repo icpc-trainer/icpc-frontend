@@ -1,24 +1,21 @@
 import React, { FC } from 'react'
-
-import { User } from '@icons/User'
-import { UserDropdown } from '@icons/UserDropdown'
+import { UserDropdownContainer } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdownContainer'
 import { GetItemKeyFunction, List, RenderItemFunction } from '@ui/List/List'
 import { OnlineUser } from '@widgets/Header/components/OnlineUser/OnlineUser'
 
 import { IYandexUser } from 'src/types/types'
 
 import styles from './DropdownUserList.module.css'
+import { User } from '@icons/User'
 
 interface DropdownUserListProps {
     onlineUsers: IYandexUser[]
-    onSendProblemAssign: (user: IYandexUser, problemAlias: string) => void
-    problemAlias: string
 }
 
-export const DropdownUserList: FC<DropdownUserListProps> = ({ onlineUsers, onSendProblemAssign, problemAlias }) => {
+export const DropdownUserList: FC<DropdownUserListProps> = ({ onlineUsers }) => {
     const getOnlineUserKey: GetItemKeyFunction<IYandexUser> = user => user.id
     const renderOnlineUser: RenderItemFunction<IYandexUser> = user => (
-        <UserDropdown width={24} height={24} yandexUser={user} onSendProblemAssign={onSendProblemAssign} problemAlias={problemAlias} />
+        <UserDropdownContainer user={user} />
     )
 
     return (
