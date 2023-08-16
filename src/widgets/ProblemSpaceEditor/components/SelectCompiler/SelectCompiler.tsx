@@ -3,7 +3,8 @@ import classnames from 'classnames'
 import React, { FC, useState } from 'react'
 
 import { Arrow } from '@icons/Arrow'
-import { Check } from '@icons/Check'
+
+import { SelectCompilerItem } from '../SelectCompilerItem/SelectCompilerItem'
 
 import styles from './SelectCompiler.module.css'
 
@@ -38,10 +39,7 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers, selectedCom
       </div>
       <div className={selectOptionsClassName}>
         {compilers.map(compiler => (
-          <div key={compiler} onClick={() => handleSelectCompiler(compiler)} className={styles.selectOption}>
-            {selectedCompiler === compiler && <Check color="var(--color-black-typo-primary)" width={20} height={20} />}
-            <span className={styles.selectOptionText}>{compiler}</span>
-          </div>
+          <SelectCompilerItem key={compiler} compiler={compiler} handleSelectCompiler={handleSelectCompiler} />
         ))}
       </div>
     </div>
