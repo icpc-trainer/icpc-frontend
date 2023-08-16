@@ -12,7 +12,7 @@ export interface ILimit {
 }
 export interface IProblem {
   alias: string
-  compiler: string[]
+  compilers: string[]
   description: string
   id: string
   limits: ILimit[]
