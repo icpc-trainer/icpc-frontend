@@ -22,10 +22,12 @@ export const StatusContainer = () => {
   }
 
   useEffect(() => {
-    api
-      .getProblemByAlias(trainingSessionId, alias)
-      .then(({ status }) => setStatus(status))
-      .catch(console.log)
+    if(alias) {
+      api
+        .getProblemByAlias(trainingSessionId, alias)
+        .then(({ status }) => setStatus(status))
+        .catch((console.log))
+    }
 
     return socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
   }, [alias])

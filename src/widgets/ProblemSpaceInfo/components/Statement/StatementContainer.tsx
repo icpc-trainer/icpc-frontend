@@ -9,7 +9,10 @@ import { Statement } from '@widgets/ProblemSpaceInfo/components/Statement/Statem
 export const StatementContainer = () => {
   const { id, alias } = useParams()
 
-  const { data: statement } = useQuery(['statement', alias], () => api.getProblemStatement(id, alias))
+  const { data: statement } = useQuery(
+    ['statement', alias], 
+    () => api.getProblemStatement(id, alias)
+  )
 
   if (!statement) return null
 
