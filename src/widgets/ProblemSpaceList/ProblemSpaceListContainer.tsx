@@ -14,7 +14,9 @@ import { ProblemSpaceList } from './ProblemSpaceList'
 
 export const ProblemSpaceListContainer: FC = () => {
   const [problems, setProblems] = useState<IProblem[]>([])
-  const { alias } = useParams();
+
+  const { alias } = useParams()
+
   const navigate = useNavigate()
 
   const contestId = '51004' // мокаем contestId

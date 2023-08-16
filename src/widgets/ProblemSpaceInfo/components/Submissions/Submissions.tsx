@@ -14,8 +14,7 @@ export interface ProblemVerdictsProps {
 
 export const Submissions: FC<ProblemVerdictsProps> = ({ submissions }) => {
   const [isDetailsOpen, setDetailsOpen] = useState(false)
-
-  const [submissionId, setSubmissionId] = useState(0)
+  const [submissionId, setSubmissionId] = useState(null)
 
   const onOpenDetails = (id: number) => {
     setDetailsOpen(true)
@@ -31,9 +30,11 @@ export const Submissions: FC<ProblemVerdictsProps> = ({ submissions }) => {
   return (
     <div className={styles.ProblemVerdicts}>
       <SubmissionTable submissions={submissions} onOpenDetails={onOpenDetails} />
-      <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={100}>
-        {state => <SubmissionDetails state={state} submissionId={submissionId} onCloseDetails={onCloseDetails} />}
-      </Transition>
+      {submissionId ? (
+        <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={100}>
+          {state => <SubmissionDetails state={state} submissionId={submissionId} onCloseDetails={onCloseDetails} />}
+        </Transition>
+      ) : null}
     </div>
   )
 }
