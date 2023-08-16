@@ -1,0 +1,5 @@
+.arrow {
+  cursor: pointer;
+
+  transform: rotate(270deg);
+}

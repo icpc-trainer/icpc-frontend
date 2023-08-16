@@ -19,7 +19,7 @@ import {
   Types,
   UserHandler,
   UserLeaveHandler,
-  VerdictRetrievedHandler,
+  SubmissionRetrievedHandler,
   initialHandlers,
 } from './types'
 
@@ -79,9 +79,9 @@ class Socket {
     return this.subscribe(Types.ControlTaken, handler)
   }
 
-  public subscribeVerdictRetrieved(handler: VerdictRetrievedHandler) {
+  public subscribeSubmissionRetrieved(handler: SubmissionRetrievedHandler) {
     // @ts-ignore
-    return this.subscribe(Types.VerdictRetrieved, handler)
+    return this.subscribe(Types.SubmissionRetrieved, handler)
   }
 
   public subscribeUser(handler: UserHandler) {
