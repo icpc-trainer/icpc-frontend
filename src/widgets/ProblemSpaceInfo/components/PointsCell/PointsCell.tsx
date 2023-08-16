@@ -1,12 +1,11 @@
-import React, { FC } from "react"
-import styles from "./PointsCell.module.css"
+import React, { FC } from 'react'
+
+import styles from './PointsCell.module.css'
 
 interface PointsCellProps {
   verdict: string
 }
 
 export const PointsCell: FC<PointsCellProps> = ({ verdict }) => {
-  return (
-    <span className={styles.points}>{verdict === 'OK' ? '1' : '0'}</span>
-  )
+  return <span className={styles.points}>{verdict === 'OK' ? '1' : '0'}</span>
 }

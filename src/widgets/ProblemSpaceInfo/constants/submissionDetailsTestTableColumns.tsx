@@ -1,11 +1,15 @@
-import { IColumnType } from "@ui/Table/Table"
-import { ISubmissionChecker } from "../../../types/types"
-import classNames from "classnames"
-import styles from "*.module.css"
-import React from "react"
-import { VerdictCell } from "@widgets/ProblemSpaceInfo/components/VerdictCell/VerdictCell"
-import { RunningTimeCell } from "@widgets/ProblemSpaceInfo/components/RunningTimeCell/RunningTimeCell"
-import { MemoryUsedCell } from "@widgets/ProblemSpaceInfo/components/MemoryUsedCell/MemoryUsedCell"
+import classNames from 'classnames'
+
+import React from 'react'
+
+import { IColumnType } from '@ui/Table/Table'
+import { MemoryUsedCell } from '@widgets/ProblemSpaceInfo/components/MemoryUsedCell/MemoryUsedCell'
+import { RunningTimeCell } from '@widgets/ProblemSpaceInfo/components/RunningTimeCell/RunningTimeCell'
+import { VerdictCell } from '@widgets/ProblemSpaceInfo/components/VerdictCell/VerdictCell'
+
+import { ISubmissionChecker } from '../../../types/types'
+
+import styles from '*.module.css'
 
 export const submissionDetailsTestTableColumns: IColumnType<ISubmissionChecker>[] = [
   {

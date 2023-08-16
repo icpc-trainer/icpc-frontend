@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import React, { FC } from "react"
+import React, { FC } from 'react'
 
 import { useGetSubmissionFullQuery } from '@store/api/api'
 
@@ -9,9 +9,10 @@ import { trainingSessionId } from '@constants/training-session-id'
 import { Arrow } from '@icons/Arrow'
 import { Accordion } from '@ui/Accordion/Accordion'
 
+import { SubmissionDetailsSummaryTable } from '../SubmissionDetailsSummaryTable/SubmissionDetailsSummaryTable'
+import { SubmissionDetailsTestTable } from '../SubmissionDetailsTestTable/SubmissionDetailsTestTable'
+
 import styles from './SubmissionDetails.module.css'
-import { SubmissionDetailsSummaryTable } from "../SubmissionDetailsSummaryTable/SubmissionDetailsSummaryTable"
-import { SubmissionDetailsTestTable } from "../SubmissionDetailsTestTable/SubmissionDetailsTestTable"
 
 const defaultStyle = {
   transition: `transform 500ms ease-in-out`,

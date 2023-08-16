@@ -1,7 +1,10 @@
-import React, { FC } from "react"
-import classnames from "classnames"
-import styles from "./StatusCell.module.css"
-import { Loading } from "@ui/Loading/Loading"
+import classnames from 'classnames'
+
+import React, { FC } from 'react'
+
+import { Loading } from '@ui/Loading/Loading'
+
+import styles from './StatusCell.module.css'
 
 interface StatusCellProps {
   verdict: string
@@ -22,10 +25,9 @@ export const StatusCell: FC<StatusCellProps> = ({ verdict }) => {
   return (
     <span className={className}>
       {status}
-      {isPending
-        ? <Loading containerClassName={styles.statusLoadingContainer} loaderClassName={styles.statusLoading} />
-        : null
-      }
+      {isPending ? (
+        <Loading containerClassName={styles.statusLoadingContainer} loaderClassName={styles.statusLoading} />
+      ) : null}
     </span>
   )
 }

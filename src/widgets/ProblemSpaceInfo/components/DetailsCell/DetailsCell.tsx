@@ -1,6 +1,8 @@
-import React, { FC } from "react"
-import styles from "./DetailsCell.module.css"
-import { Arrow } from "@icons/Arrow"
+import React, { FC } from 'react'
+
+import { Arrow } from '@icons/Arrow'
+
+import styles from './DetailsCell.module.css'
 
 interface DetailsCeilProps {
   onOpenDetails: () => void

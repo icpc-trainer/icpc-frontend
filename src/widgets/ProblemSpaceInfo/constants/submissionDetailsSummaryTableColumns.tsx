@@ -1,9 +1,11 @@
-import { IColumnType } from "@ui/Table/Table"
-import { ISubmissionFull } from "../../../types/types"
-import React from "react"
-import { TimeCell } from "@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell"
-import { StatusCell } from "@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell"
-import { PointsCell } from "@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell"
+import React from 'react'
+
+import { IColumnType } from '@ui/Table/Table'
+import { PointsCell } from '@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell'
+import { StatusCell } from '@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell'
+import { TimeCell } from '@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell'
+
+import { ISubmissionFull } from '../../../types/types'
 
 export const submissionDetailsSummaryTableColumns: IColumnType<ISubmissionFull>[] = [
   {

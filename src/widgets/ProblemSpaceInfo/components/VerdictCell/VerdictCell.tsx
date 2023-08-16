@@ -1,6 +1,8 @@
-import React, { FC } from "react"
-import classNames from "classnames"
-import styles from "./VerdictCell.module.css"
+import classNames from 'classnames'
+
+import React, { FC } from 'react'
+
+import styles from './VerdictCell.module.css'
 
 interface VerdictCellProps {
   verdict: string

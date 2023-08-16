@@ -1,5 +1,6 @@
-import React, { FC } from "react"
-import styles from "./RunningTimeCell.module.css"
+import React, { FC } from 'react'
+
+import styles from './RunningTimeCell.module.css'
 
 interface RunningTimeCellProps {
   runningTime: number

@@ -1,10 +1,11 @@
-import { IColumnType } from "@ui/Table/Table"
-import React from "react"
-import { ISubmissionTableItem } from "@widgets/ProblemSpaceInfo/helpers/getSubmissionTableData"
-import { DetailsCell } from "@widgets/ProblemSpaceInfo/components/DetailsCell/DetailsCell"
-import { PointsCell } from "@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell"
-import { StatusCell } from "@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell"
-import { TimeCell } from "@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell"
+import React from 'react'
+
+import { IColumnType } from '@ui/Table/Table'
+import { DetailsCell } from '@widgets/ProblemSpaceInfo/components/DetailsCell/DetailsCell'
+import { PointsCell } from '@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell'
+import { StatusCell } from '@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell'
+import { TimeCell } from '@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell'
+import { ISubmissionTableItem } from '@widgets/ProblemSpaceInfo/helpers/getSubmissionTableData'
 
 export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
   {
@@ -27,8 +28,8 @@ export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
   },
   {
     key: 'details',
-      title: '',
+    title: '',
     width: 32,
-    render: (_, { id, onOpenDetails }) => <DetailsCell onOpenDetails={() => onOpenDetails(id)} />
+    render: (_, { id, onOpenDetails }) => <DetailsCell onOpenDetails={() => onOpenDetails(id)} />,
   },
 ]

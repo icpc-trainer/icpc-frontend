@@ -1,5 +1,6 @@
-import React, { FC } from "react"
-import styles from "./MemoryUsedCell.module.css"
+import React, { FC } from 'react'
+
+import styles from './MemoryUsedCell.module.css'
 
 interface MemoryUsedCell {
   memoryUsed: number

@@ -4,9 +4,9 @@ import { Transition } from 'react-transition-group'
 import { ISubmission } from 'src/types/types'
 
 import { SubmissionDetails } from '../SubmissionDetails/SubmissionDetails'
+import { SubmissionTable } from '../SubmissionTable/SubmissionTable'
 
 import styles from './Submissions.module.css'
-import { SubmissionTable } from "../SubmissionTable/SubmissionTable"
 
 export interface ProblemVerdictsProps {
   submissions: ISubmission[]
@@ -31,11 +31,7 @@ export const Submissions: FC<ProblemVerdictsProps> = ({ submissions }) => {
   return (
     <div className={styles.ProblemVerdicts}>
       <SubmissionTable submissions={submissions} onOpenDetails={onOpenDetails} />
-      <Transition
-        nodeRef={nodeRef}
-        in={isDetailsOpen}
-        timeout={100}
-      >
+      <Transition nodeRef={nodeRef} in={isDetailsOpen} timeout={100}>
         {state => <SubmissionDetails state={state} submissionId={submissionId} onCloseDetails={onCloseDetails} />}
       </Transition>
     </div>
