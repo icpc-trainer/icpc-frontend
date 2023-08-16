@@ -1,10 +1,12 @@
 import React, { FC, useContext } from 'react'
 
+import { socket } from '@sockets/socket'
+
+import { ProblemItemContext } from '@contexts/problemItemContext'
+
 import { User } from '@icons/User'
 
 import styles from './DefaultUserDropdown.module.css'
-import { socket } from '@sockets/socket'
-import { ProblemItemContext } from '@contexts/problemItemContext'
 
 export const DefaultUserDropdown: FC = () => {
   const { problem } = useContext(ProblemItemContext)

@@ -58,10 +58,5 @@ export const ProblemSpaceListContainer: FC = () => {
     socket.subscribeProblemAssigned(problemAssignedEventHandler)
   }, [])
 
-  return (
-    <ProblemSpaceList
-      problems={problems}
-      handleProblemSpaceClick={handleProblemSpaceClick}
-    />
-  )
+  return <ProblemSpaceList problems={problems} handleProblemSpaceClick={handleProblemSpaceClick} />
 }
