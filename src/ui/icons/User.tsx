@@ -7,7 +7,7 @@ export const User: FC<IconBaseProps> = ({ color, width, height, disabled, ...res
     width={width}
     height={height}
     style={{ margin: '4px 5px' }}
-    viewBox="0 0 30 30"
+    viewBox="0 0 33 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}

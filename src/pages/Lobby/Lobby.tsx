@@ -60,9 +60,9 @@ const Lobby = () => {
             )}
           </div>
           <div className={styles.users}>
-            <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
-            <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
-            <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
+            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
           </div>
         </div>
       </div>

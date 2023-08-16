@@ -81,7 +81,7 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
               {problem.assignedUser ? (
                 <UserDropdownContainer user={problem.assignedUser} />
               ) : (
-                <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
+                <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
               )}
             </div>
             <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>
