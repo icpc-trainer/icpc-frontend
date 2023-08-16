@@ -87,7 +87,7 @@ class Api {
     return (await this.get<GetYandexUsersOnlineResponse>(`training-sessions/${trainingSessionId}/online`)).users
   }
 
-  getVerdictsByAlias(trainingSessionId: string, problemAlias: string) {
+  getSubmissionsByAlias(trainingSessionId: string, problemAlias: string) {
     return this.get<GetVerdictsByAliasResponse>(
       `training-sessions/${trainingSessionId}/submissions/problem/${problemAlias}`,
     )

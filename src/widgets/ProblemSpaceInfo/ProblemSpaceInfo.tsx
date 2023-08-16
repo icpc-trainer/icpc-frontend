@@ -2,13 +2,13 @@ import React, { FC, useState } from 'react'
 
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { StatementContainer } from '@widgets/ProblemSpaceInfo/components/Statement/StatementContainer'
-import { ProblemVerdictsContainer } from '@widgets/ProblemVerdicts/ProblemVerdictsContainer'
 
 import { StatusContainer } from './components/Status/StatusContainer'
 
 import styles from './ProblemSpaceInfo.module.css'
 
 import './ProblemSpaceInfo.css'
+import { SubmissionsContainer } from "@widgets/ProblemSpaceInfo/components/Submissions/SubmissionsContainer"
 
 export const ProblemSpaceInfo: FC = () => {
   let [activeTab, setActiveTab] = useState('description')
@@ -36,7 +36,7 @@ export const ProblemSpaceInfo: FC = () => {
 
       {activeTab === 'description' ? <StatementContainer /> : null}
 
-      {activeTab === 'solutions' ? <ProblemVerdictsContainer /> : null}
+      {activeTab === 'solutions' ? <SubmissionsContainer /> : null}
     </BlockWrapper>
   )
 }

@@ -5,7 +5,7 @@ export enum Types {
   Code = 'CODE_EDITOR_UPDATE',
   User = 'USER',
   ControlTaken = 'CONTROL_TAKEN',
-  VerdictRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
+  SubmissionRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
   UserLeave = 'USER_LEAVE',
   ProblemStatusUpdated = 'PROBLEM_STATUS_UPDATED',
 }
@@ -27,7 +27,7 @@ export interface ControlTakenPayload extends Payload {
   userId: string
 }
 
-export type VerdictRetrievedPayload = ISubmission
+export type SubmissionRetrievedPayload = ISubmission
 
 export interface UserPayload extends Payload {
   user: IYandexUser
@@ -51,7 +51,7 @@ export type Handler<P extends Payload = Payload> = (payload: P) => void
 export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void
 export type ControlTakenHandler = (payload: ControlTakenPayload) => void
-export type VerdictRetrievedHandler = (payload: VerdictRetrievedPayload) => void
+export type SubmissionRetrievedHandler = (payload: SubmissionRetrievedPayload) => void
 export type UserHandler = (payload: UserPayload) => void
 export type UserLeaveHandler = (payload: UserLeavePayload) => void
 export type ProblemStatusUpdatedHandler = (payload: ProblemStatusUpdatedPayload) => void

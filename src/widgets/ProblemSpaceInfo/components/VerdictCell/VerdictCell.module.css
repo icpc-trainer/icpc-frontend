@@ -1,0 +1,8 @@
+.verdict {
+  color: var(--color-red-light);
+  font-size: 14px;
+}
+
+.verdictOk {
+  color: var(--color-green-light);
+}

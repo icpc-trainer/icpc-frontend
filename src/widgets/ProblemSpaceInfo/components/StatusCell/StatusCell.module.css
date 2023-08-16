@@ -1,0 +1,23 @@
+.status {
+  color: var(--color-red-light);
+  font-size: 14px;
+}
+
+.statusOk {
+  color: var(--color-green-light);
+}
+
+.statusPending {
+  color: var(--color-black-typo-primary);
+}
+
+.statusLoadingContainer {
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+
+.statusLoading {
+  width: 10px;
+  height: 10px;
+}
