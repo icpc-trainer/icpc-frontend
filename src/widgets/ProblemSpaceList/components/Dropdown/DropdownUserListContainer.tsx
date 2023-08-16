@@ -25,14 +25,10 @@ export const DropdownUserListContainer = () => {
     api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
   }, [])
 
-  const onSendProblemAssign = (user: IYandexUser | null) => {
-    socket.sendProblemAssigned({ user: user, problemAlias: problem.alias })
-  }
-
   return (
     <>
       <DropdownUserList onlineUsers={onlineUsers} />
-      <DefaultUserDropdown onSendProblemAssign={onSendProblemAssign} />
+      <DefaultUserDropdown />
     </>
   )
 }

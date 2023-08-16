@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
-
-import { getAvatarUrl } from '@helpers/getAvatarUrl'
+import React, { FC, useContext } from 'react'
 
 import { User } from '@icons/User'
 
 import { IYandexUser } from 'src/types/types'
 
-import { IconBaseProps } from '../../../../ui/icons/types'
-
 import styles from './DefaultUserDropdown.module.css'
+import { socket } from '@sockets/socket'
+import { ProblemItemContext } from '@contexts/problemItemContext'
 
-interface DefaultUserDropdownProps {
-  onSendProblemAssign: (user: IYandexUser | null) => void
-}
+export const DefaultUserDropdown = () => {
+  const { problem } = useContext(ProblemItemContext)
 
-export const DefaultUserDropdown: FC<DefaultUserDropdownProps> = ({ onSendProblemAssign }) => {
+  const onSendProblemAssign = (user: IYandexUser | null) => {
+    socket.sendProblemAssigned({ user: null, problemAlias: problem.alias })
+  }
+
   return (
     <button className={styles.defaultUserDropdown} onClick={() => onSendProblemAssign(null)}>
       <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
