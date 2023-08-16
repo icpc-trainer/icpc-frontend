@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   cursor: pointer;
 }
 
@@ -24,7 +25,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .statusDone {
   display: flex;
@@ -157,12 +157,14 @@
 .dropdown {
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: end;
+
+  width: 100%;
 }
 
 .dropdownContainer {
   position: relative;
+
   padding-top: 8px;
 }
 

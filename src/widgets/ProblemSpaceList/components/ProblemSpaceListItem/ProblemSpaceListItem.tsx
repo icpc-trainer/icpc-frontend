@@ -3,16 +3,18 @@ import classNames from 'classnames'
 import React, { FC, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { ProblemItemContext } from '@contexts/problemItemContext'
+
 import { Arrow } from '@icons/Arrow'
 import { User } from '@icons/User'
 import { UserDropdown } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdown'
+import { UserDropdownContainer } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdownContainer'
 
 import { IProblem } from 'src/types/types'
 
-import styles from './ProblemSpaceListItem.module.css'
 import { Dropdown } from '../Dropdown/Dropdown'
-import { UserDropdownContainer } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdownContainer'
-import { ProblemItemContext } from '@contexts/problemItemContext'
+
+import styles from './ProblemSpaceListItem.module.css'
 
 interface ProblemSpaceListProps {
   className?: string
@@ -76,21 +78,19 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
         <div className={styles.statusUserBlock}>
           <div className={styles.dropdown}>
             <div className={styles.user}>
-              {problem.assignedUser
-                ? <UserDropdownContainer user={problem.assignedUser} />
-                : <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
-              }
+              {problem.assignedUser ? (
+                <UserDropdownContainer user={problem.assignedUser} />
+              ) : (
+                <User width={26} height={26} color={'var(--color-black-typo-primary)'} />
+              )}
             </div>
             <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>
               <Arrow width={18} height={18} color={'var(--color-black-typo-primary)'} />
             </div>
           </div>
-          <div className={styles.dropdownContainer}>
-            {isOpen && <Dropdown />}
-          </div>
+          <div className={styles.dropdownContainer}>{isOpen && <Dropdown />}</div>
         </div>
       </div>
     </ProblemItemContext.Provider>
-
   )
 }

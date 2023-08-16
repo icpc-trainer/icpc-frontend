@@ -5,6 +5,7 @@ import { getAvatarUrl } from '@helpers/getAvatarUrl'
 import { IProblem, IYandexUser } from 'src/types/types'
 
 import { IconBaseProps } from '../../../../ui/icons/types'
+
 import styles from './UserDropdown.module.css'
 
 interface UserDropdownProps {
@@ -21,7 +22,7 @@ export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign 
       src={avatarUrl}
       className={styles.userDropdown}
       alt="avatar"
-      onClick={()=>onSendProblemAssign()}
+      onClick={() => onSendProblemAssign()}
     />
   )
 }
