@@ -51,7 +51,9 @@ export const ProblemSpaceListContainer: FC = () => {
       .then(problems => {
         problems.sort((a, b) => a.alias.localeCompare(b.alias))
         setProblems(problems)
-        navigate(`/workspace/${contestId}/${problems[0].alias}`)
+        if (!alias || !problems.some(problem => problem.alias === alias)) {
+          navigate(`/workspace/${contestId}/${problems[0].alias}`) // перенаправление только если alias не определен или не найден
+        }
       })
       .catch(console.log)
     socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
