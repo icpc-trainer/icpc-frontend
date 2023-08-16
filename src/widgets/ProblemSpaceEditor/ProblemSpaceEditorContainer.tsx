@@ -15,13 +15,15 @@ import { ProblemSpaceEditor } from './ProblemSpaceEditor'
 
 export const ProblemSpaceEditorContainer: FC = () => {
   const [code, setCode] = useState<string>('')
+  const [selectedCompiler, setSelectedCompiler] = useState<string>('')
 
   const { alias } = useParams()
 
   const { data: currentUser } = useGetCurrentUserQuery()
 
   const onSendCode = () => {
-    api.postSubmissions(trainingSessionId, code, 'nodejs_18', alias).then(console.log).catch(console.log)
+    console.log('Selected compiler:', selectedCompiler)
+    api.postSubmissions(trainingSessionId, code, selectedCompiler, alias).then(console.log).catch(console.log)
   }
 
   const onCodeChange = (code: string) => {
@@ -46,7 +48,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }, [alias])
 
   return (
-    <CodeContext.Provider value={{ code, onSendCode, onCodeChange }}>
+    <CodeContext.Provider value={{ code, onSendCode, onCodeChange, selectedCompiler, setSelectedCompiler }}>
       <ProblemSpaceEditor />
     </CodeContext.Provider>
   )
