@@ -12,14 +12,20 @@
 .arrow {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   cursor: pointer;
 }
 
 .statusUserBlock {
   display: flex;
+  flex-direction: column;
 }
-
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .statusDone {
   display: flex;
   gap: 10px;
@@ -150,13 +156,16 @@
 
 .dropdown {
   display: flex;
+  flex-direction: row;
+  justify-content: end;
 
   width: 100%;
-  padding-top: 12px;
 }
 
 .dropdownContainer {
   position: relative;
+
+  padding-top: 8px;
 }
 
 .rotated {

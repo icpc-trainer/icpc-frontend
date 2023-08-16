@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { socket } from '@sockets/socket'
-import { ProblemStatusUpdatedHandler } from '@sockets/types'
+import { ProblemAssignedHandler, ProblemStatusUpdatedHandler } from '@sockets/types'
 
 import { api } from '@api/index'
 
@@ -14,8 +14,6 @@ import { ProblemSpaceList } from './ProblemSpaceList'
 
 export const ProblemSpaceListContainer: FC = () => {
   const [problems, setProblems] = useState<IProblem[]>([])
-
-  const { alias } = useParams()
 
   const navigate = useNavigate()
 
@@ -31,7 +29,17 @@ export const ProblemSpaceListContainer: FC = () => {
         if (problem.alias === problemAlias) {
           return { ...problem, status }
         }
+        return problem
+      }),
+    )
+  }
 
+  const problemAssignedEventHandler: ProblemAssignedHandler = ({ user, problemAlias }) => {
+    setProblems(prev =>
+      prev.map(problem => {
+        if (problem.alias === problemAlias) {
+          return { ...problem, assignedUser: user }
+        }
         return problem
       }),
     )
@@ -48,16 +56,9 @@ export const ProblemSpaceListContainer: FC = () => {
         }
       })
       .catch(console.log)
-
-    return socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+    socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+    socket.subscribeProblemAssigned(problemAssignedEventHandler)
   }, [])
 
-  return (
-    <ProblemSpaceList
-      problems={problems}
-      handleProblemSpaceClick={handleProblemSpaceClick}
-      contestId={contestId}
-      currentAlias={alias}
-    />
-  )
+  return <ProblemSpaceList problems={problems} handleProblemSpaceClick={handleProblemSpaceClick} />
 }

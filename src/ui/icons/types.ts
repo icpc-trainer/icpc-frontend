@@ -3,7 +3,7 @@ export interface IconBaseProps extends React.ComponentPropsWithoutRef<'svg'> {
    * Цвет иконки
    * @default #999
    */
-  color: string
+  color?: string
 
   /**
    * Ширина иконки

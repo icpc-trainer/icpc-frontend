@@ -21,6 +21,7 @@ export interface IProblem {
   statements: IStatement[]
   testCount: number | null
   status: string
+  assignedUser: IYandexUser | null
 }
 
 export interface IYandexUser {
