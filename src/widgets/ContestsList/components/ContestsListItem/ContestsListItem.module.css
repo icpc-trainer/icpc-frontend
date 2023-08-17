@@ -1,4 +1,14 @@
-.text {
+.contestsListItem {
+  display: block;
+
+  padding: 16px;
+
   color: var(--color-black-typo-primary);
   font-size: 14px;
+
+  cursor: pointer;
+}
+
+.contestsListItemSelected {
+  background-color: var(--color-white-grey);
 }

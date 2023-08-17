@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
 import { ControlTakenHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 export const useUserControl = () => {
+  const { trainingSessionId } = useParams()
+
   const { data: currentUser } = useGetCurrentUserQuery()
   const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 

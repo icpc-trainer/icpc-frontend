@@ -4,7 +4,6 @@ import { useParams } from 'react-router'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
 import { CodeContext } from '@contexts/codeContext'
 
 import { IProblem } from 'src/types/types'
@@ -13,7 +12,7 @@ import { SelectCompiler } from './SelectCompiler'
 
 export const SelectCompilerContainer: FC = () => {
   const { selectedCompiler, setSelectedCompiler } = useContext(CodeContext)
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
   const {
     data: problems,
     isLoading,

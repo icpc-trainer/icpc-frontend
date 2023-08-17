@@ -6,8 +6,6 @@ import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { IProblem } from 'src/types/types'
 
 import { ProblemSpaceList } from './ProblemSpaceList'
@@ -15,14 +13,14 @@ import { ProblemSpaceList } from './ProblemSpaceList'
 export const ProblemSpaceListContainer: FC = () => {
   const [problems, setProblems] = useState<IProblem[]>([])
 
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const navigate = useNavigate()
 
   const contestId = '51004' // мокаем contestId
 
   const handleProblemSpaceClick = useCallback((problem: IProblem) => {
-    navigate(`/workspace/${contestId}/${problem.alias}`)
+    navigate(`/workspace/${trainingSessionId}/${problem.alias}`)
   }, [])
 
   const problemStatusUpdatedEventHandler: ProblemStatusUpdatedHandler = ({ status, problemAlias }) => {
@@ -53,15 +51,13 @@ export const ProblemSpaceListContainer: FC = () => {
       .then(problems => {
         problems.sort((a, b) => a.alias.localeCompare(b.alias))
         setProblems(problems)
-        if (!alias || !problems.some(problem => problem.alias === alias)) {
-          navigate(`/workspace/${contestId}/${problems[0].alias}`) // перенаправление только если alias не определен или не найден
-        }
       })
       .catch(console.log)
 
     const problemStatusUpdatedUnsubscribe = workSpaceSocket.subscribeProblemStatusUpdated(
       problemStatusUpdatedEventHandler,
     )
+
     const problemAssignedUnsubscribe = workSpaceSocket.subscribeProblemAssigned(problemAssignedEventHandler)
 
     return () => {

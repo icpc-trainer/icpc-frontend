@@ -10,6 +10,7 @@ import { ThemeContext } from '@contexts/themeContext'
 import Lobby from '@pages/Lobby/Lobby'
 import Main from '@pages/Main/Main'
 import { WorkSpace } from '@pages/WorkSpace/WorkSpace'
+import { WorkSpaceEntry } from '@widgets/WorkSpaceEntry/WorkSpaceEntry'
 
 const queryClient = new QueryClient()
 
@@ -27,10 +28,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/lobby" element={<Lobby />} />
-          <Route path="/workspace" element={<WorkSpace />}>
-            <Route path="/workspace/:id/:alias" element={<WorkSpace />} />
-          </Route>
+          <Route path="/lobby/:teamId" element={<Lobby />} />
+          <Route path="/workspace/:trainingSessionId" element={<WorkSpaceEntry />} />
+          <Route path="/workspace/:trainingSessionId/:alias" element={<WorkSpace />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

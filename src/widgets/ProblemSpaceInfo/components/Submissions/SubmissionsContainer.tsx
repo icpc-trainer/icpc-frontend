@@ -6,14 +6,12 @@ import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { ISubmission } from 'src/types/types'
 
 import { Submissions } from './Submissions'
 
 export const SubmissionsContainer: FC = () => {
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const [submissions, setSubmissions] = useState<ISubmission[]>([])
 

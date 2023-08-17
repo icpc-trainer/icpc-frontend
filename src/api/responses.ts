@@ -1,4 +1,4 @@
-import { IMessage, IProblem, ISubmission, IYandexUser } from 'src/types/types'
+import { IMessage, IProblem, ISubmission, ITeamStatus, IYandexUser } from 'src/types/types'
 
 export interface GetProblemsResponse {
   problems: IProblem[]
@@ -20,3 +20,5 @@ export interface GetVerdictsByAliasResponse {
   count: number
   submissions: ISubmission[]
 }
+
+export type GetTeamStatusResponse = ITeamStatus

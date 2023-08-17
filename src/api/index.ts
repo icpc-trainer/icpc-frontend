@@ -6,7 +6,7 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { PostMessageRequest, PostSubmissionsRequest } from './requests'
+import { CreateTrainingSession, PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetMessagesByAliasResponse,
@@ -14,6 +14,7 @@ import {
   GetProblemsResponse,
   GetVerdictsByAliasResponse,
   GetYandexUsersOnlineResponse,
+  GetTeamStatusResponse,
 } from './responses'
 
 class Api {
@@ -98,8 +99,17 @@ class Api {
       `contests/${trainingSessionId}/problems/${problemAlias}`,
     )
   }
+
   getUserTeams() {
     return this.get(`teams`)
+  }
+
+  getTeamStatus(teamId: number) {
+    return this.get<GetTeamStatusResponse>(`training-sessions/team/${teamId}/reconnect`)
+  }
+
+  createTrainingSession(teamId: string, contestId: string) {
+    return this.post<CreateTrainingSession>(`training-sessions`, { team_id: teamId, contest_id: contestId })
   }
 }
 

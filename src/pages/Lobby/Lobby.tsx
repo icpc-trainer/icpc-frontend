@@ -1,9 +1,16 @@
-import classNames from 'classnames'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router'
 
-import React, { useState } from 'react'
+import { lobbySocket } from '@sockets/lobby-socket'
+import { TrainingStartedHandler } from '@sockets/types'
 
-import { Arrow } from '@icons/Arrow'
-import { Check } from '@icons/Check'
+import { api } from '@api/index'
+
+import { useGetCurrentUserQuery } from '@store/api/api'
+
+import { urls } from '@constants/urls'
+import { ContestListContext } from '@contexts/contestListContext'
+
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
@@ -11,61 +18,55 @@ import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContain
 import styles from './Lobby.module.css'
 
 const Lobby = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleDropdown = () => setIsOpen(!isOpen)
+  const [selectedContestId, setSelectedContestId] = useState(null)
+
+  const { teamId } = useParams()
+  const navigate = useNavigate()
+
+  const { data: currentUser } = useGetCurrentUserQuery()
+
+  const onSelectContest = (contestId: string) => setSelectedContestId(contestId)
+
+  const onCreateTrainingSession = () => {
+    api.createTrainingSession(teamId, selectedContestId).then(console.log).catch(console.log)
+  }
+
+  const trainingStartedEventHandler: TrainingStartedHandler = ({ id }) => {
+    navigate(`/workspace/${id}`)
+  }
+
+  lobbySocket.init(`${urls.websocketLobby}?team_id=${teamId}&user_id=${currentUser.id}`, currentUser)
+
+  useEffect(() => {
+    return lobbySocket.subscribeTrainingStarted(trainingStartedEventHandler)
+  })
 
   return (
-    <div className={styles.lobby}>
-      <div className={styles.contestList}>
-        <button className={styles.askQuestion}>Задать вопрос</button>
-        <BlockWrapper className={styles.blockWrapper}>
-          <ContestsListContainer />
-        </BlockWrapper>
-      </div>
-      <div className={styles.startTraining}>
-        <div className={styles.startTrainingWrapper}>
-          <button className={styles.startButton}>
-            <a href="/workspace">Начать тренировку</a>
-          </button>
-          <div className={styles.dropdownContainer}>
-            <div className={styles.select} onClick={toggleDropdown}>
+    <ContestListContext.Provider value={{ selectedContestId, onSelectContest }}>
+      <div className={styles.lobby}>
+        <div className={styles.contestList}>
+          <button className={styles.askQuestion}>Задать вопрос</button>
+          <BlockWrapper className={styles.blockWrapper}>
+            <ContestsListContainer />
+          </BlockWrapper>
+        </div>
+        <div className={styles.startTraining}>
+          <div className={styles.startTrainingWrapper}>
+            <button className={styles.startButton} onClick={onCreateTrainingSession}>
+              Начать тренировку
+            </button>
+            <div className={styles.dropdownContainer}>
               <span>Тест_ШМЯ_2023</span>
-              <Arrow
-                className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
-                width={24}
-                height={24}
-                color={'var(--color-black-typo-primary)'}
-              />
             </div>
-            {isOpen && (
-              <div className={styles.dropdown}>
-                <BlockWrapper className={styles.selectItem}>
-                  <Check
-                    className={classNames(styles.arrow, { [styles.rotated]: isOpen })}
-                    width={20}
-                    height={20}
-                    color={'var(--color-black-typo-primary)'}
-                  />
-                  <a className={styles.selectItemText} href="/workspace">
-                    Тест_ШМЯ_2023
-                  </a>
-                </BlockWrapper>
-                <BlockWrapper className={styles.selectItem}>
-                  <a className={styles.selectItemText} href="/workspace">
-                    ICPC_Champion
-                  </a>
-                </BlockWrapper>
-              </div>
-            )}
-          </div>
-          <div className={styles.users}>
-            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-            <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+            <div className={styles.users}>
+              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ContestListContext.Provider>
   )
 }
 

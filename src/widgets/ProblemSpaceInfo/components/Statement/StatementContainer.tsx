@@ -7,9 +7,9 @@ import { api } from '@api/index'
 import { Statement } from '@widgets/ProblemSpaceInfo/components/Statement/Statement'
 
 export const StatementContainer = () => {
-  const { id, alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
-  const { data: statement } = useQuery(['statement', alias], () => api.getProblemStatement(id, alias))
+  const { data: statement } = useQuery(['statement', alias], () => api.getProblemStatement(trainingSessionId, alias))
 
   if (!statement) return null
 

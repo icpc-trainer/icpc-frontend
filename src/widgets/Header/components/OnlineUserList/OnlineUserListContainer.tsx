@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
 import { UserHandler, UserLeaveHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { OnlineUserList } from '@widgets/Header/components/OnlineUserList/OnlineUserList'
 
 import { IYandexUser } from '../../../../types/types'
 
 export const OnlineUserListContainer = () => {
+  const { trainingSessionId } = useParams()
+
   const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
 
   const userEventHandler: UserHandler = ({ user }) => {

@@ -8,7 +8,6 @@ import { api } from '@api/index'
 
 import { useGetCurrentUserQuery } from '@store/api/api'
 
-import { trainingSessionId } from '@constants/training-session-id'
 import { CodeContext } from '@contexts/codeContext'
 
 import { ProblemSpaceEditor } from './ProblemSpaceEditor'
@@ -17,7 +16,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
   const [code, setCode] = useState<string>('')
   const [selectedCompiler, setSelectedCompiler] = useState<string>('')
 
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const { data: currentUser } = useGetCurrentUserQuery()
 
