@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { socket } from '@sockets/socket'
 import { CodeHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
@@ -29,7 +29,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
   const onCodeChange = (code: string) => {
     setCode(code)
 
-    socket.sendCode({ code, problemAlias: alias, userId: currentUser.id })
+    workSpaceSocket.sendCode({ code, problemAlias: alias, userId: currentUser.id })
   }
 
   const codeEventHandler: CodeHandler = ({ code, userId, problemAlias }) => {
@@ -44,7 +44,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
       .then(({ code }) => setCode(code))
       .catch(console.log)
 
-    return socket.subscribeEditor(codeEventHandler)
+    return workSpaceSocket.subscribeEditor(codeEventHandler)
   }, [alias])
 
   return (

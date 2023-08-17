@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { socket } from '@sockets/socket'
 import { SubmissionRetrievedHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
@@ -35,7 +35,7 @@ export const SubmissionsContainer: FC = () => {
       .then(({ submissions }) => setSubmissions(submissions.sort((a, b) => b.timeFromStart - a.timeFromStart)))
       .catch(console.log)
 
-    return socket.subscribeSubmissionRetrieved(submissionRetrievedEventHandler)
+    return workSpaceSocket.subscribeSubmissionRetrieved(submissionRetrievedEventHandler)
   }, [alias])
 
   return <Submissions submissions={submissions} />

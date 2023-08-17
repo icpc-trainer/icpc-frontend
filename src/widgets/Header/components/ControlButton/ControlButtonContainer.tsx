@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { useUserControl } from '@hooks/useUserControl'
 
@@ -12,7 +12,7 @@ export const ControlButtonContainer = () => {
   const isDisabled = hasCurrentUserControl
 
   const onTakeControl = () => {
-    socket.sendControlTaken({ userId: currentUser.id })
+    workSpaceSocket.sendControlTaken({ userId: currentUser.id })
   }
 
   return <ControlButton isDisabled={isDisabled} onTakeControl={onTakeControl} />

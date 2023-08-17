@@ -51,7 +51,7 @@ export interface Data {
   payload?: Payload
 }
 
-export type Handler<P extends Payload = Payload> = (payload: P) => void
+export type Handler = (payload: any) => void
 
 export type MessageHandler = (payload: MessagePayload) => void
 export type CodeHandler = (payload: CodePayload) => void

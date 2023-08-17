@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 
-import { socket } from '@sockets/socket'
 import { ControlTakenHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { useGetControlUserQuery } from '@store/api/api'
 
@@ -22,7 +22,7 @@ export const ControlStatusContainer: FC<ControlStatusProps> = ({ id }) => {
   }
 
   useEffect(() => {
-    return socket.subscribeControlTaken(controlTakenEventHandler)
+    return workSpaceSocket.subscribeControlTaken(controlTakenEventHandler)
   }, [])
 
   return <ControlStatus isActive={isActive} />

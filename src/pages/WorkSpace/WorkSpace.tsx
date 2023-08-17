@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
 
@@ -15,7 +15,7 @@ export const WorkSpace = () => {
   const { data: currentUser } = useGetCurrentUserQuery()
   const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
 
-  socket.init(currentUser)
+  workSpaceSocket.init(currentUser)
 
   if (!currentUser || !controlUser) {
     return null
