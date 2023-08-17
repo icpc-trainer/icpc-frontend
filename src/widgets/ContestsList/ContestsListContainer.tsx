@@ -11,4 +11,3 @@ export const ContestsListContainer: FC = () => {
   }
   return <ContestsList contests={contests} />
 }
-

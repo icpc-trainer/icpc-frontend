@@ -20,4 +20,3 @@ export const ContestsList: FC<ContestsListProps> = ({ contests }) => {
     <List<IContest> listClassName={styles.list} data={contests} getItemKey={getContestKey} renderItem={renderContest} />
   )
 }
-

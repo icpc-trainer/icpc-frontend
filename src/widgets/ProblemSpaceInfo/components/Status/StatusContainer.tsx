@@ -22,11 +22,11 @@ export const StatusContainer = () => {
   }
 
   useEffect(() => {
-    if(alias) {
+    if (alias) {
       api
         .getProblemByAlias(trainingSessionId, alias)
         .then(({ status }) => setStatus(status))
-        .catch((console.log))
+        .catch(console.log)
     }
 
     return socket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)

@@ -11,4 +11,3 @@ interface ContestsListItemProps {
 export const ContestsListItem: FC<ContestsListItemProps> = ({ contest }) => {
   return <span className={styles.text}>{contest.name}</span>
 }
-
