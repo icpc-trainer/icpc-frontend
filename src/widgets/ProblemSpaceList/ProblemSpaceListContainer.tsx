@@ -1,8 +1,8 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { workSpaceSocket } from '@sockets/work-space-socket'
 import { ProblemAssignedHandler, ProblemStatusUpdatedHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
@@ -59,7 +59,9 @@ export const ProblemSpaceListContainer: FC = () => {
       })
       .catch(console.log)
 
-    const problemStatusUpdatedUnsubscribe = workSpaceSocket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)
+    const problemStatusUpdatedUnsubscribe = workSpaceSocket.subscribeProblemStatusUpdated(
+      problemStatusUpdatedEventHandler,
+    )
     const problemAssignedUnsubscribe = workSpaceSocket.subscribeProblemAssigned(problemAssignedEventHandler)
 
     return () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { workSpaceSocket } from '@sockets/work-space-socket'
 import { UserHandler, UserLeaveHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 

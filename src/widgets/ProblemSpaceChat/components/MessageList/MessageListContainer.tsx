@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
 
-import { workSpaceSocket } from '@sockets/work-space-socket'
 import { MessageHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 

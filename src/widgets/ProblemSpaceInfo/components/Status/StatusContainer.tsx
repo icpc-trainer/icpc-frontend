@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { workSpaceSocket } from '@sockets/work-space-socket'
 import { ProblemStatusUpdatedHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
@@ -22,11 +22,11 @@ export const StatusContainer = () => {
   }
 
   useEffect(() => {
-    if(alias) {
+    if (alias) {
       api
         .getProblemByAlias(trainingSessionId, alias)
         .then(({ status }) => setStatus(status))
-        .catch((console.log))
+        .catch(console.log)
     }
 
     return workSpaceSocket.subscribeProblemStatusUpdated(problemStatusUpdatedEventHandler)

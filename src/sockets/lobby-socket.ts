@@ -1,5 +1,6 @@
-import { Socket } from "@sockets/socket"
-import { urls } from "@constants/urls"
+import { Socket } from '@sockets/socket'
+
+import { urls } from '@constants/urls'
 
 class LobbySocket extends Socket {}
 

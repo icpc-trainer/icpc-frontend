@@ -1,6 +1,7 @@
 import { trainingSessionId } from '@constants/training-session-id'
 import { urls } from '@constants/urls'
 
+import { Socket } from './socket'
 import {
   CodeHandler,
   CodePayload,
@@ -15,7 +16,6 @@ import {
   UserLeaveHandler,
   SubmissionRetrievedHandler,
 } from './types'
-import { Socket } from "./socket"
 
 class WorkSpaceSocket extends Socket {
   public sendCode(payload: CodePayload) {
@@ -63,6 +63,7 @@ class WorkSpaceSocket extends Socket {
   }
 }
 
-const getUrl = (userId: string) => `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${userId}`
+const getUrl = (userId: string) =>
+  `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${userId}`
 
 export const workSpaceSocket = new WorkSpaceSocket(getUrl)

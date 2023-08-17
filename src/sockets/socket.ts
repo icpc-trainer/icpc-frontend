@@ -1,5 +1,6 @@
-import { Data, Handler, Handlers, Type, Types } from "@sockets/types"
-import { IYandexUser } from "../types/types"
+import { Data, Handler, Handlers, Type, Types } from '@sockets/types'
+
+import { IYandexUser } from '../types/types'
 
 abstract class Socket {
   private readonly getUrl: (userId: string) => string
@@ -36,7 +37,7 @@ abstract class Socket {
     this.client.send(JSON.stringify(data))
   }
 
- protected subscribe(eventName: Type, handler: Handler) {
+  protected subscribe(eventName: Type, handler: Handler) {
     if (!this.handlers[eventName]) {
       this.handlers[eventName] = new Set([handler])
     } else {

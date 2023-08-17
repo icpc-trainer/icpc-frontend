@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { workSpaceSocket } from '@sockets/work-space-socket'
 import { ControlTakenHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
 
