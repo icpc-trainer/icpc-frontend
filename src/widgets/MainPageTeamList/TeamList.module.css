@@ -10,7 +10,7 @@
     margin: 5px 0px;
 
     font-size: 15px;
-
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 .container {

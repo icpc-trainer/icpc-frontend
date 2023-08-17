@@ -13,9 +13,8 @@ export const TeamListContainer = () => {
             .catch(console.log)
     }, [])
 
-    if (!teams.length) {
-        return <BlockWrapper className={styles.blockWrapper}>
-            <Loading loaderClassName={styles.loader} containerClassName={styles.container}/>
+    if (teams === null) {
+        return <BlockWrapper>
             <span>Loading</span>
         </BlockWrapper>
     }
