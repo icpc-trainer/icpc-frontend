@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 import { MessageHandler } from '@sockets/types'
 
 import { api } from '@api/index'
@@ -24,7 +24,7 @@ export const MessageListContainer = () => {
   React.useEffect(() => {
     api.getMessagesByAlias(trainingSessionId, alias).then(setMessages).catch(console.log)
 
-    return socket.subscribeMessage(messageEventHandler)
+    return workSpaceSocket.subscribeMessage(messageEventHandler)
   }, [alias])
 
   return <MessageList messages={messages} />

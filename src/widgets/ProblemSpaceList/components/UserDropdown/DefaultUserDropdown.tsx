@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { ProblemItemContext } from '@contexts/problemItemContext'
 
@@ -12,7 +12,7 @@ export const DefaultUserDropdown: FC = () => {
   const { problem } = useContext(ProblemItemContext)
 
   const onSendProblemAssigned = () => {
-    socket.sendProblemAssigned({ user: null, problemAlias: problem.alias })
+    workSpaceSocket.sendProblemAssigned({ user: null, problemAlias: problem.alias })
   }
 
   return (

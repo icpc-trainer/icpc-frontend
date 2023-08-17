@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 import { ControlTakenHandler } from '@sockets/types'
 
 import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
@@ -18,7 +18,7 @@ export const useUserControl = () => {
   }
 
   useEffect(() => {
-    return socket.subscribeControlTaken(controlTakenHandler)
+    return workSpaceSocket.subscribeControlTaken(controlTakenHandler)
   }, [])
 
   return { hasCurrentUserControl, currentUser }

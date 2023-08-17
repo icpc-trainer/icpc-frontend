@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { socket } from '@sockets/socket'
+import { workSpaceSocket } from '@sockets/work-space-socket'
 import { UserHandler, UserLeaveHandler } from '@sockets/types'
 
 import { api } from '@api/index'
@@ -25,8 +25,8 @@ export const OnlineUserListContainer = () => {
   useEffect(() => {
     api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
 
-    const userUnsubscribe = socket.subscribeUser(userEventHandler)
-    const userLeaveUnsubscribe = socket.subscribeUserLeave(userLeaveEventHandler)
+    const userUnsubscribe = workSpaceSocket.subscribeUser(userEventHandler)
+    const userLeaveUnsubscribe = workSpaceSocket.subscribeUserLeave(userLeaveEventHandler)
 
     return () => {
       userUnsubscribe()
