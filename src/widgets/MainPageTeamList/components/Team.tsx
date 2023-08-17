@@ -11,7 +11,7 @@ interface TeamProps {
 
 export const Team: FC<TeamProps> = ({ team }) => {
   return (
-    <div className={styles.teamContainer} key={team.id}>
+    <div className={styles.teamContainer}>
       <span>{team.name}</span>
 
       <button className={styles.buttonActive}>

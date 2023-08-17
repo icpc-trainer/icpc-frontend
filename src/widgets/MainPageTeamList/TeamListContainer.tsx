@@ -10,17 +10,13 @@ import { ITeam } from 'src/types/types'
 import { TeamList } from './TeamList'
 
 export const TeamListContainer = () => {
-  const [teams, setTeams] = useState<ITeam[]>([])
+  const [teams, setTeams] = useState<ITeam[]>(null)
   useEffect(() => {
     api.getUserTeams().then(setTeams).catch(console.log)
   }, [])
 
-  if (teams === null) {
-    return (
-      <BlockWrapper>
-        <span>Loading</span>
-      </BlockWrapper>
-    )
+  if (!teams) {
+    return null
   }
 
   return <TeamList teams={teams} />
