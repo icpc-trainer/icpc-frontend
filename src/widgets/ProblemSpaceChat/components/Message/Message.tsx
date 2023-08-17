@@ -11,7 +11,7 @@ interface ProblemSpaceChatMessageProps {
 export const Message: FunctionComponent<ProblemSpaceChatMessageProps> = ({ message }) => {
   return (
     <div className={styles.message}>
-      {message.userLogin}: <span>{message.content}</span>
+      {message.userFirstName}: <span>{message.content}</span>
     </div>
   )
 }
