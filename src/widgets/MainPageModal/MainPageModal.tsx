@@ -1,8 +1,9 @@
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
-import styles from './MainPageModal.module.css'
 import { TeamListContainer } from '@widgets/MainPageTeamList/TeamListContainer'
+
+import styles from './MainPageModal.module.css'
 
 interface MainPageModalProps {
   isModalOpen: boolean
@@ -38,7 +39,6 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
     }
   }, [isModalOpen])
 
-
   return (
     <div className={styles.modal} ref={ref} onClick={e => e.preventDefault()}>
       <div className={styles.modalHeader}>
@@ -47,7 +47,7 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
           x
         </p>
       </div>
-      <TeamListContainer/>
+      <TeamListContainer />
       {/* <p className="description">Вы уверены, что хотите удалить билет?</p>
             <div className="buttons">
                 <button className="buttonYes" onClick={() => {}}>Да</button>

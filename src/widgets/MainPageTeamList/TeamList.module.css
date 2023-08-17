@@ -1,23 +1,24 @@
 .team {
-    width: 100%;
-    margin-right: 15px;
-    padding: 10px 10px;
+  width: 100%;
+  margin-right: 15px;
+  padding: 10px 10px;
 }
 
 .teams {
-    height: 100%;
-    width: 100%;
-    margin: 5px 0px;
+  width: 100%;
+  height: 100%;
+  margin: 5px 0px;
 
-    font-size: 15px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  font-size: 15px;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .loader {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
