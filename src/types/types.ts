@@ -121,3 +121,8 @@ export enum ProblemStatuses {
   Failed = 'FAILED',
   Passed = 'PASSED',
 }
+
+export interface IContest {
+  id: string
+  name: string
+}

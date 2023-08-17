@@ -4,7 +4,7 @@ import { urls } from '@constants/urls'
 import { getCookie } from '@helpers/getCookie'
 import { setCookie } from '@helpers/setCookie'
 
-import { ISubmissionFull, IYandexUser } from 'src/types/types'
+import { IContest, ISubmissionFull, IYandexUser } from 'src/types/types'
 
 export const api = createApi({
   reducerPath: 'api',
@@ -48,7 +48,17 @@ export const api = createApi({
         url: `/training-sessions/${trainingSessionId}/submissions/${submissionId}/full`,
       }),
     }),
+    getContests: build.query<IContest[], void>({
+      query: () => ({
+        url: 'contests',
+      }),
+    }),
   }),
 })
 
-export const { useGetCurrentUserQuery: useGetCurrentUserQuery, useGetControlUserQuery, useGetSubmissionFullQuery } = api
+export const {
+  useGetCurrentUserQuery: useGetCurrentUserQuery,
+  useGetControlUserQuery,
+  useGetSubmissionFullQuery,
+  useGetContestsQuery,
+} = api
