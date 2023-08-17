@@ -98,6 +98,9 @@ class Api {
       `contests/${trainingSessionId}/problems/${problemAlias}`,
     )
   }
+  getUserTeams() {
+    return this.get(`teams`)
+  }
 }
 
 export const api = new Api(urls.openApiUrl)

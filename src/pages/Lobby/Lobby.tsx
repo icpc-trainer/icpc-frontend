@@ -6,6 +6,7 @@ import { Arrow } from '@icons/Arrow'
 import { Check } from '@icons/Check'
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
+import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
 
 import styles from './Lobby.module.css'
 
@@ -18,9 +19,7 @@ const Lobby = () => {
       <div className={styles.contestList}>
         <button className={styles.askQuestion}>Задать вопрос</button>
         <BlockWrapper className={styles.blockWrapper}>
-          <div className={styles.contestItem}>
-            <a className={styles.contestItemText}>Яндекс.Алгоритм-2018</a>
-          </div>
+          <ContestsListContainer />
         </BlockWrapper>
       </div>
       <div className={styles.startTraining}>

@@ -51,6 +51,11 @@ export interface IMessage {
   dtCreated: string
 }
 
+export interface ITeam {
+  id: number
+  name: string
+}
+
 export interface ISubmission {
   compileLog: string
   compiler: string
@@ -120,4 +125,9 @@ export enum ProblemStatuses {
   NotSubmitted = 'NOT_SUBMITTED',
   Failed = 'FAILED',
   Passed = 'PASSED',
+}
+
+export interface IContest {
+  id: string
+  name: string
 }
