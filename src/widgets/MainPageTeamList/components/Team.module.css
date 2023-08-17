@@ -1,0 +1,28 @@
+.teamContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttonActive {
+  padding: 0px 13px;
+
+  color: black;
+  font-size: 15px;
+  line-height: 31px;
+
+  border: 1px solid rgba(191, 153, 0, 0.8);
+  border-radius: 3px;
+
+  background-color: #ffdb4d;
+  background-clip: padding-box;
+}
+
+.buttonActive a {
+  color: black;
+}
+
+.buttonActive:hover {
+  color: red;
+
+  cursor: pointer;
+}

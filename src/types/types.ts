@@ -51,6 +51,11 @@ export interface IMessage {
   dtCreated: string
 }
 
+export interface ITeam {
+  id: number
+  name: string
+}
+
 export interface ISubmission {
   compileLog: string
   compiler: string

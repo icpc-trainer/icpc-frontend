@@ -1,6 +1,8 @@
 import React, { FunctionComponent, SetStateAction, useCallback, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
+import { TeamListContainer } from '@widgets/MainPageTeamList/TeamListContainer'
+
 import styles from './MainPageModal.module.css'
 
 interface MainPageModalProps {
@@ -37,8 +39,6 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
     }
   }, [isModalOpen])
 
-  const teams = [{ name: 'Команда_ЛШЯ_2023', id: 1 }]
-
   return (
     <div className={styles.modal} ref={ref} onClick={e => e.preventDefault()}>
       <div className={styles.modalHeader}>
@@ -47,19 +47,7 @@ export const MainPageModal: FunctionComponent<MainPageModalProps> = ({ isModalOp
           x
         </p>
       </div>
-      <div className={styles.teams}>
-        {teams.map(team => {
-          return (
-            <div className={styles.team} key={team.id}>
-              <span>{team.name}</span>
-
-              <button className={styles.buttonActive}>
-                <Link to="/lobby">Присоединиться</Link>
-              </button>
-            </div>
-          )
-        })}
-      </div>
+      <TeamListContainer />
       {/* <p className="description">Вы уверены, что хотите удалить билет?</p>
             <div className="buttons">
                 <button className="buttonYes" onClick={() => {}}>Да</button>
