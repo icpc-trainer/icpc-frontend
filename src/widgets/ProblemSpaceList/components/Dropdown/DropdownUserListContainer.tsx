@@ -14,7 +14,7 @@ export const DropdownUserListContainer = () => {
   const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
 
   useEffect(() => {
-    api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
+    api.getWorkSpaceOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
   }, [])
 
   return (

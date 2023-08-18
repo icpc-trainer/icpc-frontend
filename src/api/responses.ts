@@ -13,7 +13,11 @@ export interface GetCodeByAliasResponse {
 
 export type GetMessagesByAliasResponse = IMessage[]
 
-export interface GetYandexUsersOnlineResponse {
+export interface GetWorkSpaceOnlineUsersResponse {
+  users: IYandexUser[]
+}
+
+export interface GetLobbyOnlineUsersResponse {
   users: IYandexUser[]
 }
 
