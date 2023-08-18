@@ -1,5 +1,12 @@
 import { Socket } from '@sockets/socket'
-import { TrainingStartedHandler, Types, UserHandler, UserLeaveHandler } from '@sockets/types'
+import {
+  ContestSelectedHandler,
+  ContestSelectedPayload,
+  TrainingStartedHandler,
+  Types,
+  UserHandler,
+  UserLeaveHandler,
+} from "@sockets/types"
 
 class LobbySocket extends Socket {
   public sendContestSelected(payload: ContestSelectedPayload) {
@@ -16,6 +23,10 @@ class LobbySocket extends Socket {
 
   public subscribeUserLeave(handler: UserLeaveHandler) {
     return this.subscribe(Types.UserLeave, handler)
+  }
+
+  public subscribeContestSelected(handler: ContestSelectedHandler) {
+    return this.subscribe(Types.ContestSelected, handler)
   }
 }
 

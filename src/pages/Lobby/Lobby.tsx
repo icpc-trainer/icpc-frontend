@@ -16,6 +16,8 @@ import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
 
 import styles from './Lobby.module.css'
+import { TeamNameContainer } from "@widgets/TeamName/TeamNameContainer"
+import { LobbyOnlineUserListContainer } from "@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer"
 
 const Lobby = () => {
   const [selectedContestId, setSelectedContestId] = useState(null)
@@ -65,14 +67,8 @@ const Lobby = () => {
             <button className={styles.startButton} onClick={onCreateTrainingSession}>
               Начать тренировку
             </button>
-            <div className={styles.dropdownContainer}>
-              <span>Тест_ШМЯ_2023</span>
-            </div>
-            <div className={styles.users}>
-              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-              <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-            </div>
+            <TeamNameContainer />
+            <LobbyOnlineUserListContainer />
           </div>
         </div>
       </div>

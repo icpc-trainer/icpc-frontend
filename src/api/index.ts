@@ -15,8 +15,8 @@ import {
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
   GetTeamStatusResponse,
-  GetLobbyOnlineUsersResponse,
-} from './responses'
+  GetLobbyOnlineUsersResponse, GetSelectedContestResponse, GetUserTeamsResponse,
+} from "./responses"
 
 class Api {
   private readonly client: AxiosInstance
@@ -106,7 +106,7 @@ class Api {
   }
 
   getUserTeams() {
-    return this.get(`teams`)
+    return this.get<GetUserTeamsResponse>(`teams`)
   }
 
   getTeamStatus(teamId: number) {
@@ -116,6 +116,11 @@ class Api {
   createTrainingSession(teamId: string, contestId: string) {
     return this.post<CreateTrainingSession>(`training-sessions`, { team_id: teamId, contest_id: contestId })
   }
+
+  async getSelectedContest(teamId: string) {
+    return (await this.get<GetSelectedContestResponse>(`lobby/${teamId}/selected-contest`)).contestId
+  }
+
 }
 
 export const api = new Api(urls.openApiUrl)

@@ -28,6 +28,8 @@ export interface GetVerdictsByAliasResponse {
 
 export type GetTeamStatusResponse = ITeamStatus
 
-export type GetSelectedContest = {
+export type GetSelectedContestResponse = {
   contestId: string
 }
+
+export type GetUserTeamsResponse = ITeam[]
