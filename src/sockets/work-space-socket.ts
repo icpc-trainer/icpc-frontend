@@ -1,20 +1,17 @@
-import { trainingSessionId } from '@constants/training-session-id'
-import { urls } from '@constants/urls'
-
 import { Socket } from './socket'
 import {
   CodeHandler,
   CodePayload,
   ControlTakenHandler,
   ControlTakenPayload,
-  ProblemAssignedPayload,
   MessageHandler,
   ProblemAssignedHandler,
+  ProblemAssignedPayload,
   ProblemStatusUpdatedHandler,
+  SubmissionRetrievedHandler,
   Types,
   UserHandler,
   UserLeaveHandler,
-  SubmissionRetrievedHandler,
 } from './types'
 
 class WorkSpaceSocket extends Socket {

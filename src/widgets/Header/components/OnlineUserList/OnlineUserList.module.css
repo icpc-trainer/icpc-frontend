@@ -1,6 +1,9 @@
 .onlineUserList {
   display: flex;
-  column-gap: 14px;
+
   width: 285px;
+
+  column-gap: 14px;
+
   overflow-x: scroll;
 }

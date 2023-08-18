@@ -1,20 +1,26 @@
 .avatar {
   position: relative;
+
   display: flex;
-  text-align: center;
   flex-direction: column;
+
+  text-align: center;
 }
 .avatarPlaceholder {
-  color:white;
-  font-size: 16px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  padding-top: 5px;
-  background-color: var(--color-green-light);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+
+  color: white;
+  font-size: 16px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-green-light);
 }
 
 .badge {

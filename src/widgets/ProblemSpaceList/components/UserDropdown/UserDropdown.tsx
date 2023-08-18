@@ -16,8 +16,8 @@ interface UserDropdownProps {
 
 export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign, hasAvatar }) => {
   const avatarUrl = getAvatarUrl(user.default_avatar_id)
-  return hasAvatar
-    ? <img
+  return hasAvatar ? (
+    <img
       width={24}
       height={24}
       src={avatarUrl}
@@ -25,6 +25,7 @@ export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign,
       alt="avatar"
       onClick={() => onSendProblemAssign()}
     />
-    : <div className={styles.avatarPlaceholder}>{`${user.first_name[0]}${user.last_name[0]}`}</div>
-  
+  ) : (
+    <div className={styles.avatarPlaceholder}>{`${user.first_name[0]}${user.last_name[0]}`}</div>
+  )
 }
