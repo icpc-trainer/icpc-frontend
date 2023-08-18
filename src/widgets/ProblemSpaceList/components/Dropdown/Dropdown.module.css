@@ -11,8 +11,8 @@
 
 .dropdown {
   display: flex;
-
-  width: 100%;
+  overflow-x: scroll;
+  width: 150px;
   /* padding-top: 12px; */
 }
 
