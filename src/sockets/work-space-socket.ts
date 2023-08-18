@@ -63,7 +63,4 @@ class WorkSpaceSocket extends Socket {
   }
 }
 
-const getUrl = (userId: string) =>
-  `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${userId}`
-
-export const workSpaceSocket = new WorkSpaceSocket(getUrl)
+export const workSpaceSocket = new WorkSpaceSocket()

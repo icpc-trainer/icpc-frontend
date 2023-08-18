@@ -3,15 +3,13 @@ import { useParams } from 'react-router'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { Input } from '@widgets/ProblemSpaceChat/components/Input/Input'
 
 const minRows = 1
 const maxRows = 4
 
 export const InputContainer = () => {
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const [value, setValue] = useState('')
   const [rows, setRows] = useState(minRows)

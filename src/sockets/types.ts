@@ -9,6 +9,8 @@ export enum Types {
   UserLeave = 'USER_LEAVE',
   ProblemStatusUpdated = 'PROBLEM_STATUS_UPDATED',
   ProblemAssigned = 'PROBLEM_ASSIGNED',
+  TrainingStarted = 'TRAINING_STARTED',
+  ContestSelected = 'CONTEST_SELECTED',
 }
 
 export type Type = `${Types}`
@@ -46,6 +48,16 @@ export interface ProblemAssignedPayload extends Payload {
   user: IYandexUser
 }
 
+export interface TrainingStartedPayload extends Payload {
+  dtCreated: string
+  id: string
+  status: string
+}
+
+export interface ContestSelectedPayload extends Payload {
+  contestId: string
+}
+
 export interface Data {
   type: Type
   payload?: Payload
@@ -61,6 +73,8 @@ export type UserHandler = (payload: UserPayload) => void
 export type UserLeaveHandler = (payload: UserLeavePayload) => void
 export type ProblemStatusUpdatedHandler = (payload: ProblemStatusUpdatedPayload) => void
 export type ProblemAssignedHandler = (payload: ProblemAssignedPayload) => void
+export type TrainingStartedHandler = (payload: TrainingStartedPayload) => void
+export type ContestSelectedHandler = (payload: ContestSelectedPayload) => void
 
 export type Handlers = {
   [key in Type]?: Set<Handler>

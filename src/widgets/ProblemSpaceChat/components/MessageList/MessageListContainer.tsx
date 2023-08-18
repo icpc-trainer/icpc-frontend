@@ -6,14 +6,12 @@ import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { MessageList } from '@widgets/ProblemSpaceChat/components/MessageList/MessageList'
 
 import { IMessage } from '../../../../types/types'
 
 export const MessageListContainer = () => {
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const [messages, setMessages] = React.useState<IMessage[]>([])
 

@@ -131,3 +131,9 @@ export interface IContest {
   id: string
   name: string
 }
+
+export interface ITeamStatus {
+  id: string
+  status: string
+  dt_created: string
+}

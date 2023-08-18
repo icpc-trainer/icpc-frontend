@@ -6,12 +6,10 @@ import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
-
 import { Status } from './Status'
 
 export const StatusContainer = () => {
-  const { alias } = useParams()
+  const { trainingSessionId, alias } = useParams()
 
   const [status, setStatus] = useState<string>('')
 

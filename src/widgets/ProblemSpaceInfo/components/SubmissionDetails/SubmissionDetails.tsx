@@ -1,10 +1,9 @@
 import classNames from 'classnames'
 
 import React, { FC } from 'react'
+import { useParams } from 'react-router'
 
 import { useGetSubmissionFullQuery } from '@store/api/api'
-
-import { trainingSessionId } from '@constants/training-session-id'
 
 import { Arrow } from '@icons/Arrow'
 import { Accordion } from '@ui/Accordion/Accordion'
@@ -34,6 +33,8 @@ interface SubmissionDetailsProps {
 }
 
 export const SubmissionDetails: FC<SubmissionDetailsProps> = ({ submissionId, state, onCloseDetails }) => {
+  const { trainingSessionId } = useParams()
+
   const { data: submissionFull } = useGetSubmissionFullQuery({ trainingSessionId, submissionId })
 
   if (!submissionFull) return null

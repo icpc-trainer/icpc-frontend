@@ -6,14 +6,18 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { PostMessageRequest, PostSubmissionsRequest } from './requests'
+import { CreateTrainingSession, PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetMessagesByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
   GetVerdictsByAliasResponse,
-  GetYandexUsersOnlineResponse,
+  GetWorkSpaceOnlineUsersResponse,
+  GetTeamStatusResponse,
+  GetLobbyOnlineUsersResponse,
+  GetSelectedContestResponse,
+  GetUserTeamsResponse,
 } from './responses'
 
 class Api {
@@ -83,8 +87,12 @@ class Api {
     )
   }
 
-  async getOnlineUsers(trainingSessionId: string) {
-    return (await this.get<GetYandexUsersOnlineResponse>(`training-sessions/${trainingSessionId}/online`)).users
+  async getWorkSpaceOnlineUsers(trainingSessionId: string) {
+    return (await this.get<GetWorkSpaceOnlineUsersResponse>(`training-sessions/${trainingSessionId}/online`)).users
+  }
+
+  async getLobbyOnlineUsers(teamId: string) {
+    return (await this.get<GetLobbyOnlineUsersResponse>(`lobby/${teamId}/online`)).users
   }
 
   getSubmissionsByAlias(trainingSessionId: string, problemAlias: string) {
@@ -98,8 +106,21 @@ class Api {
       `contests/${trainingSessionId}/problems/${problemAlias}`,
     )
   }
+
   getUserTeams() {
-    return this.get(`teams`)
+    return this.get<GetUserTeamsResponse>(`teams`)
+  }
+
+  getTeamStatus(teamId: number) {
+    return this.get<GetTeamStatusResponse>(`training-sessions/team/${teamId}/reconnect`)
+  }
+
+  createTrainingSession(teamId: string, contestId: string) {
+    return this.post<CreateTrainingSession>(`training-sessions`, { team_id: teamId, contest_id: contestId })
+  }
+
+  async getSelectedContest(teamId: string) {
+    return (await this.get<GetSelectedContestResponse>(`lobby/${teamId}/selected-contest`)).contestId
   }
 }
 

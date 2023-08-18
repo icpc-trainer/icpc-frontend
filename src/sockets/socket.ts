@@ -3,19 +3,14 @@ import { Data, Handler, Handlers, Type, Types } from '@sockets/types'
 import { IYandexUser } from '../types/types'
 
 abstract class Socket {
-  private readonly getUrl: (userId: string) => string
   private client: WebSocket
 
   private readonly handlers: Handlers = {}
   private initialized: boolean = false
 
-  constructor(getUrl: (userId: string) => string) {
-    this.getUrl = getUrl
-  }
-
-  public init(user: IYandexUser) {
+  public init(url: string, user: IYandexUser) {
     if (!this.initialized) {
-      this.client = new WebSocket(this.getUrl(user.id))
+      this.client = new WebSocket(url)
 
       this.client.onopen = function () {
         this.send(JSON.stringify({ type: Types.User, payload: { user } }))
@@ -23,6 +18,7 @@ abstract class Socket {
 
       this.client.onmessage = (evt: MessageEvent<string>) => {
         const { type, payload }: Data = JSON.parse(evt.data)
+        console.log(JSON.parse(evt.data))
 
         if (this.handlers[type]) {
           this.handlers[type].forEach(handler => handler(payload))

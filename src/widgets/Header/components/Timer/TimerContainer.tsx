@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
 import { api } from '@api/index'
 
-import { trainingSessionId } from '@constants/training-session-id'
 import { useCountdown } from '@hooks/useCountdown'
 import { convertMsToTime } from '@utils/converMsToTime'
 
 import { Timer } from './Timer'
 
 export const TimerContainer = () => {
+  const { trainingSessionId } = useParams()
+
   const [contestStatus, setContestStatus] = useState('')
   const [contestDateCreated, setContestDateCreated] = useState('')
   const [contestDurationInSec, setContestDurationInSec] = useState<number>(null)

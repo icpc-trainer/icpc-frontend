@@ -1,9 +1,33 @@
 import { Socket } from '@sockets/socket'
+import {
+  ContestSelectedHandler,
+  ContestSelectedPayload,
+  TrainingStartedHandler,
+  Types,
+  UserHandler,
+  UserLeaveHandler,
+} from '@sockets/types'
 
-import { urls } from '@constants/urls'
+class LobbySocket extends Socket {
+  public sendContestSelected(payload: ContestSelectedPayload) {
+    return this.send({ type: Types.ContestSelected, payload })
+  }
 
-class LobbySocket extends Socket {}
+  public subscribeTrainingStarted(handler: TrainingStartedHandler) {
+    return this.subscribe(Types.TrainingStarted, handler)
+  }
 
-const getUrl = (userId: string) => `${urls.websocketLobby}?team_id=228&user_id=${userId}`
+  public subscribeUser(handler: UserHandler) {
+    return this.subscribe(Types.User, handler)
+  }
 
-export const lobbySocket = new LobbySocket(getUrl)
+  public subscribeUserLeave(handler: UserLeaveHandler) {
+    return this.subscribe(Types.UserLeave, handler)
+  }
+
+  public subscribeContestSelected(handler: ContestSelectedHandler) {
+    return this.subscribe(Types.ContestSelected, handler)
+  }
+}
+
+export const lobbySocket = new LobbySocket()
