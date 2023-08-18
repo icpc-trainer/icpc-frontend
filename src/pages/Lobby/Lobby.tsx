@@ -14,10 +14,10 @@ import { SelectedContestContext } from '@contexts/contestListContext'
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
+import { LobbyOnlineUserListContainer } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer'
+import { TeamNameContainer } from '@widgets/TeamName/TeamNameContainer'
 
 import styles from './Lobby.module.css'
-import { TeamNameContainer } from "@widgets/TeamName/TeamNameContainer"
-import { LobbyOnlineUserListContainer } from "@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer"
 
 const Lobby = () => {
   const [selectedContestId, setSelectedContestId] = useState(null)

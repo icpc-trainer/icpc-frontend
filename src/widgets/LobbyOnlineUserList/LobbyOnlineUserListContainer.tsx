@@ -45,4 +45,3 @@ export const LobbyOnlineUserListContainer = () => {
 
   return <LobbyOnlineUserList users={users} />
 }
-

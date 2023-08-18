@@ -15,8 +15,10 @@ import {
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
   GetTeamStatusResponse,
-  GetLobbyOnlineUsersResponse, GetSelectedContestResponse, GetUserTeamsResponse,
-} from "./responses"
+  GetLobbyOnlineUsersResponse,
+  GetSelectedContestResponse,
+  GetUserTeamsResponse,
+} from './responses'
 
 class Api {
   private readonly client: AxiosInstance
@@ -120,7 +122,6 @@ class Api {
   async getSelectedContest(teamId: string) {
     return (await this.get<GetSelectedContestResponse>(`lobby/${teamId}/selected-contest`)).contestId
   }
-
 }
 
 export const api = new Api(urls.openApiUrl)

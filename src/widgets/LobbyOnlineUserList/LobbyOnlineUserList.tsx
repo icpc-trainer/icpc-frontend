@@ -19,4 +19,3 @@ export const LobbyOnlineUserList: FC<LobbyOnlineUserListProps> = ({ users }) => 
     <List listClassName={styles.lobbyOnlineUserList} data={users} getItemKey={getUserKey} renderItem={renderUser} />
   )
 }
-

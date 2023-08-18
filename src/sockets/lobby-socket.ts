@@ -6,7 +6,7 @@ import {
   Types,
   UserHandler,
   UserLeaveHandler,
-} from "@sockets/types"
+} from '@sockets/types'
 
 class LobbySocket extends Socket {
   public sendContestSelected(payload: ContestSelectedPayload) {
