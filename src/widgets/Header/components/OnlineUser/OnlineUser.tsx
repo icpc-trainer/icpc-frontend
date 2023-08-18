@@ -14,17 +14,16 @@ interface HeaderUserProps {
 
 export const OnlineUser: FC<HeaderUserProps> = ({ yandexUser}) => {
   const avatarUrl = getAvatarUrl(yandexUser.default_avatar_id)
-  const userInitials = 
-    yandexUser.default_avatar_id === "0/0-0" 
-    ? `${yandexUser.first_name[0]}. ${yandexUser.last_name[0]}.`
-    : ""
+  const hasAvatar = yandexUser.default_avatar_id === "0/0-0" ? false : true
 
-  console.log(yandexUser)
   return (
     <div className={styles.user}>
       <div className={styles.avatar}>
-        <img className={styles.avatarImg} src={avatarUrl} alt="avatar" />
-        {userInitials ?? <span>{userInitials}</span>}
+        {
+          hasAvatar 
+            ? <img className={styles.avatarImg} src={avatarUrl} alt="avatar" /> 
+            : <div className={styles.avatarPlaceholder}>{`${yandexUser.first_name[0]}${yandexUser.last_name[0]}`}</div>
+        }
       </div>
       <ControlStatusContainer id={yandexUser.id} />
     </div>
