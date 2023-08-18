@@ -16,7 +16,7 @@ export const LobbyOnlineUserListContainer = () => {
   const [users, setUsers] = useState<IYandexUser[]>([])
 
   const userEventHandler: UserHandler = ({ user }) => {
-    const isDisplayed = !!users.find(({ id }) => user.id)
+    const isDisplayed = !!users.find(({ id }) => user.id === id)
 
     if (!isDisplayed) {
       setUsers(prev => [...prev, user])
@@ -41,3 +41,4 @@ export const LobbyOnlineUserListContainer = () => {
 
   return <LobbyOnlineUserList users={users} />
 }
+
