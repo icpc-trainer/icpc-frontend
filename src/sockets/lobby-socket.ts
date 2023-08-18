@@ -1,5 +1,5 @@
 import { Socket } from '@sockets/socket'
-import { TrainingStartedHandler, Types, UserHandler, UserLeaveHandler } from "@sockets/types"
+import { TrainingStartedHandler, Types, UserHandler, UserLeaveHandler } from '@sockets/types'
 
 class LobbySocket extends Socket {
   public subscribeTrainingStarted(handler: TrainingStartedHandler) {

@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react"
-import { LobbyOnlineUserList } from "@widgets/LobbyOnlineUserList/LobbyOnlineUserList"
-import { IYandexUser } from "../../types/types"
-import { useParams } from "react-router"
-import { api } from "@api/index"
-import { UserHandler, UserLeaveHandler } from "@sockets/types"
-import { lobbySocket } from "@sockets/lobby-socket"
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+
+import { lobbySocket } from '@sockets/lobby-socket'
+import { UserHandler, UserLeaveHandler } from '@sockets/types'
+
+import { api } from '@api/index'
+
+import { LobbyOnlineUserList } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserList'
+
+import { IYandexUser } from '../../types/types'
 
 export const LobbyOnlineUserListContainer = () => {
   const { teamId } = useParams()
@@ -24,9 +28,7 @@ export const LobbyOnlineUserListContainer = () => {
   }
 
   useEffect(() => {
-    api.getLobbyOnlineUsers(teamId)
-      .then(setUsers)
-      .catch(console.log)
+    api.getLobbyOnlineUsers(teamId).then(setUsers).catch(console.log)
 
     const userUnsubscribe = lobbySocket.subscribeUser(userEventHandler)
     const userLeaveUnsubscribe = lobbySocket.subscribeUserLeave(userLeaveEventHandler)

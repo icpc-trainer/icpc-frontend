@@ -14,9 +14,9 @@ import { ContestListContext } from '@contexts/contestListContext'
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
+import { LobbyOnlineUserListContainer } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer'
 
 import styles from './Lobby.module.css'
-import { LobbyOnlineUserListContainer } from "@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer"
 
 const Lobby = () => {
   const [selectedContestId, setSelectedContestId] = useState(null)

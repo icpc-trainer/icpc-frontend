@@ -14,8 +14,9 @@ import {
   GetProblemsResponse,
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
-  GetTeamStatusResponse, GetLobbyOnlineUsersResponse,
-} from "./responses"
+  GetTeamStatusResponse,
+  GetLobbyOnlineUsersResponse,
+} from './responses'
 
 class Api {
   private readonly client: AxiosInstance
