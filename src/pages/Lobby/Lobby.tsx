@@ -14,6 +14,9 @@ import { SelectedContestContext } from '@contexts/contestListContext'
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
+import { TeamNameContainer } from '@widgets/TeamName/TeamNameContainer'
+
+import { ITeam } from 'src/types/types'
 
 import styles from './Lobby.module.css'
 
@@ -66,7 +69,7 @@ const Lobby = () => {
               Начать тренировку
             </button>
             <div className={styles.dropdownContainer}>
-              <span>Тест_ШМЯ_2023</span>
+              <TeamNameContainer />
             </div>
             <div className={styles.users}>
               <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
