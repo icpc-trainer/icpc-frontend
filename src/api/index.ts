@@ -12,9 +12,10 @@ import {
   GetMessagesByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
+  GetTeamStatusResponse,
+  GetTeamsResponse,
   GetVerdictsByAliasResponse,
   GetYandexUsersOnlineResponse,
-  GetTeamStatusResponse,
 } from './responses'
 
 class Api {
@@ -101,7 +102,7 @@ class Api {
   }
 
   getUserTeams() {
-    return this.get(`teams`)
+    return this.get<GetTeamsResponse>(`teams`)
   }
 
   getTeamStatus(teamId: number) {
