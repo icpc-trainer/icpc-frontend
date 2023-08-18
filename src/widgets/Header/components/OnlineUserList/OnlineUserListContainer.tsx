@@ -24,7 +24,7 @@ export const OnlineUserListContainer = () => {
   }
 
   useEffect(() => {
-    api.getOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
+    api.getWorkSpaceOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
 
     const userUnsubscribe = workSpaceSocket.subscribeUser(userEventHandler)
     const userLeaveUnsubscribe = workSpaceSocket.subscribeUserLeave(userLeaveEventHandler)

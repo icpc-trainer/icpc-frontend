@@ -13,9 +13,9 @@ import {
   GetProblemStatementResponse,
   GetProblemsResponse,
   GetVerdictsByAliasResponse,
-  GetYandexUsersOnlineResponse,
-  GetTeamStatusResponse,
-} from './responses'
+  GetWorkSpaceOnlineUsersResponse,
+  GetTeamStatusResponse, GetLobbyOnlineUsersResponse,
+} from "./responses"
 
 class Api {
   private readonly client: AxiosInstance
@@ -84,8 +84,12 @@ class Api {
     )
   }
 
-  async getOnlineUsers(trainingSessionId: string) {
-    return (await this.get<GetYandexUsersOnlineResponse>(`training-sessions/${trainingSessionId}/online`)).users
+  async getWorkSpaceOnlineUsers(trainingSessionId: string) {
+    return (await this.get<GetWorkSpaceOnlineUsersResponse>(`training-sessions/${trainingSessionId}/online`)).users
+  }
+
+  async getLobbyOnlineUsers(teamId: string) {
+    return (await this.get<GetLobbyOnlineUsersResponse>(`lobby/${teamId}/online`)).users
   }
 
   getSubmissionsByAlias(trainingSessionId: string, problemAlias: string) {
