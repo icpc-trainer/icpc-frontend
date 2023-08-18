@@ -6,4 +6,3 @@ interface TeamNameProps {
 export const TeamName: FC<TeamNameProps> = ({ teamName }) => {
   return <span>{teamName}</span>
 }
-

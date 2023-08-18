@@ -29,4 +29,3 @@ export const TeamNameContainer: FC = () => {
 
   return <TeamName teamName={selectedTeam.name} />
 }
-
