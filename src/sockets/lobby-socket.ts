@@ -2,6 +2,10 @@ import { Socket } from '@sockets/socket'
 import { TrainingStartedHandler, Types, UserHandler, UserLeaveHandler } from '@sockets/types'
 
 class LobbySocket extends Socket {
+  public sendContestSelected(payload: ContestSelectedPayload) {
+    return this.send({ type: Types.ContestSelected, payload })
+  }
+
   public subscribeTrainingStarted(handler: TrainingStartedHandler) {
     return this.subscribe(Types.TrainingStarted, handler)
   }

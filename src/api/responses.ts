@@ -1,8 +1,9 @@
-import { IMessage, IProblem, ISubmission, ITeamStatus, IYandexUser } from 'src/types/types'
+import { IMessage, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
 
 export interface GetProblemsResponse {
   problems: IProblem[]
 }
+export type GetTeamsResponse = ITeam[]
 
 export type GetProblemStatementResponse = string
 
@@ -26,3 +27,7 @@ export interface GetVerdictsByAliasResponse {
 }
 
 export type GetTeamStatusResponse = ITeamStatus
+
+export type GetSelectedContest = {
+  contestId: string
+}

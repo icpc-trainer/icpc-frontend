@@ -1,9 +1,6 @@
-import React, { FC, useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { api } from '@api/index'
-
-import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
-import { Loading } from '@ui/Loading/Loading'
 
 import { ITeam } from 'src/types/types'
 
