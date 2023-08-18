@@ -15,6 +15,7 @@ import {
   GetVerdictsByAliasResponse,
   GetYandexUsersOnlineResponse,
   GetTeamStatusResponse,
+  GetSelectedContest,
 } from './responses'
 
 class Api {
@@ -110,6 +111,10 @@ class Api {
 
   createTrainingSession(teamId: string, contestId: string) {
     return this.post<CreateTrainingSession>(`training-sessions`, { team_id: teamId, contest_id: contestId })
+  }
+
+  async getSelectedContest(teamId: string) {
+    return (await this.get<GetSelectedContest>(`lobby/${teamId}/selected-contest`)).contestId
   }
 }
 

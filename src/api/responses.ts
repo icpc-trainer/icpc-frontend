@@ -22,3 +22,7 @@ export interface GetVerdictsByAliasResponse {
 }
 
 export type GetTeamStatusResponse = ITeamStatus
+
+export type GetSelectedContest = {
+  contestId: string
+}

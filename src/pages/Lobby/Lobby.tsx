@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { lobbySocket } from '@sockets/lobby-socket'
-import { ContestSelectedHandler, TrainingStartedHandler } from "@sockets/types"
+import { ContestSelectedHandler, TrainingStartedHandler } from '@sockets/types'
 
 import { api } from '@api/index'
 
@@ -40,6 +40,8 @@ const Lobby = () => {
   lobbySocket.init(`${urls.websocketLobby}?team_id=${teamId}&user_id=${currentUser.id}`, currentUser)
 
   useEffect(() => {
+    api.getSelectedContest(teamId).then(setSelectedContestId).catch(console.log)
+
     const contestSelectedUnsubscribe = lobbySocket.subscribeContestSelected(contestSelectedEventHandler)
     const trainingStartedUnsubscribe = lobbySocket.subscribeTrainingStarted(trainingStartedEventHandler)
 

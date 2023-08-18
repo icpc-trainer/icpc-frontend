@@ -1,11 +1,12 @@
 import React, { FC, useContext } from 'react'
 
+import { lobbySocket } from '@sockets/lobby-socket'
+
 import { SelectedContestContext } from '@contexts/contestListContext'
 
 import { ContestsListItem } from '@widgets/ContestsList/components/ContestsListItem/ContestsListItem'
 
 import { IContest } from '../../../../types/types'
-import { lobbySocket } from "@sockets/lobby-socket"
 
 interface ContestsListItemProps {
   contest: IContest

@@ -1,5 +1,5 @@
 import { Socket } from '@sockets/socket'
-import { ContestSelectedHandler, ContestSelectedPayload, TrainingStartedHandler, Types } from "@sockets/types"
+import { ContestSelectedHandler, ContestSelectedPayload, TrainingStartedHandler, Types } from '@sockets/types'
 
 class LobbySocket extends Socket {
   public sendContestSelected(payload: ContestSelectedPayload) {
