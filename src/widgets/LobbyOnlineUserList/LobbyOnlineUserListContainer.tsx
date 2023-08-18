@@ -16,11 +16,15 @@ export const LobbyOnlineUserListContainer = () => {
   const [users, setUsers] = useState<IYandexUser[]>([])
 
   const userEventHandler: UserHandler = ({ user }) => {
-    const isDisplayed = !!users.find(({ id }) => user.id === id)
+    setUsers(prev => {
+      const isDisplayed = !!prev.find(({ id }) => user.id === id)
 
-    if (!isDisplayed) {
-      setUsers(prev => [...prev, user])
-    }
+      if (!isDisplayed) {
+        return [...prev, user]
+      }
+
+      return prev
+    })
   }
 
   const userLeaveEventHandler: UserLeaveHandler = ({ userId }) => {
