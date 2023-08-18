@@ -17,6 +17,5 @@ interface VerdictTableProps {
 
 export const SubmissionTable: FC<VerdictTableProps> = ({ submissions, onOpenDetails }) => {
   const data = getSubmissionTableData(submissions, onOpenDetails)
-
   return <Table<ISubmissionTableItem> data={data} columns={submissionTableColumns} />
 }

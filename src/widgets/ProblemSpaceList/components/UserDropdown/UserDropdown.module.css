@@ -3,3 +3,16 @@
 
   border-radius: 16px;
 }
+.avatarPlaceholder {
+  margin: 5px 5px;
+  color:white;
+  font-size: 11px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding-top: 5px;
+  background-color: var(--color-green-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

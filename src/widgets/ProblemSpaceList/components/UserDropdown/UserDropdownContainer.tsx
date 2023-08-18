@@ -19,5 +19,7 @@ export const UserDropdownContainer: FC<UserDropdownProps> = ({ user }) => {
     workSpaceSocket.sendProblemAssigned({ user, problemAlias: problem.alias })
   }
 
-  return <UserDropdown user={user} onSendProblemAssign={onSendProblemAssigned} />
+  const hasAvatar = user.default_avatar_id === "0/0-0" ? false : true
+
+  return <UserDropdown hasAvatar={hasAvatar} user={user} onSendProblemAssign={onSendProblemAssigned} />
 }
