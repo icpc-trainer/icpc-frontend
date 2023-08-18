@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { lobbySocket } from '@sockets/lobby-socket'
-import { TrainingStartedHandler } from '@sockets/types'
+import { ContestSelectedHandler, TrainingStartedHandler } from '@sockets/types'
 
 import { api } from '@api/index'
 
 import { useGetCurrentUserQuery } from '@store/api/api'
 
 import { urls } from '@constants/urls'
-import { ContestListContext } from '@contexts/contestListContext'
+import { SelectedContestContext } from '@contexts/contestListContext'
 
 import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
@@ -28,10 +28,12 @@ const Lobby = () => {
 
   const { data: currentUser } = useGetCurrentUserQuery()
 
-  const onSelectContest = (contestId: string) => setSelectedContestId(contestId)
-
   const onCreateTrainingSession = () => {
     api.createTrainingSession(teamId, selectedContestId).then(console.log).catch(console.log)
+  }
+
+  const contestSelectedEventHandler: ContestSelectedHandler = ({ contestId }) => {
+    setSelectedContestId(contestId)
   }
 
   const trainingStartedEventHandler: TrainingStartedHandler = ({ id }) => {
@@ -41,11 +43,19 @@ const Lobby = () => {
   lobbySocket.init(`${urls.websocketLobby}?team_id=${teamId}&user_id=${currentUser.id}`, currentUser)
 
   useEffect(() => {
-    return lobbySocket.subscribeTrainingStarted(trainingStartedEventHandler)
-  })
+    api.getSelectedContest(teamId).then(setSelectedContestId).catch(console.log)
+
+    const contestSelectedUnsubscribe = lobbySocket.subscribeContestSelected(contestSelectedEventHandler)
+    const trainingStartedUnsubscribe = lobbySocket.subscribeTrainingStarted(trainingStartedEventHandler)
+
+    return () => {
+      contestSelectedUnsubscribe()
+      trainingStartedUnsubscribe()
+    }
+  }, [])
 
   return (
-    <ContestListContext.Provider value={{ selectedContestId, onSelectContest }}>
+    <SelectedContestContext.Provider value={{ selectedContestId }}>
       <div className={styles.lobby}>
         <div className={styles.contestList}>
           <button className={styles.askQuestion}>Задать вопрос</button>
@@ -69,7 +79,7 @@ const Lobby = () => {
           </div>
         </div>
       </div>
-    </ContestListContext.Provider>
+    </SelectedContestContext.Provider>
   )
 }
 

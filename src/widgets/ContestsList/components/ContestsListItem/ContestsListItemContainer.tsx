@@ -1,6 +1,8 @@
 import React, { FC, useContext } from 'react'
 
-import { ContestListContext } from '@contexts/contestListContext'
+import { lobbySocket } from '@sockets/lobby-socket'
+
+import { SelectedContestContext } from '@contexts/contestListContext'
 
 import { ContestsListItem } from '@widgets/ContestsList/components/ContestsListItem/ContestsListItem'
 
@@ -11,9 +13,11 @@ interface ContestsListItemProps {
 }
 
 export const ContestsListItemContainer: FC<ContestsListItemProps> = ({ contest }) => {
-  const { onSelectContest, selectedContestId } = useContext(ContestListContext)
+  const { selectedContestId } = useContext(SelectedContestContext)
 
-  const onSelect = () => onSelectContest(contest.id)
+  const onSelect = () => {
+    lobbySocket.sendContestSelected({ contestId: contest.id })
+  }
 
   const isSelected = selectedContestId === contest.id
 
