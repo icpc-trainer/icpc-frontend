@@ -1,5 +1,10 @@
 .avatar {
   position: relative;
+  display: flex;
+  font-size: 12px;
+  text-align: center;
+  gap:3px;
+  flex-direction: column;
 }
 
 .badge {
