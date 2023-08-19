@@ -76,10 +76,9 @@ class Api {
   }
 
   postMessage(trainingSessionId: string, problemAlias: string, content: string) {
-    return this.post<PostMessageRequest>(
-      `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/send`,
-      { content },
-    )
+    return this.post<PostMessageRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`, {
+      content,
+    })
   }
 
   getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
