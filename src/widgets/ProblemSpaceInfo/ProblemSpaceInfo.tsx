@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { StatementContainer } from '@widgets/ProblemSpaceInfo/components/Statement/StatementContainer'
@@ -12,6 +13,10 @@ import './ProblemSpaceInfo.css'
 
 export const ProblemSpaceInfo: FC = () => {
   let [activeTab, setActiveTab] = useState('description')
+  const { alias } = useParams()
+  useEffect(() => {
+    setActiveTab('description')
+  }, [alias])
 
   return (
     <BlockWrapper className={styles.blockWrapper}>
