@@ -18,21 +18,23 @@
   height: 100%;
 }
 .telegramChatLink {
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 28px;
+
   height: fit-content;
   padding: 14px 58px 12px 58px;
 
   font-size: 14px;
+  line-height: 28px;
 
   border: none;
   border-radius: 10px;
 
   background-color: var(--color-white);
+
+  cursor: pointer;
 }
 .telegramChatLink:hover {
   color: var(--color-black-typo-primary);
@@ -54,8 +56,6 @@
   text-decoration: none;
 }
 .startButton {
-  cursor: pointer;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,12 +70,15 @@
   border-radius: 10px;
 
   background-color: var(--color-yellow-primary);
+
+  cursor: pointer;
 }
 .startButton:disabled {
   color: var(--color-grey-secondary);
-  cursor: auto;
 
   background-color: var(--color-grey-disabled);
+
+  cursor: auto;
 }
 .startButton a:hover {
   color: red;
