@@ -8,16 +8,16 @@ import { IYandexUser } from '../../../../types/types'
 import styles from './OnlineUserList.module.css'
 
 interface OnlineUserListProps {
-  onlineUsers: IYandexUser[]
+  users: IYandexUser[]
 }
 
-export const OnlineUserList: FC<OnlineUserListProps> = ({ onlineUsers }) => {
+export const OnlineUserList: FC<OnlineUserListProps> = ({ users }) => {
   const getOnlineUserKey: GetItemKeyFunction<IYandexUser> = user => user.id
   const renderOnlineUser: RenderItemFunction<IYandexUser> = user => <OnlineUser yandexUser={user} />
 
   return (
     <List<IYandexUser>
-      data={onlineUsers}
+      data={users}
       getItemKey={getOnlineUserKey}
       renderItem={renderOnlineUser}
       listClassName={styles.onlineUserList}

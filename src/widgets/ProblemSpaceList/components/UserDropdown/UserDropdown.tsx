@@ -2,9 +2,7 @@ import React, { FC } from 'react'
 
 import { getAvatarUrl } from '@helpers/getAvatarUrl'
 
-import { IProblem, IYandexUser } from 'src/types/types'
-
-import { IconBaseProps } from '../../../../ui/icons/types'
+import { IYandexUser } from 'src/types/types'
 
 import styles from './UserDropdown.module.css'
 
@@ -16,16 +14,16 @@ interface UserDropdownProps {
 
 export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign, hasAvatar }) => {
   const avatarUrl = getAvatarUrl(user.default_avatar_id)
+  const initials = `${user.first_name[0]}${user.last_name[0]}`
+
   return hasAvatar ? (
     <img
-      width={24}
-      height={24}
       src={avatarUrl}
       className={styles.userDropdown}
       alt="avatar"
-      onClick={() => onSendProblemAssign()}
+      onClick={onSendProblemAssign}
     />
   ) : (
-    <div className={styles.avatarPlaceholder}>{`${user.first_name[0]}${user.last_name[0]}`}</div>
+    <div className={styles.avatarPlaceholder}>{initials}</div>
   )
 }

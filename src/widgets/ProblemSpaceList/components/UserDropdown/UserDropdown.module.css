@@ -2,6 +2,9 @@
   margin: 5px 5px;
 
   border-radius: 16px;
+
+  height: 24px;
+  width: 24px;
 }
 .avatarPlaceholder {
   display: flex;

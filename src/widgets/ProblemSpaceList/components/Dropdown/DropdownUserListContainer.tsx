@@ -1,26 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React from 'react'
 
-import { api } from '@api/index'
-
-import { IYandexUser } from 'src/types/types'
-
-import { DefaultUserDropdown } from '../UserDropdown/DefaultUserDropdown'
 import { DropdownUserList } from './DropdownUserList'
+import { DefaultUserDropdownContainer } from "@widgets/ProblemSpaceList/components/DefaultUserDropdown/DefaultUserDropdownContainer"
+import { useWorkSpaceOnlineUsers } from "@hooks/useWorkSpaceOnlineUsers"
 
 export const DropdownUserListContainer = () => {
-  const { trainingSessionId } = useParams()
-
-  const [onlineUsers, setOnlineUsers] = useState<IYandexUser[]>([])
-
-  useEffect(() => {
-    api.getWorkSpaceOnlineUsers(trainingSessionId).then(setOnlineUsers).catch(console.log)
-  }, [])
+ const { users } = useWorkSpaceOnlineUsers()
 
   return (
     <>
-      <DropdownUserList onlineUsers={onlineUsers} />
-      <DefaultUserDropdown />
+      <DropdownUserList users={users} />
+      <DefaultUserDropdownContainer />
     </>
   )
 }

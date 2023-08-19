@@ -10,16 +10,16 @@ import { IYandexUser } from 'src/types/types'
 import styles from './DropdownUserList.module.css'
 
 interface DropdownUserListProps {
-  onlineUsers: IYandexUser[]
+  users: IYandexUser[]
 }
 
-export const DropdownUserList: FC<DropdownUserListProps> = ({ onlineUsers }) => {
+export const DropdownUserList: FC<DropdownUserListProps> = ({ users }) => {
   const getOnlineUserKey: GetItemKeyFunction<IYandexUser> = user => user.id
   const renderOnlineUser: RenderItemFunction<IYandexUser> = user => <UserDropdownContainer user={user} />
 
   return (
     <List<IYandexUser>
-      data={onlineUsers}
+      data={users}
       getItemKey={getOnlineUserKey}
       renderItem={renderOnlineUser}
       listClassName={styles.dropdownUserList}
