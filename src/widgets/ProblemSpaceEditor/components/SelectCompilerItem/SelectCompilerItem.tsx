@@ -1,4 +1,7 @@
 import React, { FC, useContext } from 'react'
+import { useParams } from 'react-router'
+
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { CodeContext } from '@contexts/codeContext'
 
@@ -8,14 +11,20 @@ import styles from './SelectCompilerItem.module.css'
 
 interface SelectCompilerItemProps {
   compiler: string
-  handleSelectCompiler: (compiler: string) => void
 }
-export const SelectCompilerItem: FC<SelectCompilerItemProps> = ({ handleSelectCompiler, compiler }) => {
+
+export const SelectCompilerItem: FC<SelectCompilerItemProps> = ({ compiler }) => {
   const { selectedCompiler } = useContext(CodeContext)
+  const { alias } = useParams()
+
   const isSelected = selectedCompiler === compiler
 
+  const onSendCompilerSelected = () => {
+    workSpaceSocket.sendCompilerSelected({ compiler, problemAlias: alias })
+  }
+
   return (
-    <div onClick={() => handleSelectCompiler(compiler)} className={styles.selectOption}>
+    <div onClick={onSendCompilerSelected} className={styles.selectOption}>
       {isSelected && <Check color="var(--color-black-typo-primary)" width={20} height={20} />}
       <span className={styles.selectOptionText}>{compiler}</span>
     </div>
