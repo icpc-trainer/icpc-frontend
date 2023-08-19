@@ -1,7 +1,9 @@
 import { Socket } from './socket'
 import {
   CodeHandler,
-  CodePayload, CompilerSelectedHandler, CompilerSelectedPayload,
+  CodePayload,
+  CompilerSelectedHandler,
+  CompilerSelectedPayload,
   ControlTakenHandler,
   ControlTakenPayload,
   MessageHandler,
@@ -12,7 +14,7 @@ import {
   Types,
   UserHandler,
   UserLeaveHandler,
-} from "./types"
+} from './types'
 
 class WorkSpaceSocket extends Socket {
   public sendCode(payload: CodePayload) {

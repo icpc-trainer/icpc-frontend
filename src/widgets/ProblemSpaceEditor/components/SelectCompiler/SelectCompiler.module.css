@@ -20,6 +20,7 @@
   row-gap: 8px;
 
   width: 225px;
+  max-height: 250px;
   padding: 8px;
   box-sizing: border-box;
 
@@ -31,7 +32,6 @@
 
   box-shadow: 2px 2px 10px var(--color-white-grey);
 
-  max-height: 250px;
   overflow-y: auto;
 }
 

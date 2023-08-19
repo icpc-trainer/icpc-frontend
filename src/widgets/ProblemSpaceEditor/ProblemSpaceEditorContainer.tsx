@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { CodeHandler, CompilerSelectedHandler } from "@sockets/types"
+import { CodeHandler, CompilerSelectedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
@@ -45,10 +45,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
   }
 
   useEffect(() => {
-    Promise.all([
-      api.getProblems(trainingSessionId),
-      api.getSelectedCompilerByAlias(trainingSessionId, alias)
-    ])
+    Promise.all([api.getProblems(trainingSessionId), api.getSelectedCompilerByAlias(trainingSessionId, alias)])
       .then(([problems, selectedCompiler]) => {
         const problem = problems.find(problem => problem.alias === alias)
 
@@ -62,7 +59,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
       .then(({ code }) => setCode(code))
       .catch(console.log)
 
-    const editorUnsubscribe =  workSpaceSocket.subscribeEditor(codeEventHandler)
+    const editorUnsubscribe = workSpaceSocket.subscribeEditor(codeEventHandler)
     const compilerSelectedUnsubscribe = workSpaceSocket.subscribeCompilerSelected(compilerSelectedEventHandler)
 
     return () => {

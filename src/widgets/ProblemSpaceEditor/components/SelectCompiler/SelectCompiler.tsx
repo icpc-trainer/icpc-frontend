@@ -1,16 +1,18 @@
 import classnames from 'classnames'
 
-import React, { FC, useContext, useEffect, useState } from "react"
+import React, { FC, useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+
+import { CompilerSelectedHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
+
+import { CodeContext } from '@contexts/codeContext'
 
 import { Arrow } from '@icons/Arrow'
 
 import { SelectCompilerItem } from '../SelectCompilerItem/SelectCompilerItem'
 
 import styles from './SelectCompiler.module.css'
-import { CodeContext } from "@contexts/codeContext"
-import { CompilerSelectedHandler } from "@sockets/types"
-import { useParams } from "react-router"
-import { workSpaceSocket } from "@sockets/work-space-socket"
 
 interface SelectCompilerProps {
   compilers: string[]

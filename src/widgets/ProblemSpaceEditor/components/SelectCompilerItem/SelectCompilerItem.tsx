@@ -1,12 +1,13 @@
 import React, { FC, useContext } from 'react'
+import { useParams } from 'react-router'
+
+import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { CodeContext } from '@contexts/codeContext'
 
 import { Check } from '@icons/Check'
 
 import styles from './SelectCompilerItem.module.css'
-import { workSpaceSocket } from "@sockets/work-space-socket"
-import { useParams } from "react-router"
 
 interface SelectCompilerItemProps {
   compiler: string
