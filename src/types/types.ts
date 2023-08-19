@@ -137,3 +137,30 @@ export interface ITeamStatus {
   status: string
   dt_created: string
 }
+
+export interface ILeaderBoard {
+  titles: ILeaderBoardProblemTitle[]
+  rows: ILeaderBoardRow[]
+}
+
+export interface ILeaderBoardProblemTitle {
+  title: string
+  name: string
+}
+
+export interface ILeaderBoardRow {
+  participantInfo: ISubmissionParticipantInfo
+  placeFrom: number[]
+  placeTo: number[]
+  score: string
+  problemResults: ILeaderBoardProblemResult[]
+}
+
+export interface ILeaderBoardProblemResult {
+  title?: string
+  name?: string
+  submitDelay: number
+  status: 'ACCEPTED' | 'NOT_SUBMITTED'
+  score: string
+  submissionCount: string
+}
