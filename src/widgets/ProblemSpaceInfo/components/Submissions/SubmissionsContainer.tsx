@@ -16,15 +16,17 @@ export const SubmissionsContainer: FC = () => {
   const [submissions, setSubmissions] = useState<ISubmission[]>([])
 
   const submissionRetrievedEventHandler: SubmissionRetrievedHandler = newSubmission => {
-    setSubmissions(prev => {
-      const currSubmission = prev.find(({ id }) => id === newSubmission.id)
+    if (newSubmission.problemAlias === alias) {
+      setSubmissions(prev => {
+        const currSubmission = prev.find(({ id }) => id === newSubmission.id)
 
-      if (!currSubmission) {
-        return [newSubmission, ...prev]
-      } else {
-        return prev.map(submission => (submission.id === newSubmission.id ? newSubmission : submission))
-      }
-    })
+        if (!currSubmission) {
+          return [newSubmission, ...prev]
+        } else {
+          return prev.map(submission => (submission.id === newSubmission.id ? newSubmission : submission))
+        }
+      })
+    }
   }
 
   useEffect(() => {
