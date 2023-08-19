@@ -12,7 +12,7 @@
   font-size: 15px;
 
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .container {
   width: 100%;
