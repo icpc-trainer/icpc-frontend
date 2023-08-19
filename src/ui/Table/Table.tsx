@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import { TableHeader } from './TableHeader'
 import { TableRow } from './TableRow'
@@ -9,6 +9,7 @@ export interface IColumnType<T> {
   key: string
   title: string
   width?: number
+  titleRender?: (column: IColumnType<T>) => ReactNode
   render?: (column: IColumnType<T>, item: T) => void
 }
 

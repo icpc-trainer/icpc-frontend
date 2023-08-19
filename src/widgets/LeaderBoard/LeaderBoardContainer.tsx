@@ -2,54 +2,74 @@ import classNames from 'classnames'
 
 import React from 'react'
 
-import { ILeaderBoardRow } from 'src/types/types'
+import { ILeaderBoard } from 'src/types/types'
 
 import { LeaderBoardTable } from './components/LeaderBoardTable/LeaderBoardTable'
 
 import styles from './LeaderBoard.module.css'
 
-const leaderBoard: ILeaderBoardRow[] = [
-  {
-    participantInfo: {
-      id: 108109264,
-      name: 'qwerty (Ruslan Rasulov, Ярослав Старченков)',
-      login: '',
-      uid: null,
-      startTime: null,
+const leaderBoard: ILeaderBoard = {
+  titles: [
+    {
+      title: 'A',
+      name: 'Купить и продать',
     },
-    placeFrom: [1],
-    placeTo: [1],
-    score: '2',
-    problemResults: [
-      {
-        title: 'A',
-        name: 'Купить и продать',
-        submitDelay: 400,
-        status: 'ACCEPTED',
-        score: '',
-        submissionCount: '3',
+    {
+      title: 'B',
+      name: 'Разница во времени',
+    },
+    {
+      title: 'C',
+      name: 'Сломай палиндром',
+    },
+    {
+      title: 'D',
+      name: 'Повторяющееся число',
+    },
+  ],
+  rows: [
+    {
+      participantInfo: {
+        id: 108109264,
+        name: 'qwerty (Ruslan Rasulov, Ярослав Старченков)',
+        login: '',
+        uid: null,
+        startTime: null,
       },
-      {
-        submitDelay: 6313,
-        status: 'ACCEPTED',
-        score: '',
-        submissionCount: '2',
-      },
-      {
-        submitDelay: 0,
-        status: 'NOT_SUBMITTED',
-        score: '',
-        submissionCount: '0',
-      },
-      {
-        submitDelay: 0,
-        status: 'NOT_SUBMITTED',
-        score: '',
-        submissionCount: '0',
-      },
-    ],
-  },
-]
+      placeFrom: [1],
+      placeTo: [1],
+      score: '2',
+      problemResults: [
+        {
+          title: 'A',
+          name: 'Купить и продать',
+          submitDelay: 400,
+          status: 'ACCEPTED',
+          score: '',
+          submissionCount: '3',
+        },
+        {
+          submitDelay: 6313,
+          status: 'ACCEPTED',
+          score: '',
+          submissionCount: '2',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+      ],
+    },
+  ],
+}
 
 export const LeaderBoardContainer = ({
   style,
