@@ -6,8 +6,9 @@ import { getCookie } from './getCookie'
 import { setCookie } from './setCookie'
 
 export const configInterceptor = (config: InternalAxiosRequestConfig) => {
-  const isGetMessagesUrl = /training-sessions\/.*\/problem\/.*\/comments/.test(config.url)
-    && (config.method === 'get' || config.method === 'GET')
+  const isGetMessagesUrl =
+    /training-sessions\/.*\/problem\/.*\/comments/.test(config.url) &&
+    (config.method === 'get' || config.method === 'GET')
 
   const urlParams = new URLSearchParams(window.location.hash)
   const accessToken = urlParams.get('#access_token')
