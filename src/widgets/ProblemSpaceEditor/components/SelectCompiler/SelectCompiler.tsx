@@ -1,7 +1,6 @@
 import classnames from 'classnames'
 
-import React, { FC, useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router'
+import React, { FC, useContext, useEffect, useRef, useState } from 'react'
 
 import { CompilerSelectedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
@@ -22,8 +21,23 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
   const { selectedCompiler } = useContext(CodeContext)
 
   const [isSelectOpen, setSelectOpen] = useState<boolean>(false)
+  const selectRef = useRef(null) // Создайте ссылку
 
   const onToggleSelect = () => setSelectOpen(prevState => !prevState)
+
+  const handleClickOutside: EventListener = event => {
+    if (selectRef.current && !selectRef.current.contains(event.target)) {
+      setSelectOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside) // Добавьте обработчик события
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside) // Очистите обработчик при размонтировании
+    }
+  }, [])
 
   const selectOptionsClassName = classnames({
     [styles.selectOptions]: true,
@@ -39,7 +53,7 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
   }, [])
 
   return (
-    <div className={styles.select}>
+    <div className={styles.select} ref={selectRef}>
       <div className={styles.selectHeader}>
         <span className={styles.selectItem}>{selectedCompiler}</span>
         <button onClick={onToggleSelect} className={styles.arrowButton}>
