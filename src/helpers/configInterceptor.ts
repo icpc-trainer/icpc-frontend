@@ -6,7 +6,8 @@ import { getCookie } from './getCookie'
 import { setCookie } from './setCookie'
 
 export const configInterceptor = (config: InternalAxiosRequestConfig) => {
-  const isMessagesUrl = /training-sessions\/.*\/problem\/.*\/comments/.test(config.url)
+  const isGetMessagesUrl = /training-sessions\/.*\/problem\/.*\/comments/.test(config.url)
+    && (config.method === 'get' || config.method === 'GET')
 
   const urlParams = new URLSearchParams(window.location.hash)
   const accessToken = urlParams.get('#access_token')
@@ -14,7 +15,7 @@ export const configInterceptor = (config: InternalAxiosRequestConfig) => {
   if (accessToken) {
     const expiresIn = urlParams.get('expires_in')
     setCookie('access_token', accessToken, expiresIn)
-    if (!isMessagesUrl) {
+    if (!isGetMessagesUrl) {
       config.headers['Authorization'] = `OAuth ${accessToken}`
     }
   } else {
@@ -22,7 +23,7 @@ export const configInterceptor = (config: InternalAxiosRequestConfig) => {
       window.location.replace(urls.yandexPassport)
     } else {
       const token = getCookie('access_token')
-      if (token && !isMessagesUrl) {
+      if (token && !isGetMessagesUrl) {
         config.headers['Authorization'] = `OAuth ${token}`
       }
     }
