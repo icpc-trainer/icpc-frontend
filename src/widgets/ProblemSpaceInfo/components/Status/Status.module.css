@@ -7,12 +7,12 @@
   height: fit-content;
   padding: 12px 26px 10px 26px;
 
+  color: #363645;
   font-size: 12px;
 
   border-radius: 10px;
 
   background-color: #f4f5f6d3;
-  color: #363645;
 }
 
 .problemStatusFailed {
