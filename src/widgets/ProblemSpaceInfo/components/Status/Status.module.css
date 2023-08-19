@@ -11,7 +11,8 @@
 
   border-radius: 10px;
 
-  background-color: var(--color-white-grey);
+  background-color: #f4f5f6d3;
+  color: #363645;
 }
 
 .problemStatusFailed {
