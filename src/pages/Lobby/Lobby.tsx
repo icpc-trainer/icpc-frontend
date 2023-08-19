@@ -11,7 +11,6 @@ import { useGetCurrentUserQuery } from '@store/api/api'
 import { urls } from '@constants/urls'
 import { SelectedContestContext } from '@contexts/contestListContext'
 
-import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
 import { LobbyOnlineUserListContainer } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer'
@@ -57,7 +56,9 @@ const Lobby = () => {
     <SelectedContestContext.Provider value={{ selectedContestId }}>
       <div className={styles.lobby}>
         <div className={styles.contestList}>
-          <button className={styles.askQuestion}>Задать вопрос</button>
+          <a href="https://t.me/+JhE-UUz1BGc5OWEy" target="_blank" rel="noopener noreferrer">
+            <button className={styles.askQuestion}>Telegram-чатик</button>
+          </a>
           <BlockWrapper className={styles.blockWrapper}>
             <ContestsListContainer />
           </BlockWrapper>

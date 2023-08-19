@@ -1,7 +1,9 @@
-import { useParams } from "react-router"
-import { useOnlineUsers } from "@hooks/useOnlineUsers"
-import { useEffect } from "react"
-import { api } from "@api/index"
+import { useEffect } from 'react'
+import { useParams } from 'react-router'
+
+import { api } from '@api/index'
+
+import { useOnlineUsers } from '@hooks/useOnlineUsers'
 
 export const useWorkSpaceOnlineUsers = () => {
   const { trainingSessionId } = useParams()

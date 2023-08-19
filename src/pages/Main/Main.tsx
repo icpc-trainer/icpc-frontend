@@ -52,17 +52,13 @@ function Main() {
         </div>
       </div>
       <footer className={styles.footer}>
-        <ul>
-          <li>
-            <a href="/">Справка</a>
-          </li>
-          <li>
-            <a href="/">Обратная связь</a>
-          </li>
-          <li>
-            <a href="/">Пользовательское соглашение</a>
-          </li>
-        </ul>
+        <div className={styles.contactLinks}>
+          <a href="/">Справка</a>
+
+          <a href="/">Обратная связь</a>
+
+          <a href="/">Пользовательское соглашение</a>
+        </div>
         <span>
           © 2013–2023 ООО «<a href="/">Яндекс</a>»
         </span>

@@ -17,12 +17,7 @@ export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign,
   const initials = `${user.first_name[0]}${user.last_name[0]}`
 
   return hasAvatar ? (
-    <img
-      src={avatarUrl}
-      className={styles.userDropdown}
-      alt="avatar"
-      onClick={onSendProblemAssign}
-    />
+    <img src={avatarUrl} className={styles.userDropdown} alt="avatar" onClick={onSendProblemAssign} />
   ) : (
     <div className={styles.avatarPlaceholder}>{initials}</div>
   )

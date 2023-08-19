@@ -205,3 +205,9 @@ a:hover {
 .buttonActive:hover {
   cursor: pointer;
 }
+
+.contactLinks {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
