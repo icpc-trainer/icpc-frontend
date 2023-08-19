@@ -4,6 +4,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.3;
+  color: var(--color-black-typo-primary);
 }
 
 .time {

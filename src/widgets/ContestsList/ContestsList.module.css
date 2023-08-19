@@ -2,3 +2,6 @@
   display: flex;
   flex-direction: column;
 }
+.list li:hover {
+  background-color: var(--color-white-grey);
+}

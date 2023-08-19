@@ -50,11 +50,12 @@
   width: 100%;
   height: 100%;
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  background: #fff;
 }
 .selectItemText,
 .contestItemText {
-  color: var(--color-black-typo-primary);
+  color: #363645;
   text-decoration: none;
 }
 .startButton {
@@ -86,7 +87,7 @@
   color: red;
 }
 .startButton a {
-  color: var(--color-black-typo-primary);
+  color: #363645;
 }
 .startTraining {
   display: flex;
@@ -116,7 +117,7 @@
   padding: 0px 29px;
 }
 .open {
-  background: var(--color-white-grey);
+  background: #f4f5f6;
 }
 
 .dropdown {

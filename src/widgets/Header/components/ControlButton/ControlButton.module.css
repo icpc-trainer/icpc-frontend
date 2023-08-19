@@ -1,7 +1,7 @@
 .takeControlButtonContainer {
   margin: 0 0 0 22px;
 
-  color: var(--color-black-typo-primary);
+  color: #363645;
 }
 
 .takeControlButtonContainer:disabled {

@@ -45,7 +45,7 @@
 
   border: none;
 
-  background-color: var(--color-white-grey);
+  background-color: #f4f5f6;
 }
 .option:hover {
   color: red;
