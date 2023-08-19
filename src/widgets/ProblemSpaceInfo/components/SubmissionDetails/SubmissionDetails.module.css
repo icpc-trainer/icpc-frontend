@@ -12,6 +12,7 @@
 
   background-color: var(--color-white);
   overflow-y: auto;
+  padding-right: 8px;
 }
 
 .problemSolutionDetails.isOpen {
