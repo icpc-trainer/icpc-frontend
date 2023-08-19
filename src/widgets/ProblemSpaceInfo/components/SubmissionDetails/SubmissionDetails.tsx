@@ -62,7 +62,7 @@ export const SubmissionDetails: FC<SubmissionDetailsProps> = ({ submissionId, st
           </div>
           <div className={styles.detailsInfo}>
             <Accordion title={'Тесты'}>
-              <SubmissionDetailsTestTable checkerLog={submissionFull?.checkerLog} />
+              <SubmissionDetailsTestTable checkerLog={submissionFull.checkerLog} />
             </Accordion>
             <Accordion title={'Исходный код'}>
               <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
