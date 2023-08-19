@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { getAvatarUrl } from '@helpers/getAvatarUrl'
+import { UserAvatar } from '@widgets/UserAvatar/UserAvatar'
 
 import { IYandexUser } from 'src/types/types'
 
@@ -8,24 +8,15 @@ import { ControlStatusContainer } from '../ControlStatus/ControlStatusContainer'
 
 import styles from './OnlineUser.module.css'
 
-interface HeaderUserProps {
-  yandexUser: IYandexUser
+interface OnlineUserProps {
+  user: IYandexUser
 }
 
-export const OnlineUser: FC<HeaderUserProps> = ({ yandexUser }) => {
-  const avatarUrl = getAvatarUrl(yandexUser.default_avatar_id)
-  const hasAvatar = yandexUser.default_avatar_id === '0/0-0' ? false : true
-
+export const OnlineUser: FC<OnlineUserProps> = ({ user }) => {
   return (
     <div className={styles.user}>
-      <div className={styles.avatar}>
-        {hasAvatar ? (
-          <img className={styles.avatarImg} src={avatarUrl} alt="avatar" />
-        ) : (
-          <div className={styles.avatarPlaceholder}>{`${yandexUser.first_name[0]}${yandexUser.last_name[0]}`}</div>
-        )}
-      </div>
-      <ControlStatusContainer id={yandexUser.id} />
+      <UserAvatar user={user} width={40} height={40} fontSize={16} />
+      <ControlStatusContainer id={user.id} />
     </div>
   )
 }

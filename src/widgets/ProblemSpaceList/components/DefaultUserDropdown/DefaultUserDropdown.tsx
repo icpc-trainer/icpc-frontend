@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
 
-import { User } from '@icons/User'
-
 import styles from './DefaultUserDropdown.module.css'
 
 interface DefaultUserDropdownProps {
@@ -10,8 +8,8 @@ interface DefaultUserDropdownProps {
 
 export const DefaultUserDropdown: FC<DefaultUserDropdownProps> = ({ onSendProblemAssigned }) => {
   return (
-    <button className={styles.defaultUserDropdown} onClick={onSendProblemAssigned}>
-      <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
+    <button className={styles.defaultUserDropdownButton} onClick={onSendProblemAssigned}>
+      <span className={styles.defaultUserDropdownButtonIcon} />
     </button>
   )
 }

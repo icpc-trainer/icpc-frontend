@@ -6,9 +6,7 @@ import { useParams } from 'react-router'
 import { ProblemItemContext } from '@contexts/problemItemContext'
 
 import { Arrow } from '@icons/Arrow'
-import { User } from '@icons/User'
-import { UserDropdown } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdown'
-import { UserDropdownContainer } from '@widgets/ProblemSpaceList/components/UserDropdown/UserDropdownContainer'
+import { UserAvatar } from '@widgets/UserAvatar/UserAvatar'
 
 import { IProblem } from 'src/types/types'
 
@@ -24,72 +22,52 @@ interface ProblemSpaceListProps {
 export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, problem, handleProblemSpaceClick }) => {
   const { alias } = useParams()
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const isSelected = alias === problem.alias
 
   const title = `${problem.alias}. ${problem.name}`
-  const toggleDropdown = () => setIsOpen(!isOpen)
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
+  const onCloseDropdown = () => setIsDropdownOpen(false)
 
   return (
-    <ProblemItemContext.Provider value={{ problem }}>
-      <div className={classNames(styles.container, className, { [styles.open]: isOpen })}>
-        <div className={styles.lineTitleBlock}>
-          <div
-            className={classNames({
-              [styles.lineDone]: problem.status === 'PASSED',
-              [styles.lineWrong]: problem.status === 'FAILED',
-              [styles.lineDefault]: problem.status === 'NOT_SUBMITTED',
-            })}
-          />
-          <div
-            onClick={() => handleProblemSpaceClick(problem)}
-            className={classNames({
-              [styles.titlePrimary]: isSelected,
-              [styles.titleSecondary]: !isSelected,
-            })}
-          >
-            {title}
+    <ProblemItemContext.Provider value={{ problem, onCloseDropdown }}>
+      <div className={classNames(className, { [styles.open]: isDropdownOpen })}>
+        <div className={styles.infoContainer}>
+          <div className={styles.lineTitleBlock}>
+            <div
+              className={classNames({
+                [styles.lineDone]: problem.status === 'PASSED',
+                [styles.lineWrong]: problem.status === 'FAILED',
+                [styles.lineDefault]: problem.status === 'NOT_SUBMITTED',
+              })}
+            />
+            <div
+              onClick={() => handleProblemSpaceClick(problem)}
+              className={classNames({
+                [styles.titlePrimary]: isSelected,
+                [styles.titleSecondary]: !isSelected,
+              })}
+            >
+              {title}
+            </div>
           </div>
-        </div>
-        {/* <div
-            className={classNames({
-              [styles.statusDone]: status === "done",
-              [styles.statusPending]: status === "pending",
-              [styles.statusWrong]: status === "wrong",
-              [styles.statusDefault]: status === "default",
-            })}
-          >
-            {"1"}
-          </div> */}
-        {/* 
-          <div className={styles.dropdownContainer}>
-          <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>
-              <Arrow width={18} height={18} color={"var(--color-black-typo-primary)"} />
-              </div>
-              {isOpen && (
-                <div className={styles.dropdown}>
-                <div className={styles.user}>
-                <UserPlaceholder width={24} height={24} color={"var(--color-black-typo-primary)"} />
-                </div>
-                </div>
+          <div className={styles.statusUserBlock}>
+            <div className={styles.dropdown}>
+              <div className={styles.user}>
+                {problem.assignedUser ? (
+                  <UserAvatar user={problem.assignedUser} width={24} height={24} fontSize={11} />
+                ) : (
+                  <span className={styles.defaultUserAvatar} />
                 )}
-              </div> */}
-        <div className={styles.statusUserBlock}>
-          <div className={styles.dropdown}>
-            <div className={styles.user}>
-              {problem.assignedUser ? (
-                <UserDropdownContainer user={problem.assignedUser} />
-              ) : (
-                <User width={29} height={29} color={'var(--color-black-typo-primary)'} />
-              )}
-            </div>
-            <div className={classNames(styles.arrow, { [styles.rotated]: isOpen })} onClick={toggleDropdown}>
-              <Arrow width={18} height={18} color={'var(--color-black-typo-primary)'} />
+              </div>
+              <div className={classNames(styles.arrow, { [styles.rotated]: isDropdownOpen })} onClick={toggleDropdown}>
+                <Arrow width={18} height={18} color={'var(--color-black-typo-primary)'} />
+              </div>
             </div>
           </div>
-          <div className={styles.dropdownContainer}>{isOpen && <Dropdown />}</div>
         </div>
+        {isDropdownOpen && <Dropdown />}
       </div>
     </ProblemItemContext.Provider>
   )

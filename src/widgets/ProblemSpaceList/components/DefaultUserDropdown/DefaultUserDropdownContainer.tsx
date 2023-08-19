@@ -7,10 +7,11 @@ import { ProblemItemContext } from '@contexts/problemItemContext'
 import { DefaultUserDropdown } from '@widgets/ProblemSpaceList/components/DefaultUserDropdown/DefaultUserDropdown'
 
 export const DefaultUserDropdownContainer = () => {
-  const { problem } = useContext(ProblemItemContext)
+  const { problem, onCloseDropdown } = useContext(ProblemItemContext)
 
   const onSendProblemAssigned = () => {
     workSpaceSocket.sendProblemAssigned({ user: null, problemAlias: problem.alias })
+    onCloseDropdown()
   }
 
   return <DefaultUserDropdown onSendProblemAssigned={onSendProblemAssigned} />
