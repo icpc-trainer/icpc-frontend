@@ -38,6 +38,7 @@
 }
 .telegramChatLink:hover {
   color: var(--color-black-typo-primary);
+
   opacity: 0.7;
 }
 .contestItem {

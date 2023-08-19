@@ -6,7 +6,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "style": "prettier --write ./src && stylelint --fix ./src/**/*.css"
+    "style": "prettier --write ./src && stylelint --fix ./src/**/*.css",
+    "deploy": "npm run build && rsync -av --delete --progress ./build/ student@158.160.111.208:/usr/share/nginx/html --rsync-path=\"sudo rsync\""
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
