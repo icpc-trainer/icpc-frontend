@@ -45,7 +45,8 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
             <div
               onClick={() => handleProblemSpaceClick(problem)}
               className={classNames({
-                [styles.titlePrimary]: isSelected,
+                [styles.title]: true,
+              [styles.titlePrimary]: isSelected,
                 [styles.titleSecondary]: !isSelected,
               })}
             >

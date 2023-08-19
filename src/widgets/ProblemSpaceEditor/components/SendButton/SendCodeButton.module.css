@@ -2,6 +2,7 @@
   justify-self: start;
 
   color: var(--color-white-gray);
+  margin-top: 8px;
 }
 
 .sendCodeButton:disabled {

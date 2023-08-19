@@ -11,5 +11,7 @@
   background-color: var(--color-white);
 
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+  padding-right: 8px;
+  padding-top: 16px;
 }

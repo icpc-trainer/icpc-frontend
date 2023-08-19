@@ -26,7 +26,7 @@
   --scrollbar-background: var(--color-white-grey);
 }
 
-.light-theme {
+main.light-theme {
   --color-white: #fff;
   --color-white-grey: #f4f5f6;
 
@@ -41,7 +41,7 @@
   --scrollbar-background: var(--color-white-grey);
 }
 
-.dark-theme {
+main.dark-theme {
   --color-white: #404244;
   --color-white-grey: #2a2a2d;
 
