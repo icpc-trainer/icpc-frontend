@@ -5,8 +5,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { useGetCurrentUserQuery } from '@store/api/api'
 
-import { ThemeContext } from '@contexts/themeContext'
-
 import Lobby from '@pages/Lobby/Lobby'
 import Main from '@pages/Main/Main'
 import { WorkSpace } from '@pages/WorkSpace/WorkSpace'
@@ -16,10 +14,6 @@ const queryClient = new QueryClient()
 
 const App = () => {
   const { data } = useGetCurrentUserQuery()
-  const { theme } = useContext(ThemeContext)
-
-  const root = document.getElementById('root') as HTMLElement
-  root.className = theme
 
   if (!data) return null
 
