@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 
 import { api } from '@api/index'
@@ -19,7 +19,7 @@ export const TimerContainer = () => {
       .then(({ participantLeftTime }) => {
         if (participantLeftTime) {
           const minutes = parseInt(participantLeftTime.match(/(\d+)M/)[1])
-          const seconds = parseInt(participantLeftTime.match(/(\d+\.\d+)S/)[1])
+          const seconds = parseInt(participantLeftTime.match(/(\d+\.\d+)S/)[1], 10)
           const totalSeconds = minutes * 60 + seconds
 
           setSecondsLeft(totalSeconds)

@@ -40,6 +40,7 @@ export const WorkSpace = () => {
 
         <ProblemSpace />
       </main>
+      <FinishPopup />
     </>
   )
 }
