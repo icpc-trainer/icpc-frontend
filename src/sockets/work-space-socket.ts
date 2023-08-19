@@ -1,7 +1,7 @@
 import { Socket } from './socket'
 import {
   CodeHandler,
-  CodePayload,
+  CodePayload, CompilerSelectedHandler, CompilerSelectedPayload,
   ControlTakenHandler,
   ControlTakenPayload,
   MessageHandler,
@@ -12,7 +12,7 @@ import {
   Types,
   UserHandler,
   UserLeaveHandler,
-} from './types'
+} from "./types"
 
 class WorkSpaceSocket extends Socket {
   public sendCode(payload: CodePayload) {
@@ -25,6 +25,10 @@ class WorkSpaceSocket extends Socket {
 
   public sendProblemAssigned(payload: ProblemAssignedPayload) {
     this.send({ type: Types.ProblemAssigned, payload })
+  }
+
+  public sendCompilerSelected(payload: CompilerSelectedPayload) {
+    this.send({ type: Types.CompilerSelected, payload })
   }
 
   public subscribeMessage(handler: MessageHandler) {
@@ -57,6 +61,10 @@ class WorkSpaceSocket extends Socket {
 
   public subscribeProblemAssigned(handler: ProblemAssignedHandler) {
     return this.subscribe(Types.ProblemAssigned, handler)
+  }
+
+  public subscribeCompilerSelected(handler: CompilerSelectedHandler) {
+    return this.subscribe(Types.CompilerSelected, handler)
   }
 }
 

@@ -1,33 +1,40 @@
 import classnames from 'classnames'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from "react"
 
 import { Arrow } from '@icons/Arrow'
 
 import { SelectCompilerItem } from '../SelectCompilerItem/SelectCompilerItem'
 
 import styles from './SelectCompiler.module.css'
+import { CodeContext } from "@contexts/codeContext"
+import { CompilerSelectedHandler } from "@sockets/types"
+import { useParams } from "react-router"
+import { workSpaceSocket } from "@sockets/work-space-socket"
 
 interface SelectCompilerProps {
   compilers: string[]
-  selectedCompiler: string
-  setSelectedCompiler: (compiler: string) => void
 }
 
-export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers, selectedCompiler, setSelectedCompiler }) => {
+export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
+  const { selectedCompiler } = useContext(CodeContext)
+
   const [isSelectOpen, setSelectOpen] = useState<boolean>(false)
 
   const onToggleSelect = () => setSelectOpen(prevState => !prevState)
-
-  const handleSelectCompiler = (compiler: string) => {
-    setSelectedCompiler(compiler)
-    setSelectOpen(false)
-  }
 
   const selectOptionsClassName = classnames({
     [styles.selectOptions]: true,
     [styles.selectOptionsOpen]: isSelectOpen,
   })
+
+  const compilerSelectedEventHandler: CompilerSelectedHandler = () => {
+    setSelectOpen(false)
+  }
+
+  useEffect(() => {
+    return workSpaceSocket.subscribeCompilerSelected(compilerSelectedEventHandler)
+  }, [])
 
   return (
     <div className={styles.select}>
@@ -39,7 +46,7 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers, selectedCom
       </div>
       <div className={selectOptionsClassName}>
         {compilers.map(compiler => (
-          <SelectCompilerItem key={compiler} compiler={compiler} handleSelectCompiler={handleSelectCompiler} />
+          <SelectCompilerItem key={compiler} compiler={compiler} />
         ))}
       </div>
     </div>

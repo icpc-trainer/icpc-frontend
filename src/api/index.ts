@@ -17,8 +17,8 @@ import {
   GetTeamStatusResponse,
   GetLobbyOnlineUsersResponse,
   GetSelectedContestResponse,
-  GetUserTeamsResponse,
-} from './responses'
+  GetUserTeamsResponse, GetSelectedCompilerByAliasResponse,
+} from "./responses"
 
 class Api {
   private readonly client: AxiosInstance
@@ -121,6 +121,10 @@ class Api {
 
   async getSelectedContest(teamId: string) {
     return (await this.get<GetSelectedContestResponse>(`lobby/${teamId}/selected-contest`)).contestId
+  }
+
+  async getSelectedCompilerByAlias(trainingSessionId: string, problemAlias: string) {
+    return (await this.get<GetSelectedCompilerByAliasResponse>(`training-sessions/${trainingSessionId}/compiler/${problemAlias}`)).compiler
   }
 }
 

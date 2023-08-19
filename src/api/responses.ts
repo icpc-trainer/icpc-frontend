@@ -33,3 +33,7 @@ export type GetSelectedContestResponse = {
 }
 
 export type GetUserTeamsResponse = ITeam[]
+
+export type GetSelectedCompilerByAliasResponse = {
+  compiler: string
+}
