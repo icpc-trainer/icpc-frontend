@@ -8,6 +8,7 @@ import { api } from '@api/index'
 
 import { useGetCurrentUserQuery } from '@store/api/api'
 
+import { ICompilerFull, compilersFull } from '@constants/compilers'
 import { CodeContext } from '@contexts/codeContext'
 
 import { ProblemSpaceEditor } from './ProblemSpaceEditor'
@@ -15,15 +16,15 @@ import { ProblemSpaceEditor } from './ProblemSpaceEditor'
 export const ProblemSpaceEditorContainer: FC = () => {
   const [code, setCode] = useState<string>('')
 
-  const [selectedCompiler, setSelectedCompiler] = useState<string>(null)
-  const [compilers, setCompilers] = useState<string[]>(null)
+  const [selectedCompiler, setSelectedCompiler] = useState<ICompilerFull>(null)
+  const [compilers, setCompilers] = useState<ICompilerFull[]>(null)
 
   const { trainingSessionId, alias } = useParams()
 
   const { data: currentUser } = useGetCurrentUserQuery()
 
   const onSendCode = () => {
-    api.postSubmissions(trainingSessionId, code, selectedCompiler, alias).then(console.log).catch(console.log)
+    api.postSubmissions(trainingSessionId, code, selectedCompiler.id, alias).then(console.log).catch(console.log)
   }
 
   const onCodeChange = (code: string) => {
@@ -40,7 +41,7 @@ export const ProblemSpaceEditorContainer: FC = () => {
 
   const compilerSelectedEventHandler: CompilerSelectedHandler = ({ compiler, problemAlias }) => {
     if (alias === problemAlias) {
-      setSelectedCompiler(compiler)
+      setSelectedCompiler(compilersFull.find(({ id }) => id === compiler))
     }
   }
 
@@ -49,8 +50,10 @@ export const ProblemSpaceEditorContainer: FC = () => {
       .then(([problems, selectedCompiler]) => {
         const problem = problems.find(problem => problem.alias === alias)
 
-        setSelectedCompiler(selectedCompiler || problem.compilers[0])
-        setCompilers(problem.compilers)
+        const compiler = selectedCompiler || problem.compilers[0]
+
+        setSelectedCompiler(compilersFull.find(({ id }) => id === compiler))
+        setCompilers(problem.compilers.map(compiler => compilersFull.find(({ id }) => id === compiler)))
       })
       .catch(console.log)
 
@@ -67,6 +70,8 @@ export const ProblemSpaceEditorContainer: FC = () => {
       compilerSelectedUnsubscribe()
     }
   }, [alias])
+
+  if (!selectedCompiler || !compilers) return null
 
   return (
     <CodeContext.Provider value={{ code, onSendCode, onCodeChange, selectedCompiler, setSelectedCompiler, compilers }}>

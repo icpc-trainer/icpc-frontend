@@ -5,6 +5,7 @@ import React, { FC, useContext, useEffect, useRef, useState } from 'react'
 import { CompilerSelectedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
+import { ICompilerFull } from '@constants/compilers'
 import { CodeContext } from '@contexts/codeContext'
 
 import { Arrow } from '@icons/Arrow'
@@ -14,7 +15,7 @@ import { SelectCompilerItem } from '../SelectCompilerItem/SelectCompilerItem'
 import styles from './SelectCompiler.module.css'
 
 interface SelectCompilerProps {
-  compilers: string[]
+  compilers: ICompilerFull[]
 }
 
 export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
@@ -55,14 +56,14 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
   return (
     <div className={styles.select} ref={selectRef}>
       <div className={styles.selectHeader}>
-        <span className={styles.selectItem}>{selectedCompiler}</span>
+        <span className={styles.selectItem}>{selectedCompiler.name}</span>
         <button onClick={onToggleSelect} className={styles.arrowButton}>
           <Arrow color="var(--color-black-typo-primary)" width={24} height={24} />
         </button>
       </div>
       <div className={selectOptionsClassName}>
         {compilers.map(compiler => (
-          <SelectCompilerItem key={compiler} compiler={compiler} />
+          <SelectCompilerItem key={compiler.id} compiler={compiler} />
         ))}
       </div>
     </div>
