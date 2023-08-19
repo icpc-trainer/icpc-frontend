@@ -1,12 +1,13 @@
 import React from 'react'
 
+import { isSubmissionPending } from '@helpers/isSubmissionPending'
+
 import { IColumnType } from '@ui/Table/Table'
 import { DetailsCell } from '@widgets/ProblemSpaceInfo/components/DetailsCell/DetailsCell'
 import { PointsCell } from '@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell'
 import { StatusCell } from '@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell'
 import { TimeCell } from '@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell'
 import { ISubmissionTableItem } from '@widgets/ProblemSpaceInfo/helpers/getSubmissionTableData'
-import { isSubmissionPending } from "@helpers/isSubmissionPending"
 
 export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
   {

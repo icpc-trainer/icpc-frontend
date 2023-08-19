@@ -2,10 +2,11 @@ import classnames from 'classnames'
 
 import React, { FC } from 'react'
 
+import { isSubmissionPending } from '@helpers/isSubmissionPending'
+
 import { Loading } from '@ui/Loading/Loading'
 
 import styles from './StatusCell.module.css'
-import { isSubmissionPending } from "@helpers/isSubmissionPending"
 
 interface StatusCellProps {
   verdict: string
