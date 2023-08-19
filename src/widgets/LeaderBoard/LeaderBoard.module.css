@@ -47,3 +47,9 @@
   color: var(--color-black-typo-primary);
   font-size: 16px;
 }
+.LeaderBoardTable tr {
+  height: 56px;
+}
+.LeaderBoardTable td {
+  font-size: 16px;
+}
