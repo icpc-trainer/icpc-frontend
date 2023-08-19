@@ -7,9 +7,15 @@ import { ProblemSpaceListContainer } from '@widgets/ProblemSpaceList/ProblemSpac
 
 import styles from './ProblemSpace.module.css'
 
-export const ProblemSpace = () => {
+export const ProblemSpace = ({
+  style,
+}: {
+  style: {
+    display: string
+  }
+}) => {
   return (
-    <div className={styles.problemSpace}>
+    <div style={style} className={styles.problemSpace}>
       <ProblemSpaceListContainer />
       <ProblemSpaceInfo />
       <ProblemSpaceChat />

@@ -1,0 +1,42 @@
+.LeaderBoardContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.lastEventsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lastEventWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  max-width: 570px;
+}
+.lastEventTitle {
+  color: var(--color-grey-secondary);
+  font-size: 16px;
+}
+.lastEventContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-white);
+  padding: 16px;
+  border-radius: 12px;
+  line-height: 24px;
+  color: var(--color-black-typo-primary);
+}
+.lastEventTime {
+  color: var(--color-grey-secondary);
+}
+
+.LeaderBoardTable{
+  margin-top: 24px;
+  padding: 16px 8px;
+  border-radius: 12px;
+  background-color: var(--color-white);
+}

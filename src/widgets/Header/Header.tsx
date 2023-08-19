@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 
-import React, { FC } from 'react'
+import React from 'react'
 
 import { ThemeToggle } from '@ui/ThemeToggle/ThemeToggle'
 import { FinishButtonContainer } from '@widgets/Header/components/FinishButton/FinishButtonContainer'
@@ -12,12 +12,22 @@ import { TimerContainer } from './components/Timer/TimerContainer'
 
 import styles from './Header.module.css'
 
-export const Header: FC = () => {
+export const Header = ({ activeTab, setActiveTab }: { activeTab: string; setActiveTab: (tab: string) => void }) => {
   return (
     <header className={styles.header}>
       <Section className={styles.tabs}>
-        <span className={classnames(styles.tabItem, styles.tabItemSelected)}>Решение</span>
-        <span className={styles.tabItem}>Положение участников</span>
+        <span
+          className={classnames(styles.tabItem, activeTab === 'solution' ? styles.tabItemSelected : '')}
+          onClick={() => setActiveTab('solution')}
+        >
+          Решение
+        </span>
+        <span
+          className={classnames(styles.tabItem, activeTab === 'leaderBoard' ? styles.tabItemSelected : '')}
+          onClick={() => setActiveTab('leaderBoard')}
+        >
+          Положение участников
+        </span>
       </Section>
 
       <Section>
