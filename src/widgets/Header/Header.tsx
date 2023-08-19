@@ -28,7 +28,7 @@ export const Header: FC = () => {
 
       <Section>
         <TimerContainer />
-        <FinishButtonContainer />
+        {/*<FinishButtonContainer />*/}
       </Section>
     </header>
   )

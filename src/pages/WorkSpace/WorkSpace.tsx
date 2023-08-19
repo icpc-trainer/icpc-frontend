@@ -10,6 +10,7 @@ import { useGetControlUserQuery, useGetCurrentUserQuery } from '@store/api/api'
 import { urls } from '@constants/urls'
 import { ThemeContext } from '@contexts/themeContext'
 
+import { FinishPopup } from '@widgets/FinishPopup/FinishPopup'
 import { Header } from '@widgets/Header/Header'
 import { ProblemSpace } from '@widgets/ProblemSpace/ProblemSpace'
 
@@ -33,10 +34,13 @@ export const WorkSpace = () => {
   }
 
   return (
-    <main className={classNames(styles.workspace, theme)}>
-      <Header />
+    <>
+      <main className={classNames(styles.workspace, theme)}>
+        <Header />
 
-      <ProblemSpace />
-    </main>
+        <ProblemSpace />
+      </main>
+      <FinishPopup />
+    </>
   )
 }

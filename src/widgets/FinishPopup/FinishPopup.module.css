@@ -1,0 +1,30 @@
+.finishPopupContainer {
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*z-index: 100;*/
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.finishPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 50%;
+
+  font-size: 32px;
+
+  border-radius: 20px;
+
+  background-color: #ffffff;
+}

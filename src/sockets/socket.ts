@@ -24,6 +24,15 @@ abstract class Socket {
         }
       }
 
+      this.client.onclose = evt => {
+        console.log('close', evt)
+        if (evt.code !== 1000) {
+          setTimeout(() => {
+            this.client = new WebSocket(url)
+          }, 1000)
+        }
+      }
+
       this.initialized = true
     }
   }
