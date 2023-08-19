@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 
+import { SearchIcon } from '@icons/SearchIcon'
 import { IColumnType, Table } from '@ui/Table/Table'
 
 import { ILeaderBoard, ILeaderBoardRow } from '../../../../types/types'
@@ -20,8 +21,11 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         key: 'name',
         title: 'Поиск',
         titleRender: _ => (
-          <div>
-            <input type="text" placeholder="Поиск участника" />
+          <div className={styles.searchHeader}>
+            <div className={styles.searchWrapper}>
+              <SearchIcon width={28} height={28} color={'var(--color-grey-secondary)'} />
+              <input className={styles.searchInput} type="text" placeholder="Поиск участника" />
+            </div>
           </div>
         ),
         width: 500,

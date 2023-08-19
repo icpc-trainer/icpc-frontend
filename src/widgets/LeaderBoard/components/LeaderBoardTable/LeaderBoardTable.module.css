@@ -1,0 +1,30 @@
+.searchHeader {
+
+}
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white-grey);
+  max-width: 50%;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  padding: 0px 8px;
+}
+
+.searchWrapper svg {
+  margin-top: 6px;
+}
+
+.searchInput {
+  padding: 8px 8px;
+  background: transparent;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  width: 100%;
+  border: none;
+  color: var(--color-black-typo-primary);
+}
+.searchInput:focus {
+  outline: none;
+}
