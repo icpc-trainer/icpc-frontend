@@ -1,5 +1,14 @@
-.arrow {
+.button {
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
 
+.button:disabled {
+  cursor: default;
+  opacity: .3;
+}
+
+.arrow {
   transform: rotate(270deg);
 }

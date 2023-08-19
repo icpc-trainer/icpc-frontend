@@ -5,13 +5,14 @@ import React, { FC } from 'react'
 import { Loading } from '@ui/Loading/Loading'
 
 import styles from './StatusCell.module.css'
+import { isSubmissionPending } from "@helpers/isSubmissionPending"
 
 interface StatusCellProps {
   verdict: string
 }
 
 export const StatusCell: FC<StatusCellProps> = ({ verdict }) => {
-  const isPending = verdict === 'No report' || verdict === ''
+  const isPending = isSubmissionPending(verdict)
   const isOk = verdict === 'OK'
 
   const className = classnames({

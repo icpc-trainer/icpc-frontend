@@ -6,6 +6,7 @@ import { PointsCell } from '@widgets/ProblemSpaceInfo/components/PointsCell/Poin
 import { StatusCell } from '@widgets/ProblemSpaceInfo/components/StatusCell/StatusCell'
 import { TimeCell } from '@widgets/ProblemSpaceInfo/components/TimeCell/TimeCell'
 import { ISubmissionTableItem } from '@widgets/ProblemSpaceInfo/helpers/getSubmissionTableData'
+import { isSubmissionPending } from "@helpers/isSubmissionPending"
 
 export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
   {
@@ -30,6 +31,6 @@ export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
     key: 'details',
     title: '',
     width: 32,
-    render: (_, { id, onOpenDetails }) => <DetailsCell onOpenDetails={() => onOpenDetails(id)} />,
+    render: (_, submissionTableItem) => <DetailsCell submissionTableItem={submissionTableItem} />,
   },
 ]
