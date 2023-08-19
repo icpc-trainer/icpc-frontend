@@ -17,7 +17,7 @@
   width: 100%;
   height: 100%;
 }
-.askQuestion {
+.telegramChatLink {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,11 +27,17 @@
   padding: 14px 58px 12px 58px;
 
   font-size: 14px;
+  line-height: 28px;
 
   border: none;
   border-radius: 10px;
 
   background-color: var(--color-white);
+
+  cursor: pointer;
+}
+.telegramChatLink:hover {
+  color: var(--color-black-typo-primary);
 }
 .contestItem {
   padding: 16px 16px 14px;
@@ -64,6 +70,15 @@
   border-radius: 10px;
 
   background-color: var(--color-yellow-primary);
+
+  cursor: pointer;
+}
+.startButton:disabled {
+  color: var(--color-grey-secondary);
+
+  background-color: var(--color-grey-disabled);
+
+  cursor: auto;
 }
 .startButton a:hover {
   color: red;
