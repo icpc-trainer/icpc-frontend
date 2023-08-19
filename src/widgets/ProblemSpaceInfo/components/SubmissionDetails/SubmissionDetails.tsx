@@ -37,8 +37,6 @@ export const SubmissionDetails: FC<SubmissionDetailsProps> = ({ submissionId, st
 
   const { data: submissionFull } = useGetSubmissionFullQuery({ trainingSessionId, submissionId })
 
-  if (!submissionFull) return null
-
   return (
     <div
       style={{
@@ -57,26 +55,28 @@ export const SubmissionDetails: FC<SubmissionDetailsProps> = ({ submissionId, st
         />
         <h3 className={styles.title}>Детализация</h3>
       </div>
-      <div className={styles.detailsContent}>
-        <div className={styles.detailsTable}>
-          <SubmissionDetailsSummaryTable submissionFull={submissionFull} />
+      {submissionFull ? (
+        <div className={styles.detailsContent}>
+          <div className={styles.detailsTable}>
+            <SubmissionDetailsSummaryTable submissionFull={submissionFull} />
+          </div>
+          <div className={styles.detailsInfo}>
+            <Accordion title={'Тесты'}>
+              <SubmissionDetailsTestTable checkerLog={submissionFull.checkerLog} />
+            </Accordion>
+            <Accordion title={'Исходный код'}>
+              <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
+                {submissionFull.source}
+              </div>
+            </Accordion>
+            <Accordion title={'Лог компиляции'}>
+              <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
+                {submissionFull.compileLog}
+              </div>
+            </Accordion>
+          </div>
         </div>
-        <div className={styles.detailsInfo}>
-          <Accordion title={'Тесты'}>
-            <SubmissionDetailsTestTable checkerLog={submissionFull.checkerLog} />
-          </Accordion>
-          <Accordion title={'Исходный код'}>
-            <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
-              {submissionFull.source}
-            </div>
-          </Accordion>
-          <Accordion title={'Лог компиляции'}>
-            <div style={{ whiteSpace: 'pre-line' }} className={styles.codeBlock}>
-              {submissionFull.compileLog}
-            </div>
-          </Accordion>
-        </div>
-      </div>
+      ) : null}
     </div>
   )
 }
