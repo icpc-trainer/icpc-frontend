@@ -94,13 +94,19 @@
   display: none;
 }
 
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .titlePrimary {
   color: var(--color-black-typo-primary);
   font-weight: 500;
   font-size: 16px;
   line-height: 24px; /* 150% */
-
-  /* cursor: pointer; */
 }
 .titleSecondary {
   color: var(--color-grey-secondary);
