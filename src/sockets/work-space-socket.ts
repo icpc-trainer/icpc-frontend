@@ -11,6 +11,7 @@ import {
   ProblemAssignedPayload,
   ProblemStatusUpdatedHandler,
   SubmissionRetrievedHandler,
+  TrainingFinishedHandler,
   Types,
   UserHandler,
   UserLeaveHandler,
@@ -67,6 +68,10 @@ class WorkSpaceSocket extends Socket {
 
   public subscribeCompilerSelected(handler: CompilerSelectedHandler) {
     return this.subscribe(Types.CompilerSelected, handler)
+  }
+
+  public subscribeTrainingFinished(handler: TrainingFinishedHandler) {
+    return this.subscribe(Types.TrainingFinished, handler)
   }
 }
 

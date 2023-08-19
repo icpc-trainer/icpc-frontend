@@ -19,6 +19,7 @@ import {
   GetUserTeamsResponse,
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
+  getParticipationResponse,
 } from './responses'
 
 class Api {
@@ -67,8 +68,8 @@ class Api {
     return this.get(`/training-sessions/${trainingSessionId}`)
   }
 
-  getContestInfo(contestId: string) {
-    return this.get(`/contests/${contestId}`)
+  getContestFull(trainingSessionId: string) {
+    return this.get(`/contests/${trainingSessionId}`)
   }
 
   getCodeByAlias(trainingSessionId: string, problemAlias: string) {
@@ -129,6 +130,10 @@ class Api {
         `training-sessions/${trainingSessionId}/compiler/${problemAlias}`,
       )
     ).compiler
+  }
+
+  getParticipation(trainingSessionId: string) {
+    return this.get<getParticipationResponse>(`training-sessions/${trainingSessionId}/participation`)
   }
 }
 
