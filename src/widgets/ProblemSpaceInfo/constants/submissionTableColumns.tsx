@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { isSubmissionPending } from '@helpers/isSubmissionPending'
+
 import { IColumnType } from '@ui/Table/Table'
 import { DetailsCell } from '@widgets/ProblemSpaceInfo/components/DetailsCell/DetailsCell'
 import { PointsCell } from '@widgets/ProblemSpaceInfo/components/PointsCell/PointsCell'
@@ -30,6 +32,6 @@ export const submissionTableColumns: IColumnType<ISubmissionTableItem>[] = [
     key: 'details',
     title: '',
     width: 32,
-    render: (_, { id, onOpenDetails }) => <DetailsCell onOpenDetails={() => onOpenDetails(id)} />,
+    render: (_, submissionTableItem) => <DetailsCell submissionTableItem={submissionTableItem} />,
   },
 ]
