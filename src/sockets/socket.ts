@@ -18,7 +18,6 @@ abstract class Socket {
 
       this.client.onmessage = (evt: MessageEvent<string>) => {
         const { type, payload }: Data = JSON.parse(evt.data)
-        console.log(JSON.parse(evt.data))
 
         if (this.handlers[type]) {
           this.handlers[type].forEach(handler => handler(payload))

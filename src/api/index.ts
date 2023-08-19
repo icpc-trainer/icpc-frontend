@@ -9,16 +9,16 @@ import { createFile } from '@utils/createFile'
 import { CreateTrainingSession, PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
+  GetLobbyOnlineUsersResponse,
   GetMessagesByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
+  GetSelectedCompilerByAliasResponse,
+  GetSelectedContestResponse,
+  GetTeamStatusResponse,
+  GetUserTeamsResponse,
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
-  GetTeamStatusResponse,
-  GetLobbyOnlineUsersResponse,
-  GetSelectedContestResponse,
-  GetUserTeamsResponse,
-  GetSelectedCompilerByAliasResponse,
 } from './responses'
 
 class Api {

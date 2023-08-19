@@ -39,10 +39,12 @@ export const InputContainer = () => {
     if (event.key === 'Enter') {
       event.preventDefault()
 
-      api
-        .postMessage(trainingSessionId, alias, value)
-        .then(() => setValue(''))
-        .catch(console.log)
+      if (value) {
+        api
+          .postMessage(trainingSessionId, alias, value)
+          .then(() => setValue(''))
+          .catch(console.log)
+      }
     }
   }
 
