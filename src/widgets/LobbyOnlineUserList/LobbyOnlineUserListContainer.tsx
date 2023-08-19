@@ -1,7 +1,8 @@
 import React from 'react'
 
+import { useLobbyOnlineUsers } from '@hooks/useLobbyOnlineUsers'
+
 import { LobbyOnlineUserList } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserList'
-import { useLobbyOnlineUsers } from "@hooks/useLobbyOnlineUsers"
 
 export const LobbyOnlineUserListContainer = () => {
   const { users } = useLobbyOnlineUsers()

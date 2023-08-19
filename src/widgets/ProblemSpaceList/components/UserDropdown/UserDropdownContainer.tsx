@@ -13,10 +13,11 @@ interface UserDropdownProps {
 }
 
 export const UserDropdownContainer: FC<UserDropdownProps> = ({ user }) => {
-  const { problem } = useContext(ProblemItemContext)
+  const { problem, onCloseDropdown } = useContext(ProblemItemContext)
 
   const onSendProblemAssigned = () => {
     workSpaceSocket.sendProblemAssigned({ user, problemAlias: problem.alias })
+    onCloseDropdown()
   }
 
   const hasAvatar = user.default_avatar_id !== '0/0-0'

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
-import { IYandexUser } from "../types/types"
-import { UserHandler, UserLeaveHandler } from "@sockets/types"
-import { lobbySocket } from "@sockets/lobby-socket"
+import { useEffect, useState } from 'react'
+
+import { lobbySocket } from '@sockets/lobby-socket'
+import { UserHandler, UserLeaveHandler } from '@sockets/types'
+
+import { IYandexUser } from '../types/types'
 
 export const useOnlineUsers = () => {
   const [users, setUsers] = useState<IYandexUser[]>([])

@@ -1,6 +1,10 @@
 .status {
+  display: flex;
+  align-items: start;
+
   color: var(--color-red-light);
   font-size: 14px;
+  column-gap: 7px;
 }
 
 .statusOk {

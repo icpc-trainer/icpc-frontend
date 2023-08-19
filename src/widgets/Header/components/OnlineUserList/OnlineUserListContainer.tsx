@@ -1,7 +1,8 @@
 import React from 'react'
 
+import { useWorkSpaceOnlineUsers } from '@hooks/useWorkSpaceOnlineUsers'
+
 import { OnlineUserList } from '@widgets/Header/components/OnlineUserList/OnlineUserList'
-import { useWorkSpaceOnlineUsers } from "@hooks/useWorkSpaceOnlineUsers"
 
 export const OnlineUserListContainer = () => {
   const { users } = useWorkSpaceOnlineUsers()

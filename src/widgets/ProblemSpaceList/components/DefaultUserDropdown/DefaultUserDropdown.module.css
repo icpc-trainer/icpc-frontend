@@ -1,7 +1,16 @@
-.defaultUserDropdown {
+.defaultUserDropdownButton {
   border: none;
 
   background: none;
 
   cursor: pointer;
+}
+
+.defaultUserDropdownButtonIcon {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  background: url('../../../../assets/images/default-user-icon.svg') center center / cover no-repeat;
 }

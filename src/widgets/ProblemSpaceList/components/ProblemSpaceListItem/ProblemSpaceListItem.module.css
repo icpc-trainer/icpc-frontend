@@ -1,12 +1,10 @@
-.container {
+.infoContainer {
   display: flex;
   gap: 24px;
   justify-content: space-between;
   align-items: flex-start;
 
   width: 100%;
-
-  cursor: pointer;
 }
 
 .arrow {
@@ -25,6 +23,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin: 0 5px 0 0;
 }
 .statusDone {
   display: flex;
@@ -176,4 +176,13 @@
 
 .rotated {
   transform: rotate(180deg);
+}
+
+.defaultUserAvatar {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  background: url('../../../../assets/images/default-user-icon.svg') center center / cover no-repeat;
 }

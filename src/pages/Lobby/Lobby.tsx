@@ -11,8 +11,8 @@ import { useGetCurrentUserQuery } from '@store/api/api'
 import { urls } from '@constants/urls'
 import { SelectedContestContext } from '@contexts/contestListContext'
 
-import { User } from '@icons/User'
 import { BlockWrapper } from '@ui/BlockWrapper/BlockWrapper'
+import { Button } from '@ui/Button/Button'
 import { ContestsListContainer } from '@widgets/ContestsList/ContestsListContainer'
 import { LobbyOnlineUserListContainer } from '@widgets/LobbyOnlineUserList/LobbyOnlineUserListContainer'
 import { TeamNameContainer } from '@widgets/TeamName/TeamNameContainer'
@@ -57,16 +57,27 @@ const Lobby = () => {
     <SelectedContestContext.Provider value={{ selectedContestId }}>
       <div className={styles.lobby}>
         <div className={styles.contestList}>
-          <button className={styles.askQuestion}>Задать вопрос</button>
+          <a
+            className={styles.telegramChatLink}
+            href="https://t.me/+JhE-UUz1BGc5OWEy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Telegram-чатик
+          </a>
           <BlockWrapper className={styles.blockWrapper}>
             <ContestsListContainer />
           </BlockWrapper>
         </div>
         <div className={styles.startTraining}>
           <div className={styles.startTrainingWrapper}>
-            <button className={styles.startButton} onClick={onCreateTrainingSession}>
-              Начать тренировку
-            </button>
+            <Button
+              type="button"
+              disabled={selectedContestId === null}
+              title={'Начать тренировку'}
+              onClick={onCreateTrainingSession}
+              className={styles.startButton}
+            />
             <TeamNameContainer />
             <LobbyOnlineUserListContainer />
           </div>
