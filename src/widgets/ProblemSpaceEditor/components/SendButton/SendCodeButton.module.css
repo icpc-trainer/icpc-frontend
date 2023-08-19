@@ -1,8 +1,9 @@
 .sendCodeButton {
   justify-self: start;
 
-  color: var(--color-white-gray);
   margin-top: 8px;
+
+  color: var(--color-white-gray);
 }
 
 .sendCodeButton:disabled {
