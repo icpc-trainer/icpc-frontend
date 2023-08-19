@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { ProblemItemContext } from '@contexts/problemItemContext'
@@ -23,6 +23,7 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
   const { alias } = useParams()
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const listItemRef = useRef(null)
 
   const isSelected = alias === problem.alias
 
@@ -30,9 +31,23 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
   const onCloseDropdown = () => setIsDropdownOpen(false)
 
+  const handleClickOutside: EventListener = event => {
+    if (listItemRef.current && !listItemRef.current.contains(event.target)) {
+      onCloseDropdown()
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
   return (
     <ProblemItemContext.Provider value={{ problem, onCloseDropdown }}>
-      <div className={classNames(className, { [styles.open]: isDropdownOpen })}>
+      <div ref={listItemRef} className={classNames(className, { [styles.open]: isDropdownOpen })}>
         <div className={styles.infoContainer}>
           <div className={styles.lineTitleBlock}>
             <div
