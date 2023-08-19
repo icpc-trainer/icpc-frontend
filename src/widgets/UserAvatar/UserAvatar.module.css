@@ -1,0 +1,15 @@
+.userAvatar {
+  border-radius: 50%;
+}
+
+.userAvatarPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  border-radius: 50%;
+
+  background-color: var(--color-green-light);
+}

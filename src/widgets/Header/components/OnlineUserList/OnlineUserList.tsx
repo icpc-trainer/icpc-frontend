@@ -13,7 +13,7 @@ interface OnlineUserListProps {
 
 export const OnlineUserList: FC<OnlineUserListProps> = ({ users }) => {
   const getOnlineUserKey: GetItemKeyFunction<IYandexUser> = user => user.id
-  const renderOnlineUser: RenderItemFunction<IYandexUser> = user => <OnlineUser yandexUser={user} />
+  const renderOnlineUser: RenderItemFunction<IYandexUser> = user => <OnlineUser user={user} />
 
   return (
     <List<IYandexUser>

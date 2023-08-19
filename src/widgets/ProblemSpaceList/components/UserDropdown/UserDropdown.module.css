@@ -1,24 +1,9 @@
-.userDropdown {
-  width: 24px;
-  height: 24px;
-  margin: 5px 5px;
-
-  border-radius: 16px;
-}
-.avatarPlaceholder {
+.userDropdownButton {
   display: flex;
-  justify-content: center;
-  align-items: center;
 
-  width: 24px;
-  height: 24px;
-  margin: 5px 5px;
-  padding-top: 5px;
+  border: none;
 
-  color: white;
-  font-size: 11px;
+  background-color: transparent;
 
-  border-radius: 50%;
-
-  background-color: var(--color-green-light);
+  cursor: pointer;
 }
