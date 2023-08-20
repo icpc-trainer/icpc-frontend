@@ -1,0 +1,84 @@
+.LeaderBoardContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.lastEventsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lastEventWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  max-width: 570px;
+}
+.lastEventTitle {
+  color: var(--color-grey-secondary);
+  font-size: 16px;
+}
+.lastEventContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--color-white);
+  padding: 16px;
+  border-radius: 12px;
+  line-height: 24px;
+  color: var(--color-black-typo-primary);
+}
+.lastEventTime {
+  color: var(--color-grey-secondary);
+}
+
+.LeaderBoardTable {
+  margin-top: 24px;
+  padding: 16px 16px;
+  border-radius: 12px;
+  background-color: var(--color-white);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.LeaderBoardTable th {
+  color: var(--color-black-typo-primary);
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+}
+.LeaderBoardTable tr {
+  border-radius: 8px;
+  height: 72px;
+}
+.LeaderBoardTable td {
+  font-size: 16px;
+  text-align: center;
+}
+
+.LeaderBoardTable td:nth-child(2) {
+  text-align: left;
+}
+.LeaderBoardTable td:last-child {
+  color: var(--color-red-light);
+}
+
+.LeaderBoardTable td:nth-last-child(2) {
+  font-size: 20px;
+}
+
+/* Четные строки */
+.LeaderBoardTable tbody tr:nth-child(even) {
+  background: var(--color-table-row);
+}
+.LeaderBoardTable tbody tr:hover {
+  outline: 1px solid #FFE147;
+  background: inherit;
+}
+
+.LeaderBoardTable tbody tr:nth-child(even):hover {
+  background: var(--color-table-row);
+  outline: 1px solid #FFE147;
+}

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { workSpaceSocket } from '@sockets/work-space-socket'
@@ -12,12 +12,14 @@ import { ThemeContext } from '@contexts/themeContext'
 
 import { FinishPopup } from '@widgets/FinishPopup/FinishPopup'
 import { Header } from '@widgets/Header/Header'
+import { LeaderBoardContainer } from '@widgets/LeaderBoard/LeaderBoardContainer'
 import { ProblemSpace } from '@widgets/ProblemSpace/ProblemSpace'
 
 import styles from './WorkSpace.module.css'
 
 export const WorkSpace = () => {
   const { theme } = useContext(ThemeContext)
+  let [activeTab, setActiveTab] = useState('solution')
 
   const { trainingSessionId } = useParams()
 
@@ -36,9 +38,10 @@ export const WorkSpace = () => {
   return (
     <>
       <main className={classNames(styles.workspace, theme)}>
-        <Header />
+        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-        <ProblemSpace />
+        <ProblemSpace style={{ display: activeTab === 'solution' ? 'grid' : 'none' }} />
+        <LeaderBoardContainer style={{ display: activeTab === 'leaderBoard' ? 'flex' : 'none' }} />
       </main>
       <FinishPopup />
     </>

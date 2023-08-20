@@ -9,7 +9,7 @@ export const TableHeader = <T,>({ columns }: { columns: IColumnType<T>[] }) => {
     <tr>
       {columns.map((column, columnIndex) => (
         <th className={styles.columnHeader} key={`table-head-cell-${columnIndex}`} style={{ width: column.width }}>
-          {column.title}
+          {column.titleRender ? column.titleRender(column) : column.title}
         </th>
       ))}
     </tr>

@@ -24,6 +24,8 @@
 
   --scrollbar-foreground: rgba(83, 83, 83, 0.5);
   --scrollbar-background: var(--color-white-grey);
+
+  --color-table-row: #F9FAFB;
 }
 
 main.light-theme {
@@ -54,6 +56,8 @@ main.dark-theme {
 
   --scrollbar-foreground: rgba(255, 255, 255, 0.5);
   --scrollbar-background: var(--color-white-grey);
+
+  --color-table-row: #404244;
 }
 
 * {
@@ -118,7 +122,13 @@ html {
 
   transition: background 0.3s;
 }
-
+.short {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 #modal {
   position: absolute;
   top: 0;
