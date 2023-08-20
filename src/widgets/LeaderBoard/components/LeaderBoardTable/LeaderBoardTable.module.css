@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
 
-
+  background-color: var(--color-white-grey);
   max-width: 50%;
   margin-bottom: 16px;
   border-radius: 12px;
