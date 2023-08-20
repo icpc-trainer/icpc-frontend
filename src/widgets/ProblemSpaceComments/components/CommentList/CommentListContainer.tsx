@@ -31,6 +31,7 @@ export const CommentListContainer = () => {
     const problemCommentReceivedUnsubscribe = workSpaceSocket.subscribeProblemCommentReceived(
       problemCommentReceivedEventHandler,
     )
+
     const problemCommentDeletedUnsubscribe = workSpaceSocket.subscribeProblemCommentDeleted(
       problemCommentDeletedEventHandler,
     )
