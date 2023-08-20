@@ -40,6 +40,7 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
           width: 40,
           render: (_: any, { problemResults }: { problemResults: ILeaderBoardProblemResult[] }) => {
             const solution = problemResults[index]
+            const sign = solution.status === 'ACCEPTED' ? '+' : '-'
             return (
               <div className={styles.solutionWrapper}>
                 {solution.status === 'NOT_SUBMITTED' ? (
@@ -51,7 +52,10 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
                       [styles.NOT_ACCEPTED]: solution.status === 'NOT_ACCEPTED',
                     })}
                   >
-                    <div>{solution.submissionCount}</div>
+                    <div>
+                      {sign}
+                      {solution.submissionCount === '1' ? '' : +solution.submissionCount - 1}
+                    </div>
                     <div className={styles.solutionTime}>
                       {new Date(solution.submitDelay).toISOString().slice(11, 19)}
                     </div>
@@ -79,3 +83,4 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
   const { rows: leaderBoardRows } = leaderBoard
   return <Table<ILeaderBoardRow> data={leaderBoardRows} columns={getColumns()} />
 }
+
