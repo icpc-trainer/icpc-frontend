@@ -9,6 +9,8 @@ export interface IColumnType<T> {
   key: string
   title: string
   width?: number
+  maxWidth?: number
+  minWidth?: number
   titleRender?: (column: IColumnType<T>) => ReactNode
   render?: (column: IColumnType<T>, item: T) => void
 }
