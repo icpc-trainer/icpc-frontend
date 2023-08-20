@@ -18,14 +18,25 @@ export const ProblemSpaceEditorContainer: FC = () => {
 
   const [selectedCompiler, setSelectedCompiler] = useState<ICompilerFull>(null)
   const [compilers, setCompilers] = useState<ICompilerFull[]>(null)
+  const [isSameCode, setIsSameCode] = useState(false)
 
   const { trainingSessionId, alias } = useParams()
 
   const { data: currentUser } = useGetCurrentUserQuery()
 
   const onSendCode = () => {
-    api.postSubmissions(trainingSessionId, code, selectedCompiler.id, alias).then(console.log).catch(console.log)
-    console.log(code)
+    api
+      .postSubmissions(trainingSessionId, code, selectedCompiler.id, alias)
+      .then(() => {
+        setIsSameCode(false)
+      })
+      .catch(err => {
+        const message = err.response?.data?.detail?.message
+
+        if (message && /Duplicate submission/.test(message)) {
+          setIsSameCode(true)
+        }
+      })
   }
 
   const onCodeChange = (code: string) => {
@@ -72,10 +83,10 @@ export const ProblemSpaceEditorContainer: FC = () => {
     }
   }, [alias])
 
-  if (!selectedCompiler || !compilers) return null
-
   return (
-    <CodeContext.Provider value={{ code, onSendCode, onCodeChange, selectedCompiler, setSelectedCompiler, compilers }}>
+    <CodeContext.Provider
+      value={{ code, onSendCode, onCodeChange, selectedCompiler, setSelectedCompiler, compilers, isSameCode }}
+    >
       <ProblemSpaceEditor />
     </CodeContext.Provider>
   )
