@@ -5,15 +5,16 @@
 
 .lastEventsWrapper {
   display: flex;
-  align-items: center;
   gap: 20px;
+  align-items: center;
 }
 
 .lastEventWrapper {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   flex-grow: 1;
+  gap: 4px;
+
   max-width: 570px;
 }
 .lastEventTitle {
@@ -22,36 +23,45 @@
 }
 .lastEventContent {
   display: flex;
-  align-items: center;
   gap: 16px;
-  background-color: var(--color-white);
+  align-items: center;
+
   padding: 16px;
-  border-radius: 12px;
-  line-height: 24px;
+
   color: var(--color-black-typo-primary);
+  line-height: 24px;
+
+  border-radius: 12px;
+
+  background-color: var(--color-white);
 }
 .lastEventTime {
   color: var(--color-grey-secondary);
 }
 
 .LeaderBoardTable {
+  height: 100%;
   margin-top: 24px;
   padding: 16px 16px;
+
   border-radius: 12px;
+
   background-color: var(--color-white);
-  height: 100%;
+
   overflow-y: auto;
 }
 
 .LeaderBoardTable th {
+  padding: 0;
+
   color: var(--color-black-typo-primary);
   font-size: 16px;
   text-align: center;
-  padding: 0;
 }
 .LeaderBoardTable tr {
-  border-radius: 8px;
   height: 72px;
+
+  border-radius: 8px;
 }
 .LeaderBoardTable td {
   font-size: 16px;
@@ -74,11 +84,13 @@
   background: var(--color-table-row);
 }
 .LeaderBoardTable tbody tr:hover {
-  outline: 1px solid #FFE147;
   background: inherit;
+
+  outline: 1px solid #ffe147;
 }
 
 .LeaderBoardTable tbody tr:nth-child(even):hover {
   background: var(--color-table-row);
-  outline: 1px solid #FFE147;
+
+  outline: 1px solid #ffe147;
 }

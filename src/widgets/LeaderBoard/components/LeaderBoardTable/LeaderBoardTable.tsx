@@ -79,4 +79,3 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
   const { rows: leaderBoardRows } = leaderBoard
   return <Table<ILeaderBoardRow> data={leaderBoardRows} columns={getColumns()} />
 }
-

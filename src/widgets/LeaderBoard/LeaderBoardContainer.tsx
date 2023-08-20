@@ -1,6 +1,9 @@
 import classNames from 'classnames'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+
+import { api } from '@api/index'
 
 import { ILeaderBoard } from 'src/types/types'
 
@@ -156,6 +159,22 @@ export const LeaderBoardContainer = ({
     display: string
   }
 }) => {
+  const { trainingSessionId } = useParams<{ trainingSessionId: string }>()
+  const [leaderBoard, setLeaderBoard] = useState<ILeaderBoard>(null)
+
+  useEffect(() => {
+    api
+      .getStandings(trainingSessionId)
+      .then(standings => {
+        setLeaderBoard(standings)
+      })
+      .catch(console.log)
+  }, [trainingSessionId])
+
+  console.log(leaderBoard)
+
+  if (!leaderBoard) return null
+
   return (
     <div style={style} className={styles.LeaderBoardContainer}>
       <div className={styles.lastEventsWrapper}>
@@ -180,4 +199,3 @@ export const LeaderBoardContainer = ({
     </div>
   )
 }
-
