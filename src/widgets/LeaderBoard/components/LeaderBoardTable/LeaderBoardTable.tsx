@@ -54,8 +54,8 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
           key: title,
           title,
           width: 50,
-          maxWidth: 120,
-          minWidth: 120,
+          maxWidth: 100,
+          minWidth: 100,
           render: (_: any, { problemResults }: { problemResults: ILeaderBoardProblemResult[] }) => {
             const solution = problemResults[index]
             const sign = solution.status === 'ACCEPTED' ? '+' : '-'
@@ -88,12 +88,16 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         key: 'score',
         title: 'Решено',
         width: 40,
+        maxWidth: 80,
+        minWidth: 80,
         render: (_, { score }) => <span>{score}</span>,
       },
       {
         key: 'penalty',
         title: 'Штраф',
         width: 40,
+        maxWidth: 80,
+        minWidth: 80,
         render: (_, { penalty }) => <span>{penalty}</span>,
       },
     ]
