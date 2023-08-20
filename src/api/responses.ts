@@ -1,4 +1,13 @@
-import { IComment, IParticipation, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
+import {
+  IComment,
+  ILeaderBoard,
+  IParticipation,
+  IProblem,
+  ISubmission,
+  ITeam,
+  ITeamStatus,
+  IYandexUser,
+} from 'src/types/types'
 
 export interface GetProblemsResponse {
   problems: IProblem[]
@@ -39,3 +48,5 @@ export type GetSelectedCompilerByAliasResponse = {
 }
 
 export type getParticipationResponse = IParticipation
+
+export type getStandingsResponse = ILeaderBoard

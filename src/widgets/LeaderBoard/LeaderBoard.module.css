@@ -1,10 +1,16 @@
 .LeaderBoardContainer {
   display: flex;
   flex-direction: column;
+  gap: 24px;
+
+  height: 100%;
+
+  overflow: hidden;
 }
 
 .lastEventsWrapper {
   display: flex;
+  gap: 20px;
   gap: 20px;
   align-items: center;
 }
@@ -41,22 +47,28 @@
 
 .LeaderBoardTable {
   height: 100%;
-  margin-top: 24px;
-  padding: 16px 16px;
+  padding: 0px 16px 16px 16px;
 
   border-radius: 12px;
-
   background-color: var(--color-white);
-
   overflow-y: auto;
 }
 
 .LeaderBoardTable th {
+  position: sticky;
+  top: 0;
+
   padding: 0;
+  padding-top: 16px;
 
   color: var(--color-black-typo-primary);
   font-size: 16px;
   text-align: center;
+
+  background-color: var(--color-white);
+}
+.LeaderBoardTable th:nth-child(2) {
+  padding-left: 8px;
 }
 .LeaderBoardTable tr {
   height: 72px;
@@ -69,6 +81,8 @@
 }
 
 .LeaderBoardTable td:nth-child(2) {
+  padding-left: 8px;
+
   text-align: left;
 }
 .LeaderBoardTable td:last-child {
@@ -83,14 +97,13 @@
 .LeaderBoardTable tbody tr:nth-child(even) {
   background: var(--color-table-row);
 }
-.LeaderBoardTable tbody tr:hover {
+.LeaderBoardTable tbody tr:hover{
   background: inherit;
 
   outline: 1px solid #ffe147;
+  /* border: 1px solid #ffe147; */
 }
 
 .LeaderBoardTable tbody tr:nth-child(even):hover {
   background: var(--color-table-row);
-
-  outline: 1px solid #ffe147;
 }
