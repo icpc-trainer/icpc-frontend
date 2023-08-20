@@ -21,10 +21,13 @@ export const LeaderBoardContainer = ({
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      api.getStandings(trainingSessionId).then(setLeaderBoard).catch(console.log)
+      api
+        .getStandings(trainingSessionId)
+        .then(res => {
+          setLeaderBoard(res)
+        })
+        .catch(console.log)
     }, 2000)
-
-    console.log(leaderBoard)
 
     return () => {
       clearTimeout(timeoutId)
