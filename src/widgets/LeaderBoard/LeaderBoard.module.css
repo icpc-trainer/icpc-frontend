@@ -34,7 +34,7 @@
   color: var(--color-grey-secondary);
 }
 
-.LeaderBoardTable{
+.LeaderBoardTable {
   margin-top: 24px;
   padding: 16px 16px;
   border-radius: 12px;
@@ -46,10 +46,39 @@
 .LeaderBoardTable th {
   color: var(--color-black-typo-primary);
   font-size: 16px;
+  text-align: center;
+  padding: 0;
 }
 .LeaderBoardTable tr {
-  height: 56px;
+  border-radius: 8px;
+  height: 72px;
 }
 .LeaderBoardTable td {
   font-size: 16px;
+  text-align: center;
+}
+
+.LeaderBoardTable td:nth-child(2) {
+  text-align: left;
+}
+.LeaderBoardTable td:last-child {
+  color: var(--color-red-light);
+}
+
+.LeaderBoardTable td:nth-last-child(2) {
+  font-size: 20px;
+}
+
+/* Четные строки */
+.LeaderBoardTable tbody tr:nth-child(even) {
+  background: var(--color-table-row);
+}
+.LeaderBoardTable tbody tr:hover {
+  outline: 1px solid #FFE147;
+  background: inherit;
+}
+
+.LeaderBoardTable tbody tr:nth-child(even):hover {
+  background: var(--color-table-row);
+  outline: 1px solid #FFE147;
 }

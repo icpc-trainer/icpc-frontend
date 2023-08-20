@@ -28,3 +28,22 @@
 .searchInput:focus {
   outline: none;
 }
+
+.teamName::first-letter {
+  color: red;
+}
+
+.solutionWrapper, .solution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.solution.ACCEPTED {
+  color: #029c38;
+}
+.solution.NOT_ACCEPTED {
+  color: var(--color-red-light);
+}

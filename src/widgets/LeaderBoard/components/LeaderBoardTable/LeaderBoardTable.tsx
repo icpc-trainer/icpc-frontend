@@ -1,9 +1,11 @@
+import classNames from 'classnames'
+
 import React, { FC } from 'react'
 
 import { SearchIcon } from '@icons/SearchIcon'
 import { IColumnType, Table } from '@ui/Table/Table'
 
-import { ILeaderBoard, ILeaderBoardRow } from '../../../../types/types'
+import { ILeaderBoard, ILeaderBoardRow, ILeaderBoardProblemResult } from '../../../../types/types'
 
 import styles from './LeaderBoardTable.module.css'
 
@@ -29,13 +31,35 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
           </div>
         ),
         width: 500,
-        render: (_, { participantInfo }) => <div>{participantInfo.name}</div>,
+        render: (_, { participantInfo }) => <div className={styles.teamName}>{participantInfo.name}</div>,
       },
-      ...titles.map(({ title }) => {
+      ...titles.map(({ title }, index) => {
         return {
           key: title,
           title,
           width: 40,
+          render: (_: any, { problemResults }: { problemResults: ILeaderBoardProblemResult[] }) => {
+            const solution = problemResults[index]
+            return (
+              <div className={styles.solutionWrapper}>
+                {solution.status === 'NOT_SUBMITTED' ? (
+                  <span> — </span>
+                ) : (
+                  <div
+                    className={classNames(styles.solution, {
+                      [styles.ACCEPTED]: solution.status === 'ACCEPTED',
+                      [styles.NOT_ACCEPTED]: solution.status === 'NOT_ACCEPTED',
+                    })}
+                  >
+                    <div>{solution.submissionCount}</div>
+                    <div className={styles.solutionTime}>
+                      {new Date(solution.submitDelay).toISOString().slice(11, 19)}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )
+          },
         }
       }),
       {

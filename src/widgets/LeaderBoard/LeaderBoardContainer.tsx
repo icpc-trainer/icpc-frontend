@@ -41,6 +41,84 @@ const leaderBoard: ILeaderBoard = {
       score: '2',
       problemResults: [
         {
+          submitDelay: 400,
+          status: 'ACCEPTED',
+          score: '',
+          submissionCount: '3',
+        },
+        {
+          submitDelay: 6313,
+          status: 'NOT_ACCEPTED',
+          score: '',
+          submissionCount: '2',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+      ],
+    },
+    {
+      participantInfo: {
+        id: 108109264,
+        name: 'qwerty (Ruslan Rasulov, Ярослав Старченков)',
+        login: '',
+        uid: null,
+        startTime: null,
+      },
+      placeFrom: [2],
+      placeTo: [2],
+      score: '2',
+      problemResults: [
+        {
+          title: 'A',
+          name: 'Купить и продать',
+          submitDelay: 400,
+          status: 'ACCEPTED',
+          score: '',
+          submissionCount: '3',
+        },
+        {
+          submitDelay: 6313,
+          status: 'ACCEPTED',
+          score: '',
+          submissionCount: '2',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+        {
+          submitDelay: 0,
+          status: 'NOT_SUBMITTED',
+          score: '',
+          submissionCount: '0',
+        },
+      ],
+    },
+    {
+      participantInfo: {
+        id: 108109264,
+        name: 'qwerty (Ruslan Rasulov, Ярослав Старченков)',
+        login: '',
+        uid: null,
+        startTime: null,
+      },
+      placeFrom: [3],
+      placeTo: [3],
+      score: '2',
+      problemResults: [
+        {
           title: 'A',
           name: 'Купить и продать',
           submitDelay: 400,
