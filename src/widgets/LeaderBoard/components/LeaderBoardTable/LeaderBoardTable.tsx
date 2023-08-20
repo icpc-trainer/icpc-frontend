@@ -23,6 +23,8 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         key: 'placeTo',
         title: '№',
         width: 30,
+        maxWidth: 50,
+        minWidth: 50,
         render: (_, { placeFrom, placeTo }) => (
           <span> {placeFrom[0] !== placeTo[0] ? `${placeFrom} - ${placeTo}` : placeTo} </span>
         ),
@@ -44,14 +46,16 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
             </div>
           </div>
         ),
-        width: 500,
+        width: 800,
         render: (_, { participantInfo }) => <div className={styles.teamName}>{participantInfo.name}</div>,
       },
       ...titles.map(({ title }, index) => {
         return {
           key: title,
           title,
-          width: 40,
+          width: 50,
+          maxWidth: 120,
+          minWidth: 120,
           render: (_: any, { problemResults }: { problemResults: ILeaderBoardProblemResult[] }) => {
             const solution = problemResults[index]
             const sign = solution.status === 'ACCEPTED' ? '+' : '-'
@@ -90,11 +94,10 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         key: 'penalty',
         title: 'Штраф',
         width: 40,
-        render: (_, { problemResults }) => <span>{3223}</span>,
+        render: (_, { penalty }) => <span>{penalty}</span>,
       },
     ]
   }
-  // const { rows: leaderBoardRows } = leaderBoard
   const filteredRows = leaderBoard.rows.filter(row =>
     row.participantInfo.name.toLowerCase().includes(searchQuery.toLowerCase()),
   )

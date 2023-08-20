@@ -16,6 +16,7 @@
 }
 
 .searchInput {
+  width: 100%;
   padding: 8px 8px;
   background: transparent;
   font-size: 16px;
@@ -27,6 +28,9 @@
 }
 .searchInput:focus {
   outline: none;
+}
+.teamName {
+  line-height: 24px;
 }
 
 .teamName::first-letter {
