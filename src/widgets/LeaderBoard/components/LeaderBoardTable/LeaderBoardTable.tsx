@@ -17,7 +17,9 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         key: 'placeTo',
         title: '№',
         width: 30,
-        render: (_, { placeTo }) => <span> {placeTo} </span>,
+        render: (_, { placeFrom, placeTo }) => (
+          <span> {placeFrom[0] !== placeTo[0] ? `${placeFrom} - ${placeTo}` : placeTo} </span>
+        ),
       },
       {
         key: 'name',
