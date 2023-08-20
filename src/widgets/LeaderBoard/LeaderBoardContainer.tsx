@@ -177,7 +177,7 @@ export const LeaderBoardContainer = ({
 
   return (
     <div style={style} className={styles.LeaderBoardContainer}>
-      <div className={styles.lastEventsWrapper}>
+      {/* <div className={styles.lastEventsWrapper}>
         <div className={styles.lastEventWrapper}>
           <span className={styles.lastEventTitle}>Последнее отправленное решение</span>
           <div className={styles.lastEventContent}>
@@ -192,7 +192,7 @@ export const LeaderBoardContainer = ({
             <span className={classNames(styles.lastEventInfo, 'short')}>B, TeamSpirit</span>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className={styles.LeaderBoardTable}>
         <LeaderBoardTable leaderBoard={leaderBoard} />
       </div>
