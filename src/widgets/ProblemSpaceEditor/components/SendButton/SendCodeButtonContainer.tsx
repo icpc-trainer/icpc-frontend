@@ -10,7 +10,7 @@ import { SendCodeButton } from '@widgets/ProblemSpaceEditor/components/SendButto
 
 export const SendCodeButtonContainer = () => {
   const { hasCurrentUserControl } = useUserControl()
-  const { onSendCode } = useContext(CodeContext)
+  const { onSendCode, isSameCode } = useContext(CodeContext)
 
   const [isTrainingFinished, setIsTrainingFinished] = useState(false)
 
@@ -25,5 +25,5 @@ export const SendCodeButtonContainer = () => {
 
   const isDisabled = !hasCurrentUserControl || isTrainingFinished
 
-  return <SendCodeButton onSendCode={onSendCode} isDisabled={isDisabled} />
+  return <SendCodeButton onSendCode={onSendCode} isDisabled={isDisabled} isSameCode={isSameCode} />
 }

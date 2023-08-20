@@ -9,6 +9,7 @@ interface State {
   onCodeChange: (code: string) => void
   setSelectedCompiler: (compiler: ICompilerFull) => void
   compilers: ICompilerFull[]
+  isSameCode: boolean
 }
 
 export const CodeContext = createContext<State>(null)

@@ -7,7 +7,5 @@ import { SelectCompiler } from './SelectCompiler'
 export const SelectCompilerContainer: FC = () => {
   const { compilers } = useContext(CodeContext)
 
-  if (!compilers) return null
-
   return <SelectCompiler compilers={compilers} />
 }
