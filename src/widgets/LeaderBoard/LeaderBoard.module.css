@@ -1,8 +1,10 @@
 .LeaderBoardContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
   gap: 24px;
+
+  height: 100%;
+
   overflow: hidden;
 }
 
@@ -57,12 +59,14 @@
 .LeaderBoardTable th {
   position: sticky;
   top: 0;
+
   padding: 0;
   padding-top: 16px;
 
   color: var(--color-black-typo-primary);
   font-size: 16px;
   text-align: center;
+
   background-color: var(--color-white);
 }
 .LeaderBoardTable th:nth-child(2) {
@@ -79,8 +83,9 @@
 }
 
 .LeaderBoardTable td:nth-child(2) {
-  text-align: left;
   padding-left: 8px;
+
+  text-align: left;
 }
 .LeaderBoardTable td:last-child {
   color: var(--color-red-light);
@@ -105,4 +110,3 @@
 
   outline: 1px solid #ffe147;
 }
-
