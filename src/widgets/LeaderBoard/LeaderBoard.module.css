@@ -48,9 +48,7 @@
   padding: 0px 16px 16px 16px;
 
   border-radius: 12px;
-
   background-color: var(--color-white);
-
   overflow-y: auto;
 }
 
@@ -94,15 +92,13 @@
 .LeaderBoardTable tbody tr:nth-child(even) {
   background: var(--color-table-row);
 }
-.LeaderBoardTable tbody tr:hover {
+.LeaderBoardTable tbody tr:hover{
   background: inherit;
 
   outline: 1px solid #ffe147;
+  /* border: 1px solid #ffe147; */
 }
 
 .LeaderBoardTable tbody tr:nth-child(even):hover {
   background: var(--color-table-row);
-
-  outline: 1px solid #ffe147;
 }
-
