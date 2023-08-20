@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { ProblemAssignedHandler, ProblemStatusUpdatedHandler } from '@sockets/types'
+import { ProblemAssignedHandler, ProblemAttemptsUpdatedHandler, ProblemStatusUpdatedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { api } from '@api/index'
@@ -13,11 +13,9 @@ import { ProblemSpaceList } from './ProblemSpaceList'
 export const ProblemSpaceListContainer: FC = () => {
   const [problems, setProblems] = useState<IProblem[]>([])
 
-  const { trainingSessionId, alias } = useParams()
+  const { trainingSessionId } = useParams()
 
   const navigate = useNavigate()
-
-  const contestId = '51004' // мокаем contestId
 
   const handleProblemSpaceClick = useCallback((problem: IProblem) => {
     navigate(`/workspace/${trainingSessionId}/${problem.alias}`)
@@ -45,6 +43,17 @@ export const ProblemSpaceListContainer: FC = () => {
     )
   }
 
+  const problemAttemptsUpdatedEventHandler: ProblemAttemptsUpdatedHandler = ({ attempts, problemAlias }) => {
+    setProblems(prev =>
+      prev.map(problem => {
+        if (problem.alias === problemAlias) {
+          return { ...problem, attempts }
+        }
+        return problem
+      }),
+    )
+  }
+
   useEffect(() => {
     api
       .getProblems(trainingSessionId)
@@ -60,9 +69,14 @@ export const ProblemSpaceListContainer: FC = () => {
 
     const problemAssignedUnsubscribe = workSpaceSocket.subscribeProblemAssigned(problemAssignedEventHandler)
 
+    const problemAttemptsUpdatedUnsubscribe = workSpaceSocket.subscribeProblemAttemptsUpdated(
+      problemAttemptsUpdatedEventHandler,
+    )
+
     return () => {
       problemStatusUpdatedUnsubscribe()
       problemAssignedUnsubscribe()
+      problemAttemptsUpdatedUnsubscribe()
     }
   }, [])
 

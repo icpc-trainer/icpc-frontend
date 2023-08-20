@@ -14,6 +14,7 @@ export enum Types {
   ContestSelected = 'CONTEST_SELECTED',
   CompilerSelected = 'COMPILER_SELECTED',
   TrainingFinished = 'TRAINING_FINISHED',
+  ProblemAttemptsUpdated = 'PROBLEM_ATTEMPTS_UPDATED',
 }
 
 export type Type = `${Types}`
@@ -71,6 +72,10 @@ export interface ProblemCommentDeletedPayload extends Payload {
   commentId: string
 }
 
+export interface ProblemAttemptsUpdatedPayload extends Payload {
+  attempts: number
+}
+
 export interface Data {
   type: Type
   payload?: Payload
@@ -91,6 +96,7 @@ export type ContestSelectedHandler = (payload: ContestSelectedPayload) => void
 export type CompilerSelectedHandler = (payload: CompilerSelectedPayload) => void
 export type TrainingFinishedHandler = (payload: TrainingFinishedPayload) => void
 export type ProblemCommentDeletedHandler = (payload: ProblemCommentDeletedPayload) => void
+export type ProblemAttemptsUpdatedHandler = (payload: ProblemAttemptsUpdatedPayload) => void
 
 export type Handlers = {
   [key in Type]?: Set<Handler>

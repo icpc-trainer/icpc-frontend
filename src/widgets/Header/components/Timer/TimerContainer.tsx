@@ -17,13 +17,7 @@ export const TimerContainer = () => {
     api
       .getParticipation(trainingSessionId)
       .then(({ participantLeftTime }) => {
-        if (participantLeftTime) {
-          const minutes = parseInt(participantLeftTime.match(/(\d+)M/)[1])
-          const seconds = parseInt(participantLeftTime.match(/(\d+\.\d+)S/)[1], 10)
-          const totalSeconds = minutes * 60 + seconds
-
-          setSecondsLeft(totalSeconds)
-        }
+        setSecondsLeft(participantLeftTime)
       })
       .catch(console.log)
   }, [])
