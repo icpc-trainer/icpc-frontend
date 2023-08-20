@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ProblemSpaceChat } from '@widgets/ProblemSpaceChat/ProblemSpaceChat'
+import { ProblemSpaceComments } from '@widgets/ProblemSpaceComments/ProblemSpaceComments'
 import { ProblemSpaceEditorContainer } from '@widgets/ProblemSpaceEditor/ProblemSpaceEditorContainer'
 import { ProblemSpaceInfo } from '@widgets/ProblemSpaceInfo/ProblemSpaceInfo'
 import { ProblemSpaceListContainer } from '@widgets/ProblemSpaceList/ProblemSpaceListContainer'
@@ -12,7 +12,7 @@ export const ProblemSpace = () => {
     <div className={styles.problemSpace}>
       <ProblemSpaceListContainer />
       <ProblemSpaceInfo />
-      <ProblemSpaceChat />
+      <ProblemSpaceComments />
       <ProblemSpaceEditorContainer />
     </div>
   )

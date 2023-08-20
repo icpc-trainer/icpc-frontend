@@ -6,11 +6,11 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { CreateTrainingSession, PostMessageRequest, PostSubmissionsRequest } from './requests'
+import { CreateTrainingSession, PostCommentRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetLobbyOnlineUsersResponse,
-  GetMessagesByAliasResponse,
+  GetCommentsByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
   GetSelectedCompilerByAliasResponse,
@@ -39,6 +39,10 @@ class Api {
     return this.client.post(url, body, { params })
   }
 
+  delete(url: string) {
+    return this.client.delete(url)
+  }
+
   getSaveContests(contestId: string) {
     // каждый раз дергать для нового контеста (он сохраняется в бд)
     return this.get(`contests/${contestId}`)
@@ -64,26 +68,18 @@ class Api {
     return this.get(`/training-sessions/${trainingSessionId}/submissions/${submissionId}`)
   }
 
-  getContestStatusAndDate(trainingSessionId: string) {
-    return this.get(`/training-sessions/${trainingSessionId}`)
-  }
-
-  getContestFull(trainingSessionId: string) {
-    return this.get(`/contests/${trainingSessionId}`)
-  }
-
   getCodeByAlias(trainingSessionId: string, problemAlias: string) {
     return this.get<GetCodeByAliasResponse>(`training-sessions/${trainingSessionId}/code/${problemAlias}`)
   }
 
-  postMessage(trainingSessionId: string, problemAlias: string, content: string) {
-    return this.post<PostMessageRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`, {
+  postComment(trainingSessionId: string, problemAlias: string, content: string) {
+    return this.post<PostCommentRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`, {
       content,
     })
   }
 
-  getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
-    return this.get<GetMessagesByAliasResponse>(
+  getCommentsByAlias(trainingSessionId: string, problemAlias: string) {
+    return this.get<GetCommentsByAliasResponse>(
       `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`,
     )
   }
@@ -134,6 +130,10 @@ class Api {
 
   getParticipation(trainingSessionId: string) {
     return this.get<getParticipationResponse>(`training-sessions/${trainingSessionId}/participation`)
+  }
+
+  removeCommentById(trainingSessionId: string, messageId: string) {
+    return this.delete(`training-sessions/${trainingSessionId}/comments/${messageId}`)
   }
 }
 

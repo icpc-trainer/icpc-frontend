@@ -6,9 +6,10 @@ import {
   CompilerSelectedPayload,
   ControlTakenHandler,
   ControlTakenPayload,
-  MessageHandler,
+  ProblemCommentReceivedHandler,
   ProblemAssignedHandler,
   ProblemAssignedPayload,
+  ProblemCommentDeletedHandler,
   ProblemStatusUpdatedHandler,
   SubmissionRetrievedHandler,
   TrainingFinishedHandler,
@@ -19,7 +20,7 @@ import {
 
 class WorkSpaceSocket extends Socket {
   public sendCode(payload: CodePayload) {
-    this.send({ type: Types.Code, payload })
+    this.send({ type: Types.CodeEditorUpdate, payload })
   }
 
   public sendControlTaken(payload: ControlTakenPayload) {
@@ -34,12 +35,12 @@ class WorkSpaceSocket extends Socket {
     this.send({ type: Types.CompilerSelected, payload })
   }
 
-  public subscribeMessage(handler: MessageHandler) {
-    return this.subscribe(Types.Message, handler)
+  public subscribeProblemCommentReceived(handler: ProblemCommentReceivedHandler) {
+    return this.subscribe(Types.ProblemCommentReceived, handler)
   }
 
   public subscribeEditor(handler: CodeHandler) {
-    return this.subscribe(Types.Code, handler)
+    return this.subscribe(Types.CodeEditorUpdate, handler)
   }
 
   public subscribeControlTaken(handler: ControlTakenHandler) {
@@ -72,6 +73,10 @@ class WorkSpaceSocket extends Socket {
 
   public subscribeTrainingFinished(handler: TrainingFinishedHandler) {
     return this.subscribe(Types.TrainingFinished, handler)
+  }
+
+  public subscribeProblemCommentDeleted(handler: ProblemCommentDeletedHandler) {
+    return this.subscribe(Types.ProblemCommentDeleted, handler)
   }
 }
 

@@ -1,4 +1,4 @@
-import { IMessage, IParticipation, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
+import { IComment, IParticipation, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
 
 export interface GetProblemsResponse {
   problems: IProblem[]
@@ -11,7 +11,7 @@ export interface GetCodeByAliasResponse {
   code: string
 }
 
-export type GetMessagesByAliasResponse = IMessage[]
+export type GetCommentsByAliasResponse = IComment[]
 
 export interface GetWorkSpaceOnlineUsersResponse {
   users: IYandexUser[]

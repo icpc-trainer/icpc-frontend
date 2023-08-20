@@ -1,0 +1,43 @@
+.comment {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 8px;
+
+  font-size: 14px;
+  line-height: 20px;
+  column-gap: 10px;
+
+  border-radius: 8px;
+
+  background-color: var(--color-white-grey);
+}
+
+.commentText {
+  display: inline;
+
+  word-break: break-word;
+}
+
+.commentText::first-letter {
+  color: red;
+}
+
+.commentDeleteButton {
+  flex-shrink: 0;
+  align-items: flex-start;
+
+  width: 10px;
+  height: 10px;
+
+  border: none;
+
+  background: transparent url('../../../../assets/images/remove-icon.svg') no-repeat center center;
+
+  cursor: pointer;
+}
+
+.commentDeleteButton:hover {
+  opacity: 0.6;
+}

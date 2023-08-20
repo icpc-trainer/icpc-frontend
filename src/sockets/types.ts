@@ -1,8 +1,9 @@
-import { IMessage, ISubmission, IYandexUser } from 'src/types/types'
+import { IComment, ISubmission, IYandexUser } from 'src/types/types'
 
 export enum Types {
-  Message = 'PROBLEM_COMMENT_RECEIVED',
-  Code = 'CODE_EDITOR_UPDATE',
+  ProblemCommentReceived = 'PROBLEM_COMMENT_RECEIVED',
+  ProblemCommentDeleted = 'PROBLEM_COMMENT_DELETED',
+  CodeEditorUpdate = 'CODE_EDITOR_UPDATE',
   User = 'USER',
   ControlTaken = 'CONTROL_TAKEN',
   SubmissionRetrieved = 'SUBMISSION_VERDICT_RETRIEVED',
@@ -21,7 +22,7 @@ export interface Payload {
   problemAlias?: string
 }
 
-export type MessagePayload = IMessage
+export type ProblemCommentReceivedPayload = IComment
 
 export interface CodePayload extends Payload {
   code: string
@@ -66,6 +67,10 @@ export interface CompilerSelectedPayload extends Payload {
 
 export interface TrainingFinishedPayload extends Payload {}
 
+export interface ProblemCommentDeletedPayload extends Payload {
+  commentId: string
+}
+
 export interface Data {
   type: Type
   payload?: Payload
@@ -73,7 +78,7 @@ export interface Data {
 
 export type Handler = (payload: any) => void
 
-export type MessageHandler = (payload: MessagePayload) => void
+export type ProblemCommentReceivedHandler = (payload: ProblemCommentReceivedPayload) => void
 export type CodeHandler = (payload: CodePayload) => void
 export type ControlTakenHandler = (payload: ControlTakenPayload) => void
 export type SubmissionRetrievedHandler = (payload: SubmissionRetrievedPayload) => void
@@ -85,6 +90,7 @@ export type TrainingStartedHandler = (payload: TrainingStartedPayload) => void
 export type ContestSelectedHandler = (payload: ContestSelectedPayload) => void
 export type CompilerSelectedHandler = (payload: CompilerSelectedPayload) => void
 export type TrainingFinishedHandler = (payload: TrainingFinishedPayload) => void
+export type ProblemCommentDeletedHandler = (payload: ProblemCommentDeletedPayload) => void
 
 export type Handlers = {
   [key in Type]?: Set<Handler>
