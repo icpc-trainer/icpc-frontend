@@ -1,15 +1,21 @@
 import classNames from 'classnames'
 
-import React, { FC } from 'react'
+import React, { useState } from 'react'
 
 import { SearchIcon } from '@icons/SearchIcon'
 import { IColumnType, Table } from '@ui/Table/Table'
 
-import { ILeaderBoard, ILeaderBoardRow, ILeaderBoardProblemResult } from '../../../../types/types'
+import { ILeaderBoard, ILeaderBoardProblemResult, ILeaderBoardRow } from '../../../../types/types'
 
 import styles from './LeaderBoardTable.module.css'
 
 export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard }) => {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchQuery(event.target.value)
+  }
+
   function getColumns(): IColumnType<ILeaderBoardRow>[] {
     const { titles } = leaderBoard
     return [
@@ -26,7 +32,13 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
           <div className={styles.searchHeader}>
             <div className={styles.searchWrapper}>
               <SearchIcon width={28} height={28} color={'var(--color-grey-secondary)'} />
-              <input className={styles.searchInput} type="text" placeholder="Поиск участника" />
+              <input
+                onChange={handleSearchChange}
+                className={styles.searchInput}
+                value={searchQuery}
+                type="text"
+                placeholder="Поиск участника"
+              />
             </div>
           </div>
         ),
@@ -53,7 +65,7 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
                   >
                     <div>{solution.submissionCount}</div>
                     <div className={styles.solutionTime}>
-                      {new Date(solution.submitDelay).toISOString().slice(11, 19)}
+                      {new Date(solution.submitDelay * 1000).toISOString().slice(11, 19)}
                     </div>
                   </div>
                 )}
@@ -76,6 +88,10 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
       },
     ]
   }
-  const { rows: leaderBoardRows } = leaderBoard
-  return <Table<ILeaderBoardRow> data={leaderBoardRows} columns={getColumns()} />
+  // const { rows: leaderBoardRows } = leaderBoard
+  const filteredRows = leaderBoard.rows.filter(row =>
+    row.participantInfo.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
+  return <Table<ILeaderBoardRow> data={filteredRows} columns={getColumns()} />
 }
+
