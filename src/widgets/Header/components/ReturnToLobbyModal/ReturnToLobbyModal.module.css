@@ -1,0 +1,62 @@
+.modal {
+    width: 25%;
+    height: 15%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+
+    border-bottom: 1px solid #dbdad8;
+    border-radius: 18px;
+    background: white;
+}
+
+.exit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.modalTitle {
+    margin: 0;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.description {
+    margin: 16px 0 24px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    width:80px;
+    font-size: 16px;
+    border-color: none;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    padding:10px;
+    margin: 5px;
+    cursor:pointer;
+}
+.buttonYes {
+    background-color: var(--color-yellow-primary);
+}
+.button:hover {
+    opacity: 0.7;
+}

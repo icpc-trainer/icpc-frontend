@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import React from 'react'
 
 import { ThemeToggle } from '@ui/ThemeToggle/ThemeToggle'
-import { FinishButtonContainer } from '@widgets/Header/components/FinishButton/FinishButtonContainer'
+import { ReturnToLobbyButtonContainer } from '@widgets/Header/components/ReturnToLobbyButton/ReturnToLobbyButtonContainer'
 import { OnlineUserListContainer } from '@widgets/Header/components/OnlineUserList/OnlineUserListContainer'
 import { Section } from '@widgets/Header/components/Section/Section'
 
@@ -38,7 +38,7 @@ export const Header = ({ activeTab, setActiveTab }: { activeTab: string; setActi
 
       <Section>
         <TimerContainer />
-        {/*<FinishButtonContainer />*/}
+        <ReturnToLobbyButtonContainer />
       </Section>
     </header>
   )

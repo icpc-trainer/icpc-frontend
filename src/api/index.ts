@@ -6,7 +6,7 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { CreateTrainingSession, PostCommentRequest, PostSubmissionsRequest } from './requests'
+import { CreateTrainingSession, PostCommentRequest, PostCompleteTrainingSessionRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
   GetLobbyOnlineUsersResponse,
@@ -77,7 +77,9 @@ class Api {
       content,
     })
   }
-
+  postCompleteTrainingSession(trainingSessionId: string) {
+    return this.post<PostCompleteTrainingSessionRequest>(`/training-sessions/${trainingSessionId}/complete`, {})
+  }
   getCommentsByAlias(trainingSessionId: string, problemAlias: string) {
     return this.get<GetCommentsByAliasResponse>(
       `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`,
