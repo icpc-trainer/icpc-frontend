@@ -160,7 +160,7 @@ export interface ILeaderBoardProblemResult {
   title?: string
   name?: string
   submitDelay: number
-  status: 'ACCEPTED' | 'NOT_SUBMITTED'
+  status: 'ACCEPTED' | 'NOT_SUBMITTED' | 'NOT_ACCEPTED'
   score: string
   submissionCount: string
 }
