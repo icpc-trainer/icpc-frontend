@@ -25,7 +25,7 @@
   --scrollbar-foreground: rgba(83, 83, 83, 0.5);
   --scrollbar-background: var(--color-white-grey);
 
-  --color-table-row: #F9FAFB;
+  --color-table-row: #f9fafb;
 }
 
 main.light-theme {
@@ -123,9 +123,11 @@ html {
   transition: background 0.3s;
 }
 .short {
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
+
+  text-overflow: ellipsis;
+
+  overflow: hidden;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }

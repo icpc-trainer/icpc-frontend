@@ -22,6 +22,7 @@ export interface IProblem {
   testCount: number | null
   status: string
   assignedUser: IYandexUser | null
+  attempts: number
 }
 
 export interface IYandexUser {
@@ -169,7 +170,7 @@ export interface IParticipation {
   participantName: string
   teamId: 6010
   participantStartTime: string
-  participantLeftTime: string
+  participantLeftTime: number
   participantFinishTime: string
   roles: string[]
   contestState: string

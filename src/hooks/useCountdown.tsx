@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const useCountdown = () => {
-  const [secondsLeft, setSecondsLeft] = useState(null)
+  const [secondsLeft, setSecondsLeft] = useState(0)
 
   useEffect(() => {
     if (secondsLeft <= 0) return
