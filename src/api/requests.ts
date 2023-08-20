@@ -1,6 +1,6 @@
 export type PostSubmissionsRequest = FormData
 
-export interface PostMessageRequest {
+export interface PostCommentRequest {
   content: string
 }
 

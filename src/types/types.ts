@@ -40,7 +40,7 @@ export interface IYandexUser {
   sex: string
 }
 
-export interface IMessage {
+export interface IComment {
   id: string
   userId: number
   userFirstName: string
