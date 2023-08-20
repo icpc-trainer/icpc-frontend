@@ -1,4 +1,4 @@
-import { IMessage, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
+import { IMessage, IParticipation, IProblem, ISubmission, ITeam, ITeamStatus, IYandexUser } from 'src/types/types'
 
 export interface GetProblemsResponse {
   problems: IProblem[]
@@ -33,3 +33,9 @@ export type GetSelectedContestResponse = {
 }
 
 export type GetUserTeamsResponse = ITeam[]
+
+export type GetSelectedCompilerByAliasResponse = {
+  compiler: string
+}
+
+export type getParticipationResponse = IParticipation

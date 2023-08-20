@@ -12,6 +12,7 @@ export const configInterceptor = (config: InternalAxiosRequestConfig) => {
   if (accessToken) {
     const expiresIn = urlParams.get('expires_in')
     setCookie('access_token', accessToken, expiresIn)
+
     config.headers['Authorization'] = `OAuth ${accessToken}`
   } else {
     if (!document.cookie || !document.cookie.includes('access_token')) {

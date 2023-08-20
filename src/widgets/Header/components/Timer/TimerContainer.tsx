@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 
 import { api } from '@api/index'
@@ -11,31 +11,24 @@ import { Timer } from './Timer'
 export const TimerContainer = () => {
   const { trainingSessionId } = useParams()
 
-  const [contestStatus, setContestStatus] = useState('')
-  const [contestDateCreated, setContestDateCreated] = useState('')
-  const [contestDurationInSec, setContestDurationInSec] = useState<number>(null)
-
-  const { secondsLeft, setSecondsLeft } = useCountdown(contestDurationInSec)
-
-  const contestid = '51004'
+  const { secondsLeft, setSecondsLeft } = useCountdown()
 
   useEffect(() => {
     api
-      .getContestStatusAndDate(trainingSessionId)
-      .then(({ dt_created, status }) => {
-        setContestStatus(status)
-        setContestDateCreated(dt_created)
-      })
-      .catch(console.log)
+      .getParticipation(trainingSessionId)
+      .then(({ participantLeftTime }) => {
+        if (participantLeftTime) {
+          const minutes = parseInt(participantLeftTime.match(/(\d+)M/)[1])
+          const seconds = parseInt(participantLeftTime.match(/(\d+\.\d+)S/)[1], 10)
+          const totalSeconds = minutes * 60 + seconds
 
-    api
-      .getContestInfo(contestid)
-      .then(({ duration }) => {
-        setSecondsLeft(duration)
+          setSecondsLeft(totalSeconds)
+        }
       })
       .catch(console.log)
-  }, [contestDurationInSec])
+  }, [])
 
   const secondsLeftString = convertMsToTime(secondsLeft)
+
   return <Timer secondsLeftString={secondsLeftString} />
 }

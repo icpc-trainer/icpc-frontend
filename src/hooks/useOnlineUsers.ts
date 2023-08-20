@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { lobbySocket } from '@sockets/lobby-socket'
 import { UserHandler, UserLeaveHandler } from '@sockets/types'
 
 import { IYandexUser } from '../types/types'
@@ -24,15 +23,5 @@ export const useOnlineUsers = () => {
     setUsers(prev => prev.filter(({ id }) => id !== userId))
   }
 
-  useEffect(() => {
-    const userUnsubscribe = lobbySocket.subscribeUser(userEventHandler)
-    const userLeaveUnsubscribe = lobbySocket.subscribeUserLeave(userLeaveEventHandler)
-
-    return () => {
-      userUnsubscribe()
-      userLeaveUnsubscribe()
-    }
-  }, [])
-
-  return { users, setUsers }
+  return { users, setUsers, userEventHandler, userLeaveEventHandler }
 }

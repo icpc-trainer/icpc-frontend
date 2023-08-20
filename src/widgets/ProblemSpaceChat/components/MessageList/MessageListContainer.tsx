@@ -16,7 +16,9 @@ export const MessageListContainer = () => {
   const [messages, setMessages] = React.useState<IMessage[]>([])
 
   const messageEventHandler: MessageHandler = message => {
-    setMessages(prevState => [...prevState, message])
+    if (message.problemAlias === alias) {
+      setMessages(prevState => [...prevState, message])
+    }
   }
 
   React.useEffect(() => {

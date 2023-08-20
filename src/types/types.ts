@@ -164,3 +164,17 @@ export interface ILeaderBoardProblemResult {
   score: string
   submissionCount: string
 }
+
+export interface IParticipation {
+  participantName: string
+  teamId: 6010
+  participantStartTime: string
+  participantLeftTime: string
+  participantFinishTime: string
+  roles: string[]
+  contestState: string
+  contestDuration: string
+  contestStartTime: string
+  contestFinishTime: string
+  contestInfinite: boolean
+}

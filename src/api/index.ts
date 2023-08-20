@@ -9,15 +9,17 @@ import { createFile } from '@utils/createFile'
 import { CreateTrainingSession, PostMessageRequest, PostSubmissionsRequest } from './requests'
 import {
   GetCodeByAliasResponse,
+  GetLobbyOnlineUsersResponse,
   GetMessagesByAliasResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
+  GetSelectedCompilerByAliasResponse,
+  GetSelectedContestResponse,
+  GetTeamStatusResponse,
+  GetUserTeamsResponse,
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
-  GetTeamStatusResponse,
-  GetLobbyOnlineUsersResponse,
-  GetSelectedContestResponse,
-  GetUserTeamsResponse,
+  getParticipationResponse,
 } from './responses'
 
 class Api {
@@ -66,8 +68,8 @@ class Api {
     return this.get(`/training-sessions/${trainingSessionId}`)
   }
 
-  getContestInfo(contestId: string) {
-    return this.get(`/contests/${contestId}`)
+  getContestFull(trainingSessionId: string) {
+    return this.get(`/contests/${trainingSessionId}`)
   }
 
   getCodeByAlias(trainingSessionId: string, problemAlias: string) {
@@ -75,10 +77,9 @@ class Api {
   }
 
   postMessage(trainingSessionId: string, problemAlias: string, content: string) {
-    return this.post<PostMessageRequest>(
-      `training-sessions/${trainingSessionId}/problem/${problemAlias}/comments/send`,
-      { content },
-    )
+    return this.post<PostMessageRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`, {
+      content,
+    })
   }
 
   getMessagesByAlias(trainingSessionId: string, problemAlias: string) {
@@ -121,6 +122,18 @@ class Api {
 
   async getSelectedContest(teamId: string) {
     return (await this.get<GetSelectedContestResponse>(`lobby/${teamId}/selected-contest`)).contestId
+  }
+
+  async getSelectedCompilerByAlias(trainingSessionId: string, problemAlias: string) {
+    return (
+      await this.get<GetSelectedCompilerByAliasResponse>(
+        `training-sessions/${trainingSessionId}/compiler/${problemAlias}`,
+      )
+    ).compiler
+  }
+
+  getParticipation(trainingSessionId: string) {
+    return this.get<getParticipationResponse>(`training-sessions/${trainingSessionId}/participation`)
   }
 }
 

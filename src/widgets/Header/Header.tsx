@@ -38,7 +38,7 @@ export const Header = ({ activeTab, setActiveTab }: { activeTab: string; setActi
 
       <Section>
         <TimerContainer />
-        <FinishButtonContainer />
+        {/*<FinishButtonContainer />*/}
       </Section>
     </header>
   )

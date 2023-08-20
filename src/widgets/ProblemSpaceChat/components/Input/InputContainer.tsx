@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, KeyboardEventHandler, useState } from 'react'
+import React, { ChangeEventHandler, KeyboardEventHandler, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { api } from '@api/index'
@@ -13,6 +13,12 @@ export const InputContainer = () => {
 
   const [value, setValue] = useState('')
   const [rows, setRows] = useState(minRows)
+
+  useEffect(() => {
+    if (!value) {
+      setRows(minRows)
+    }
+  }, [value])
 
   const onChange: ChangeEventHandler<HTMLTextAreaElement> = event => {
     const lineHeight = Number(getComputedStyle(event.target).lineHeight.replace('px', ''))
@@ -33,10 +39,12 @@ export const InputContainer = () => {
     if (event.key === 'Enter') {
       event.preventDefault()
 
-      api
-        .postMessage(trainingSessionId, alias, value)
-        .then(() => setValue(''))
-        .catch(console.log)
+      if (value) {
+        api
+          .postMessage(trainingSessionId, alias, value)
+          .then(() => setValue(''))
+          .catch(console.log)
+      }
     }
   }
 
