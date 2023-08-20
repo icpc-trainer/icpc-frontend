@@ -1,5 +1,3 @@
-import classNames from 'classnames'
-
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
@@ -22,15 +20,16 @@ export const LeaderBoardContainer = ({
   const [leaderBoard, setLeaderBoard] = useState<ILeaderBoard>(null)
 
   useEffect(() => {
-    api
-      .getStandings(trainingSessionId)
-      .then(standings => {
-        setLeaderBoard(standings)
-      })
-      .catch(console.log)
-  }, [trainingSessionId])
+    const timeoutId = setTimeout(() => {
+      api.getStandings(trainingSessionId).then(setLeaderBoard).catch(console.log)
+    }, 2000)
 
-  console.log(leaderBoard)
+    console.log(leaderBoard)
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [leaderBoard])
 
   if (!leaderBoard) return null
 
