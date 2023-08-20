@@ -9,10 +9,18 @@ import { Editor } from '@widgets/ProblemSpaceEditor/components/Editor/Editor'
 export const EditorContainer = () => {
   const { hasCurrentUserControl } = useUserControl()
 
-  const { code, onCodeChange } = useContext(CodeContext)
+  const { code, onCodeChange, selectedCompiler } = useContext(CodeContext)
   const { theme } = useContext(ThemeContext)
 
   const isDisabled = !hasCurrentUserControl
 
-  return <Editor code={code} onCodeChange={onCodeChange} isDisabled={isDisabled} theme={theme} />
+  return (
+    <Editor
+      code={code}
+      onCodeChange={onCodeChange}
+      isDisabled={isDisabled}
+      theme={theme}
+      selectedCompiler={selectedCompiler}
+    />
+  )
 }

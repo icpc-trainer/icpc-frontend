@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-c_cpp'
@@ -9,17 +9,17 @@ import 'ace-builds/src-noconflict/mode-python'
 import 'ace-builds/src-noconflict/theme-solarized_dark'
 import 'ace-builds/src-noconflict/theme-solarized_light'
 
-import { CodeContext } from '@contexts/codeContext'
+import { ICompilerFull } from '@constants/compilers'
 
 interface EditorProps {
   code: string
   onCodeChange: (code: string) => void
   isDisabled: boolean
   theme: string
+  selectedCompiler: ICompilerFull
 }
 
-export const Editor: FC<EditorProps> = ({ code, onCodeChange, isDisabled, theme }) => {
-  const { selectedCompiler } = useContext(CodeContext)
+export const Editor: FC<EditorProps> = ({ code, onCodeChange, isDisabled, theme, selectedCompiler }) => {
   useEffect(() => {
     const editor = document.querySelector<HTMLDivElement>('.ace_editor')
     const gutter = document.querySelector<HTMLDivElement>('.ace_gutter')
@@ -32,7 +32,6 @@ export const Editor: FC<EditorProps> = ({ code, onCodeChange, isDisabled, theme 
     <AceEditor
       theme={theme === 'light-theme' ? 'solarized_light' : 'solarized_dark'}
       readOnly={isDisabled}
-      // mode="javascript"
       mode={selectedCompiler.style}
       value={code}
       width="100%"
