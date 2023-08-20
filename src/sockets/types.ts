@@ -13,6 +13,7 @@ export enum Types {
   TrainingStarted = 'TRAINING_STARTED',
   ContestSelected = 'CONTEST_SELECTED',
   CompilerSelected = 'COMPILER_SELECTED',
+  ContestFinished = 'CONTEST_FINISHED',
   TrainingFinished = 'TRAINING_FINISHED',
   ProblemAttemptsUpdated = 'PROBLEM_ATTEMPTS_UPDATED',
 }
@@ -66,7 +67,7 @@ export interface CompilerSelectedPayload extends Payload {
   compiler: string
 }
 
-export interface TrainingFinishedPayload extends Payload {}
+export interface ContestFinishedPayload extends Payload {}
 
 export interface ProblemCommentDeletedPayload extends Payload {
   commentId: string
@@ -94,7 +95,9 @@ export type ProblemAssignedHandler = (payload: ProblemAssignedPayload) => void
 export type TrainingStartedHandler = (payload: TrainingStartedPayload) => void
 export type ContestSelectedHandler = (payload: ContestSelectedPayload) => void
 export type CompilerSelectedHandler = (payload: CompilerSelectedPayload) => void
-export type TrainingFinishedHandler = (payload: TrainingFinishedPayload) => void
+export type ContestFinishedHandler = (payload: ContestFinishedPayload) => void
+export type TrainingFinishedHandler = (payload: null) => void
+
 export type ProblemCommentDeletedHandler = (payload: ProblemCommentDeletedPayload) => void
 export type ProblemAttemptsUpdatedHandler = (payload: ProblemAttemptsUpdatedPayload) => void
 
