@@ -26,7 +26,7 @@ export const LeaderBoardTable = ({ leaderBoard }: { leaderBoard: ILeaderBoard })
         maxWidth: 50,
         minWidth: 50,
         render: (_, { placeFrom, placeTo }) => (
-          <span> {placeFrom[0] !== placeTo[0] ? `${placeFrom} - ${placeTo}` : placeTo} </span>
+          <span className={styles.placeNumber}> {placeFrom[0] !== placeTo[0] ? `${placeFrom}-${placeTo}` : placeTo} </span>
         ),
       },
       {

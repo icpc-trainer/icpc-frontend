@@ -5,7 +5,7 @@
   align-items: center;
 
   background-color: var(--color-white-grey);
-  max-width: 50%;
+  max-width: 70%;
   margin-bottom: 16px;
   border-radius: 12px;
   padding: 0px 8px;
@@ -29,6 +29,7 @@
 .searchInput:focus {
   outline: none;
 }
+
 .teamName {
   line-height: 24px;
 }
