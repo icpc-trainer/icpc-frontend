@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ProblemSpaceComments } from '@widgets/ProblemSpaceComments/ProblemSpaceComments'
 import { ProblemSpaceEditorContainer } from '@widgets/ProblemSpaceEditor/ProblemSpaceEditorContainer'
@@ -7,15 +7,9 @@ import { ProblemSpaceListContainer } from '@widgets/ProblemSpaceList/ProblemSpac
 
 import styles from './ProblemSpace.module.css'
 
-export const ProblemSpace = ({
-  style,
-}: {
-  style: {
-    display: string
-  }
-}) => {
+export const ProblemSpace: FC = () => {
   return (
-    <div style={style} className={styles.problemSpace}>
+    <div className={styles.problemSpace}>
       <ProblemSpaceListContainer />
       <ProblemSpaceInfo />
       <ProblemSpaceComments />

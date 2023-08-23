@@ -21,7 +21,6 @@ export const ProblemSpaceInfo: FC = () => {
   return (
     <BlockWrapper className={styles.blockWrapper}>
       <div className={styles.problemDescriptionHeader}>
-        {/*TODO: компонент табов*/}
         <div className={styles.tabulation}>
           <span
             className={`${styles.tab} ${styles.description} ${activeTab === 'description' ? styles.activeTab : ''}`}
