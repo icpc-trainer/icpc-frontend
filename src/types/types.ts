@@ -154,6 +154,7 @@ export interface ILeaderBoardRow {
   placeFrom: number[]
   placeTo: number[]
   score: string
+  penalty?: number
   problemResults: ILeaderBoardProblemResult[]
 }
 

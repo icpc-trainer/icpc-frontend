@@ -14,8 +14,8 @@ import {
 } from './requests'
 import {
   GetCodeByAliasResponse,
-  GetLobbyOnlineUsersResponse,
   GetCommentsByAliasResponse,
+  GetLobbyOnlineUsersResponse,
   GetProblemStatementResponse,
   GetProblemsResponse,
   GetSelectedCompilerByAliasResponse,
@@ -25,6 +25,7 @@ import {
   GetVerdictsByAliasResponse,
   GetWorkSpaceOnlineUsersResponse,
   getParticipationResponse,
+  getStandingsResponse,
 } from './responses'
 
 class Api {
@@ -139,6 +140,10 @@ class Api {
 
   getParticipation(trainingSessionId: string) {
     return this.get<getParticipationResponse>(`training-sessions/${trainingSessionId}/participation`)
+  }
+
+  getStandings(trainingSessionId: string) {
+    return this.get<getStandingsResponse>(`contests/${trainingSessionId}/standings`)
   }
 
   removeCommentById(trainingSessionId: string, messageId: string) {
