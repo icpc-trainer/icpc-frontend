@@ -18,7 +18,6 @@ export const FinishPopup = () => {
   }
 
   const contestFinishedEventHandler: ContestFinishedHandler = () => {
-    console.log('popup')
     setIsOpen(true)
   }
 

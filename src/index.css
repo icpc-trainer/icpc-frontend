@@ -131,6 +131,7 @@ html {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
 #modal {
   position: absolute;
   top: 0;

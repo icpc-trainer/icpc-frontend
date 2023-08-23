@@ -17,7 +17,6 @@ import {
   Types,
   UserHandler,
   UserLeaveHandler,
-  ProblemAttemptsUpdatedPayload,
   ProblemAttemptsUpdatedHandler,
 } from './types'
 
@@ -85,9 +84,9 @@ class WorkSpaceSocket extends Socket {
   public subscribeProblemAttemptsUpdated(handler: ProblemAttemptsUpdatedHandler) {
     return this.subscribe(Types.ProblemAttemptsUpdated, handler)
   }
+
   public subscribeTrainingFinished(handler: TrainingFinishedHandler) {
     return this.subscribe(Types.TrainingFinished, handler)
-
   }
 }
 

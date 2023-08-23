@@ -33,7 +33,7 @@ export interface CodePayload extends Payload {
 
 export interface ControlTakenPayload extends Payload {
   userId: string
-} 
+}
 
 export interface TrainingFinishedPayload extends Payload {
   contestId: string

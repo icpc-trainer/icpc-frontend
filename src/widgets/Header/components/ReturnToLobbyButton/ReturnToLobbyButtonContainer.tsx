@@ -1,12 +1,15 @@
 import React, { FC, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { useNavigate, useParams } from 'react-router'
+
+import { TrainingFinishedHandler } from '@sockets/types'
+import { workSpaceSocket } from '@sockets/work-space-socket'
+
+import { api } from '@api/index'
 
 import { ReturnToLobbyButton } from '@widgets/Header/components/ReturnToLobbyButton/ReturnToLobbyButton'
-import { createPortal } from 'react-dom'
+
 import { ReturnToLobbyModal } from '../ReturnToLobbyModal/ReturnToLobbyModal'
-import { useNavigate, useParams } from 'react-router'
-import { api } from '@api/index'
-import { workSpaceSocket } from '@sockets/work-space-socket'
-import { TrainingFinishedHandler } from '@sockets/types'
 
 export const ReturnToLobbyButtonContainer: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -15,26 +18,28 @@ export const ReturnToLobbyButtonContainer: FC = () => {
   const navigate = useNavigate()
 
   const onCompleteTraining = () => {
-    api.postCompleteTrainingSession(trainingSessionId)
-      .then(console.log)
-      .catch(console.log)
-  } 
+    api.postCompleteTrainingSession(trainingSessionId).then(console.log).catch(console.log)
+  }
 
-  const trainingFinishedEventHandler: TrainingFinishedHandler = ({teamId}) => {
-    console.log('button finish session')
+  const onOpenModal = () => setIsModalOpen(true)
+  const onCloseModal = () => setIsModalOpen(false)
+
+  const trainingFinishedEventHandler: TrainingFinishedHandler = ({ teamId }) => {
     navigate(`/lobby/${teamId}`)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     return workSpaceSocket.subscribeTrainingFinished(trainingFinishedEventHandler)
   }, [])
 
-  return <>
-    <ReturnToLobbyButton setIsModalOpen={setIsModalOpen} />
-    {isModalOpen &&
-      createPortal(
-        <ReturnToLobbyModal onCompleteTraining={onCompleteTraining} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />,
-        document.getElementById('modal')!,
-      )}
-  </>
+  return (
+    <>
+      <ReturnToLobbyButton onOpenModal={onOpenModal} />
+      {isModalOpen &&
+        createPortal(
+          <ReturnToLobbyModal onCompleteTraining={onCompleteTraining} onClose={onCloseModal} />,
+          document.getElementById('modal')!,
+        )}
+    </>
+  )
 }

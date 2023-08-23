@@ -3,8 +3,8 @@ import classnames from 'classnames'
 import React from 'react'
 
 import { ThemeToggle } from '@ui/ThemeToggle/ThemeToggle'
-import { ReturnToLobbyButtonContainer } from '@widgets/Header/components/ReturnToLobbyButton/ReturnToLobbyButtonContainer'
 import { OnlineUserListContainer } from '@widgets/Header/components/OnlineUserList/OnlineUserListContainer'
+import { ReturnToLobbyButtonContainer } from '@widgets/Header/components/ReturnToLobbyButton/ReturnToLobbyButtonContainer'
 import { Section } from '@widgets/Header/components/Section/Section'
 
 import { ControlButtonContainer } from './components/ControlButton/ControlButtonContainer'
