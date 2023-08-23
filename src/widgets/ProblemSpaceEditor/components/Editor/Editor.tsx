@@ -1,15 +1,12 @@
 import React, { FC, useEffect } from 'react'
 import AceEditor from 'react-ace'
 
-import 'ace-builds/src-noconflict/mode-c_cpp'
-import 'ace-builds/src-noconflict/mode-golang'
-import 'ace-builds/src-noconflict/mode-java'
-import 'ace-builds/src-noconflict/mode-javascript'
-import 'ace-builds/src-noconflict/mode-python'
 import 'ace-builds/src-noconflict/theme-solarized_dark'
 import 'ace-builds/src-noconflict/theme-solarized_light'
 
 import { ICompilerFull } from '@constants/compilers'
+
+import './editor-modes'
 
 interface EditorProps {
   code: string

@@ -61,11 +61,14 @@ export const ProblemSpaceEditorContainer: FC = () => {
     Promise.all([api.getProblems(trainingSessionId), api.getSelectedCompilerByAlias(trainingSessionId, alias)])
       .then(([problems, selectedCompiler]) => {
         const problem = problems.find(problem => problem.alias === alias)
+        const compilers = problem.compilers
+          .filter(compiler => !!compilersFull.find(({ id }) => id === compiler))
+          .map(compiler => compilersFull.find(({ id }) => id === compiler))
 
-        const compiler = selectedCompiler || problem.compilers[0]
+        const compiler = compilersFull.find(({ id }) => id === selectedCompiler) || compilers[0]
 
-        setSelectedCompiler(compilersFull.find(({ id }) => id === compiler))
-        setCompilers(problem.compilers.map(compiler => compilersFull.find(({ id }) => id === compiler)))
+        setSelectedCompiler(compiler)
+        setCompilers(compilers)
       })
       .catch(console.log)
 

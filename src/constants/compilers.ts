@@ -46,13 +46,13 @@ export const compilersFull: ICompilerFull[] = [
     id: 'clang14_cpp20',
     name: 'Clang 16.0.0 C++20',
     deprecated: false,
-    style: 'cpp',
+    style: 'c_cpp',
   },
   {
     id: 'gcc7.3-thread',
     name: 'gcc7.3-thread',
     deprecated: true,
-    style: 'cpp',
+    style: 'c_cpp',
   },
   {
     id: 'gcc7_3',
@@ -64,7 +64,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'gcc7_o0',
     name: 'GNU C++17 7.3 (-O0)',
     deprecated: false,
-    style: 'cpp',
+    style: 'c_cpp',
   },
   {
     id: 'gcc_cpp20',
@@ -208,19 +208,19 @@ export const compilersFull: ICompilerFull[] = [
     id: 'cpp20-make-clang14',
     name: '(Make) Clang 16.0.0 C++20',
     deprecated: false,
-    style: '',
+    style: 'c_cpp',
   },
   {
     id: 'dotnet5',
     name: '(Make) C# (MS .Net Core 5.0)',
     deprecated: true,
-    style: 'nohighlight',
+    style: 'csharp',
   },
   {
     id: 'dotnet6',
     name: '(Make) C# (MS .Net Core 6.0)',
     deprecated: false,
-    style: 'nohighlight',
+    style: 'csharp',
   },
   {
     id: 'gcc_c17_make',
@@ -244,7 +244,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'go-lyceum',
     name: '(make) Lyceum Go',
     deprecated: false,
-    style: '',
+    style: 'golang',
   },
   {
     id: 'idao2022',
@@ -286,7 +286,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'lyceum_go_test',
     name: '(make) Lyceum Go Test',
     deprecated: false,
-    style: '',
+    style: 'golang',
   },
   {
     id: 'lyceum_python_test',
@@ -328,7 +328,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'postgres',
     name: '(make) postgres',
     deprecated: false,
-    style: 'nohighlight',
+    style: 'pgsql',
   },
   {
     id: 'python-handbook',
@@ -364,7 +364,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'swift-5_3_make',
     name: '(make) Swift 5.7.3',
     deprecated: false,
-    style: '',
+    style: 'swift',
   },
   {
     id: 'tex',
@@ -394,7 +394,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'fpc30',
     name: 'Free Pascal 3.2.0',
     deprecated: false,
-    style: '',
+    style: 'pascal',
   },
   {
     id: 'pascal_abc',
@@ -448,13 +448,13 @@ export const compilersFull: ICompilerFull[] = [
     id: 'r_core',
     name: 'R 2.14.1',
     deprecated: true,
-    style: 'R',
+    style: 'r',
   },
   {
     id: 'r_modules',
     name: 'R 3.6.3 + Modules',
     deprecated: false,
-    style: 'R',
+    style: 'r',
   },
   {
     id: 'ruby2',
@@ -466,7 +466,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'rust154',
     name: 'Rust 1.71.1',
     deprecated: false,
-    style: '',
+    style: 'rust',
   },
   {
     id: 'scala_docker',
@@ -544,7 +544,7 @@ export const compilersFull: ICompilerFull[] = [
     id: 'shagraev_cpp',
     name: 'GNU c++ 11 + net + curl + json',
     deprecated: false,
-    style: 'cpp',
+    style: 'c_cpp',
   },
   {
     id: 'shagraev_go',
@@ -580,6 +580,6 @@ export const compilersFull: ICompilerFull[] = [
     id: 'swift-5_1',
     name: 'Swift 5.8.1',
     deprecated: false,
-    style: 'c',
+    style: 'swift',
   },
 ]
