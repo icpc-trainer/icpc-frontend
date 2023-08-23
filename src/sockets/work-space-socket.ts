@@ -13,10 +13,10 @@ import {
   ProblemStatusUpdatedHandler,
   SubmissionRetrievedHandler,
   TrainingFinishedHandler,
+  ContestFinishedHandler,
   Types,
   UserHandler,
   UserLeaveHandler,
-  ProblemAttemptsUpdatedPayload,
   ProblemAttemptsUpdatedHandler,
 } from './types'
 
@@ -73,8 +73,8 @@ class WorkSpaceSocket extends Socket {
     return this.subscribe(Types.CompilerSelected, handler)
   }
 
-  public subscribeTrainingFinished(handler: TrainingFinishedHandler) {
-    return this.subscribe(Types.TrainingFinished, handler)
+  public subscribeContestFinished(handler: ContestFinishedHandler) {
+    return this.subscribe(Types.ContestFinished, handler)
   }
 
   public subscribeProblemCommentDeleted(handler: ProblemCommentDeletedHandler) {
@@ -83,6 +83,10 @@ class WorkSpaceSocket extends Socket {
 
   public subscribeProblemAttemptsUpdated(handler: ProblemAttemptsUpdatedHandler) {
     return this.subscribe(Types.ProblemAttemptsUpdated, handler)
+  }
+
+  public subscribeTrainingFinished(handler: TrainingFinishedHandler) {
+    return this.subscribe(Types.TrainingFinished, handler)
   }
 }
 

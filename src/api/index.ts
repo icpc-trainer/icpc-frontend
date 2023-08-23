@@ -6,7 +6,12 @@ import { configInterceptor } from '@helpers/configInterceptor'
 import { errorInterceptor } from '@helpers/errorInterceptor'
 import { createFile } from '@utils/createFile'
 
-import { CreateTrainingSession, PostCommentRequest, PostSubmissionsRequest } from './requests'
+import {
+  CreateTrainingSession,
+  PostCommentRequest,
+  PostCompleteTrainingSessionRequest,
+  PostSubmissionsRequest,
+} from './requests'
 import {
   GetCodeByAliasResponse,
   GetCommentsByAliasResponse,
@@ -77,6 +82,10 @@ class Api {
     return this.post<PostCommentRequest>(`training-sessions/${trainingSessionId}/problem/${problemAlias}/comments`, {
       content,
     })
+  }
+
+  postCompleteTrainingSession(trainingSessionId: string) {
+    return this.post<PostCompleteTrainingSessionRequest>(`/training-sessions/${trainingSessionId}/complete`, {})
   }
 
   getCommentsByAlias(trainingSessionId: string, problemAlias: string) {

@@ -69,7 +69,7 @@ export const ProblemSpaceListItem: FC<ProblemSpaceListProps> = ({ className, pro
             </div>
           </div>
           <div className={styles.statusUserBlock}>
-            <span>{problem.attempts}</span>
+            <span className={styles.attempts}>{problem.attempts}</span>
             <div className={styles.dropdown}>
               <div className={styles.user}>
                 {problem.assignedUser ? (

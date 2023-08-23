@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import { TrainingFinishedHandler } from '@sockets/types'
+import { ContestFinishedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import { CodeContext } from '@contexts/codeContext'
@@ -12,18 +12,18 @@ export const SendCodeButtonContainer = () => {
   const { hasCurrentUserControl } = useUserControl()
   const { onSendCode, isSameCode } = useContext(CodeContext)
 
-  const [isTrainingFinished, setIsTrainingFinished] = useState(false)
+  const [isContestFinished, setIsContestFinished] = useState(false)
 
-  const trainingFinishedEventHandler: TrainingFinishedHandler = () => {
+  const contestFinishedEventHandler: ContestFinishedHandler = () => {
     console.log('button')
-    setIsTrainingFinished(true)
+    setIsContestFinished(true)
   }
 
   useEffect(() => {
-    return workSpaceSocket.subscribeTrainingFinished(trainingFinishedEventHandler)
+    return workSpaceSocket.subscribeContestFinished(contestFinishedEventHandler)
   }, [])
 
-  const isDisabled = !hasCurrentUserControl || isTrainingFinished
+  const isDisabled = !hasCurrentUserControl || isContestFinished
 
   return <SendCodeButton onSendCode={onSendCode} isDisabled={isDisabled} isSameCode={isSameCode} />
 }

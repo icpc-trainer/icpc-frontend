@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
 
-  column-gap: 5px;
+  column-gap: 15px;
 }
 
 .user {
@@ -190,4 +190,8 @@
   height: 24px;
 
   background: url('../../../../assets/images/default-user-icon.svg') center center / cover no-repeat;
+}
+
+.attempts {
+  color: var(--color-black-typo-primary);
 }

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-import { TrainingFinishedHandler } from '@sockets/types'
+import { ContestFinishedHandler } from '@sockets/types'
 import { workSpaceSocket } from '@sockets/work-space-socket'
 
 import styles from './FinishPopup.module.css'
@@ -17,13 +17,12 @@ export const FinishPopup = () => {
     event.stopPropagation()
   }
 
-  const trainingFinishedEventHandler: TrainingFinishedHandler = () => {
-    console.log('popup')
+  const contestFinishedEventHandler: ContestFinishedHandler = () => {
     setIsOpen(true)
   }
 
   useEffect(() => {
-    return workSpaceSocket.subscribeTrainingFinished(trainingFinishedEventHandler)
+    return workSpaceSocket.subscribeContestFinished(contestFinishedEventHandler)
   }, [])
 
   if (!isOpen) return null
