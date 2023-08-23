@@ -62,9 +62,9 @@ export const SelectCompiler: FC<SelectCompilerProps> = ({ compilers }) => {
         </button>
       </div>
       <div className={selectOptionsClassName}>
-        {compilers.map(compiler => (
-          <SelectCompilerItem key={compiler.id} compiler={compiler} />
-        ))}
+        {compilers.map(compiler => {
+          return <SelectCompilerItem key={compiler.id} compiler={compiler} />
+        })}
       </div>
     </div>
   )
