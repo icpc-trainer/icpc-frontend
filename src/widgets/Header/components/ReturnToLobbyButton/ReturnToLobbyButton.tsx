@@ -12,7 +12,7 @@ export const ReturnToLobbyButton: FC<ReturnToLobbyButtonProps> = ({setIsModalOpe
   return (
     <Button
       className={styles.ReturnToLobbyButton}
-      title="Вернуться на главную"
+      title="Вернуться в лобби"
       type="button"
       onClick={()=>setIsModalOpen(true)}
       disabled={false}

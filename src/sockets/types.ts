@@ -33,6 +33,13 @@ export interface CodePayload extends Payload {
 
 export interface ControlTakenPayload extends Payload {
   userId: string
+} 
+
+export interface TrainingFinishedPayload extends Payload {
+  contestId: string
+  id: string
+  status: string
+  teamId: string
 }
 
 export type SubmissionRetrievedPayload = ISubmission
@@ -96,7 +103,7 @@ export type TrainingStartedHandler = (payload: TrainingStartedPayload) => void
 export type ContestSelectedHandler = (payload: ContestSelectedPayload) => void
 export type CompilerSelectedHandler = (payload: CompilerSelectedPayload) => void
 export type ContestFinishedHandler = (payload: ContestFinishedPayload) => void
-export type TrainingFinishedHandler = (payload: null) => void
+export type TrainingFinishedHandler = (payload: TrainingFinishedPayload) => void
 
 export type ProblemCommentDeletedHandler = (payload: ProblemCommentDeletedPayload) => void
 export type ProblemAttemptsUpdatedHandler = (payload: ProblemAttemptsUpdatedPayload) => void

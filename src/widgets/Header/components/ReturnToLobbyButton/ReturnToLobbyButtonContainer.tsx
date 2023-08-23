@@ -6,6 +6,7 @@ import { ReturnToLobbyModal } from '../ReturnToLobbyModal/ReturnToLobbyModal'
 import { useNavigate, useParams } from 'react-router'
 import { api } from '@api/index'
 import { workSpaceSocket } from '@sockets/work-space-socket'
+import { TrainingFinishedHandler } from '@sockets/types'
 
 export const ReturnToLobbyButtonContainer: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,9 +20,9 @@ export const ReturnToLobbyButtonContainer: FC = () => {
       .catch(console.log)
   } 
 
-  const trainingFinishedEventHandler = () => {
+  const trainingFinishedEventHandler: TrainingFinishedHandler = ({teamId}) => {
     console.log('button finish session')
-    navigate('/')
+    navigate(`/lobby/${teamId}`)
   }
 
   useEffect(()=>{
