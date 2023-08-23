@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { lobbySocket } from '@sockets/lobby-socket'
 import { ContestSelectedHandler, TrainingStartedHandler } from '@sockets/types'
@@ -57,14 +58,15 @@ const Lobby = () => {
     <SelectedContestContext.Provider value={{ selectedContestId }}>
       <div className={styles.lobby}>
         <div className={styles.contestList}>
-          <a
-            className={styles.telegramChatLink}
-            href="https://t.me/+JhE-UUz1BGc5OWEy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Telegram-чатик
-          </a>
+          <div className={styles.buttonContainer}>
+            <Link className={styles.link} to="/">
+              На главную
+            </Link>
+
+            <a className={styles.link} href="https://t.me/+JhE-UUz1BGc5OWEy" target="_blank" rel="noopener noreferrer">
+              Telegram-чатик
+            </a>
+          </div>
           <BlockWrapper className={styles.blockWrapper}>
             <ContestsListContainer />
           </BlockWrapper>
@@ -78,6 +80,7 @@ const Lobby = () => {
               onClick={onCreateTrainingSession}
               className={styles.startButton}
             />
+
             <TeamNameContainer />
             <LobbyOnlineUserListContainer />
           </div>
