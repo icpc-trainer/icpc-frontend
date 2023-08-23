@@ -10,7 +10,7 @@ export const ThemeToggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
-    <button className={styles.themeToggle} onClick={() => toggleTheme()}>
+    <button className={styles.themeToggle} onClick={toggleTheme}>
       {theme === 'dark-theme' ? (
         <LightTheme width={24} height={24} color={'var(--color-black-typo-primary)'} />
       ) : (

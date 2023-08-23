@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/" element={<Main />} />
           <Route path="/lobby/:teamId" element={<Lobby />} />
           <Route path="/workspace/:trainingSessionId" element={<WorkSpaceEntry />} />
-          <Route path="/workspace/:trainingSessionId/:alias" element={<WorkSpace />} />
+          <Route path="/workspace/:trainingSessionId/:alias/*" element={<WorkSpace />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
