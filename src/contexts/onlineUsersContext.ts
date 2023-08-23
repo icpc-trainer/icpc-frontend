@@ -5,4 +5,4 @@ interface State {
   users: IYandexUser[]
 }
 
-export const OnlineUsersContext = createContext<State>(null)
+export const OnlineUsersContext = createContext<State>({users:[]})
