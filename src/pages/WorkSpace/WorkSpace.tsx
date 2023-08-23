@@ -16,6 +16,8 @@ import { LeaderBoardContainer } from '@widgets/LeaderBoard/LeaderBoardContainer'
 import { ProblemSpace } from '@widgets/ProblemSpace/ProblemSpace'
 
 import styles from './WorkSpace.module.css'
+import { OnlineUsersContext } from '@contexts/onlineUsersContext'
+import { useWorkSpaceOnlineUsers } from '@hooks/useWorkSpaceOnlineUsers'
 
 export const WorkSpace = () => {
   const { theme } = useContext(ThemeContext)
@@ -25,7 +27,8 @@ export const WorkSpace = () => {
 
   const { data: currentUser } = useGetCurrentUserQuery()
   const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
-
+  const { users } = useWorkSpaceOnlineUsers()
+  
   workSpaceSocket.init(
     `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
     currentUser,
@@ -36,7 +39,7 @@ export const WorkSpace = () => {
   }
 
   return (
-    <>
+    <OnlineUsersContext.Provider value={{users}}>
       <main className={classNames(styles.workspace, theme)}>
         <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
@@ -44,6 +47,6 @@ export const WorkSpace = () => {
         <LeaderBoardContainer style={{ display: activeTab === 'leaderBoard' ? 'flex' : 'none' }} />
       </main>
       <FinishPopup />
-    </>
+    </OnlineUsersContext.Provider>
   )
 }

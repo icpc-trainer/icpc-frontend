@@ -1,11 +1,10 @@
-import React from 'react'
-
-import { useWorkSpaceOnlineUsers } from '@hooks/useWorkSpaceOnlineUsers'
+import React, { useContext } from 'react'
 
 import { OnlineUserList } from '@widgets/Header/components/OnlineUserList/OnlineUserList'
+import { OnlineUsersContext } from '@contexts/onlineUsersContext'
 
 export const OnlineUserListContainer = () => {
-  const { users } = useWorkSpaceOnlineUsers()
+  const { users } = useContext(OnlineUsersContext)
 
   return <OnlineUserList users={users} />
 }
