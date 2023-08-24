@@ -2,8 +2,9 @@ import React, { FC } from 'react'
 
 import { useGetContestsQuery } from '@store/api/api'
 
+import { pdfContests } from '@constants/pdfContests'
+
 import { ContestsList } from './ContestsList'
-import { pdfContests } from "@constants/pdfContests"
 
 export const ContestsListContainer: FC = () => {
   const { data: contests } = useGetContestsQuery()

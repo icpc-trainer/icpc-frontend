@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react'
 import AceEditor from 'react-ace'
 
-import 'ace-builds/src-noconflict/theme-solarized_dark'
-import 'ace-builds/src-noconflict/theme-solarized_light'
+import 'ace-builds/src-noconflict/theme-cloud9_night'
+import 'ace-builds/src-noconflict/theme-clouds'
 
 import { ICompilerFull } from '@constants/compilers'
 
@@ -17,6 +17,8 @@ interface EditorProps {
 }
 
 export const Editor: FC<EditorProps> = ({ code, onCodeChange, isDisabled, theme, selectedCompiler }) => {
+  console.log(selectedCompiler.style)
+
   useEffect(() => {
     const editor = document.querySelector<HTMLDivElement>('.ace_editor')
     const gutter = document.querySelector<HTMLDivElement>('.ace_gutter')
@@ -27,7 +29,7 @@ export const Editor: FC<EditorProps> = ({ code, onCodeChange, isDisabled, theme,
 
   return (
     <AceEditor
-      theme={theme === 'light-theme' ? 'solarized_light' : 'solarized_dark'}
+      theme={theme === 'light-theme' ? 'clouds' : 'cloud9_night'}
       readOnly={isDisabled}
       mode={selectedCompiler.style}
       value={code}
