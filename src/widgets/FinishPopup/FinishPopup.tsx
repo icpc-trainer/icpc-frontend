@@ -30,7 +30,15 @@ export const FinishPopup = () => {
   return createPortal(
     <div className={styles.finishPopupContainer} onClick={onClose}>
       <div className={styles.finishPopup} onClick={onPopupClick}>
-        А всё уже, всё, надо было раньше...
+        <div className={styles.finishPopupHeader}>
+          <p>Тренировка закончилась</p>
+          <p>Спасибо за участие!</p>
+        </div>
+        <div className={styles.finishPopupDescription}>
+          <p>Ваши результаты сохранены в контесте</p>
+          <p>Вы можете дорешать оставшиеся задачи вне конкурса</p>
+          <p>(без изменения статистики)</p>
+        </div>
       </div>
     </div>,
     document.getElementById('modal')!,
