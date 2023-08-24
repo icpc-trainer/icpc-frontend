@@ -6,6 +6,5 @@ import { LobbyOnlineUserList } from '@widgets/LobbyOnlineUserList/LobbyOnlineUse
 
 export const LobbyOnlineUserListContainer = () => {
   const { users } = useLobbyOnlineUsers()
-
   return <LobbyOnlineUserList users={users} />
 }

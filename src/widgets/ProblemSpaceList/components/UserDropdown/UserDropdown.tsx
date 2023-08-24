@@ -9,7 +9,6 @@ import styles from './UserDropdown.module.css'
 interface UserDropdownProps {
   user: IYandexUser
   onSendProblemAssign: () => void
-  hasAvatar: boolean
 }
 
 export const UserDropdown: FC<UserDropdownProps> = ({ user, onSendProblemAssign }) => {

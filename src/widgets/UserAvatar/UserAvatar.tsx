@@ -15,14 +15,14 @@ interface UserAvatarProps {
 
 export const UserAvatar: FC<UserAvatarProps> = ({ user, width, height, fontSize }) => {
   const url = getAvatarUrl(user.default_avatar_id)
-  const hasAvatar = user.default_avatar_id !== '0/0-0'
+  const hasAvatar = !user.is_avatar_empty
   const initials = `${user.first_name[0]}${user.last_name[0]}`
 
   return hasAvatar ? (
     <img width={width} height={height} className={styles.userAvatar} src={url} alt="avatar" />
   ) : (
     <div style={{ width, height, fontSize }} className={styles.userAvatarPlaceholder}>
-      {initials}
-    </div>
+    {initials}  
+  </div>
   )
 }

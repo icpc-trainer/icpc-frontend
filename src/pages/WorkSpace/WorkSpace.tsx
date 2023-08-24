@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Route, Routes, useParams } from 'react-router'
 
 import { workSpaceSocket } from '@sockets/work-space-socket'
@@ -28,10 +28,12 @@ export const WorkSpace = () => {
   const { data: controlUser } = useGetControlUserQuery(trainingSessionId)
   const { users } = useWorkSpaceOnlineUsers()
 
-  workSpaceSocket.init(
-    `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
-    currentUser,
-  )
+  useEffect(() => {
+    return workSpaceSocket.init(
+        `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
+        currentUser,
+      )
+  }, [])
 
   if (!currentUser || !controlUser) {
     return null
