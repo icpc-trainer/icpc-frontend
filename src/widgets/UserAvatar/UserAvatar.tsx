@@ -19,10 +19,10 @@ export const UserAvatar: FC<UserAvatarProps> = ({ user, width, height, fontSize 
   const initials = `${user.first_name[0]}${user.last_name[0]}`
 
   return hasAvatar ? (
-    <div style={{ width, height, fontSize }} className={styles.userAvatarPlaceholder}>
-      {initials}  
-    </div>
-  ) : (
     <img width={width} height={height} className={styles.userAvatar} src={url} alt="avatar" />
+  ) : (
+    <div style={{ width, height, fontSize }} className={styles.userAvatarPlaceholder}>
+    {initials}  
+  </div>
   )
 }
