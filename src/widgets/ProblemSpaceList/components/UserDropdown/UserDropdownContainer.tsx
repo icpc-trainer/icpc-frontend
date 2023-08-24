@@ -20,7 +20,7 @@ export const UserDropdownContainer: FC<UserDropdownProps> = ({ user }) => {
     onCloseDropdown()
   }
 
-  const hasAvatar = user.default_avatar_id !== '0/0-0'
+  const hasAvatar = !user.is_avatar_empty
 
   return <UserDropdown hasAvatar={hasAvatar} user={user} onSendProblemAssign={onSendProblemAssigned} />
 }

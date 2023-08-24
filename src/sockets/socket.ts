@@ -6,7 +6,6 @@ abstract class Socket {
   private client: WebSocket
 
   private readonly handlers: Handlers = {}
-  private initialized: boolean = false
 
   public init(url: string, user: IYandexUser): () => void {
     this.client = new WebSocket(url)
@@ -31,7 +30,6 @@ abstract class Socket {
       }
     }
 
-    this.initialized = true
     return () => {
       this.client.close()
     }
