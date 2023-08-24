@@ -29,13 +29,10 @@ export const WorkSpace = () => {
   const { users } = useWorkSpaceOnlineUsers()
 
   useEffect(() => {
-    const closeSocket = workSpaceSocket.init(
-      `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
-      currentUser,
-    )
-    return () => {
-      closeSocket()
-    }
+    return workSpaceSocket.init(
+        `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
+        currentUser,
+      )
   }, [])
 
   if (!currentUser || !controlUser) {
