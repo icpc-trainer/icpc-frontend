@@ -22,7 +22,7 @@ export const UserAvatar: FC<UserAvatarProps> = ({ user, width, height, fontSize 
     <img width={width} height={height} className={styles.userAvatar} src={url} alt="avatar" />
   ) : (
     <div style={{ width, height, fontSize }} className={styles.userAvatarPlaceholder}>
-    {initials}  
-  </div>
+      {initials}
+    </div>
   )
 }

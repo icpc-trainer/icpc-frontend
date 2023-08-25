@@ -30,9 +30,9 @@ export const WorkSpace = () => {
 
   useEffect(() => {
     return workSpaceSocket.init(
-        `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
-        currentUser,
-      )
+      `${urls.websocketWorkSpace}?training_session_id=${trainingSessionId}&user_id=${currentUser.id}`,
+      currentUser,
+    )
   }, [])
 
   if (!currentUser || !controlUser) {

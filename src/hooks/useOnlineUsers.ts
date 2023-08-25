@@ -17,7 +17,6 @@ export const useOnlineUsers = () => {
 
       return prev
     })
-
   }
 
   const userLeaveEventHandler: UserLeaveHandler = ({ userId }) => {

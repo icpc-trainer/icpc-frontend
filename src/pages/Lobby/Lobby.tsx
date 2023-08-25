@@ -40,13 +40,15 @@ const Lobby = () => {
     navigate(`/workspace/${id}`)
   }
 
-
   useEffect(() => {
     api.getSelectedContest(teamId).then(setSelectedContestId).catch(console.log)
 
     const contestSelectedUnsubscribe = lobbySocket.subscribeContestSelected(contestSelectedEventHandler)
     const trainingStartedUnsubscribe = lobbySocket.subscribeTrainingStarted(trainingStartedEventHandler)
-    const closeSocket = lobbySocket.init(`${urls.websocketLobby}?team_id=${teamId}&user_id=${currentUser.id}`, currentUser)
+    const closeSocket = lobbySocket.init(
+      `${urls.websocketLobby}?team_id=${teamId}&user_id=${currentUser.id}`,
+      currentUser,
+    )
 
     return () => {
       contestSelectedUnsubscribe()
