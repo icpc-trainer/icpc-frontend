@@ -7,10 +7,11 @@
 ICPC-Trainer - Веб-сервис на базе Яндекс Контест, максимально точно эмулирующий механику проведения соревнований ICPC.
 Сервис помогает проводить тренировки по спортивному программированию онлайн.
 
-### Api documentation
+### Documentation
 
-- OpenAPI 3.0: [openapi.json](./openapi.json)
-- Websockets: [websocket_api.md](./websocket_api.md)
+- Тех. отчет frontend: [documentation.pdf](https://github.com/icpc-trainer/static/blob/master/frontend-documentation.pdf)
+- OpenAPI 3.0: [openapi.json](https://github.com/icpc-trainer/icpc-backend/openapi.json)
+- Websockets: [websocket_api.md](https://github.com/icpc-trainer/icpc-backend/websocket_api.md)
 - Yandex Contest API: [api](https://api.contest.yandex.net/api/public/swagger-ui.html#/)
 
 ### Run
@@ -29,6 +30,7 @@ Frontend:
 ### Presentation
 
 [<img src="https://github.com/icpc-trainer/static/blob/master/play.png">](https://www.youtube.com/embed/ijCNsuOVu0Q)
+[Презентация проекта](https://github.com/icpc-trainer/static/blob/master/presentation.pdf)
 
 | Архитектура                                                                            |
 | --------------------------------------------------------------------------------------- |
