@@ -9,7 +9,7 @@ ICPC-Trainer - Веб-сервис на базе Яндекс Контест, м
 
 ### Documentation
 
-- Тех. отчет frontend: [documentation.pdf](https://github.com/icpc-trainer/static/blob/master/frontend-documentation.pdf)
+- Тех. отчет frontend: [documentation.pdf](https://github.com/icpc-trainer/static-frontend/blob/master/frontend-documentation.pdf)
 - OpenAPI 3.0: [openapi.json](https://github.com/icpc-trainer/icpc-backend/openapi.json)
 - Websockets: [websocket_api.md](https://github.com/icpc-trainer/icpc-backend/websocket_api.md)
 - Yandex Contest API: [api](https://api.contest.yandex.net/api/public/swagger-ui.html#/)
@@ -30,7 +30,7 @@ Frontend:
 ### Presentation
 
 [<img src="https://github.com/icpc-trainer/static/blob/master/play.png">](https://www.youtube.com/embed/ijCNsuOVu0Q)
-[Презентация проекта](https://github.com/icpc-trainer/static/blob/master/presentation.pdf)
+[Презентация проекта](https://github.com/icpc-trainer/static-frontend/blob/master/presentation.pdf)
 
 | Архитектура                                                                            |
 | --------------------------------------------------------------------------------------- |
