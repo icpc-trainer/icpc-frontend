@@ -35,11 +35,11 @@ Frontend:
 | <img src="https://github.com/icpc-trainer/static-frontend/blob/master/architectureFrontend.png"> |
 
 | Технологии                                                                             |
-| ------------------------------------------------------------------------------- ------- |
+| ------------------------------------------------------------------------------ |
 | <img src="https://github.com/icpc-trainer/static-frontend/blob/master/technologiesFrontend.png"> |
 
 | Взаимодействие с сервером                                                              |
-| ------------------------------------------------------------------------------- -------- |
+| -------------------------------------------------------------------------------- |
 | <img src="https://github.com/icpc-trainer/static-frontend/blob/master/serverConnectionFrontend.png"> |
 
 | Yandex Contest API        |
